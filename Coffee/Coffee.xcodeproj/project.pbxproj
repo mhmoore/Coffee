@@ -11,6 +11,10 @@
 		A5079A92232B4C6B00AFE337 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5079A90232B4C6B00AFE337 /* Main.storyboard */; };
 		A5079A94232B4C6D00AFE337 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5079A93232B4C6D00AFE337 /* Assets.xcassets */; };
 		A5079A97232B4C6D00AFE337 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5079A95232B4C6D00AFE337 /* LaunchScreen.storyboard */; };
+		A5079AA3232B4D1500AFE337 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5079AA2232B4D1500AFE337 /* User.swift */; };
+		A5079AA5232B50C600AFE337 /* BrewGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5079AA4232B50C600AFE337 /* BrewGuide.swift */; };
+		A5079AA7232B51CA00AFE337 /* UserNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5079AA6232B51CA00AFE337 /* UserNote.swift */; };
+		A5079AA9232B56F300AFE337 /* UserGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5079AA8232B56F300AFE337 /* UserGuide.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +24,10 @@
 		A5079A93232B4C6D00AFE337 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5079A96232B4C6D00AFE337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5079A98232B4C6D00AFE337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5079AA2232B4D1500AFE337 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A5079AA4232B50C600AFE337 /* BrewGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuide.swift; sourceTree = "<group>"; };
+		A5079AA6232B51CA00AFE337 /* UserNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNote.swift; sourceTree = "<group>"; };
+		A5079AA8232B56F300AFE337 /* UserGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGuide.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,10 @@
 		A5079A9F232B4C9D00AFE337 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A5079AA2232B4D1500AFE337 /* User.swift */,
+				A5079AA4232B50C600AFE337 /* BrewGuide.swift */,
+				A5079AA6232B51CA00AFE337 /* UserNote.swift */,
+				A5079AA8232B56F300AFE337 /* UserGuide.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -164,6 +176,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5079AA9232B56F300AFE337 /* UserGuide.swift in Sources */,
+				A5079AA5232B50C600AFE337 /* BrewGuide.swift in Sources */,
+				A5079AA3232B4D1500AFE337 /* User.swift in Sources */,
+				A5079AA7232B51CA00AFE337 /* UserNote.swift in Sources */,
 				A5079A8D232B4C6B00AFE337 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
