@@ -23,13 +23,13 @@ struct UserNoteKeys {
 
 class UserNote {
     
-    let roaster: String
-    let coffeeName: String
-    let origin: String
-    let grind: String
-    let method: String
-    let tastingNotes: String
-    let timestamp: Date
+    var roaster: String
+    var coffeeName: String
+    var origin: String
+    var grind: String
+    var method: String
+    var tastingNotes: String
+    var timestamp: Date
     var ckRecordID: CKRecord.ID?
     
     init(roaster: String, coffeeName: String, origin: String, grind: String, method: String, tastingNotes: String, timestamp: Date = Date()) {
@@ -40,6 +40,17 @@ class UserNote {
         self.method = method
         self.tastingNotes = tastingNotes
         self.timestamp = timestamp
+    }
+}
+
+extension UserNote: Equatable {
+    static func == (lhs: UserNote, rhs: UserNote) -> Bool {
+        return  lhs.roaster == rhs.roaster &&
+            lhs.coffeeName == rhs.coffeeName &&
+            lhs.method == rhs.method &&
+            lhs.origin == rhs.origin &&
+            lhs.tastingNotes == rhs.tastingNotes &&
+            lhs.grind == rhs.grind
     }
 }
 

@@ -15,6 +15,10 @@
 		A5079AA5232B50C600AFE337 /* BrewGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5079AA4232B50C600AFE337 /* BrewGuide.swift */; };
 		A5079AA7232B51CA00AFE337 /* UserNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5079AA6232B51CA00AFE337 /* UserNote.swift */; };
 		A5079AA9232B56F300AFE337 /* UserGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5079AA8232B56F300AFE337 /* UserGuide.swift */; };
+		A51B4957232BFBF200C162F1 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51B4956232BFBF200C162F1 /* UserController.swift */; };
+		A51B495B232C008000C162F1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A51B495A232C008000C162F1 /* CloudKit.framework */; };
+		A51B495D232C059000C162F1 /* UserNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51B495C232C059000C162F1 /* UserNoteController.swift */; };
+		A51B495F232C0C4100C162F1 /* UserGuideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51B495E232C0C4100C162F1 /* UserGuideController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,11 @@
 		A5079AA4232B50C600AFE337 /* BrewGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuide.swift; sourceTree = "<group>"; };
 		A5079AA6232B51CA00AFE337 /* UserNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNote.swift; sourceTree = "<group>"; };
 		A5079AA8232B56F300AFE337 /* UserGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGuide.swift; sourceTree = "<group>"; };
+		A51B4956232BFBF200C162F1 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		A51B4958232C007C00C162F1 /* Coffee.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Coffee.entitlements; sourceTree = "<group>"; };
+		A51B495A232C008000C162F1 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		A51B495C232C059000C162F1 /* UserNoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNoteController.swift; sourceTree = "<group>"; };
+		A51B495E232C0C4100C162F1 /* UserGuideController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGuideController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A51B495B232C008000C162F1 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +56,7 @@
 			children = (
 				A5079A8B232B4C6B00AFE337 /* Coffee */,
 				A5079A8A232B4C6B00AFE337 /* Products */,
+				A51B4959232C008000C162F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +71,7 @@
 		A5079A8B232B4C6B00AFE337 /* Coffee */ = {
 			isa = PBXGroup;
 			children = (
+				A51B4958232C007C00C162F1 /* Coffee.entitlements */,
 				A5079AA1232B4CAE00AFE337 /* View Controllers */,
 				A5079AA0232B4CA400AFE337 /* Model Controllers */,
 				A5079A9F232B4C9D00AFE337 /* Models */,
@@ -94,6 +106,9 @@
 		A5079AA0232B4CA400AFE337 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A51B4956232BFBF200C162F1 /* UserController.swift */,
+				A51B495C232C059000C162F1 /* UserNoteController.swift */,
+				A51B495E232C0C4100C162F1 /* UserGuideController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -103,6 +118,14 @@
 			children = (
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		A51B4959232C008000C162F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A51B495A232C008000C162F1 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +160,14 @@
 				TargetAttributes = {
 					A5079A88232B4C6B00AFE337 = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -176,9 +207,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A51B4957232BFBF200C162F1 /* UserController.swift in Sources */,
+				A51B495D232C059000C162F1 /* UserNoteController.swift in Sources */,
 				A5079AA9232B56F300AFE337 /* UserGuide.swift in Sources */,
 				A5079AA5232B50C600AFE337 /* BrewGuide.swift in Sources */,
 				A5079AA3232B4D1500AFE337 /* User.swift in Sources */,
+				A51B495F232C0C4100C162F1 /* UserGuideController.swift in Sources */,
 				A5079AA7232B51CA00AFE337 /* UserNote.swift in Sources */,
 				A5079A8D232B4C6B00AFE337 /* AppDelegate.swift in Sources */,
 			);
@@ -326,9 +360,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Coffee/Coffee.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5H77479UZ4;
-				INFOPLIST_FILE = Coffee/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Coffee/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,9 +379,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Coffee/Coffee.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5H77479UZ4;
-				INFOPLIST_FILE = Coffee/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Coffee/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

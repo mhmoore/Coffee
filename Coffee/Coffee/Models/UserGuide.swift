@@ -24,14 +24,14 @@ struct UserGuideKeys {
 
 class UserGuide {
     
-    let title: String
-    let grind: String
-    let coffeeAmount: Double
-    let waterAmount: Double
-    let steps: [String]
-    let method: String
-    let time: Date
-    let timestamp: Date
+    var title: String
+    var grind: String
+    var coffeeAmount: Double
+    var waterAmount: Double
+    var steps: [String]
+    var method: String
+    var time: Date
+    var timestamp: Date
     var ckRecordID: CKRecord.ID?
     
     init(title: String, grind: String, coffeeAmount: Double, waterAmount: Double, steps: [String], method: String, time: Date, timestamp: Date = Date()) {
@@ -45,6 +45,18 @@ class UserGuide {
         self.timestamp = timestamp
     }
 }
+
+extension UserGuide: Equatable {
+    static func == (lhs: UserGuide, rhs: UserGuide) -> Bool {
+        return  lhs.grind == rhs.grind &&
+            lhs.coffeeAmount == rhs.coffeeAmount &&
+            lhs.waterAmount == rhs.waterAmount &&
+            lhs.steps == rhs.steps &&
+            lhs.method == rhs.method &&
+            lhs.time == rhs.time
+    }
+}
+
 
 // Save UserGuide object to iCloud
 extension CKRecord {
