@@ -12,13 +12,17 @@
 		A5079A94232B4C6D00AFE337 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5079A93232B4C6D00AFE337 /* Assets.xcassets */; };
 		A5079A97232B4C6D00AFE337 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5079A95232B4C6D00AFE337 /* LaunchScreen.storyboard */; };
 		A5079AA3232B4D1500AFE337 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5079AA2232B4D1500AFE337 /* User.swift */; };
-		A5079AA5232B50C600AFE337 /* BrewGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5079AA4232B50C600AFE337 /* BrewGuide.swift */; };
 		A5079AA7232B51CA00AFE337 /* UserNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5079AA6232B51CA00AFE337 /* UserNote.swift */; };
-		A5079AA9232B56F300AFE337 /* UserGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5079AA8232B56F300AFE337 /* UserGuide.swift */; };
+		A5079AA9232B56F300AFE337 /* BrewGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5079AA8232B56F300AFE337 /* BrewGuide.swift */; };
 		A51B4957232BFBF200C162F1 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51B4956232BFBF200C162F1 /* UserController.swift */; };
 		A51B495B232C008000C162F1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A51B495A232C008000C162F1 /* CloudKit.framework */; };
 		A51B495D232C059000C162F1 /* UserNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51B495C232C059000C162F1 /* UserNoteController.swift */; };
-		A51B495F232C0C4100C162F1 /* UserGuideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51B495E232C0C4100C162F1 /* UserGuideController.swift */; };
+		A51B495F232C0C4100C162F1 /* BrewGuideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51B495E232C0C4100C162F1 /* BrewGuideController.swift */; };
+		A5243774232EE07B00A3CC7D /* BrewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5243773232EE07B00A3CC7D /* BrewCollectionViewCell.swift */; };
+		A5243776232EE52A00A3CC7D /* BrewCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5243775232EE52A00A3CC7D /* BrewCollectionViewController.swift */; };
+		A577E139232D6747001B80EB /* NotesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577E138232D6747001B80EB /* NotesListTableViewController.swift */; };
+		A577E13B232D6B8C001B80EB /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577E13A232D6B8C001B80EB /* NoteDetailViewController.swift */; };
+		A577E13D232D734B001B80EB /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577E13C232D734B001B80EB /* AccountViewController.swift */; };
 		A5EC2407232C1F9900DC1263 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5EC2406232C1F9900DC1263 /* Account.storyboard */; };
 		A5EC2409232C1FA600DC1263 /* Learn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5EC2408232C1FA600DC1263 /* Learn.storyboard */; };
 		A5EC240B232C1FB600DC1263 /* Notes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5EC240A232C1FB600DC1263 /* Notes.storyboard */; };
@@ -33,14 +37,18 @@
 		A5079A96232B4C6D00AFE337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5079A98232B4C6D00AFE337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5079AA2232B4D1500AFE337 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		A5079AA4232B50C600AFE337 /* BrewGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuide.swift; sourceTree = "<group>"; };
 		A5079AA6232B51CA00AFE337 /* UserNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNote.swift; sourceTree = "<group>"; };
-		A5079AA8232B56F300AFE337 /* UserGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGuide.swift; sourceTree = "<group>"; };
+		A5079AA8232B56F300AFE337 /* BrewGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuide.swift; sourceTree = "<group>"; };
 		A51B4956232BFBF200C162F1 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		A51B4958232C007C00C162F1 /* Coffee.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Coffee.entitlements; sourceTree = "<group>"; };
 		A51B495A232C008000C162F1 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A51B495C232C059000C162F1 /* UserNoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNoteController.swift; sourceTree = "<group>"; };
-		A51B495E232C0C4100C162F1 /* UserGuideController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGuideController.swift; sourceTree = "<group>"; };
+		A51B495E232C0C4100C162F1 /* BrewGuideController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewGuideController.swift; sourceTree = "<group>"; };
+		A5243773232EE07B00A3CC7D /* BrewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewCollectionViewCell.swift; sourceTree = "<group>"; };
+		A5243775232EE52A00A3CC7D /* BrewCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewCollectionViewController.swift; sourceTree = "<group>"; };
+		A577E138232D6747001B80EB /* NotesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListTableViewController.swift; sourceTree = "<group>"; };
+		A577E13A232D6B8C001B80EB /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
+		A577E13C232D734B001B80EB /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		A5EC2406232C1F9900DC1263 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		A5EC2408232C1FA600DC1263 /* Learn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Learn.storyboard; sourceTree = "<group>"; };
 		A5EC240A232C1FB600DC1263 /* Notes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notes.storyboard; sourceTree = "<group>"; };
@@ -104,9 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				A5079AA2232B4D1500AFE337 /* User.swift */,
-				A5079AA4232B50C600AFE337 /* BrewGuide.swift */,
 				A5079AA6232B51CA00AFE337 /* UserNote.swift */,
-				A5079AA8232B56F300AFE337 /* UserGuide.swift */,
+				A5079AA8232B56F300AFE337 /* BrewGuide.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -116,7 +123,7 @@
 			children = (
 				A51B4956232BFBF200C162F1 /* UserController.swift */,
 				A51B495C232C059000C162F1 /* UserNoteController.swift */,
-				A51B495E232C0C4100C162F1 /* UserGuideController.swift */,
+				A51B495E232C0C4100C162F1 /* BrewGuideController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -124,6 +131,11 @@
 		A5079AA1232B4CAE00AFE337 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A577E138232D6747001B80EB /* NotesListTableViewController.swift */,
+				A577E13A232D6B8C001B80EB /* NoteDetailViewController.swift */,
+				A577E13C232D734B001B80EB /* AccountViewController.swift */,
+				A5243775232EE52A00A3CC7D /* BrewCollectionViewController.swift */,
+				A5243773232EE07B00A3CC7D /* BrewCollectionViewCell.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -140,10 +152,10 @@
 			isa = PBXGroup;
 			children = (
 				A5079A90232B4C6B00AFE337 /* Main.storyboard */,
-				A5EC2406232C1F9900DC1263 /* Account.storyboard */,
-				A5EC2408232C1FA600DC1263 /* Learn.storyboard */,
-				A5EC240A232C1FB600DC1263 /* Notes.storyboard */,
 				A5EC240E232C216900DC1263 /* Brew.storyboard */,
+				A5EC240A232C1FB600DC1263 /* Notes.storyboard */,
+				A5EC2408232C1FA600DC1263 /* Learn.storyboard */,
+				A5EC2406232C1F9900DC1263 /* Account.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -233,12 +245,16 @@
 			files = (
 				A51B4957232BFBF200C162F1 /* UserController.swift in Sources */,
 				A51B495D232C059000C162F1 /* UserNoteController.swift in Sources */,
-				A5079AA9232B56F300AFE337 /* UserGuide.swift in Sources */,
-				A5079AA5232B50C600AFE337 /* BrewGuide.swift in Sources */,
+				A5079AA9232B56F300AFE337 /* BrewGuide.swift in Sources */,
 				A5079AA3232B4D1500AFE337 /* User.swift in Sources */,
-				A51B495F232C0C4100C162F1 /* UserGuideController.swift in Sources */,
+				A51B495F232C0C4100C162F1 /* BrewGuideController.swift in Sources */,
 				A5079AA7232B51CA00AFE337 /* UserNote.swift in Sources */,
+				A5243774232EE07B00A3CC7D /* BrewCollectionViewCell.swift in Sources */,
+				A577E13B232D6B8C001B80EB /* NoteDetailViewController.swift in Sources */,
+				A5243776232EE52A00A3CC7D /* BrewCollectionViewController.swift in Sources */,
+				A577E139232D6747001B80EB /* NotesListTableViewController.swift in Sources */,
 				A5079A8D232B4C6B00AFE337 /* AppDelegate.swift in Sources */,
+				A577E13D232D734B001B80EB /* AccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
