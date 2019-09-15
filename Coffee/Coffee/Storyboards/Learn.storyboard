@@ -20,7 +20,7 @@
                         <color key="backgroundColor" red="0.24196368460000001" green="0.27795997259999999" blue="0.31131309270000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="8KQ-Mx-cPn"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="zxv-YO-26E"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="zxv-YO-26E"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBP-6W-0bf" userLabel="First Responder" sceneMemberID="firstResponder"/>

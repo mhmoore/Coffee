@@ -1,5 +1,5 @@
 //
-//  UserNotes.swift
+//  UserNote.swift
 //  Coffee
 //
 //  Created by Michael Moore on 9/12/19.
@@ -22,6 +22,17 @@ struct UserNoteKeys {
 }
 
 class UserNote {
+    internal init(roaster: String, coffeeName: String, origin: String, grind: String, method: String, tastingNotes: String, timestamp: Date, ckRecordID: CKRecord.ID?) {
+        self.roaster = roaster
+        self.coffeeName = coffeeName
+        self.origin = origin
+        self.grind = grind
+        self.method = method
+        self.tastingNotes = tastingNotes
+        self.timestamp = timestamp
+        self.ckRecordID = ckRecordID
+    }
+    
     
     var roaster: String
     var coffeeName: String

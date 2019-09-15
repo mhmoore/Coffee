@@ -1,5 +1,5 @@
 //
-//  UserGuideController.swift
+//  BrewGuideController.swift
 //  Coffee
 //
 //  Created by Michael Moore on 9/13/19.
@@ -8,18 +8,19 @@
 
 import Foundation
 import CloudKit
+import UIKit.UIImage
 
-class UserGuideController {
+class BrewGuideController {
     
-    static let shared = UserGuideController()
-    var guides: [UserGuide] = []
+    static let shared = BrewGuideController()
+    var guides: [BrewGuide] = []
     let privateDB = CKContainer.default().privateCloudDatabase
     
-    func saveGuide(title: String, grind: String, coffeeAmount: Double, waterAmount: Double, steps: [String], method: String, time: Date, completion: @escaping (Bool) -> Void) {
+    func saveGuide(userGuide: Bool, title: String, grind: String, coffeeAmount: Double, waterAmount: Double, steps: [String], method: String, methodImage: UIImage, time: Date, completion: @escaping (Bool) -> Void) {
         
-        let guide = UserGuide(title: title, grind: grind, coffeeAmount: coffeeAmount, waterAmount: waterAmount, steps: steps, method: method, time: time)
-        let guideRecord = CKRecord(userGuide: guide)
-        self.guides.insert(guide, at: 0)
+        let guide = BrewGuide(userGuide: userGuide, title: title, grind: grind, coffeeAmount: coffeeAmount, waterAmount: waterAmount, steps: steps, method: method, methodImage: methodImage, time: time)
+        let guideRecord = CKRecord(brewGuide: guide)
+        guides.insert(guide, at: 0)
         privateDB.save(guideRecord) { (_, error) in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
@@ -32,7 +33,7 @@ class UserGuideController {
     
     func fetchGuides(completion: @escaping (Bool) -> Void) {
         let predicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: UserGuideKeys.typeKey, predicate: predicate)
+        let query = CKQuery(recordType: BrewGuideKeys.typeKey, predicate: predicate)
         privateDB.perform(query, inZoneWith: nil) { (records, error) in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
@@ -41,23 +42,25 @@ class UserGuideController {
             }
             
             guard let records = records else { completion(false); return }
-            let guides = records.compactMap( {UserGuide(record: $0)} )
+            let guides = records.compactMap( {BrewGuide(record: $0)} )
             self.guides = guides
             completion(true)
         }
     }
     
-    func update(guide: UserGuide, with title: String, grind: String, coffeeAmount: Double, waterAmount: Double, steps: [String], method: String, time: Date, completion: @escaping (Bool) -> Void) {
+    func update(guide: BrewGuide, with userGuide: Bool, title: String, grind: String, coffeeAmount: Double, waterAmount: Double, steps: [String], method: String, methodImage: UIImage, time: Date, completion: @escaping (Bool) -> Void) {
+        guide.userGuide = userGuide
         guide.title = title
         guide.grind = grind
         guide.coffeeAmount = coffeeAmount
         guide.waterAmount = waterAmount
         guide.steps = steps
         guide.method = method
+        guide.methodImage = methodImage
         guide.time = time
         guide.timestamp = Date()
         
-        let modificationOP = CKModifyRecordsOperation(recordsToSave: [CKRecord(userGuide: guide)], recordIDsToDelete: nil)
+        let modificationOP = CKModifyRecordsOperation(recordsToSave: [CKRecord(brewGuide: guide)], recordIDsToDelete: nil)
         modificationOP.savePolicy = .changedKeys
         modificationOP.queuePriority = .normal
         modificationOP.qualityOfService = .userInteractive
@@ -72,7 +75,7 @@ class UserGuideController {
         privateDB.add(modificationOP)
     }
     
-    func remove(guide: UserGuide, completion: @escaping (Bool) -> Void) {
+    func remove(guide: BrewGuide, completion: @escaping (Bool) -> Void) {
         guard let guideRecord = guide.ckRecordID,
             let firstIndex = self.guides.firstIndex(of: guide) else { return }
         guides.remove(at: firstIndex)
