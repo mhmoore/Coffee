@@ -14,6 +14,11 @@ class NotesListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
+        
+        navigationItem.title = "Notes"
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
