@@ -16,9 +16,9 @@ class BrewGuideController {
     var guides: [BrewGuide] = []
     let privateDB = CKContainer.default().privateCloudDatabase
     
-    func saveGuide(userGuide: Bool, title: String, grind: String, coffeeAmount: Double, waterAmount: Double, steps: [String], method: String, methodImage: UIImage, time: Date, completion: @escaping (Bool) -> Void) {
+    func saveGuide(userGuide: Bool, title: String, grind: String, coffeeAmount: Double, waterAmount: Double, prep: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage, time: TimeInterval, completion: @escaping (Bool) -> Void) {
         
-        let guide = BrewGuide(userGuide: userGuide, title: title, grind: grind, coffeeAmount: coffeeAmount, waterAmount: waterAmount, steps: steps, method: method, methodImage: methodImage, time: time)
+        let guide = BrewGuide(userGuide: userGuide, title: title, grind: grind, coffeeAmount: coffeeAmount, waterAmount: waterAmount, prep: prep, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage, time: time)
         let guideRecord = CKRecord(brewGuide: guide)
         guides.insert(guide, at: 0)
         privateDB.save(guideRecord) { (_, error) in
@@ -45,17 +45,20 @@ class BrewGuideController {
             let guides = records.compactMap( {BrewGuide(record: $0)} )
             self.guides = guides
             completion(true)
-        }
+            }
     }
     
-    func update(guide: BrewGuide, with userGuide: Bool, title: String, grind: String, coffeeAmount: Double, waterAmount: Double, steps: [String], method: String, methodImage: UIImage, time: Date, completion: @escaping (Bool) -> Void) {
+    
+    func update(guide: BrewGuide, with userGuide: Bool, title: String, grind: String, coffeeAmount: Double, waterAmount: Double, prep: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage, time: TimeInterval, completion: @escaping (Bool) -> Void) {
         guide.userGuide = userGuide
         guide.title = title
         guide.grind = grind
         guide.coffeeAmount = coffeeAmount
         guide.waterAmount = waterAmount
+        guide.prep = prep
         guide.steps = steps
         guide.method = method
+        guide.methodInfo = methodInfo
         guide.methodImage = methodImage
         guide.time = time
         guide.timestamp = Date()

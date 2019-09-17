@@ -26,13 +26,12 @@ class UserNote {
         self.roaster = roaster
         self.coffeeName = coffeeName
         self.origin = origin
-        self.grind = grind
+        self.grind = grind 
         self.method = method
         self.tastingNotes = tastingNotes
         self.timestamp = timestamp
         self.ckRecordID = ckRecordID
     }
-    
     
     var roaster: String
     var coffeeName: String
