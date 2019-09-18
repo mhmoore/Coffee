@@ -13,6 +13,16 @@ class StepController {
     static let shared = StepController()
     var steps: [Step] = []
     
+    init() {
+        let time = 20
+        let amount = 120
+        let type = StepType.pour
+        
+        let chemexStep: Step = Step(time: TimeInterval(time), amount: Double(amount), type: type)
+        
+        steps = [chemexStep]
+    }
+    
     func createStep(time: TimeInterval?, amount: Double?, type: StepType) -> Step {
         guard let time = time,
             let amount = amount else { return Step(time: 0, amount: 0, type: .pour) } // TODO: I don't think this is right
