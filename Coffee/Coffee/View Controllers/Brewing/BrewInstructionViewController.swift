@@ -22,11 +22,13 @@ class BrewInstructionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = guide?.method
+        updateViews()
     }
     
     // MARK: - Actions
     @IBAction func editButtonTapped(_ sender: Any) {
-        guard let createGuideVC = UIStoryboard(name: "Brew", bundle: nil).instantiateViewController(withIdentifier: "createGuideVC") as? CreateGuideViewController else { return }
+        guard let createGuideVC = UIStoryboard(name: "Brew", bundle: nil).instantiateViewController(withIdentifier: "createGuideVC") as? CreateGuideViewController,
+        let guide = guide else { return }
         createGuideVC.guide = guide
         present(createGuideVC, animated: true, completion: nil)
     }
@@ -34,12 +36,14 @@ class BrewInstructionViewController: UIViewController {
         
     }
     @IBAction func prepButtonTapped(_ sender: Any) {
-        guard let prepVC = UIStoryboard(name: "Brew", bundle: nil).instantiateViewController(withIdentifier: "prepVC") as? PrepViewController else { return }
+        guard let prepVC = UIStoryboard(name: "Brew", bundle: nil).instantiateViewController(withIdentifier: "prepVC") as? PrepViewController,
+        let guide = guide else { return }
         prepVC.guide = guide
         present(prepVC, animated: true)
     }
     @IBAction func stepsButtonTapped(_ sender: Any) {
-        guard let stepsVC = UIStoryboard(name: "Brew", bundle: nil).instantiateViewController(withIdentifier: "stepsVC") as? StepsViewController else { return }
+        guard let stepsVC = UIStoryboard(name: "Brew", bundle: nil).instantiateViewController(withIdentifier: "stepsVC") as? StepsViewController,
+        let guide = guide else { return }
         stepsVC.guide = guide
         present(stepsVC, animated: true)
     }
@@ -55,10 +59,11 @@ class BrewInstructionViewController: UIViewController {
     
     // MARK: - Custom Methods
     func updateViews() {
-        methodImageView.image = guide?.methodImage
-        methodInfoLabel.text = guide?.methodInfo
-        grindTextLabel.text = guide?.grind
-        coffeeTextLabel.text = "\(String(describing: guide?.coffeeAmount))g"
-        waterTextLabel.text = "\(String(describing: guide?.waterAmount))g"
+        guard let guide = guide else { return }
+        methodImageView.image = guide.methodImage
+        methodInfoLabel.text = guide.methodInfo
+        grindTextLabel.text = guide.grind
+        coffeeTextLabel.text = "\(guide.coffeeAmount)g"
+        waterTextLabel.text = "\(guide.waterAmount)g"
     }
 }

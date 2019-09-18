@@ -18,14 +18,12 @@ class StepController {
         let amount = 120
         let type = StepType.pour
         
-        let chemexStep: Step = Step(time: TimeInterval(time), amount: Double(amount), type: type)
+        let chemexStep: Step = Step(time: String(time), amount: String(amount), type: type)
         
         steps = [chemexStep]
     }
     
-    func createStep(time: TimeInterval?, amount: Double?, type: StepType) -> Step {
-        guard let time = time,
-            let amount = amount else { return Step(time: 0, amount: 0, type: .pour) } // TODO: I don't think this is right
+    func createStep(time: String, amount: String?, type: StepType) -> Step {
         let newStep = Step(time: time, amount: amount, type: type)
         steps.append(newStep)
         return newStep
@@ -34,22 +32,24 @@ class StepController {
     func stepsAsStrings(steps: [Step]) -> [String] {
         var stepStrings: [String] = []
         for step in steps {
-            guard let amount = step.amount, let time = step.time else { return [] }
-            if step.type == .pour {
-                let pourStep = "Pour \(amount)g over \(time) seconds"
-                stepStrings.append(pourStep)
+            if let amount = step.amount {
+                if step.type == .pour {
+                    let pourStep = "Pour \(amount)g of water over \(step.time) seconds"
+                    stepStrings.append(pourStep)
+                }
             } else if step.type == .stir {
-                let stirStep = "Stir for \(time) seconds"
+                let stirStep = "Stir for \(step.time) seconds"
                 stepStrings.append(stirStep)
             } else {
-                let waitStep = "Wait for \(time) seconds"
+                let waitStep = "Wait for \(step.time) seconds"
                 stepStrings.append(waitStep)
             }
+            
         }
         return stepStrings
     }
     
-    func update(step: Step, time: TimeInterval?, amount: Double?, type: StepType) {
+    func update(step: Step, time: String?, amount: String?, type: StepType) {
         guard let time = time, let amount = amount else { return }
         step.time = time
         step.amount = amount

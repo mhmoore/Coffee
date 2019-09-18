@@ -38,7 +38,7 @@ class BrewGuideController {
         let methodImage1 = UIImage(named: "chemex")!
         let time1 = 290
 
-        let myChemex = BrewGuide(userGuide: userGuide1, title: title1, grind: grind1, coffeeAmount: coffeeAmount1, waterAmount: waterAmount1, prep: prep1, steps: steps1, method: method1, methodInfo: methodInfo1, methodImage: methodImage1, time: TimeInterval(time1))
+        let myChemex = BrewGuide(userGuide: userGuide1, title: title1, grind: grind1, coffeeAmount: String(coffeeAmount1), waterAmount: String(waterAmount1), prep: prep1, steps: steps1, method: method1, methodInfo: methodInfo1, methodImage: methodImage1, time: String(time1))
 
         let userGuide = false
         let title = "Chemex"
@@ -52,14 +52,13 @@ class BrewGuideController {
         let methodImage = UIImage(named: "chemex")!
         let time = 300
 
-        let chemex = BrewGuide(userGuide: userGuide, title: title, grind: grind, coffeeAmount: coffeeAmount, waterAmount: waterAmount, prep: prep, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage, time: TimeInterval(time))
+        let chemex = BrewGuide(userGuide: userGuide, title: title, grind: grind, coffeeAmount: String(coffeeAmount), waterAmount: String(waterAmount), prep: prep, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage, time: String(time))
 
         guides = [chemex, myChemex]
     }
     
-    
     // MARK: - CRUD
-    func saveGuide(userGuide: Bool, title: String, grind: String, coffeeAmount: Double, waterAmount: Double, prep: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage, time: TimeInterval, completion: @escaping (Bool) -> Void) {
+    func saveGuide(userGuide: Bool, title: String, grind: String, coffeeAmount: String, waterAmount: String, prep: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage, time: String, completion: @escaping (Bool) -> Void) {
         
         let guide = BrewGuide(userGuide: userGuide, title: title, grind: grind, coffeeAmount: coffeeAmount, waterAmount: waterAmount, prep: prep, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage, time: time)
         let guideRecord = CKRecord(brewGuide: guide)
@@ -91,8 +90,7 @@ class BrewGuideController {
             }
     }
     
-    
-    func update(guide: BrewGuide, with userGuide: Bool, title: String, grind: String, coffeeAmount: Double, waterAmount: Double, prep: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage, time: TimeInterval, completion: @escaping (Bool) -> Void) {
+    func update(guide: BrewGuide, with userGuide: Bool, title: String, grind: String, coffeeAmount: String, waterAmount: String, prep: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage, time: String, completion: @escaping (Bool) -> Void) {
         guide.userGuide = userGuide
         guide.title = title
         guide.grind = grind
@@ -104,7 +102,6 @@ class BrewGuideController {
         guide.methodInfo = methodInfo
         guide.methodImage = methodImage
         guide.time = time
-        guide.timestamp = Date()
         
         let modificationOP = CKModifyRecordsOperation(recordsToSave: [CKRecord(brewGuide: guide)], recordIDsToDelete: nil)
         modificationOP.savePolicy = .changedKeys

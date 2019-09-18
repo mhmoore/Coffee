@@ -18,13 +18,7 @@ class StepsViewController: UIViewController {
         super.viewDidLoad()
         stepsTableView.delegate = self
         stepsTableView.dataSource = self
-        // TODO: Present Steps
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-////        stepsTableView.reloadData()
-//    }
     
     // MARK: - Actions
     @IBAction func doneButtonTapped(_ sender: Any) {
