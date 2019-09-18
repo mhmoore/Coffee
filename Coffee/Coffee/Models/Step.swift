@@ -10,18 +10,18 @@ import Foundation
 
 class Step {
     
-    var time: TimeInterval?
-    var amount: Double?
+    var time: String
+    var amount: String?
     var type: StepType
     
-    init(time: TimeInterval, amount: Double, type: StepType) {
+    init(time: String, amount: String?, type: StepType) {
         self.time = time
         self.amount = amount
         self.type = type
     }
 }
 
-enum StepType {
+enum StepType: Int {
     case pour
     case stir
     case wait

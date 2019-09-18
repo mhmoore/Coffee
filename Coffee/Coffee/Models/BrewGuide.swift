@@ -32,18 +32,17 @@ class BrewGuide {
     var userGuide: Bool
     var title: String
     var grind: String
-    var coffeeAmount: Double
-    var waterAmount: Double
+    var coffeeAmount: String
+    var waterAmount: String
     var prep: String
     var steps: [Step]
     var method: String
     var methodInfo: String
     var methodImage: UIImage
-    var time: TimeInterval
-    var timestamp: Date
+    var time: String
     var ckRecordID: CKRecord.ID?
     
-    init(userGuide: Bool = true, title: String, grind: String, coffeeAmount: Double, waterAmount: Double, prep: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage, time: TimeInterval, timestamp: Date = Date()) {
+    init(userGuide: Bool, title: String, grind: String, coffeeAmount: String, waterAmount: String, prep: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage, time: String) {
         self.userGuide = userGuide
         self.title = title
         self.grind = grind
@@ -55,7 +54,6 @@ class BrewGuide {
         self.methodInfo = methodInfo
         self.methodImage = methodImage
         self.time = time
-        self.timestamp = timestamp
     }
 }
 
@@ -91,7 +89,6 @@ extension CKRecord {
         self.setValue(brewGuide.methodInfo, forKey: BrewGuideKeys.methodInfoKey)
         self.setValue(brewGuide.methodImage, forKey: BrewGuideKeys.methodImageKey)
         self.setValue(brewGuide.time, forKey: BrewGuideKeys.timeKey)
-        self.setValue(brewGuide.timestamp, forKey: BrewGuideKeys.timestampKey)
         brewGuide.ckRecordID = recordID
     }
 }
@@ -102,16 +99,15 @@ extension BrewGuide {
         guard let userGuide = record[BrewGuideKeys.userGuideKey] as? Bool,
             let title = record[BrewGuideKeys.titleKey] as? String,
             let grind = record[BrewGuideKeys.grindKey] as? String,
-            let coffeeAmount = record[BrewGuideKeys.coffeeAmountKey] as? Double,
-            let waterAmount = record[BrewGuideKeys.waterAmountKey] as? Double,
+            let coffeeAmount = record[BrewGuideKeys.coffeeAmountKey] as? String,
+            let waterAmount = record[BrewGuideKeys.waterAmountKey] as? String,
             let prep = record[BrewGuideKeys.prepKey] as? String,
             let steps = record[BrewGuideKeys.stepsKey] as? [Step],
             let method = record[BrewGuideKeys.methodKey] as? String,
             let methodInfo = record[BrewGuideKeys.methodInfoKey] as? String,
             let methodImage = record[BrewGuideKeys.methodImageKey] as? UIImage,
-            let time = record[BrewGuideKeys.timeKey] as? TimeInterval,
-            let timestamp = record[BrewGuideKeys.timestampKey] as? Date else { return nil }
-        self.init(userGuide: userGuide, title: title, grind: grind, coffeeAmount: coffeeAmount, waterAmount: waterAmount, prep: prep, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage, time: time, timestamp: timestamp)
+            let time = record[BrewGuideKeys.timeKey] as? String else { return nil }
+        self.init(userGuide: userGuide, title: title, grind: grind, coffeeAmount: coffeeAmount, waterAmount: waterAmount, prep: prep, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage, time: time)
         ckRecordID = record.recordID
     }
 }
