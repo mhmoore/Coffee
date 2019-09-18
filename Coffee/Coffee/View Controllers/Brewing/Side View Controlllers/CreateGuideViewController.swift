@@ -31,9 +31,6 @@ class CreateGuideViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Create Your Own"
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     // MARK: - Actions
@@ -79,7 +76,10 @@ class CreateGuideViewController: UIViewController {
             }
         }
     }
-
+    @IBAction func stepTypeSelected(_ sender: Any) {
+        update(view: addStepView)
+    }
+    
     // MARK: - Custom Methods
     func update(view: UIView) {
         guard let stepTypeSegmentedControl = stepTypeSegmentedControl else { return }

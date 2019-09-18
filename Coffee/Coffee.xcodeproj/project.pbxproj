@@ -166,18 +166,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A5A32799232FEA3000ED3CD4 /* Brewing */ = {
+		A571128D2331F02A0013F6DC /* Side View Controlllers */ = {
 			isa = PBXGroup;
 			children = (
-				A5243775232EE52A00A3CC7D /* BrewCollectionViewController.swift */,
-				A5A32797232FE9A100ED3CD4 /* BrewNotesViewController.swift */,
+				A5243773232EE07B00A3CC7D /* BrewCollectionViewCell.swift */,
 				A5A3279F232FF5AB00ED3CD4 /* CreateGuideViewController.swift */,
 				A5A3279B232FF11300ED3CD4 /* PrepViewController.swift */,
 				A5A3279D232FF12200ED3CD4 /* StepsViewController.swift */,
 				A5A32791232F487300ED3CD4 /* SectionHeaderCollectionReusableView.swift */,
-				A5243773232EE07B00A3CC7D /* BrewCollectionViewCell.swift */,
+			);
+			path = "Side View Controlllers";
+			sourceTree = "<group>";
+		};
+		A5A32799232FEA3000ED3CD4 /* Brewing */ = {
+			isa = PBXGroup;
+			children = (
+				A5243775232EE52A00A3CC7D /* BrewCollectionViewController.swift */,
 				A5A32793232FE5F100ED3CD4 /* BrewInstructionViewController.swift */,
 				A5A32795232FE96500ED3CD4 /* BrewTimerViewController.swift */,
+				A5A32797232FE9A100ED3CD4 /* BrewNotesViewController.swift */,
+				A571128D2331F02A0013F6DC /* Side View Controlllers */,
 			);
 			path = Brewing;
 			sourceTree = "<group>";

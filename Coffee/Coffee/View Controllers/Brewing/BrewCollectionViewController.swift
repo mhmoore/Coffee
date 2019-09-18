@@ -8,20 +8,17 @@
 
 import UIKit
 
-private let reuseIdentifier = "brewCell"
-private let sectionHeader = "sectionHeader"
-
-
 class BrewCollectionViewController: UICollectionViewController {
     
     // MARK: - Properties
-    var userGuides: [BrewGuide] = []
-    var standardGuides: [BrewGuide] = []
-    var separatedGuides: [[BrewGuide]] {
-        get {
-            return separate(guides: BrewGuideController.shared.guides)
-        }
-    }
+//    var userGuides: [BrewGuide] = []
+//    var standardGuides: [BrewGuide] = []
+//    var separatedGuides: [[BrewGuide]] {
+//        get {
+//            return separate(guides: BrewGuideController.shared.guides)
+//        }
+//    }
+    let filledGuides = BrewGuideController.shared.separatedGuides.compactMap ( {$0} )
     var selectedGuide: BrewGuide?
     let paddings: CGFloat = 5.0
     let numberOfItemsPerRow: CGFloat = 3.0
@@ -29,9 +26,6 @@ class BrewCollectionViewController: UICollectionViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.title = "Brewing Methods"
-        navigationController?.navigationBar.prefersLargeTitles = true
         
         let collectionViewWidth = collectionView.frame.width
         let itemWidth = (collectionViewWidth - paddings * (numberOfItemsPerRow - 1)) / numberOfItemsPerRow
@@ -42,25 +36,24 @@ class BrewCollectionViewController: UICollectionViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "brewCell")
 
         // Do any additional setup after loading the view.
     }
 
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return BrewGuideController.shared.guides.count
+        return filledGuides.count
     }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return separatedGuides[section].count
+        return filledGuides[section].count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? BrewCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "brewCell", for: indexPath) as? BrewCollectionViewCell else { return UICollectionViewCell() }
         // grabs the section (a.k.a. category)
-        let category = separatedGuides[indexPath.section]
+        let category = filledGuides[indexPath.section]
         // within that category, grabs the guide at that indexPath
         let guide = category[indexPath.item]
         // sets the cells label and image with the associated guide
@@ -70,8 +63,8 @@ class BrewCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: sectionHeader, for: indexPath) as? SectionHeaderCollectionReusableView else { return UICollectionReusableView() }
-        let category = separatedGuides[indexPath.section]
+        guard let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sectionHeader", for: indexPath) as? SectionHeaderCollectionReusableView else { return UICollectionReusableView() }
+        let category = filledGuides[indexPath.section]
         let guide = category[indexPath.item]
         if guide.userGuide == true {
             sectionHeaderView.categoryTitle = "Your Brewing Guides"
@@ -81,21 +74,15 @@ class BrewCollectionViewController: UICollectionViewController {
         return sectionHeaderView
     }
 
-    // MARK: UICollectionViewDelegate
-    
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let category = separatedGuides[indexPath.section]
-        selectedGuide = category[indexPath.item]
-        performSegue(withIdentifier: "toBrewInstructionVC", sender: nil)
-    }
-    
     // MARK: - Navigation
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toBrewInstructionVC" {
+
+            guard let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
+            let category = filledGuides[indexPath.section]
+            let guide = category[indexPath.item]
             guard let destinationVC = segue.destination as? BrewInstructionViewController else { return }
-            destinationVC.guide = selectedGuide
+            destinationVC.guide = guide
         }
     }
     
@@ -128,16 +115,16 @@ class BrewCollectionViewController: UICollectionViewController {
     }
     */
     
-    // MARK: - Custom Methods
-    func separate(guides: [BrewGuide]) -> [[BrewGuide]] {
-        for guide in guides {
-            if guide.userGuide == true {
-                userGuides.append(guide)
-            } else {
-                standardGuides.append(guide)
-            }
-        }
-        let separatedGuides = [userGuides, standardGuides]
-        return separatedGuides
-    }
+//    // MARK: - Custom Methods
+//    func separate(guides: [BrewGuide]) -> [[BrewGuide]] {
+//        for guide in guides {
+//            if guide.userGuide == true {
+//                userGuides.append(guide)
+//            } else {
+//                standardGuides.append(guide)
+//            }
+//        }
+//        let separatedGuides = [userGuides, standardGuides]
+//        return separatedGuides
+//    }
 }

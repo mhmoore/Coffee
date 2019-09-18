@@ -35,9 +35,8 @@ class BrewTimerViewController: UIViewController {
 
 extension BrewTimerViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let guide = guide {
-            return guide.steps.count
-        }
+        guard let guide = guide else { return 0 }
+        return guide.steps.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

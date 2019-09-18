@@ -16,8 +16,15 @@ class StepsViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        stepsTableView.delegate = self
+        stepsTableView.dataSource = self
         // TODO: Present Steps
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+////        stepsTableView.reloadData()
+//    }
     
     // MARK: - Actions
     @IBAction func doneButtonTapped(_ sender: Any) {
@@ -27,9 +34,8 @@ class StepsViewController: UIViewController {
 
 extension StepsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let guide = guide {
+        guard let guide = guide else { return 0 }
             return guide.steps.count
-        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,6 +47,4 @@ extension StepsViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return cell
     }
-    
-    
 }
