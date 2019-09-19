@@ -64,7 +64,7 @@ class BrewCollectionViewController: UICollectionViewController {
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
             let category = filledGuides[indexPath.section]
             let guide = category[indexPath.item]
-            guard let destinationVC = segue.destination as? BrewInstructionViewController else { return }
+            guard let destinationVC = segue.destination as? InstructionsViewController else { return }
             destinationVC.guide = guide
         }
     }

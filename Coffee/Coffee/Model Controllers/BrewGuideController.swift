@@ -13,10 +13,10 @@ import UIKit.UIImage
 class BrewGuideController {
     // MARK: - Properties
     static let shared = BrewGuideController()
-    var guides: [BrewGuide] = []
-    var userGuides: [BrewGuide] = []
-    var standardGuides: [BrewGuide] = []
-    var separatedGuides: [[BrewGuide]] {
+    var guides: [Guide] = []
+    var userGuides: [Guide] = []
+    var standardGuides: [Guide] = []
+    var separatedGuides: [[Guide]] {
         get {
             return separate(guides: guides)
         }
@@ -29,38 +29,34 @@ class BrewGuideController {
         let userGuide1 = true
         let title1 = "My Chemex"
         let grind1 = "medium"
-        let coffeeAmount1 = 26.7
-        let waterAmount1 = 120.8
+        let coffee1 = 26.7
         let prep1 = "asdgrgth"
         let steps1 = StepController.shared.steps
         let method1 = "Chemex"
         let methodInfo1 = "dfadfas"
         let methodImage1 = UIImage(named: "chemex")!
-        let time1 = 290
 
-        let myChemex = BrewGuide(userGuide: userGuide1, title: title1, grind: grind1, coffeeAmount: String(coffeeAmount1), waterAmount: String(waterAmount1), prep: prep1, steps: steps1, method: method1, methodInfo: methodInfo1, methodImage: methodImage1, time: String(time1))
+        let myChemex = Guide(userGuide: userGuide1, title: title1, grind: grind1, coffee: coffee1, prep: prep1, steps: steps1, method: method1, methodInfo: methodInfo1, methodImage: methodImage1)
 
         let userGuide = false
         let title = "Chemex"
         let grind = "medium"
-        let coffeeAmount = 26.7
-        let waterAmount = 320.2
+        let coffee = 26.7
         let prep = "asdgrgth"
         let steps = StepController.shared.steps
         let method = "Chemex"
         let methodInfo = "dfadfas"
         let methodImage = UIImage(named: "chemex")!
-        let time = 300
 
-        let chemex = BrewGuide(userGuide: userGuide, title: title, grind: grind, coffeeAmount: String(coffeeAmount), waterAmount: String(waterAmount), prep: prep, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage, time: String(time))
+        let chemex = Guide(userGuide: userGuide, title: title, grind: grind, coffee: coffee, prep: prep, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage)
 
         guides = [chemex, myChemex]
     }
     
     // MARK: - CRUD
-    func saveGuide(userGuide: Bool, title: String, grind: String, coffeeAmount: String, waterAmount: String, prep: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage, time: String, completion: @escaping (Bool) -> Void) {
+    func saveGuide(userGuide: Bool, title: String, grind: String, coffee: Double, prep: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage, completion: @escaping (Bool) -> Void) {
         
-        let guide = BrewGuide(userGuide: userGuide, title: title, grind: grind, coffeeAmount: coffeeAmount, waterAmount: waterAmount, prep: prep, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage, time: time)
+        let guide = Guide(userGuide: userGuide, title: title, grind: grind, coffee: coffee, prep: prep, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage)
         let guideRecord = CKRecord(brewGuide: guide)
         guides.insert(guide, at: 0)
         privateDB.save(guideRecord) { (_, error) in
@@ -75,7 +71,7 @@ class BrewGuideController {
     
     func fetchGuides(completion: @escaping (Bool) -> Void) {
         let predicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: BrewGuideKeys.typeKey, predicate: predicate)
+        let query = CKQuery(recordType: GuideKeys.typeKey, predicate: predicate)
         privateDB.perform(query, inZoneWith: nil) { (records, error) in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
@@ -84,24 +80,22 @@ class BrewGuideController {
             }
             
             guard let records = records else { completion(false); return }
-            let guides = records.compactMap( {BrewGuide(record: $0)} )
+            let guides = records.compactMap( {Guide(record: $0)} )
             self.guides = guides
             completion(true)
             }
     }
     
-    func update(guide: BrewGuide, with userGuide: Bool, title: String, grind: String, coffeeAmount: String, waterAmount: String, prep: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage, time: String, completion: @escaping (Bool) -> Void) {
+    func update(guide: Guide, with userGuide: Bool, title: String, grind: String, coffee: Double, prep: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage, completion: @escaping (Bool) -> Void) {
         guide.userGuide = userGuide
         guide.title = title
         guide.grind = grind
-        guide.coffeeAmount = coffeeAmount
-        guide.waterAmount = waterAmount
+        guide.coffee = coffee
         guide.prep = prep
         guide.steps = steps
         guide.method = method
         guide.methodInfo = methodInfo
         guide.methodImage = methodImage
-        guide.time = time
         
         let modificationOP = CKModifyRecordsOperation(recordsToSave: [CKRecord(brewGuide: guide)], recordIDsToDelete: nil)
         modificationOP.savePolicy = .changedKeys
@@ -118,7 +112,7 @@ class BrewGuideController {
         privateDB.add(modificationOP)
     }
     
-    func remove(guide: BrewGuide, completion: @escaping (Bool) -> Void) {
+    func remove(guide: Guide, completion: @escaping (Bool) -> Void) {
         guard let guideRecord = guide.ckRecordID,
             let firstIndex = self.guides.firstIndex(of: guide) else { return }
         guides.remove(at: firstIndex)
@@ -133,7 +127,7 @@ class BrewGuideController {
     }
     
     // MARK: - Custom Methods
-    func separate(guides: [BrewGuide]) -> [[BrewGuide]] {
+    func separate(guides: [Guide]) -> [[Guide]] {
         for guide in guides {
             if guide.userGuide == true {
                 userGuides.append(guide)

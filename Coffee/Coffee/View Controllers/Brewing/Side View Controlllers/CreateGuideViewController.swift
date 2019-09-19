@@ -23,10 +23,9 @@ class CreateGuideViewController: UIViewController {
     @IBOutlet weak var gramsTextLabel: UILabel!
     @IBOutlet weak var timeTextField: UITextField!
     
-    
-    var guide: BrewGuide?
-    var totalTime: String?
-    var totalWater: String?
+    var guide: Guide?
+    var totalTime: TimeInterval = 0.0
+    var totalWater: Double = 0.0
     var newSteps: [Step] = []
     
     // MARK: - Lifecycle
@@ -34,7 +33,6 @@ class CreateGuideViewController: UIViewController {
         super.viewDidLoad()
         stepsTableView.delegate = self
         stepsTableView.dataSource = self
-        stepsTableView.isEditing = false
         updateViews()
     }
     
@@ -44,12 +42,12 @@ class CreateGuideViewController: UIViewController {
     }
     
     @IBAction func addStepButtonTapped(_ sender: Any) {
-        guard let stepTypeSegmentedControl = stepTypeSegmentedControl else { return }
         let type = stepTypeSegmentedControl.selectedSegmentIndex
-        guard let time = timeTextField.text,
-            let amount = amountTextField.text else { return }
-        
+        guard let time = TimeInterval(timeTextField.text!) else { return }
+        totalTime += time
         if type == 0 {
+            guard let amount = Double(amountTextField.text!) else { return }
+            totalWater += amount
             let newStep = StepController.shared.createStep(time: time, amount: amount, type: .pour)
             newSteps.append(newStep)
         } else if type == 1 {
@@ -59,8 +57,7 @@ class CreateGuideViewController: UIViewController {
             let newStep = StepController.shared.createStep(time: time, amount: nil, type: .wait)
             newSteps.append(newStep)
         }
-        update(view: addStepView)
-        self.stepsTableView.reloadData()
+        updateViews()
     }
     
     @IBAction func editButtonTapped(_ sender: Any) {
@@ -68,34 +65,24 @@ class CreateGuideViewController: UIViewController {
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        if stepsTableView.isEditing == true {
-            stepsTableView.isEditing = false
-        }
-        guard let brewInstructionVC = UIStoryboard(name: "Brew", bundle: nil).instantiateViewController(withIdentifier: "brewInstructionVC") as? BrewInstructionViewController else { return }
+        guard let brewInstructionVC = UIStoryboard(name: "Brew", bundle: nil).instantiateViewController(withIdentifier: "brewInstructionVC") as? InstructionsViewController else { return }
         brewInstructionVC.guide = guide
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        if stepsTableView.isEditing == true {
-            stepsTableView.isEditing = false
-        }
-        guard let totalWater = totalWater,
-            let totalTime = totalTime,
+        guard let guide = guide,
             let title = titleTextField.text,
-            let grind = titleTextField.text,
-            let coffeeAmount = coffeeTextField.text,
-            let method = guide?.method,
-            let methodInfo = guide?.methodInfo,
-            let methodImage = guide?.methodImage,
-            let steps = guide?.steps,
-            let prep = guide?.prep else { return }
+            let grind = grindTextField.text,
+            let coffee = Double(coffeeTextField.text!) else { return }
 
-        BrewGuideController.shared.saveGuide(userGuide: true, title: title, grind: grind, coffeeAmount: coffeeAmount, waterAmount: totalWater, prep: prep, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage, time: totalTime) { (success) in
+        BrewGuideController.shared.saveGuide(userGuide: true, title: title, grind: grind, coffee: coffee, prep: guide.prep, steps: newSteps, method: guide.method, methodInfo: guide.methodInfo, methodImage: guide.methodImage) { (success) in
             if success {
-                guard let brewInstructionVC = UIStoryboard(name: "Brew", bundle: nil).instantiateViewController(withIdentifier: "brewInstructionVC") as? BrewInstructionViewController else { return }
-                brewInstructionVC.guide = self.guide
-                self.dismiss(animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    guard let brewInstructionVC = UIStoryboard(name: "Brew", bundle: nil).instantiateViewController(withIdentifier: "brewInstructionVC") as? InstructionsViewController else { return }
+                    brewInstructionVC.guide = self.guide
+                    self.dismiss(animated: true, completion: nil)
+                }
             } else {
                 print("There was an error saving the User's Guide")
             }
@@ -128,7 +115,11 @@ class CreateGuideViewController: UIViewController {
     }
     
     func updateViews() {
+        totalTimeTextLabel.text = String(totalTime)
+        totalWaterTextLabel.text = String(totalWater)
         update(view: addStepView)
+        self.stepsTableView.reloadData()
+        stepsTableView.isEditing = false
     }
 }
 
@@ -148,8 +139,14 @@ extension CreateGuideViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let step = newSteps[indexPath.row]
+            if let amount = step.amountOfWater {
+                totalWater -= amount
+            }
+            totalTime -= step.duration
             newSteps.remove(at: indexPath.row)
             stepsTableView.deleteRows(at: [indexPath], with: .fade)
+            updateViews()
         }
     }
 

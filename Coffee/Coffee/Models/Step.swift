@@ -10,13 +10,13 @@ import Foundation
 
 class Step {
     
-    var time: String
-    var amount: String?
+    var duration: TimeInterval
+    var amountOfWater: Double?
     var type: StepType
     
-    init(time: String, amount: String?, type: StepType) {
-        self.time = time
-        self.amount = amount
+    init(duration: TimeInterval, amount: Double?, type: StepType) {
+        self.duration = duration
+        self.amountOfWater = amount
         self.type = type
     }
 }
@@ -29,8 +29,8 @@ enum StepType: Int {
 
 extension Step: Equatable {
     static func == (lhs: Step, rhs: Step) -> Bool {
-        return  lhs.time == rhs.time &&
-                lhs.amount == rhs.amount &&
+        return  lhs.duration == rhs.duration &&
+                lhs.amountOfWater == rhs.amountOfWater &&
                 lhs.type == rhs.type
     }
 }

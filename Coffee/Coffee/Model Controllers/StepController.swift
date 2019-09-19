@@ -14,17 +14,26 @@ class StepController {
     var steps: [Step] = []
     
     init() {
-        let time = 20
-        let amount = 120
+        let duration = 5
+        let amount = 120.0
         let type = StepType.pour
         
-        let chemexStep: Step = Step(time: String(time), amount: String(amount), type: type)
+        let duration3 = 3
+        let amount3 = 10.0
+        let type3 = StepType.pour
         
-        steps = [chemexStep]
+        let duration2 = 7
+        let type2 = StepType.stir
+        
+        let chemexStep3: Step = Step(duration: TimeInterval(duration3), amount: amount3, type: type3)
+        let chemexStep1: Step = Step(duration: TimeInterval(duration), amount: amount, type: type)
+        let chemexStep2: Step = Step(duration: TimeInterval(duration2), amount: nil, type: type2)
+        
+        steps = [chemexStep1, chemexStep2, chemexStep3]
     }
     
-    func createStep(time: String, amount: String?, type: StepType) -> Step {
-        let newStep = Step(time: time, amount: amount, type: type)
+    func createStep(time: TimeInterval, amount: Double?, type: StepType) -> Step {
+        let newStep = Step(duration: time, amount: amount, type: type)
         steps.append(newStep)
         return newStep
     }
@@ -32,16 +41,16 @@ class StepController {
     func stepsAsStrings(steps: [Step]) -> [String] {
         var stepStrings: [String] = []
         for step in steps {
-            if let amount = step.amount {
+            if let amount = step.amountOfWater {
                 if step.type == .pour {
-                    let pourStep = "Pour \(amount)g of water over \(step.time) seconds"
+                    let pourStep = "Pour \(amount)g of water over \(step.duration) seconds"
                     stepStrings.append(pourStep)
                 }
             } else if step.type == .stir {
-                let stirStep = "Stir for \(step.time) seconds"
+                let stirStep = "Stir for \(step.duration) seconds"
                 stepStrings.append(stirStep)
             } else {
-                let waitStep = "Wait for \(step.time) seconds"
+                let waitStep = "Wait for \(step.duration) seconds"
                 stepStrings.append(waitStep)
             }
             
@@ -49,10 +58,10 @@ class StepController {
         return stepStrings
     }
     
-    func update(step: Step, time: String?, amount: String?, type: StepType) {
+    func update(step: Step, time: TimeInterval?, amount: Double?, type: StepType) {
         guard let time = time, let amount = amount else { return }
-        step.time = time
-        step.amount = amount
+        step.duration = time
+        step.amountOfWater = amount
         step.type = type
     }
     

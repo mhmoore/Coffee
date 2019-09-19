@@ -10,7 +10,7 @@ import UIKit
 
 class BrewNotesViewController: UIViewController {
     // MARK: - Properties
-    var guide: BrewGuide?
+    var guide: Guide?
     @IBOutlet weak var roasterTextField: UITextField!
     @IBOutlet weak var coffeeNameTextField: UITextField!
     @IBOutlet weak var originTextField: UITextField!

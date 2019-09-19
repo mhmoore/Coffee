@@ -11,7 +11,7 @@ import UIKit
 class PrepViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var prepLabel: UILabel!
-    var guide: BrewGuide?
+    var guide: Guide?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
