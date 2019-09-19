@@ -11,7 +11,7 @@ import UIKit
 class StepsViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var stepsTableView: UITableView!
-    var guide: BrewGuide?
+    var guide: Guide?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {

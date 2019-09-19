@@ -1,5 +1,5 @@
 //
-//  BrewInstructionViewController.swift
+//  InstructionsViewController.swift
 //  Coffee
 //
 //  Created by Michael Moore on 9/16/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BrewInstructionViewController: UIViewController {
+class InstructionsViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var methodImageView: UIImageView!
     @IBOutlet weak var methodInfoLabel: UILabel!
@@ -16,7 +16,7 @@ class BrewInstructionViewController: UIViewController {
     @IBOutlet weak var coffeeTextLabel: UILabel!
     @IBOutlet weak var waterTextLabel: UILabel!
     
-    var guide: BrewGuide?
+    var guide: Guide?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -51,7 +51,7 @@ class BrewInstructionViewController: UIViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toBrewTimerVC" {
-            guard let destinationVC = segue.destination as? BrewTimerViewController,
+            guard let destinationVC = segue.destination as? TimerViewController,
             let guide = guide else { return }
             destinationVC.guide = guide
         }
@@ -63,7 +63,7 @@ class BrewInstructionViewController: UIViewController {
         methodImageView.image = guide.methodImage
         methodInfoLabel.text = guide.methodInfo
         grindTextLabel.text = guide.grind
-        coffeeTextLabel.text = "\(guide.coffeeAmount)g"
-        waterTextLabel.text = "\(guide.waterAmount)g"
+        coffeeTextLabel.text = "\(guide.coffee)g"
+        waterTextLabel.text = "\(guide.totalWater)g"
     }
 }
