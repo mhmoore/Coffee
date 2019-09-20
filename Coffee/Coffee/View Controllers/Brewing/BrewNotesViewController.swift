@@ -32,13 +32,8 @@ class BrewNotesViewController: UIViewController {
             let method = methodTextField.text,
             let notes = notesTextView.text else { return }
             
-        UserNoteController.shared.saveNote(roaster: roaster, coffeeName: coffeeName, origin: origin, grind: grind, tastingNotes: notes, method: method) { (success) in
-            if success {
-                self.presentNotesVC()
-            } else {
-                print("There was an error saving the note")
-            }
-        }
+        UserNoteController.shared.createNote(roaster: roaster, coffeeName: coffeeName, origin: origin, grind: grind, tastingNotes: notes, method: method)
+        presentNotesVC()
     }
 
     // MARK: - Custom Methods

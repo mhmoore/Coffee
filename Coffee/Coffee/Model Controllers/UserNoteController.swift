@@ -15,11 +15,33 @@ class UserNoteController {
     var notes: [UserNote] = []
     let privateDB = CKContainer.default().privateCloudDatabase
     
-    func saveNote(roaster: String, coffeeName: String, origin: String, grind: String, tastingNotes: String, method: String, completion: @escaping (Bool) -> Void) {
+//    init() {
+//        let roaster = "SweetBloom"
+//        let coffeeName = "Coffee"
+//        let origin = "Latin America"
+//        let grind = "9.3"
+//        let tastingNotes = "Yumm"
+//        let method = "Chemex"
+//        
+//        saveNote(roaster: roaster, coffeeName: coffeeName, origin: origin, grind: grind, tastingNotes: tastingNotes, method: method) { (success) in
+//            if success {
+//                print("a note was saved")
+//            }
+//        }
+//    }
+    
+    func createNote(roaster: String, coffeeName: String, origin: String, grind: String, tastingNotes: String, method: String) {
         let note = UserNote(roaster: roaster, coffeeName: coffeeName, origin: origin, grind: grind, method: method, tastingNotes: tastingNotes)
+        notes.insert(note, at: 0)
+        save(note: note) { (success) in
+            if success {
+                print("The created note was saved")
+            }
+        }
+    }
+    
+    func save(note: UserNote, completion: @escaping (Bool) -> Void) {
         let noteRecord = CKRecord(userNote: note)
-        self.notes.insert(note, at: 0)
-        
         privateDB.save(noteRecord) { (_, error) in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")

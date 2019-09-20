@@ -32,9 +32,6 @@ class InstructionsViewController: UIViewController {
         createGuideVC.guide = guide
         present(createGuideVC, animated: true, completion: nil)
     }
-    @IBAction func startButtonTapped(_ sender: Any) {
-        
-    }
     @IBAction func prepButtonTapped(_ sender: Any) {
         guard let prepVC = UIStoryboard(name: "Brew", bundle: nil).instantiateViewController(withIdentifier: "prepVC") as? PrepViewController,
         let guide = guide else { return }

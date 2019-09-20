@@ -18,7 +18,6 @@ class BrewCollectionViewController: UICollectionViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let collectionViewWidth = collectionView.frame.width
         let itemWidth = (collectionViewWidth - paddings * (numberOfItemsPerRow - 1)) / numberOfItemsPerRow
         let layout = collectionViewLayout as! UICollectionViewFlowLayout

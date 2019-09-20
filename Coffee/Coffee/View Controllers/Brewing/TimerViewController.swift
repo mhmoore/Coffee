@@ -28,39 +28,43 @@ class TimerViewController: UIViewController {
         updateViews()
     }
     
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toBrewNotesVC" {
+            guard let destinationVC = segue.destination as? BrewNotesViewController,
+                let guide = guide else { return }
+            destinationVC.guide = guide
+        }
     }
-    */
     
     // MARK: - Custom Methods
     func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
-            guard self.counter < self.guide!.totalTime else { self.timer.invalidate(); return }
+            guard let guide = self.guide else { return }
+            // Timer Label
+            guard self.counter < guide.totalTime else { self.timer.invalidate(); return }
             self.counter += 1
             let timeString = self.timeString(time: self.counter)
             self.timerLabel.text = timeString
+            // Current weight needing to be to be pour for that step
             var totalDuration: Double = 0.0
-            guard let duration1 = self.guide?.steps[self.currentStep].duration else { return }
+            let duration1 = guide.steps[self.currentStep].duration
             if self.currentStep == 0 {
                 totalDuration = Double(duration1)
             } else {
-                guard let duration2 = self.guide?.steps[self.currentStep - 1].duration else { return }
+                let duration2 = guide.steps[self.currentStep - 1].duration
                 totalDuration = Double(duration1) + Double(duration2)
             }
             if self.counter == totalDuration {
                 self.currentStep += 1
-                if let currentWeight = self.guide?.steps[self.currentStep].amountOfWater {
+                if let currentWeight = guide.steps[self.currentStep].amountOfWater {
                     self.currentWeightLabel.text = String(currentWeight)
                 } else {
                     self.currentWeightLabel.text = "0.0"
                 }
             }
+            
+            // Total Time Label
             if self.counter == self.guide?.totalTime {
                 self.timerLabel.text = "Cheers!"
             }

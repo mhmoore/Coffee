@@ -15,6 +15,18 @@ class UserController {
     var currentUser: User?
     let privateDB = CKContainer.default().privateCloudDatabase
     
+//    init() {
+//        let name = "Mike"
+//        let email = "coffee1234@gmail.com"
+//        let password = "mvdoaje35"
+//
+//        createUser(name: name, email: email, password: password) { (success) in
+//            if success {
+//                print("user was created")
+//            }
+//        }
+//    }
+    
     func createUser(name: String, email: String, password: String, completion: @escaping (Bool) -> Void) {
         
         CKContainer.default().fetchUserRecordID { (recordID, error) in

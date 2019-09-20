@@ -32,8 +32,6 @@
 		A5A327A0232FF5AB00ED3CD4 /* CreateGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A3279F232FF5AB00ED3CD4 /* CreateGuideViewController.swift */; };
 		A5A327A2233006FB00ED3CD4 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A327A1233006FB00ED3CD4 /* Step.swift */; };
 		A5A327A423303A3800ED3CD4 /* StepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A327A323303A3800ED3CD4 /* StepController.swift */; };
-		A5DB41EE2333DE9200FECAA4 /* CoffeeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DB41ED2333DE9200FECAA4 /* CoffeeTimer.swift */; };
-		A5DB41F02333DFDC00FECAA4 /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DB41EF2333DFDC00FECAA4 /* TimerController.swift */; };
 		A5EC2407232C1F9900DC1263 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5EC2406232C1F9900DC1263 /* Account.storyboard */; };
 		A5EC2409232C1FA600DC1263 /* Learn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5EC2408232C1FA600DC1263 /* Learn.storyboard */; };
 		A5EC240B232C1FB600DC1263 /* Notes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5EC240A232C1FB600DC1263 /* Notes.storyboard */; };
@@ -69,8 +67,6 @@
 		A5A3279F232FF5AB00ED3CD4 /* CreateGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGuideViewController.swift; sourceTree = "<group>"; };
 		A5A327A1233006FB00ED3CD4 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		A5A327A323303A3800ED3CD4 /* StepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepController.swift; sourceTree = "<group>"; };
-		A5DB41ED2333DE9200FECAA4 /* CoffeeTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTimer.swift; sourceTree = "<group>"; };
-		A5DB41EF2333DFDC00FECAA4 /* TimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
 		A5EC2406232C1F9900DC1263 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		A5EC2408232C1FA600DC1263 /* Learn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Learn.storyboard; sourceTree = "<group>"; };
 		A5EC240A232C1FB600DC1263 /* Notes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notes.storyboard; sourceTree = "<group>"; };
@@ -137,7 +133,6 @@
 				A5079AA6232B51CA00AFE337 /* UserNote.swift */,
 				A5079AA8232B56F300AFE337 /* Guide.swift */,
 				A5A327A1233006FB00ED3CD4 /* Step.swift */,
-				A5DB41ED2333DE9200FECAA4 /* CoffeeTimer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -149,7 +144,6 @@
 				A51B495C232C059000C162F1 /* UserNoteController.swift */,
 				A51B495E232C0C4100C162F1 /* GuideController.swift */,
 				A5A327A323303A3800ED3CD4 /* StepController.swift */,
-				A5DB41EF2333DFDC00FECAA4 /* TimerController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -309,10 +303,8 @@
 				A5079AA3232B4D1500AFE337 /* User.swift in Sources */,
 				A51B495F232C0C4100C162F1 /* GuideController.swift in Sources */,
 				A5079AA7232B51CA00AFE337 /* UserNote.swift in Sources */,
-				A5DB41EE2333DE9200FECAA4 /* CoffeeTimer.swift in Sources */,
 				A5243774232EE07B00A3CC7D /* BrewCollectionViewCell.swift in Sources */,
 				A5A3279E232FF12200ED3CD4 /* StepsViewController.swift in Sources */,
-				A5DB41F02333DFDC00FECAA4 /* TimerController.swift in Sources */,
 				A5A32794232FE5F100ED3CD4 /* InstructionsViewController.swift in Sources */,
 				A577E13B232D6B8C001B80EB /* NoteDetailViewController.swift in Sources */,
 				A5243776232EE52A00A3CC7D /* BrewCollectionViewController.swift in Sources */,
