@@ -143,4 +143,102 @@ class GuideController {
         let separatedGuides = [userGuides, standardGuides]
         return separatedGuides
     }
+    
+    func standards() {
+        
+        // Chemex
+        let chemexUserGuide = false
+        let chemexTitle = "CHEMEX"
+        let chemexGrind = "Medium - Coarse"
+        let chemexCoffee = 42
+        let chemexSteps = [Step(duration: 10, amount: 150, type: .pour), Step(duration: 10, amount: nil, type: .stir), Step(duration: 25, amount: nil, type: .wait), Step(duration: 20, amount: 300, type: .pour), Step(duration: 40, amount: nil, type: .wait), Step(duration: 15, amount: 250, type: .pour), Step(duration: 120, amount: nil, type: .wait)]
+        var chemexTotalWater: Double {
+            var total: Double = 0
+            for step in chemexSteps {
+                if let amountOfWater = step.amountOfWater {
+                    total += amountOfWater
+                }
+            }
+            return total
+        }
+        let chemexPrep = """
+            Things you'll need:
+                8-cup Chemex
+                Chemex filter
+                42g of ground coffee
+                About 800g of almost boiling water (~205F)
+                Scale
+                Stir stick
+                Your favorite mug
+
+                - Place the filter with the single fold away from the spout
+                - Pour no more than 100g of water over the filter creating a nice even seal
+                    (this preheats our brewer, and gets rid of the paper taste)
+                - Holding the filter in place, discard the water
+                - Place coffee in the center of the filter, and zero out your scale
+                - You are ready to start brewing!
+            """
+        let chemexMethod = "CHEMEX"
+        let chemexMethodInfo = "The CHEMEX was invented in 1941 by Dr. Peter Schlumbohm, a chemist, who was inspired by lab equipment for it's design.  In 1943, it was even displayed in The Museum of Modern Art as one of the best-designed products."
+        let chemexMethodImage: UIImage
+        var chemexTotalTime: TimeInterval {
+            var total: TimeInterval = 0.0
+            for step in chemexSteps {
+                total += step.duration
+            }
+            return total
+        }
+        // AeroPress
+        let aeroUserGuide = false
+        let aeroTitle = "AeroPress"
+        let aeroGrind = "Medium - Coarse"
+        let aeroCoffee = 42
+        let aeroSteps = [Step(duration: 10, amount: 150, type: .pour), Step(duration: 10, amount: nil, type: .stir), Step(duration: 25, amount: nil, type: .wait), Step(duration: 20, amount: 300, type: .pour), Step(duration: 40, amount: nil, type: .wait), Step(duration: 15, amount: 250, type: .pour), Step(duration: 120, amount: nil, type: .wait)]
+        var aeroTotalWater: Double {
+            var total: Double = 0
+            for step in aeroSteps {
+                if let amountOfWater = step.amountOfWater {
+                    total += amountOfWater
+                }
+            }
+            return total
+        }
+        let aeroPrep = """
+            Things you'll need:
+                AeroPress Brewer
+                AeroPress filter
+                17g of ground coffee
+                Almost boiling water (~205F)
+                Scale
+                AeroPress paddle or stir stick
+                Your favorite mug
+
+                - Place the filter in the basket, and affix the basket to the bottom of the brew chamber
+                - Place the AeroPress on top of your mug
+                - Pour some hot water in the brew chamber, over the filter, and into your cup
+                    (this preheats our brewer, our mug, and gets rid of the paper taste)
+                - Discard the water from your mug, and place brewer back onto your mug
+                - Place coffee in the brew chamber
+                - You are ready to start brewing!
+            """
+        let aeroMethod = "AeroPress"
+        let aeroMethodInfo = "The CHEMEX was invented in 1941 by Dr. Peter Schlumbohm, a chemist, who was inspired by lab equipment for it's design.  In 1943, it was even displayed in The Museum of Modern Art as one of the best-designed products."
+        let aeroMethodImage: UIImage
+        var aeroTotalTime: TimeInterval {
+            var total: TimeInterval = 0.0
+            for step in aeroSteps {
+                total += step.duration
+            }
+            return total
+        }
+        // Moka Pot
+        // Kalita
+        // Hario V60
+        // Stagg
+        // French Press
+        
+        
+        
+    }
+    
 }

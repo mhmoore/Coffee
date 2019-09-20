@@ -66,7 +66,7 @@ class TimerViewController: UIViewController {
             
             // Total Time Label
             if self.counter == self.guide?.totalTime {
-                self.timerLabel.text = "Cheers!"
+                self.timerLabel.text = "Cheers! \nServe and enjoy!"
             }
         })
     }
