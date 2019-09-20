@@ -11,7 +11,7 @@ import UIKit
 class BrewCollectionViewController: UICollectionViewController {
     
     // MARK: - Properties
-    let filledGuides = BrewGuideController.shared.separatedGuides.compactMap ( {$0} )
+    let filledGuides = GuideController.shared.separatedGuides.compactMap ( {$0} )
     let paddings: CGFloat = 5.0
     let numberOfItemsPerRow: CGFloat = 3.0
     

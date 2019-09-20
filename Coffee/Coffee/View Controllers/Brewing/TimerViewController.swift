@@ -12,10 +12,9 @@ class TimerViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var stepsTableView: UITableView!
     @IBOutlet weak var currentWeightLabel: UILabel!
-    @IBOutlet weak var pouringWeightLabel: UILabel!
-    @IBOutlet weak var totalWeightLabel: UILabel! 
+    @IBOutlet weak var totalWeightLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
-
+    
     var guide: Guide?
     var timer = Timer()
     var counter: TimeInterval = 0
@@ -46,13 +45,24 @@ class TimerViewController: UIViewController {
             self.counter += 1
             let timeString = self.timeString(time: self.counter)
             self.timerLabel.text = timeString
-            if self.counter == self.guide?.steps[self.currentStep].duration {
+            var totalDuration: Double = 0.0
+            guard let duration1 = self.guide?.steps[self.currentStep].duration else { return }
+            if self.currentStep == 0 {
+                totalDuration = Double(duration1)
+            } else {
+                guard let duration2 = self.guide?.steps[self.currentStep - 1].duration else { return }
+                totalDuration = Double(duration1) + Double(duration2)
+            }
+            if self.counter == totalDuration {
                 self.currentStep += 1
                 if let currentWeight = self.guide?.steps[self.currentStep].amountOfWater {
                     self.currentWeightLabel.text = String(currentWeight)
                 } else {
                     self.currentWeightLabel.text = "0.0"
                 }
+            }
+            if self.counter == self.guide?.totalTime {
+                self.timerLabel.text = "Cheers!"
             }
         })
     }

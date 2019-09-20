@@ -76,7 +76,7 @@ class CreateGuideViewController: UIViewController {
             let grind = grindTextField.text,
             let coffee = Double(coffeeTextField.text!) else { return }
 
-        BrewGuideController.shared.saveGuide(userGuide: true, title: title, grind: grind, coffee: coffee, prep: guide.prep, steps: newSteps, method: guide.method, methodInfo: guide.methodInfo, methodImage: guide.methodImage) { (success) in
+        GuideController.shared.saveGuide(userGuide: true, title: title, grind: grind, coffee: coffee, prep: guide.prep, steps: newSteps, method: guide.method, methodInfo: guide.methodInfo, methodImage: guide.methodImage) { (success) in
             if success {
                 DispatchQueue.main.async {
                     guard let brewInstructionVC = UIStoryboard(name: "Brew", bundle: nil).instantiateViewController(withIdentifier: "brewInstructionVC") as? InstructionsViewController else { return }

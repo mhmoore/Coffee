@@ -10,9 +10,9 @@ import Foundation
 import CloudKit
 import UIKit.UIImage
 
-class BrewGuideController {
+class GuideController {
     // MARK: - Properties
-    static let shared = BrewGuideController()
+    static let shared = GuideController()
     var guides: [Guide] = []
     var userGuides: [Guide] = []
     var standardGuides: [Guide] = []
