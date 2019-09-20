@@ -13,24 +13,24 @@ class StepController {
     static let shared = StepController()
     var steps: [Step] = []
     
-//    init() {
-//        let duration = 5
-//        let amount = 120.0
-//        let type = StepType.pour
-//        
-//        let duration3 = 3
-//        let amount3 = 10.0
-//        let type3 = StepType.pour
-//        
-//        let duration2 = 7
-//        let type2 = StepType.stir
-//        
-//        let chemexStep3: Step = Step(duration: TimeInterval(duration3), amount: amount3, type: type3)
-//        let chemexStep1: Step = Step(duration: TimeInterval(duration), amount: amount, type: type)
-//        let chemexStep2: Step = Step(duration: TimeInterval(duration2), amount: nil, type: type2)
-//        
-//        steps = [chemexStep1, chemexStep2, chemexStep3]
-//    }
+    init() {
+        let duration = 5
+        let amount = 120.0
+        let type = StepType.pour
+        
+        let duration3 = 3
+        let amount3 = 10.0
+        let type3 = StepType.pour
+        
+        let duration2 = 7
+        let type2 = StepType.stir
+        
+        let chemexStep3: Step = Step(duration: TimeInterval(duration3), amount: amount3, type: type3, stepString:)
+        let chemexStep1: Step = Step(duration: TimeInterval(duration), amount: amount, type: type)
+        let chemexStep2: Step = Step(duration: TimeInterval(duration2), amount: nil, type: type2)
+        
+        steps = [chemexStep1, chemexStep2, chemexStep3]
+    }
     
     func createStep(time: TimeInterval, amount: Double?, type: StepType) -> Step {
         let newStep = Step(duration: time, amount: amount, type: type)
