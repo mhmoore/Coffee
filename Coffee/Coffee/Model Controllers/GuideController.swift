@@ -10,9 +10,9 @@ import Foundation
 import CloudKit
 import UIKit.UIImage
 
-class BrewGuideController {
+class GuideController {
     // MARK: - Properties
-    static let shared = BrewGuideController()
+    static let shared = GuideController()
     var guides: [Guide] = []
     var userGuides: [Guide] = []
     var standardGuides: [Guide] = []
@@ -22,43 +22,48 @@ class BrewGuideController {
         }
     }
     let privateDB = CKContainer.default().privateCloudDatabase
-
+    
     // MARK: - Mock Data
-    init() {
-
-        let userGuide1 = true
-        let title1 = "My Chemex"
-        let grind1 = "medium"
-        let coffee1 = 26.7
-        let prep1 = "asdgrgth"
-        let steps1 = StepController.shared.steps
-        let method1 = "Chemex"
-        let methodInfo1 = "dfadfas"
-        let methodImage1 = UIImage(named: "chemex")!
-
-        let myChemex = Guide(userGuide: userGuide1, title: title1, grind: grind1, coffee: coffee1, prep: prep1, steps: steps1, method: method1, methodInfo: methodInfo1, methodImage: methodImage1)
-
-        let userGuide = false
-        let title = "Chemex"
-        let grind = "medium"
-        let coffee = 26.7
-        let prep = "asdgrgth"
-        let steps = StepController.shared.steps
-        let method = "Chemex"
-        let methodInfo = "dfadfas"
-        let methodImage = UIImage(named: "chemex")!
-
-        let chemex = Guide(userGuide: userGuide, title: title, grind: grind, coffee: coffee, prep: prep, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage)
-
-        guides = [chemex, myChemex]
-    }
+//    init() {
+//
+//        let userGuide1 = true
+//        let title1 = "My Chemex"
+//        let grind1 = "medium"
+//        let coffee1 = 26.7
+//        let prep1 = "asdgrgth"
+//        let steps1 = StepController.shared.steps
+//        let method1 = "Chemex"
+//        let methodInfo1 = "dfadfas"
+//        let methodImage1 = UIImage(named: "chemex")!
+//
+//        createGuide(userGuide: userGuide1, title: title1, grind: grind1, coffee: coffee1, prep: prep1, steps: steps1, method: method1, methodInfo: methodInfo1, methodImage: methodImage1)
+//
+//        let userGuide = false
+//        let title = "Chemex"
+//        let grind = "medium"
+//        let coffee = 26.7
+//        let prep = "asdgrgth"
+//        let steps = StepController.shared.steps
+//        let method = "Chemex"
+//        let methodInfo = "dfadfas"
+//        let methodImage = UIImage(named: "chemex")!
+//
+//        createGuide(userGuide: userGuide, title: title, grind: grind, coffee: coffee, prep: prep, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage)
+//    }
     
     // MARK: - CRUD
-    func saveGuide(userGuide: Bool, title: String, grind: String, coffee: Double, prep: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage, completion: @escaping (Bool) -> Void) {
-        
+    func createGuide(userGuide: Bool = true, title: String, grind: String, coffee: Double, prep: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage) {
         let guide = Guide(userGuide: userGuide, title: title, grind: grind, coffee: coffee, prep: prep, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage)
-        let guideRecord = CKRecord(brewGuide: guide)
         guides.insert(guide, at: 0)
+        saveGuide(guide: guide) { (success) in
+            if success {
+                print("The created guide was saved")
+            }
+        }
+    }
+    
+    func saveGuide(guide: Guide, completion: @escaping (Bool) -> Void) {
+        let guideRecord = CKRecord(brewGuide: guide)
         privateDB.save(guideRecord) { (_, error) in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")

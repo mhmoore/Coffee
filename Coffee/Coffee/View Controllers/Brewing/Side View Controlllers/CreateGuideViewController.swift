@@ -61,7 +61,7 @@ class CreateGuideViewController: UIViewController {
     }
     
     @IBAction func editButtonTapped(_ sender: Any) {
-       stepsTableView.isEditing = !stepsTableView.isEditing
+        stepsTableView.isEditing = !stepsTableView.isEditing
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
@@ -75,21 +75,20 @@ class CreateGuideViewController: UIViewController {
             let title = titleTextField.text,
             let grind = grindTextField.text,
             let coffee = Double(coffeeTextField.text!) else { return }
-
-        BrewGuideController.shared.saveGuide(userGuide: true, title: title, grind: grind, coffee: coffee, prep: guide.prep, steps: newSteps, method: guide.method, methodInfo: guide.methodInfo, methodImage: guide.methodImage) { (success) in
-            if success {
-                DispatchQueue.main.async {
-                    guard let brewInstructionVC = UIStoryboard(name: "Brew", bundle: nil).instantiateViewController(withIdentifier: "brewInstructionVC") as? InstructionsViewController else { return }
-                    brewInstructionVC.guide = self.guide
-                    self.dismiss(animated: true, completion: nil)
-                }
-            } else {
-                print("There was an error saving the User's Guide")
-            }
+        GuideController.shared.createGuide(title: title, grind: grind, coffee: coffee, prep: guide.prep, steps: newSteps, method: guide.method, methodInfo: guide.methodInfo, methodImage: guide.methodImage)
+        presentInstructionVC()
+    }
+    
+    
+    // MARK: - Custom Methods
+    func presentInstructionVC() {
+        DispatchQueue.main.async {
+            guard let brewInstructionVC = UIStoryboard(name: "Brew", bundle: nil).instantiateViewController(withIdentifier: "brewInstructionVC") as? InstructionsViewController else { return }
+            brewInstructionVC.guide = self.guide
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
-    // MARK: - Custom Methods
     func update(view: UIView) {
         guard let stepTypeSegmentedControl = stepTypeSegmentedControl else { return }
         let type = stepTypeSegmentedControl.selectedSegmentIndex
@@ -149,7 +148,7 @@ extension CreateGuideViewController: UITableViewDataSource, UITableViewDelegate 
             updateViews()
         }
     }
-
+    
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return true
     }
