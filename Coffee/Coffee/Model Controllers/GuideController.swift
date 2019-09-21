@@ -13,9 +13,9 @@ class GuideController {
     // MARK: - Properties
     static let shared = GuideController()
     var guides: [Guide] = []
-    var userGuides: [Guide] = []
+    var userGuides: [Guide]?
     var standardGuides: [Guide] = []
-    var separatedGuides: [[Guide]] {
+    var separatedGuides: [[Guide]?] {
         get {
             return separate(guides: guides)
         }
@@ -40,22 +40,21 @@ class GuideController {
         
         createGuide(userGuide: userGuide, title: title, grind: grind, grindImage: grindImage!, coffee: coffee, waters: waters, times: times, yields: yields, ratio: ratio, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage!)
         
-        let userGuide1 = true
-        let title1 = "CHEMEX"
-        let grind1 = "Medium - Coarse"
-        let grindImage1 = UIImage(named: "chemex")
-        let coffee1 = 26.7
-        let waters1 = [23.2]
-        let times1 = [23.8]
-        let yields1 = "20"
-        let ratio1 = "6:1"
-        let steps1 = StepController.shared.steps
-        let method1 = "CHEMEX"
-        let methodInfo1 = "dsfjaf"
-        let methodImage1 = UIImage(named: "chemex")
-        
-        createGuide(userGuide: userGuide1, title: title1, grind: grind1, grindImage: grindImage1!, coffee: coffee1, waters: waters1, times: times1, yields: yields1, ratio: ratio1, steps: steps1, method: method1, methodInfo: methodInfo1, methodImage: methodImage1!)
-        
+//        let userGuide1 = true
+//        let title1 = "CHEMEX"
+//        let grind1 = "Medium - Coarse"
+//        let grindImage1 = UIImage(named: "chemex")
+//        let coffee1 = 26.7
+//        let waters1 = [23.2]
+//        let times1 = [23.8]
+//        let yields1 = "20"
+//        let ratio1 = "6:1"
+//        let steps1 = StepController.shared.steps
+//        let method1 = "CHEMEX"
+//        let methodInfo1 = "dsfjaf"
+//        let methodImage1 = UIImage(named: "chemex")
+//
+//        createGuide(userGuide: userGuide1, title: title1, grind: grind1, grindImage: grindImage1!, coffee: coffee1, waters: waters1, times: times1, yields: yields1, ratio: ratio1, steps: steps1, method: method1, methodInfo: methodInfo1, methodImage: methodImage1!)
     }
     
     
@@ -149,9 +148,10 @@ class GuideController {
 //    }
     
     // MARK: - Custom Methods
-    func separate(guides: [Guide]) -> [[Guide]] {
+    func separate(guides: [Guide]) -> [[Guide]?] {
         for guide in guides {
             if guide.userGuide == true {
+                guard var userGuides = userGuides else { return [standardGuides] }
                 userGuides.append(guide)
             } else {
                 standardGuides.append(guide)
