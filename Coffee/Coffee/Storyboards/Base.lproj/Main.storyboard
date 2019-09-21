@@ -31,10 +31,10 @@
             </objects>
             <point key="canvasLocation" x="116" y="-242"/>
         </scene>
-        <!--Brew-->
+        <!--Home-->
         <scene sceneID="sLN-7v-lc4">
             <objects>
-                <viewControllerPlaceholder storyboardName="Brew" id="gNS-dg-KN0" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Home" id="gNS-dg-KN0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="rCn-S2-192"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uNr-uJ-eJD" userLabel="First Responder" sceneMemberID="firstResponder"/>

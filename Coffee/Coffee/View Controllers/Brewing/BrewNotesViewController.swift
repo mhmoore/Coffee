@@ -29,11 +29,14 @@ class BrewNotesViewController: UIViewController {
             let coffeeName = coffeeNameTextField.text,
             let origin = originTextField.text,
             let grind = grindTextField.text,
+            let ratio = grindTextField.text, // TODO: change when have ratio text field
             let method = methodTextField.text,
             let notes = notesTextView.text else { return }
+        
+        UserNoteController.shared.createNote(roaster: roaster, coffeeName: coffeeName, origin: origin, grind: grind, ratio:ratio, tastingNotes: notes, method: method)
             
-        UserNoteController.shared.createNote(roaster: roaster, coffeeName: coffeeName, origin: origin, grind: grind, tastingNotes: notes, method: method)
-        presentNotesVC()
+//        UserNoteController.shared.createNote(roaster: roaster, coffeeName: coffeeName, origin: origin, grind: grind, tastingNotes: notes, method: method)
+//        presentNotesVC()
     }
 
     // MARK: - Custom Methods

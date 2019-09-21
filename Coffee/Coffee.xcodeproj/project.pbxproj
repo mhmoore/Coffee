@@ -32,6 +32,10 @@
 		A5A327A0232FF5AB00ED3CD4 /* CreateGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A3279F232FF5AB00ED3CD4 /* CreateGuideViewController.swift */; };
 		A5A327A2233006FB00ED3CD4 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A327A1233006FB00ED3CD4 /* Step.swift */; };
 		A5A327A423303A3800ED3CD4 /* StepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A327A323303A3800ED3CD4 /* StepController.swift */; };
+		A5D4E254233570C10053CB21 /* BrewingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D4E253233570C10053CB21 /* BrewingTableViewController.swift */; };
+		A5D4E256233571D10053CB21 /* BrewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D4E255233571D10053CB21 /* BrewTableViewCell.swift */; };
+		A5D4E258233586AE0053CB21 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D4E257233586AE0053CB21 /* InstructionViewController.swift */; };
+		A5DB41F223356DA500FECAA4 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5DB41F123356DA500FECAA4 /* Home.storyboard */; };
 		A5EC2407232C1F9900DC1263 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5EC2406232C1F9900DC1263 /* Account.storyboard */; };
 		A5EC2409232C1FA600DC1263 /* Learn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5EC2408232C1FA600DC1263 /* Learn.storyboard */; };
 		A5EC240B232C1FB600DC1263 /* Notes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5EC240A232C1FB600DC1263 /* Notes.storyboard */; };
@@ -67,6 +71,10 @@
 		A5A3279F232FF5AB00ED3CD4 /* CreateGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGuideViewController.swift; sourceTree = "<group>"; };
 		A5A327A1233006FB00ED3CD4 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		A5A327A323303A3800ED3CD4 /* StepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepController.swift; sourceTree = "<group>"; };
+		A5D4E253233570C10053CB21 /* BrewingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewingTableViewController.swift; sourceTree = "<group>"; };
+		A5D4E255233571D10053CB21 /* BrewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewTableViewCell.swift; sourceTree = "<group>"; };
+		A5D4E257233586AE0053CB21 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
+		A5DB41F123356DA500FECAA4 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		A5EC2406232C1F9900DC1263 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		A5EC2408232C1FA600DC1263 /* Learn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Learn.storyboard; sourceTree = "<group>"; };
 		A5EC240A232C1FB600DC1263 /* Notes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notes.storyboard; sourceTree = "<group>"; };
@@ -89,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				A5079A8B232B4C6B00AFE337 /* Coffee */,
+				A571128D2331F02A0013F6DC /* Side View Controlllers */,
 				A5079A8A232B4C6B00AFE337 /* Products */,
 				A51B4959232C008000C162F1 /* Frameworks */,
 			);
@@ -152,7 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				A5A3279A232FEA4F00ED3CD4 /* Notes */,
-				A577E13C232D734B001B80EB /* AccountViewController.swift */,
 				A5A32799232FEA3000ED3CD4 /* Brewing */,
 			);
 			path = "View Controllers";
@@ -169,11 +177,16 @@
 		A571128D2331F02A0013F6DC /* Side View Controlllers */ = {
 			isa = PBXGroup;
 			children = (
-				A5243773232EE07B00A3CC7D /* BrewCollectionViewCell.swift */,
-				A5A3279F232FF5AB00ED3CD4 /* CreateGuideViewController.swift */,
+				A5EC240E232C216900DC1263 /* Brew.storyboard */,
+				A5EC2406232C1F9900DC1263 /* Account.storyboard */,
+				A5D4E253233570C10053CB21 /* BrewingTableViewController.swift */,
+				A5D4E255233571D10053CB21 /* BrewTableViewCell.swift */,
+				A577E13C232D734B001B80EB /* AccountViewController.swift */,
+				A5A32795232FE96500ED3CD4 /* TimerViewController.swift */,
+				A5A32793232FE5F100ED3CD4 /* InstructionsViewController.swift */,
 				A5A3279B232FF11300ED3CD4 /* PrepViewController.swift */,
 				A5A3279D232FF12200ED3CD4 /* StepsViewController.swift */,
-				A5A32791232F487300ED3CD4 /* SectionHeaderCollectionReusableView.swift */,
+				A5A3279F232FF5AB00ED3CD4 /* CreateGuideViewController.swift */,
 			);
 			path = "Side View Controlllers";
 			sourceTree = "<group>";
@@ -182,10 +195,10 @@
 			isa = PBXGroup;
 			children = (
 				A5243775232EE52A00A3CC7D /* BrewCollectionViewController.swift */,
-				A5A32793232FE5F100ED3CD4 /* InstructionsViewController.swift */,
-				A5A32795232FE96500ED3CD4 /* TimerViewController.swift */,
+				A5A32791232F487300ED3CD4 /* SectionHeaderCollectionReusableView.swift */,
+				A5243773232EE07B00A3CC7D /* BrewCollectionViewCell.swift */,
+				A5D4E257233586AE0053CB21 /* InstructionViewController.swift */,
 				A5A32797232FE9A100ED3CD4 /* BrewNotesViewController.swift */,
-				A571128D2331F02A0013F6DC /* Side View Controlllers */,
 			);
 			path = Brewing;
 			sourceTree = "<group>";
@@ -203,10 +216,9 @@
 			isa = PBXGroup;
 			children = (
 				A5079A90232B4C6B00AFE337 /* Main.storyboard */,
-				A5EC240E232C216900DC1263 /* Brew.storyboard */,
+				A5DB41F123356DA500FECAA4 /* Home.storyboard */,
 				A5EC240A232C1FB600DC1263 /* Notes.storyboard */,
 				A5EC2408232C1FA600DC1263 /* Learn.storyboard */,
-				A5EC2406232C1F9900DC1263 /* Account.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -284,6 +296,7 @@
 				A5EC2409232C1FA600DC1263 /* Learn.storyboard in Resources */,
 				A5EC2407232C1F9900DC1263 /* Account.storyboard in Resources */,
 				A5079A92232B4C6B00AFE337 /* Main.storyboard in Resources */,
+				A5DB41F223356DA500FECAA4 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,11 +310,14 @@
 				A5A32798232FE9A100ED3CD4 /* BrewNotesViewController.swift in Sources */,
 				A51B4957232BFBF200C162F1 /* UserController.swift in Sources */,
 				A51B495D232C059000C162F1 /* UserNoteController.swift in Sources */,
+				A5D4E258233586AE0053CB21 /* InstructionViewController.swift in Sources */,
 				A5A32796232FE96500ED3CD4 /* TimerViewController.swift in Sources */,
 				A5079AA9232B56F300AFE337 /* Guide.swift in Sources */,
 				A5A3279C232FF11300ED3CD4 /* PrepViewController.swift in Sources */,
+				A5D4E254233570C10053CB21 /* BrewingTableViewController.swift in Sources */,
 				A5079AA3232B4D1500AFE337 /* User.swift in Sources */,
 				A51B495F232C0C4100C162F1 /* GuideController.swift in Sources */,
+				A5D4E256233571D10053CB21 /* BrewTableViewCell.swift in Sources */,
 				A5079AA7232B51CA00AFE337 /* UserNote.swift in Sources */,
 				A5243774232EE07B00A3CC7D /* BrewCollectionViewCell.swift in Sources */,
 				A5A3279E232FF12200ED3CD4 /* StepsViewController.swift in Sources */,

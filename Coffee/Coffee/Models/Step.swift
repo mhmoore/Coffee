@@ -7,33 +7,37 @@
 //
 
 import Foundation
+import UIKit.UIImage
 
 class Step {
+    var title: String
+    var water: Double?
+    var time: TimeInterval?
+    var coffee: Double?
+    var text: String
+    var timerLabel: Bool
+    var variableSlider: Bool
     
-    var duration: TimeInterval
-    var amountOfWater: Double?
-    var type: StepType
-    var stepString: String
-    
-    init(duration: TimeInterval, amount: Double?, type: StepType, stepString: String) {
-        self.duration = duration
-        self.amountOfWater = amount
-        self.type = type
-        self.stepString = stepString
+    init(title: String, water: Double?, time: TimeInterval?, coffee: Double?, text: String, timerLabel: Bool, variableSlider: Bool) {
+        self.title = title
+        self.water = water
+        self.time = time
+        self.coffee = coffee
+        self.text = text
+        self.timerLabel = timerLabel
+        self.variableSlider = variableSlider
     }
-}
-
-enum StepType: Int {
-    case pour
-    case stir
-    case wait
 }
 
 extension Step: Equatable {
     static func == (lhs: Step, rhs: Step) -> Bool {
-        return  lhs.duration == rhs.duration &&
-                lhs.amountOfWater == rhs.amountOfWater &&
-                lhs.type == rhs.type &&
-                lhs.stepString == rhs.stepString
+        return lhs.title == rhs.title &&
+                lhs.water == rhs.water &&
+                lhs.time == rhs.time &&
+                lhs.timerLabel == rhs.timerLabel &&
+                lhs.variableSlider == rhs.variableSlider &&
+                lhs.coffee == rhs.coffee &&
+                lhs.text == rhs.text
     }
 }
+

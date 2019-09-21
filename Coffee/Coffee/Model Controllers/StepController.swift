@@ -14,59 +14,70 @@ class StepController {
     var steps: [Step] = []
     
     init() {
-        let duration = 5
-        let amount = 120.0
-        let type = StepType.pour
         
-        let duration3 = 3
-        let amount3 = 10.0
-        let type3 = StepType.pour
+        let title = "Pour"
+        let water = 150.0
+        let time = 10.0
+        let coffee = 0.0
+        let text = "hdjskafo"
         
-        let duration2 = 7
-        let type2 = StepType.stir
+        createStep(title: title, water: water, time: time, coffee: coffee, text: text)
         
-        let chemexStep3: Step = Step(duration: TimeInterval(duration3), amount: amount3, type: type3, stepString:)
-        let chemexStep1: Step = Step(duration: TimeInterval(duration), amount: amount, type: type)
-        let chemexStep2: Step = Step(duration: TimeInterval(duration2), amount: nil, type: type2)
+        let title1 = "Weigh"
+        let water1 = 0.0
+        let time1 = 0.0
+        let coffee1 = 20.0
+        let text1 = "hdjskafo"
         
-        steps = [chemexStep1, chemexStep2, chemexStep3]
+        createStep(title: title1, water: water1, time: time1, coffee: coffee1, text: text1)
     }
     
-    func createStep(time: TimeInterval, amount: Double?, type: StepType) -> Step {
-        let newStep = Step(duration: time, amount: amount, type: type)
-        steps.append(newStep)
-        return newStep
-    }
-    
-    func stepsAsStrings(steps: [Step]) -> [String] {
-        var stepStrings: [String] = []
-        for step in steps {
-            if let amount = step.amountOfWater {
-                if step.type == .pour {
-                    let pourStep = "Pour \(amount)g of water over \(step.duration) seconds"
-                    stepStrings.append(pourStep)
-                }
-            } else if step.type == .stir {
-                let stirStep = "Stir for \(step.duration) seconds"
-                stepStrings.append(stirStep)
-            } else {
-                let waitStep = "Wait for \(step.duration) seconds"
-                stepStrings.append(waitStep)
-            }
-            
+    func createStep(title: String, water: Double?, time: TimeInterval?, coffee: Double?, text: String) {
+        guard let time = time else { return }
+        if water != 0.0 {
+            let newStep = Step(title: title, water: water, time: time, coffee: coffee, text: text, timerLabel: true, variableSlider: false)
+            steps.append(newStep)
+        } else if coffee != 0.0 {
+            let newStep = Step(title: title, water: water, time: time, coffee: coffee, text: text, timerLabel: false, variableSlider: true)
+            steps.append(newStep)
+        } else {
+            let newStep = Step(title: title, water: water, time: time, coffee: coffee, text: text, timerLabel: true, variableSlider: false)
+            steps.append(newStep)
         }
-        return stepStrings
     }
     
-    func update(step: Step, time: TimeInterval?, amount: Double?, type: StepType) {
-        guard let time = time, let amount = amount else { return }
-        step.duration = time
-        step.amountOfWater = amount
-        step.type = type
+    func update(step: Step, title: String?, water: Double?, time: TimeInterval?, coffee: Double?, text: String?) {
+        guard let title = title, let text = text else { return }
+        if water != nil {
+            step.title = title
+            step.water = water
+            step.time = time
+            step.coffee = coffee
+            step.text = text
+            step.timerLabel = true
+            step.variableSlider = false
+        } else if coffee != nil {
+            step.title = title
+            step.water = water
+            step.time = time
+            step.coffee = coffee
+            step.text = text
+            step.timerLabel = false
+            step.variableSlider = true
+        } else {
+            step.title = title
+            step.water = water
+            step.time = time
+            step.coffee = coffee
+            step.text = text
+            step.timerLabel = true
+            step.variableSlider = false
+        }
     }
     
-    func delete(step: Step) {
+    func remove(step: Step) {
         guard let index = steps.firstIndex(of: step) else { return }
         steps.remove(at: index)
     }
+    
 }
