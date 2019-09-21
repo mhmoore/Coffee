@@ -9,63 +9,87 @@
 import UIKit
 
 class InstructionViewController: UIViewController {
+    // MARK: - Properties
     @IBOutlet weak var methodImage: UIImageView!
     @IBOutlet weak var stepsLabel: UILabel!
     @IBOutlet weak var coffeeSlider: UISlider!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var downButton: UIButton!
+    @IBOutlet weak var upButton: UIButton!
     
     var guide: Guide?
     var currentStep = 0
     var timer = Timer()
-    var counter = 0.0
-    var progress = Progress(totalUnitCount: 100)
+    var counter: Double = 0
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = guide?.title
         updateView()
     }
-    @IBAction func coffeeSliderChanged(_ sender: Any) {
-        timerLabel.text = "\(coffeeSlider.value)"
+    
+    // MARK: - Actions
+    
+    // Timer Functions
+    @IBAction func upButtonTapped(_ sender: Any) {
         guard let guide = guide else { return }
-        guide.coffee = Double(coffeeSlider.value)
+        guide.userGuide = true
+        counter += 1
+        guide.steps[currentStep].time = counter
+        updateView()
+    }
+    
+    @IBAction func downButtonTapped(_ sender: Any) {
+        guard let guide = guide else { return }
+        guide.userGuide = true
+        counter -= 1
+        guide.steps[currentStep].time = counter
+        updateView()
     }
     @IBAction func startButtonTapped(_ sender: Any) {
         startTimer()
     }
-    
-    @IBAction func nextButtonTapped(_ sender: Any) {
-        currentStep += 1
-        print(currentStep)
+    // Coffee Functions
+    @IBAction func coffeeSliderChanged(_ sender: Any) {
+        
+        timerLabel.text = "\(coffeeSlider.value)"
         guard let guide = guide else { return }
-        if currentStep != guide.steps.count {
+        guide.userGuide = true
+        guide.coffee = Double(coffeeSlider.value)
+    }
+    // Step Functions
+    @IBAction func nextButtonTapped(_ sender: Any) {
+        guard let guide = guide else { return }
+        if (currentStep + 1) == guide.steps.count {
+            performSegue(withIdentifier: "toBrewNotesVC", sender: nextButton)
+        } else {
+            currentStep += 1
             updateView()
         }
     }
     
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toBrewNotesVC" {
+            guard let destinationVC = segue.destination as? BrewNotesViewController else { return }
+                destinationVC.guide = guide
+        }
+    }
+    
+    // MARK: - Custom Methods
     func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
-            guard let guide = self.guide,
-                let time = guide.steps[self.currentStep].time else { return }
-            guard self.counter < Double(time) else { self.timer.invalidate(); return }
-            self.counter += 1
-            let timeString = self.timeString(time: self.counter)
+            guard self.counter > 0 else { self.timer.invalidate(); return }
+            self.counter -= 1
+            print(self.counter)
+            let timeString = self.timeAsString(time: self.counter)
             self.timerLabel.text = timeString
-            
-            self.progressView.progress = 0.0
-            self.progress.completedUnitCount = 0
-            
-            self.progress.totalUnitCount = Int64(time)
-            self.progress.completedUnitCount += 1
-            let progressFloat = Float(self.progress.fractionCompleted)
-            self.progressView.setProgress(progressFloat, animated: true)
         })
     }
     
-    func timeString(time: TimeInterval) -> String {
+    func timeAsString(time: TimeInterval) -> String {
         let minutes = Int(time) / 60
         let seconds = Int(time) % 60
         let timeString = String(format: "%02d:%02d", minutes, seconds)
@@ -74,26 +98,29 @@ class InstructionViewController: UIViewController {
     
     func updateView() {
         guard let guide = guide else { return }
+        title = guide.title
         stepsLabel.text = guide.steps[currentStep].text
         methodImage.image = guide.methodImage
-        progressView.transform.scaledBy(x: 1, y: 3)
+        coffeeSlider.minimumValue = Float(guide.coffee - 10)
+        coffeeSlider.maximumValue = Float(guide.coffee + 10)
+        
         coffeeSlider.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
         
         if guide.steps[currentStep].timerLabel == true {
+            guard let time = guide.steps[currentStep].time else { return }
+            counter = time
+            let timeString = timeAsString(time: time)
+            timerLabel.text = timeString
+            startButton.isHidden = false
+            upButton.isHidden = false
+            downButton.isHidden = false
             coffeeSlider.isHidden = true
         } else {
+            timerLabel.text = "\(guide.coffee)"
             startButton.isHidden = true
-            progressView.isHidden = true
-        }
-    }
-    
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toBrewNotesVC" {
-            guard let guide = guide,
-                let destinationVC = segue.destination as? BrewNotesViewController else { return }
-            destinationVC.guide = guide
+            upButton.isHidden = true
+            downButton.isHidden = true
+            coffeeSlider.isHidden = false
         }
     }
 }

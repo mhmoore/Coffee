@@ -15,14 +15,6 @@ class StepController {
     
     init() {
         
-        let title = "Pour"
-        let water = 150.0
-        let time = 10.0
-        let coffee = 0.0
-        let text = "hdjskafo"
-        
-        createStep(title: title, water: water, time: time, coffee: coffee, text: text)
-        
         let title1 = "Weigh"
         let water1 = 0.0
         let time1 = 0.0
@@ -30,6 +22,14 @@ class StepController {
         let text1 = "hdjskafo"
         
         createStep(title: title1, water: water1, time: time1, coffee: coffee1, text: text1)
+        
+        let title = "Pour"
+        let water = 150.0
+        let time = 10.0
+        let coffee = 0.0
+        let text = "hdjskafo"
+        
+        createStep(title: title, water: water, time: time, coffee: coffee, text: text)
     }
     
     func createStep(title: String, water: Double?, time: TimeInterval?, coffee: Double?, text: String) {
