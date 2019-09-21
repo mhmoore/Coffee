@@ -13,13 +13,8 @@ class NotesListTableViewController: UITableViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
-    }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        tableView.reloadData()
-//    }
+    }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,13 +56,13 @@ class NotesListTableViewController: UITableViewController {
     }
     
     // MARK: - Custom Methods
-    func loadData() {
-        UserNoteController.shared.fetchNotes { (success) in
-            if success {
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    }
+//    func loadData() {
+//        UserNoteController.shared.fetchNotes { (success) in
+//            if success {
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
+//            }
+//        }
+//    }
 }

@@ -59,11 +59,11 @@ class BrewCollectionViewController: UICollectionViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toBrewInstructionVC" {
+        if segue.identifier == "toInstructionVC" {
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
             let category = filledGuides[indexPath.section]
             let guide = category[indexPath.item]
-            guard let destinationVC = segue.destination as? InstructionsViewController else { return }
+            guard let destinationVC = segue.destination as? InstructionViewController else { return }
             destinationVC.guide = guide
         }
     }
