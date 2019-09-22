@@ -79,7 +79,7 @@ class UserNoteController {
 //        privateDB.add(modificationOp)
     }
     
-    func delete(note: UserNote, completion: @escaping (Bool) -> Void) {
+    func delete(note: UserNote) {
 //        guard let noteRecord = note.ckRecordID,
             guard let firstIndex = self.notes.firstIndex(of: note) else { return }
         notes.remove(at: firstIndex)

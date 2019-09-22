@@ -42,17 +42,21 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wq2-UV-Wy1">
                                 <rect key="frame" x="29" y="668" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Logout"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <action selector="logoutButtonTapped:" destination="BSw-S1-tjx" eventType="touchUpInside" id="1du-W4-OFY"/>
+                                    <action selector="logoutButtonTapped:" destination="BSw-S1-tjx" eventType="touchUpInside" id="vEU-35-nG8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDQ-RV-Y0L">
                                 <rect key="frame" x="30" y="734" width="105" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Delete Account"/>
+                                <state key="normal" title="Delete Account">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <action selector="deleteAccountButtonTapped:" destination="BSw-S1-tjx" eventType="touchUpInside" id="hJC-Or-8sz"/>
+                                    <action selector="deleteButtonTapped:" destination="BSw-S1-tjx" eventType="touchUpInside" id="OtD-BD-rdc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(Name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nW-zV-XZN">
@@ -76,8 +80,8 @@
                     <tabBarItem key="tabBarItem" systemItem="mostViewed" id="O4L-h1-8nD"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="emailTextLabel" destination="H5j-fZ-CNs" id="oW6-16-G8Q"/>
-                        <outlet property="nameTextLabel" destination="7nW-zV-XZN" id="3W1-ep-LKL"/>
+                        <outlet property="emailDisplayLabel" destination="H5j-fZ-CNs" id="DB0-Vb-FOK"/>
+                        <outlet property="nameDisplayLabel" destination="7nW-zV-XZN" id="qVz-B4-ggA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h9n-Rm-TJf" userLabel="First Responder" sceneMemberID="firstResponder"/>

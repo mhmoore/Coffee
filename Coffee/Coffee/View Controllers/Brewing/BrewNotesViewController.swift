@@ -29,13 +29,11 @@ class BrewNotesViewController: UIViewController {
     @IBAction func skipButtonTapped(_ sender: Any) {
         guard let guide = guide else { return }
         if GuideController.shared.userGuides == nil && guide.userGuide == true {
-            presentAlert()
-        } else if let userGuides = GuideController.shared.userGuides {
-            if guide.userGuide == true && !userGuides.contains(guide) {
-                presentAlert()
-            } else {
-                presentBrewsVC()
-            }
+            saveAlert()
+        } else if GuideController.shared.userGuides == nil && guide.userGuide == false {
+            presentBrewsVC()
+        } else if guide.userGuide == true && !GuideController.shared.userGuides!.contains(guide) {
+            saveAlert()
         }
     }
     
@@ -52,50 +50,88 @@ class BrewNotesViewController: UIViewController {
         
         guard let guide = guide else { return }
         if GuideController.shared.userGuides == nil && guide.userGuide == true {
-            presentAlert()
-        } else if let userGuides = GuideController.shared.userGuides {
-            if guide.userGuide == true && !userGuides.contains(guide) {
-                presentAlert()
-            } else {
-                presentBrewsVC()
-            }
+            saveAlert()
+        } else if GuideController.shared.userGuides == nil && guide.userGuide == false {
+            presentBrewsVC()
+        } else if guide.userGuide == true && !GuideController.shared.userGuides!.contains(guide) {
+            saveAlert()
         }
-            
-//        UserNoteController.shared.createNote(roaster: roaster, coffeeName: coffeeName, origin: origin, grind: grind, tastingNotes: notes, method: method)
-//        presentNotesVC()
-    }
-
-    // MARK: - Custom Methods
-    func presentBrewsVC() {
-        guard let brewsVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "brewsVC") as? BrewCollectionViewController else { return }
-        present(brewsVC, animated: true, completion: nil)
     }
     
-    func presentAlert() {
+    //        UserNoteController.shared.createNote(roaster: roaster, coffeeName: coffeeName, origin: origin, grind: grind, tastingNotes: notes, method: method)
+    //        presentNotesVC()
+    
+    
+    // MARK: - Custom Methods
+    func presentBrewsVC() {
+        guard let brewsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? MainViewController else { return }
+        present(brewsVC, animated: true)
+    }
+    
+    func saveAlert() {
         let alert = UIAlertController(title: "Create a guide?", message: "Would you like to save the changes you made?", preferredStyle: .alert)
+        let yes = UIAlertAction(title: "Yes please", style: .default) { (_) in
+            self.titleAlert()
+        }
+        let nah = UIAlertAction(title: "Nah", style: .default) { (_) in
+            self.presentBrewsVC()
+        }
+        alert.addAction(yes)
+        alert.addAction(nah)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func titleAlert() {
+        let alert = UIAlertController(title: "Give it a title", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Title your guide"
+        }
+        let textField = alert.textFields?.first
         let save = UIAlertAction(title: "Save", style: .default) { (_) in
             guard let guide = self.guide else { return }
+            if let text = textField?.text, !text.isEmpty {
+                guide.title = text
+            }
             if GuideController.shared.userGuides == nil {
                 GuideController.shared.userGuides = []
             }
             GuideController.shared.createGuide(userGuide: guide.userGuide, title: guide.title, grind: guide.grind, grindImage: guide.grindImage, coffee: guide.coffee, ratio: guide.ratio, steps: guide.steps, method: guide.method, methodInfo: guide.methodInfo, methodImage: guide.methodImage)
             self.presentBrewsVC()
         }
-        
-        let nah = UIAlertAction(title: "Nah", style: .default) { (_) in
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
             self.presentBrewsVC()
         }
-        
         alert.addAction(save)
-        alert.addAction(nah)
-        present(alert, animated: true, completion: nil)
+        alert.addAction(cancel)
+        present(alert, animated: true)
     }
     
     func loadData() {
         guard let guide = guide else { return }
         
+        let a = Int(guide.coffee)
+        let b = Int(guide.totalWater)
+        let result = gcd(a, b)
+        guide.ratio = ratio(guide: guide, gcdResult: result)
+        
         grindDisplayLabel.text = guide.grind
         ratioDisplayLabel.text = guide.ratio
         methodDisplayLabel.text = guide.method
+    }
+    
+    func gcd(_ a: Int, _ b: Int) -> Int {
+        let remainder = a % b
+        if remainder != 0 {
+            return gcd(b, remainder)
+        } else {
+            return b
+        }
+    }
+    
+    func ratio(guide: Guide, gcdResult: Int) -> String {
+        let w = Int(guide.totalWater) / gcdResult
+        let c = Int(guide.coffee) / gcdResult
+        
+        return "\(c) : \(w)"
     }
 }

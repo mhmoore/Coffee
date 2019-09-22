@@ -27,7 +27,7 @@ class GuideController {
         let userGuide = false
         let title = "CHEMEX"
         let grind = "Medium - Coarse"
-        let grindImage = UIImage(named: "chemex")
+        let grindImage = UIImage(named: "extraCoarse")
         let coffee = 26.7
         let ratio = "6:1"
         let steps = StepController.shared.steps

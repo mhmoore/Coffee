@@ -10,12 +10,7 @@ import UIKit
 
 class BrewCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var methodImageView: UIImageView!
-    @IBOutlet weak var methodLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
-    var guide: Guide? {
-        didSet {
-            methodImageView.image = guide?.methodImage
-            methodLabel.text = guide?.method
-        }
-    }
+    var guide: Guide?
 }

@@ -22,8 +22,6 @@ class BrewCollectionViewController: UICollectionViewController {
         let itemWidth = (collectionViewWidth - paddings * (numberOfItemsPerRow - 1)) / numberOfItemsPerRow
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
-        
-//        navigationItem.rightBarButtonItem = editButtonItem
     }
 
     // MARK: UICollectionViewDataSource
@@ -51,19 +49,31 @@ class BrewCollectionViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "brewCell", for: indexPath) as? BrewCollectionViewCell else { return UICollectionViewCell() }
         let category = guides[indexPath.section]
         let guide = category[indexPath.item]
-        cell.methodLabel?.text = guide.method
+        cell.titleLabel?.text = guide.title
         cell.methodImageView?.image = guide.methodImage
         
         return cell
     }
     
+//    override func setEditing(_ editing: Bool, animated: Bool) {
+//        super.setEditing(editing, animated: animated)
+//        
+//        if let indexPaths = collectionView?.indexPathsForVisibleItems {
+//            for indexPath in indexPaths {
+//                if let cell = collectionView.cellForItem(at: indexPath) as? BrewCollectionViewCell {
+//                    cell.isEditing = editing
+//                }
+//            }
+//        }
+//    }
+//    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toInstructionVC" {
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
             let category = guides[indexPath.section]
             let guide = category[indexPath.item]
-            let guideCopy = Guide(userGuide: true, title: guide.title, grind: guide.grind, grindImage: guide.grindImage, coffee: guide.coffee, ratio: guide.ratio, steps: guide.steps, method: guide.method, methodInfo: guide.methodInfo, methodImage: guide.methodImage)
+            let guideCopy = Guide(userGuide: guide.userGuide, title: guide.title, grind: guide.grind, grindImage: guide.grindImage, coffee: guide.coffee, ratio: guide.ratio, steps: guide.steps, method: guide.method, methodInfo: guide.methodInfo, methodImage: guide.methodImage)
             guard let destinationVC = segue.destination as? InstructionViewController else { return }
             destinationVC.guide = guideCopy
         }
