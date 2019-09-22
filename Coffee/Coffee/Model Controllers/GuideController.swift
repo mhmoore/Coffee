@@ -27,18 +27,15 @@ class GuideController {
         let userGuide = false
         let title = "CHEMEX"
         let grind = "Medium - Coarse"
-        let grindImage = UIImage(named: "chemex")
+        let grindImage = UIImage(named: "extraCoarse")
         let coffee = 26.7
-        let waters = [23.2]
-        let times = [23.8]
-        let yields = "20"
         let ratio = "6:1"
         let steps = StepController.shared.steps
         let method = "CHEMEX"
         let methodInfo = "dsfjaf"
         let methodImage = UIImage(named: "chemex")
         
-        createGuide(userGuide: userGuide, title: title, grind: grind, grindImage: grindImage!, coffee: coffee, waters: waters, times: times, yields: yields, ratio: ratio, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage!)
+        createGuide(userGuide: userGuide, title: title, grind: grind, grindImage: grindImage!, coffee: coffee, ratio: ratio, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage!)
         
 //        let userGuide1 = true
 //        let title1 = "CHEMEX"
@@ -60,9 +57,10 @@ class GuideController {
     
     
     // MARK: - CRUD
-    func createGuide(userGuide: Bool, title: String, grind: String, grindImage: UIImage, coffee: Double, waters: [Double], times: [Double], yields: String, ratio: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage) {
-        let guide = Guide(userGuide: userGuide, title: title, grind: grind, grindImage: grindImage, coffee: coffee, waters: waters, times: times, yields: yields, ratio: ratio, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage)
-        guides.insert(guide, at: 0)
+    func createGuide(userGuide: Bool, title: String, grind: String, grindImage: UIImage, coffee: Double, ratio: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage) {
+        let guide = Guide(userGuide: userGuide, title: title, grind: grind, grindImage: grindImage, coffee: coffee, ratio: ratio, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage)
+        userGuides?.insert(guide, at: 0)
+        guides.append(guide) // TODO: Comment out after uploading guides
 //        saveGuide(guide: guide) { (success) in
 //            if success {
 //                print("The created guide was saved")
@@ -99,15 +97,12 @@ class GuideController {
 //            }
 //    }
     
-    func update(guide: Guide, with userGuide: Bool, title: String, grind: String, grindImage: UIImage, coffee: Double, waters: [Double], times: [Double], yields: String, ratio: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage) { // TODO: Add completion when finishing CK
+    func update(guide: Guide, with userGuide: Bool, title: String, grind: String, grindImage: UIImage, coffee: Double, ratio: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage) { // TODO: Add completion when finishing CK
         guide.userGuide = userGuide
         guide.title = title
         guide.grind = grind
         guide.grindImage = grindImage
         guide.coffee = coffee
-        guide.waters = waters
-        guide.times = times
-        guide.yields = yields
         guide.ratio = ratio
         guide.steps = steps
         guide.method = method
@@ -151,8 +146,9 @@ class GuideController {
     func separate(guides: [Guide]) -> [[Guide]?] {
         for guide in guides {
             if guide.userGuide == true {
-                guard var userGuides = userGuides else { return [standardGuides] }
-                userGuides.append(guide)
+                if var userGuides = userGuides {
+                    userGuides.append(guide)
+                }
             } else {
                 standardGuides.append(guide)
             }

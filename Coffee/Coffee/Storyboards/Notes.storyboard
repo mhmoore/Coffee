@@ -172,13 +172,7 @@
                         <color key="backgroundColor" red="0.24196368460000001" green="0.27795997259999999" blue="0.31131309270000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="8Kk-Bf-gWl"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cDB-zr-bF3">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="bGf-lO-Hc9">
-                            <connections>
-                                <action selector="editButtonTapped:" destination="mY5-S8-Ih0" id="TGD-BY-qyC"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="cDB-zr-bF3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="coffeeNameTextLabel" destination="cOP-FB-Obn" id="EpB-85-gQM"/>

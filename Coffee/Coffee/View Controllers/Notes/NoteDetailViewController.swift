@@ -26,22 +26,18 @@ class NoteDetailViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = note?.coffeeName
         updateViews()
-    }
-    
-    // MARK: - Actions
-    @IBAction func editButtonTapped(_ sender: Any) {
-        // TODO: segue to edit notesViewController
     }
     
     // MARK: - Custom Methods
     func updateViews() {
-        roasterTextLabel.text = note?.roaster
-        coffeeNameTextLabel.text = note?.coffeeName
-        originTextLabel.text = note?.origin
-        grindTextLabel.text = note?.grind
-        methodTextLabel.text = note?.method
-        notesTextLabel.text = note?.tastingNotes
+        guard let note = note else { return }
+        roasterTextLabel.text = note.roaster
+        coffeeNameTextLabel.text = note.coffeeName
+        originTextLabel.text = note.origin
+        grindTextLabel.text = note.grind
+        methodTextLabel.text = note.method
+        notesTextLabel.text = note.tastingNotes
+        title = note.coffeeName
     }
 }

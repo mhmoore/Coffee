@@ -35,7 +35,7 @@ class StepController {
     func createStep(title: String, water: Double?, time: TimeInterval?, coffee: Double?, text: String) {
         guard let time = time else { return }
         if water != 0.0 {
-            let newStep = Step(title: title, water: water, time: time, coffee: coffee, text: text, timerLabel: true, variableSlider: false)
+            let newStep = Step(title: title, water: water, time: time, coffee: coffee, text: text, timerLabel: true, variableSlider: true)
             steps.append(newStep)
         } else if coffee != 0.0 {
             let newStep = Step(title: title, water: water, time: time, coffee: coffee, text: text, timerLabel: false, variableSlider: true)

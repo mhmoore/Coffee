@@ -12,12 +12,16 @@ class InstructionViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var methodImage: UIImageView!
     @IBOutlet weak var stepsLabel: UILabel!
-    @IBOutlet weak var coffeeSlider: UISlider!
+    @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var downButton: UIButton!
     @IBOutlet weak var upButton: UIButton!
+    @IBOutlet weak var methodInfoLabel: UILabel!
+    @IBOutlet weak var sliderLabel: UILabel!
+    @IBOutlet weak var grindImage: UIImageView!
+    @IBOutlet weak var grindLabel: UILabel!
     
     var guide: Guide?
     var currentStep = 0
@@ -31,7 +35,6 @@ class InstructionViewController: UIViewController {
     }
     
     // MARK: - Actions
-    
     // Timer Functions
     @IBAction func upButtonTapped(_ sender: Any) {
         guard let guide = guide else { return }
@@ -40,7 +43,6 @@ class InstructionViewController: UIViewController {
         guide.steps[currentStep].time = counter
         updateView()
     }
-    
     @IBAction func downButtonTapped(_ sender: Any) {
         guard let guide = guide else { return }
         guide.userGuide = true
@@ -53,11 +55,14 @@ class InstructionViewController: UIViewController {
     }
     // Coffee Functions
     @IBAction func coffeeSliderChanged(_ sender: Any) {
-        
-        timerLabel.text = "\(coffeeSlider.value)"
+        sliderLabel.text = "\(slider.value)"
         guard let guide = guide else { return }
         guide.userGuide = true
-        guide.coffee = Double(coffeeSlider.value)
+        if guide.steps[currentStep].water != 0.0 {
+            guide.steps[currentStep].water = Double(slider.value)
+        } else {
+            guide.coffee = Double(slider.value)
+        }
     }
     // Step Functions
     @IBAction func nextButtonTapped(_ sender: Any) {
@@ -74,7 +79,7 @@ class InstructionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toBrewNotesVC" {
             guard let destinationVC = segue.destination as? BrewNotesViewController else { return }
-                destinationVC.guide = guide
+            destinationVC.guide = guide
         }
     }
     
@@ -88,39 +93,65 @@ class InstructionViewController: UIViewController {
             self.timerLabel.text = timeString
         })
     }
-    
     func timeAsString(time: TimeInterval) -> String {
         let minutes = Int(time) / 60
         let seconds = Int(time) % 60
         let timeString = String(format: "%02d:%02d", minutes, seconds)
         return timeString
     }
-    
     func updateView() {
         guard let guide = guide else { return }
         title = guide.title
         stepsLabel.text = guide.steps[currentStep].text
         methodImage.image = guide.methodImage
-        coffeeSlider.minimumValue = Float(guide.coffee - 10)
-        coffeeSlider.maximumValue = Float(guide.coffee + 10)
+        methodInfoLabel.text = guide.methodInfo
         
-        coffeeSlider.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
-        
-        if guide.steps[currentStep].timerLabel == true {
+        if guide.steps[currentStep].water != 0.0 {
+            guard let time = guide.steps[currentStep].time,
+                let water = guide.steps[currentStep].water else { return }
+            counter = time
+            let timeString = timeAsString(time: time)
+            sliderLabel.text = String(water)
+            timerLabel.text = timeString
+            timerLabel.isHidden = false
+            grindImage.isHidden = true
+            grindLabel.isHidden = true
+            startButton.isHidden = false
+            upButton.isHidden = false
+            downButton.isHidden = false
+            slider.isHidden = false
+            sliderLabel.isHidden = false
+            slider.value = Float(water)
+            slider.minimumValue = Float(water - 10)
+            slider.maximumValue = Float(water + 10)
+        } else if guide.steps[currentStep].coffee != 0.0 {
+            sliderLabel.text = String(guide.coffee)
+            grindImage.isHidden = false
+            grindImage.image = guide.grindImage
+            grindLabel.isHidden = false
+            grindLabel.text = guide.grind
+            timerLabel.isHidden = true
+            startButton.isHidden = true
+            upButton.isHidden = true
+            downButton.isHidden = true
+            slider.isHidden = false
+            sliderLabel.isHidden = false
+            slider.value = Float(guide.coffee)
+            slider.minimumValue = Float(guide.coffee - 10)
+            slider.maximumValue = Float(guide.coffee + 10)
+        } else if guide.steps[currentStep].coffee == 0.0 &&  guide.steps[currentStep].water == 0.0 {
             guard let time = guide.steps[currentStep].time else { return }
             counter = time
             let timeString = timeAsString(time: time)
             timerLabel.text = timeString
+            timerLabel.isHidden = false
+            grindImage.isHidden = true
+            grindLabel.isHidden = true
             startButton.isHidden = false
-            upButton.isHidden = false
-            downButton.isHidden = false
-            coffeeSlider.isHidden = true
-        } else {
-            timerLabel.text = "\(guide.coffee)"
-            startButton.isHidden = true
+            slider.isHidden = true
+            sliderLabel.isHidden = true
             upButton.isHidden = true
             downButton.isHidden = true
-            coffeeSlider.isHidden = false
         }
     }
 }

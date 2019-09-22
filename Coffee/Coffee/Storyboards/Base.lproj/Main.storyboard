@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Main View Controller-->
         <scene sceneID="xne-ZZ-aLm">
             <objects>
-                <tabBarController id="Stf-cd-pAo" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainVC" id="Stf-cd-pAo" customClass="MainViewController" customModule="Coffee" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Ad-tV-5ht">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

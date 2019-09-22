@@ -20,6 +20,7 @@
 		A51B495F232C0C4100C162F1 /* GuideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51B495E232C0C4100C162F1 /* GuideController.swift */; };
 		A5243774232EE07B00A3CC7D /* BrewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5243773232EE07B00A3CC7D /* BrewCollectionViewCell.swift */; };
 		A5243776232EE52A00A3CC7D /* BrewCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5243775232EE52A00A3CC7D /* BrewCollectionViewController.swift */; };
+		A56DBDE3233746F400ACDC89 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56DBDE2233746F400ACDC89 /* MainViewController.swift */; };
 		A577E139232D6747001B80EB /* NotesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577E138232D6747001B80EB /* NotesListTableViewController.swift */; };
 		A577E13B232D6B8C001B80EB /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577E13A232D6B8C001B80EB /* NoteDetailViewController.swift */; };
 		A577E13D232D734B001B80EB /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577E13C232D734B001B80EB /* AccountViewController.swift */; };
@@ -59,6 +60,7 @@
 		A51B495E232C0C4100C162F1 /* GuideController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideController.swift; sourceTree = "<group>"; };
 		A5243773232EE07B00A3CC7D /* BrewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewCollectionViewCell.swift; sourceTree = "<group>"; };
 		A5243775232EE52A00A3CC7D /* BrewCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewCollectionViewController.swift; sourceTree = "<group>"; };
+		A56DBDE2233746F400ACDC89 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A577E138232D6747001B80EB /* NotesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListTableViewController.swift; sourceTree = "<group>"; };
 		A577E13A232D6B8C001B80EB /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
 		A577E13C232D734B001B80EB /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		A5079AA1232B4CAE00AFE337 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A577E13C232D734B001B80EB /* AccountViewController.swift */,
 				A5A3279A232FEA4F00ED3CD4 /* Notes */,
 				A5A32799232FEA3000ED3CD4 /* Brewing */,
 			);
@@ -178,10 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				A5EC240E232C216900DC1263 /* Brew.storyboard */,
-				A5EC2406232C1F9900DC1263 /* Account.storyboard */,
 				A5D4E253233570C10053CB21 /* BrewingTableViewController.swift */,
 				A5D4E255233571D10053CB21 /* BrewTableViewCell.swift */,
-				A577E13C232D734B001B80EB /* AccountViewController.swift */,
 				A5A32795232FE96500ED3CD4 /* TimerViewController.swift */,
 				A5A32793232FE5F100ED3CD4 /* InstructionsViewController.swift */,
 				A5A3279B232FF11300ED3CD4 /* PrepViewController.swift */,
@@ -199,6 +200,7 @@
 				A5243773232EE07B00A3CC7D /* BrewCollectionViewCell.swift */,
 				A5D4E257233586AE0053CB21 /* InstructionViewController.swift */,
 				A5A32797232FE9A100ED3CD4 /* BrewNotesViewController.swift */,
+				A56DBDE2233746F400ACDC89 /* MainViewController.swift */,
 			);
 			path = Brewing;
 			sourceTree = "<group>";
@@ -217,6 +219,7 @@
 			children = (
 				A5079A90232B4C6B00AFE337 /* Main.storyboard */,
 				A5DB41F123356DA500FECAA4 /* Home.storyboard */,
+				A5EC2406232C1F9900DC1263 /* Account.storyboard */,
 				A5EC240A232C1FB600DC1263 /* Notes.storyboard */,
 				A5EC2408232C1FA600DC1263 /* Learn.storyboard */,
 			);
@@ -326,6 +329,7 @@
 				A5243776232EE52A00A3CC7D /* BrewCollectionViewController.swift in Sources */,
 				A577E139232D6747001B80EB /* NotesListTableViewController.swift in Sources */,
 				A5A32792232F487300ED3CD4 /* SectionHeaderCollectionReusableView.swift in Sources */,
+				A56DBDE3233746F400ACDC89 /* MainViewController.swift in Sources */,
 				A5079A8D232B4C6B00AFE337 /* AppDelegate.swift in Sources */,
 				A5A327A2233006FB00ED3CD4 /* Step.swift in Sources */,
 				A5A327A0232FF5AB00ED3CD4 /* CreateGuideViewController.swift in Sources */,
