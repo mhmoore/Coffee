@@ -11,7 +11,7 @@ import UIKit
 class BrewCollectionViewController: UICollectionViewController {
     
     // MARK: - Properties
-    let filledGuides = GuideController.shared.separatedGuides.compactMap ( {$0} )
+    let guides = GuideController.shared.separatedGuides.compactMap ( {$0} )
     let paddings: CGFloat = 5.0
     let numberOfItemsPerRow: CGFloat = 3.0
     
@@ -23,21 +23,21 @@ class BrewCollectionViewController: UICollectionViewController {
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
         
-        navigationItem.rightBarButtonItem = editButtonItem
+//        navigationItem.rightBarButtonItem = editButtonItem
     }
 
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return filledGuides.count
+        return guides.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filledGuides[section].count
+        return guides[section].count
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sectionHeader", for: indexPath) as? SectionHeaderCollectionReusableView else { return UICollectionReusableView() }
-        let category = filledGuides[indexPath.section]
+        let category = guides[indexPath.section]
         let guide = category[indexPath.item]
         if guide.userGuide == true {
             sectionHeaderView.categoryTitle = "Your Brewing Guides"
@@ -49,49 +49,23 @@ class BrewCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "brewCell", for: indexPath) as? BrewCollectionViewCell else { return UICollectionViewCell() }
-        // grabs the section (a.k.a. category)
-        let category = filledGuides[indexPath.section]
-        // within that category, grabs the guide at that indexPath
+        let category = guides[indexPath.section]
         let guide = category[indexPath.item]
-        // sets the cells label and image with the associated guide
         cell.methodLabel?.text = guide.method
         cell.methodImageView?.image = guide.methodImage
         
         return cell
     }
     
-    // Delete Items
-    override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-        let indexPaths = collectionView.indexPathsForVisibleItems
-        for indexPath in indexPaths {
-            if let cell = collectionView.cellForItem(at: indexPath) as? BrewCollectionViewCell {
-                cell.isEditing = editing
-            }
-        }
-    }
-    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toInstructionVC" {
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
-            let category = filledGuides[indexPath.section]
+            let category = guides[indexPath.section]
             let guide = category[indexPath.item]
-            let guideCopy = Guide(userGuide: true, title: guide.title, grind: guide.grind, grindImage: guide.grindImage, coffee: guide.coffee, waters: guide.waters, times: guide.times, yields: guide.yields, ratio: guide.ratio, steps: guide.steps, method: guide.method, methodInfo: guide.methodInfo, methodImage: guide.methodImage)
+            let guideCopy = Guide(userGuide: true, title: guide.title, grind: guide.grind, grindImage: guide.grindImage, coffee: guide.coffee, ratio: guide.ratio, steps: guide.steps, method: guide.method, methodInfo: guide.methodInfo, methodImage: guide.methodImage)
             guard let destinationVC = segue.destination as? InstructionViewController else { return }
             destinationVC.guide = guideCopy
-        }
-    }
-}
-
-extension BrewCollectionViewController: BrewCellDelegate {
-    func delete(cell: BrewCollectionViewCell) {
-        if let indexPath = collectionView.indexPath(for: cell) {
-            let category = filledGuides[indexPath.section]
-            let guide = category[indexPath.item]
-            GuideController.shared.remove(guide: guide)
-            collectionView.deleteItems(at: [indexPath])
-            
         }
     }
 }

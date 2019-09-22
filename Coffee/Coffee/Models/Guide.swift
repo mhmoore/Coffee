@@ -30,17 +30,30 @@ class Guide {
     var grind: String
     var grindImage: UIImage
     var coffee: Double
-    var waters: [Double]
+    var waters: [Double] {
+        var array: [Double] = []
+        for step in steps {
+            guard let water = step.water else { return [] }
+             array.append(water)
+        }
+        return array
+    }
     var totalWater: Double {
         let sum = waters.reduce(0, +)
         return sum
     }
-    var times: [TimeInterval]
+    var times: [TimeInterval] {
+        var array: [TimeInterval] = []
+        for step in steps {
+            guard let time = step.time else { return [] }
+            array.append(time)
+        }
+        return array
+    }
     var totalTime: TimeInterval {
         let sum = times.reduce(0, +)
         return sum
     }
-    var yields: String
     var ratio: String
     var steps: [Step]
     var method: String
@@ -49,15 +62,12 @@ class Guide {
     
 //    var ckRecordID: CKRecord.ID?
     
-    init(userGuide: Bool, title: String, grind: String, grindImage: UIImage, coffee: Double, waters: [Double], times: [TimeInterval], yields: String, ratio: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage) {
+    init(userGuide: Bool, title: String, grind: String, grindImage: UIImage, coffee: Double, ratio: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage) {
         self.userGuide = userGuide
         self.title = title
         self.grind = grind
         self.grindImage = grindImage
         self.coffee = coffee
-        self.waters = waters
-        self.times = times
-        self.yields = yields
         self.ratio = ratio
         self.steps = steps
         self.method = method
@@ -73,9 +83,6 @@ extension Guide: Equatable {
             lhs.grind == rhs.grind &&
             lhs.grindImage == rhs.grindImage &&
             lhs.coffee == rhs.coffee &&
-            lhs.waters == rhs.waters &&
-            lhs.times == rhs.times &&
-            lhs.yields == rhs.yields &&
             lhs.ratio == rhs.ratio &&
             lhs.steps == rhs.steps &&
             lhs.method == rhs.method &&

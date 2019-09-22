@@ -8,34 +8,14 @@
 
 import UIKit
 
-protocol BrewCellDelegate: class {
-    func delete(cell: BrewCollectionViewCell)
-}
-
 class BrewCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var methodImageView: UIImageView!
     @IBOutlet weak var methodLabel: UILabel!
-    @IBOutlet weak var deleteBackgroundView: UIVisualEffectView!
     
-    weak var delegate: BrewCellDelegate?
     var guide: Guide? {
         didSet {
             methodImageView.image = guide?.methodImage
             methodLabel.text = guide?.method
-            deleteBackgroundView.layer.cornerRadius = deleteBackgroundView.frame.height / 2
-//            deleteBackgroundView.layer.masksToBounds = true
-            deleteBackgroundView.isHidden = true
         }
     }
-    
-    var isEditing: Bool = false {
-        didSet {
-            deleteBackgroundView.isHidden = isEditing
-        }
-    }
-    
-    @IBAction func deleteButtonTapped(_ sender: Any) {
-        delegate?.delete(cell: self)
-    }
-    
 }

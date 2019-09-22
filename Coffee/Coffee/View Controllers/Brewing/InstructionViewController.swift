@@ -18,6 +18,7 @@ class InstructionViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var downButton: UIButton!
     @IBOutlet weak var upButton: UIButton!
+    @IBOutlet weak var methodInfoLabel: UILabel!
     
     var guide: Guide?
     var currentStep = 0
@@ -101,9 +102,10 @@ class InstructionViewController: UIViewController {
         title = guide.title
         stepsLabel.text = guide.steps[currentStep].text
         methodImage.image = guide.methodImage
+        methodInfoLabel.text = guide.methodInfo
+        
         coffeeSlider.minimumValue = Float(guide.coffee - 10)
         coffeeSlider.maximumValue = Float(guide.coffee + 10)
-        
         coffeeSlider.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
         
         if guide.steps[currentStep].timerLabel == true {

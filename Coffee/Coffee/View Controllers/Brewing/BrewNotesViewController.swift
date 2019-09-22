@@ -78,7 +78,7 @@ class BrewNotesViewController: UIViewController {
             if GuideController.shared.userGuides == nil {
                 GuideController.shared.userGuides = []
             }
-            GuideController.shared.createGuide(userGuide: guide.userGuide, title: guide.title, grind: guide.grind, grindImage: guide.grindImage, coffee: guide.coffee, waters: guide.waters, times: guide.times, yields: guide.yields, ratio: guide.ratio, steps: guide.steps, method: guide.method, methodInfo: guide.methodInfo, methodImage: guide.methodImage)
+            GuideController.shared.createGuide(userGuide: guide.userGuide, title: guide.title, grind: guide.grind, grindImage: guide.grindImage, coffee: guide.coffee, ratio: guide.ratio, steps: guide.steps, method: guide.method, methodInfo: guide.methodInfo, methodImage: guide.methodImage)
             self.presentBrewsVC()
         }
         
