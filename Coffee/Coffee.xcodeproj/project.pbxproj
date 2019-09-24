@@ -28,6 +28,7 @@
 		A5A327A2233006FB00ED3CD4 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A327A1233006FB00ED3CD4 /* Step.swift */; };
 		A5D4E258233586AE0053CB21 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D4E257233586AE0053CB21 /* InstructionViewController.swift */; };
 		A5DB41F223356DA500FECAA4 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5DB41F123356DA500FECAA4 /* Home.storyboard */; };
+		A5DE162B2339E2AD0071C429 /* StepDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE162A2339E2AD0071C429 /* StepDetailViewController.swift */; };
 		A5EC2409232C1FA600DC1263 /* Learn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5EC2408232C1FA600DC1263 /* Learn.storyboard */; };
 		A5EC240B232C1FB600DC1263 /* Notes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5EC240A232C1FB600DC1263 /* Notes.storyboard */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		A5A327A1233006FB00ED3CD4 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		A5D4E257233586AE0053CB21 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
 		A5DB41F123356DA500FECAA4 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		A5DE162A2339E2AD0071C429 /* StepDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepDetailViewController.swift; sourceTree = "<group>"; };
 		A5EC2408232C1FA600DC1263 /* Learn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Learn.storyboard; sourceTree = "<group>"; };
 		A5EC240A232C1FB600DC1263 /* Notes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notes.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +157,7 @@
 				A5243775232EE52A00A3CC7D /* BrewCollectionViewController.swift */,
 				A56FC0FE233965C8007A6764 /* GuideIntroViewController.swift */,
 				A56FC101233972BB007A6764 /* CustomGuideViewController.swift */,
+				A5DE162A2339E2AD0071C429 /* StepDetailViewController.swift */,
 				A5D4E257233586AE0053CB21 /* InstructionViewController.swift */,
 				A5A32797232FE9A100ED3CD4 /* BrewNotesViewController.swift */,
 			);
@@ -272,6 +275,7 @@
 				A5D4E258233586AE0053CB21 /* InstructionViewController.swift in Sources */,
 				A5079AA9232B56F300AFE337 /* Guide.swift in Sources */,
 				A51B495F232C0C4100C162F1 /* GuideController.swift in Sources */,
+				A5DE162B2339E2AD0071C429 /* StepDetailViewController.swift in Sources */,
 				A5079AA7232B51CA00AFE337 /* Note.swift in Sources */,
 				A5243774232EE07B00A3CC7D /* BrewCollectionViewCell.swift in Sources */,
 				A577E13B232D6B8C001B80EB /* NoteDetailViewController.swift in Sources */,
