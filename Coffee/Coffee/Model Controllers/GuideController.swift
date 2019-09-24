@@ -40,7 +40,7 @@ class GuideController {
         guides.insert(guide, at: 0)
     }
     
-    func update(guide: Guide, with userGuide: Bool, title: String, coffee: Double, grind: String, steps: [Step], notes: [Note] ) {
+    func update(guide: Guide, userGuide: Bool, title: String, coffee: Double, grind: String, steps: [Step], notes: [Note] ) {
         guide.userGuide = userGuide
         guide.title = title
         guide.steps = steps
@@ -53,17 +53,22 @@ class GuideController {
     }
     
     // MARK: - Note CRUD
-    func add(note: Note, to guide: Guide) {
+    func add(note: Note, guide: Guide) {
         guide.notes.append(note)
     }
     
-    func remove(note: Note, from guide: Guide) {
+    func remove(note: Note, guide: Guide) {
         guard let index = guide.notes.firstIndex(of: note) else {return}
         guide.notes.remove(at: index)
     }
     
     // MARK: - Step CRUD
-    func update(step: Int, to guide: Guide, water: Double?, time: TimeInterval?, text: String?) {
+    func createStep(title: String, water: Double?, time: TimeInterval, text: String) {
+        let newStep = Step(title: title, water: water, time: time, text: text)
+//        userGuides.steps.apppend(newStep)
+    }
+    
+    func update(step: Int, guide: Guide, water: Double?, time: TimeInterval?, text: String?) {
         guard let water = water,
             let time = time,
             let text = text else { return }
@@ -71,6 +76,11 @@ class GuideController {
         guide.steps[step].water = water
         guide.steps[step].time = time
         guide.steps[step].text = text
+    }
+    
+    func remove(step: Step, from guide: Guide) {
+        guard let index = guide.steps.firstIndex(of: step) else { return }
+        guide.steps.remove(at: index)
     }
     
     // MARK: - Custom Methods

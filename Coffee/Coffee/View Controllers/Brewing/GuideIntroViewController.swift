@@ -34,13 +34,14 @@ class GuideIntroViewController: UIViewController {
             destinationVC.guide = guide
         } else if segue.identifier == "toCustomVC" {
             guard let destinationVC = segue.destination as? CustomGuideViewController,
-                  let guide = guide else { return }
-            // makes a copy of guide and steps so that it doesn't make changes to the standard guide
-            let stepsCopy = guide.steps.map { step in
-                Step(title: step.title, water: step.water, time: step.time, text: step.text)
-            }
-            let guideCopy = Guide(userGuide: true, title: guide.title, method: guide.method, methodInfo: guide.methodInfo, coffee: guide.coffee, grind: guide.grind, prep: guide.prep, steps: stepsCopy, notes: guide.notes)
+                let guide = guide else { return }
+                // makes a copy of guide and steps so that it doesn't make changes to the standard guide
+                let stepsCopy = guide.steps.map { step in
+                    Step(title: step.title, water: step.water, time: step.time, text: step.text)
+                }
+                let guideCopy = Guide(userGuide: true, title: guide.title, method: guide.method, methodInfo: guide.methodInfo, coffee: guide.coffee, grind: guide.grind, prep: guide.prep, steps: stepsCopy)
             destinationVC.guide = guideCopy
+            
         }
     }
     
@@ -76,20 +77,20 @@ class GuideIntroViewController: UIViewController {
         }
         
         switch guide.method {
-            case "CHEMEX":
-                methodImage.image = UIImage(named: "chemex")
-            case "AeroPress":
-                methodImage.image = UIImage(named: "aeroPress")
-            case "Moka Pot":
-                methodImage.image = UIImage(named: "mokaPot")
-            case "French Press":
-                methodImage.image = UIImage(named: "frenchPress")
-            case "Kalita Wave":
-                methodImage.image = UIImage(named: "kalita")
-            case "Hario V60" :
-                methodImage.image = UIImage(named: "v60")
-            default:
-                methodImage.image = nil
+        case "CHEMEX":
+            methodImage.image = UIImage(named: "chemex")
+        case "AeroPress":
+            methodImage.image = UIImage(named: "aeroPress")
+        case "Moka Pot":
+            methodImage.image = UIImage(named: "mokaPot")
+        case "French Press":
+            methodImage.image = UIImage(named: "frenchPress")
+        case "Kalita Wave":
+            methodImage.image = UIImage(named: "kalita")
+        case "Hario V60" :
+            methodImage.image = UIImage(named: "v60")
+        default:
+            methodImage.image = nil
         }
     }
     

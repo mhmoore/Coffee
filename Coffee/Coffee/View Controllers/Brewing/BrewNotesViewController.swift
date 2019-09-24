@@ -50,45 +50,7 @@ class BrewNotesViewController: UIViewController {
         guard let brewsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? MainViewController else { return }
         present(brewsVC, animated: true)
     }
-//
-//    func saveAlert() {
-//        let alert = UIAlertController(title: "Create a guide?", message: "Would you like to save the changes you made?", preferredStyle: .alert)
-//        let yes = UIAlertAction(title: "Yes please", style: .default) { (_) in
-//            self.titleAlert()
-//        }
-//        let nah = UIAlertAction(title: "Nah", style: .default) { (_) in
-//            self.presentBrewsVC()
-//        }
-//        alert.addAction(yes)
-//        alert.addAction(nah)
-//        present(alert, animated: true, completion: nil)
-//    }
-//
-//    func titleAlert() {
-//        let alert = UIAlertController(title: "Give it a title", message: nil, preferredStyle: .alert)
-//        alert.addTextField { (textField) in
-//            textField.placeholder = "Title your guide"
-//        }
-//        let textField = alert.textFields?.first
-//        let save = UIAlertAction(title: "Save", style: .default) { (_) in
-//            guard let guide = self.guide else { return }
-//            if let text = textField?.text, !text.isEmpty {
-//                guide.title = text
-//            }
-//            if GuideController.shared.userGuides == nil {
-//                GuideController.shared.userGuides = []
-//            }
-//            GuideController.shared.createGuide(userGuide: guide.userGuide, title: guide.title, grind: guide.grind, grindImage: guide.grindImage, coffee: guide.coffee, ratio: guide.ratio, steps: guide.steps, method: guide.method, methodInfo: guide.methodInfo, methodImage: guide.methodImage)
-//            self.presentBrewsVC()
-//        }
-//        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
-//            self.presentBrewsVC()
-//        }
-//        alert.addAction(save)
-//        alert.addAction(cancel)
-//        present(alert, animated: true)
-//    }
-//
+
     func loadData() {
         guard let guide = guide else { return }
         let ratioNumbers = getRatio(guide: guide)

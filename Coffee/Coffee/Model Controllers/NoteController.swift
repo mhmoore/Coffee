@@ -12,7 +12,7 @@ class NoteController {
     
     static func createNote(guide: Guide, roaster: String, coffeeName: String, origin: String, grind: String, ratio: String, tastingNotes: String, method: String) {
         let note = Note(roaster: roaster, coffeeName: coffeeName, origin: origin, grind: grind, ratio: ratio, method: method, tastingNotes: tastingNotes)
-        GuideController.shared.add(note: note, to: guide)
+        GuideController.shared.add(note: note, guide: guide)
     }
     
 //    func update(note: Note, with roaster: String, coffeeName: String, origin: String, grind: String, ratio: String, tastingNotes: String, method: String) {

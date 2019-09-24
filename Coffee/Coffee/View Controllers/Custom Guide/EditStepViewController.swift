@@ -1,20 +1,21 @@
 //
-//  StepDetailViewController.swift
+//  EditStepViewController.swift
 //  Coffee
 //
-//  Created by Michael Moore on 9/23/19.
+//  Created by Michael Moore on 9/24/19.
 //  Copyright © 2019 Michael Moore. All rights reserved.
 //
 
 import UIKit
 
-class StepDetailViewController: UIViewController {
+class EditStepViewController: UIViewController {
 
     var step: Step?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Do any additional setup after loading the view.
     }
     
 
