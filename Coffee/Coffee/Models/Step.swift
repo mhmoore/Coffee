@@ -9,23 +9,17 @@
 import Foundation
 import UIKit.UIImage
 
-class Step {
+class Step: Codable {
     var title: String
     var water: Double?
     var time: TimeInterval?
-    var coffee: Double?
     var text: String
-    var timerLabel: Bool
-    var variableSlider: Bool
     
-    init(title: String, water: Double?, time: TimeInterval?, coffee: Double?, text: String, timerLabel: Bool, variableSlider: Bool) {
+    init(title: String, water: Double?, time: TimeInterval?, text: String) {
         self.title = title
         self.water = water
         self.time = time
-        self.coffee = coffee
         self.text = text
-        self.timerLabel = timerLabel
-        self.variableSlider = variableSlider
     }
 }
 
@@ -34,9 +28,6 @@ extension Step: Equatable {
         return lhs.title == rhs.title &&
                 lhs.water == rhs.water &&
                 lhs.time == rhs.time &&
-                lhs.timerLabel == rhs.timerLabel &&
-                lhs.variableSlider == rhs.variableSlider &&
-                lhs.coffee == rhs.coffee &&
                 lhs.text == rhs.text
     }
 }
