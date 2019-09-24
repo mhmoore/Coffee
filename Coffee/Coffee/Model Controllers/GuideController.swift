@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit.UIImage
 
 class GuideController {
     // MARK: - Properties
@@ -20,127 +19,59 @@ class GuideController {
             return separate(guides: guides)
         }
     }
-//    let privateDB = CKContainer.default().privateCloudDatabase
     
     init() {
-        
         let userGuide = false
         let title = "CHEMEX"
-        let grind = "Medium - Coarse"
-        let grindImage = UIImage(named: "extraCoarse")
         let coffee = 26.7
-        let ratio = "6:1"
-        let steps = StepController.shared.steps
+        let grind = "Medium-Coarse"
+        let prep = "Do this stuff"
+        let steps = [Step(title: "Pour", water: 150.0, time: 10.0, text: "Pour 150g of water over 10.0 seconds"), Step(title: "Wait", water: 0.0, time: 10.0, text: "Wait for 10.0 seconds and let it bloom")]
         let method = "CHEMEX"
-        let methodInfo = "dsfjaf"
-        let methodImage = UIImage(named: "chemex")
+        let methodInfo = "Clean, crisp cup of coffee"
         
-        createGuide(userGuide: userGuide, title: title, grind: grind, grindImage: grindImage!, coffee: coffee, ratio: ratio, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage!)
-        
-//        let userGuide1 = true
-//        let title1 = "CHEMEX"
-//        let grind1 = "Medium - Coarse"
-//        let grindImage1 = UIImage(named: "chemex")
-//        let coffee1 = 26.7
-//        let waters1 = [23.2]
-//        let times1 = [23.8]
-//        let yields1 = "20"
-//        let ratio1 = "6:1"
-//        let steps1 = StepController.shared.steps
-//        let method1 = "CHEMEX"
-//        let methodInfo1 = "dsfjaf"
-//        let methodImage1 = UIImage(named: "chemex")
-//
-//        createGuide(userGuide: userGuide1, title: title1, grind: grind1, grindImage: grindImage1!, coffee: coffee1, waters: waters1, times: times1, yields: yields1, ratio: ratio1, steps: steps1, method: method1, methodInfo: methodInfo1, methodImage: methodImage1!)
+        createGuide(userGuide: userGuide, title: title, coffee: coffee, grind: grind, prep: prep, steps: steps, method: method, methodInfo: methodInfo)
     }
     
-    
-    
-    // MARK: - CRUD
-    func createGuide(userGuide: Bool, title: String, grind: String, grindImage: UIImage, coffee: Double, ratio: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage) {
-        let guide = Guide(userGuide: userGuide, title: title, grind: grind, grindImage: grindImage, coffee: coffee, ratio: ratio, steps: steps, method: method, methodInfo: methodInfo, methodImage: methodImage)
+    // MARK: - Guide CRUD
+    func createGuide(userGuide: Bool, title: String, coffee: Double, grind: String, prep: String, steps: [Step], method: String, methodInfo: String) {
+        let guide = Guide(userGuide: userGuide, title: title, method: method, methodInfo: methodInfo, coffee: coffee, grind: grind, prep: prep, steps: steps)
         userGuides?.insert(guide, at: 0)
-        guides.append(guide) // TODO: Comment out after uploading guides
-//        saveGuide(guide: guide) { (success) in
-//            if success {
-//                print("The created guide was saved")
-//            }
-//        }
+        guides.insert(guide, at: 0)
     }
     
-//    func saveGuide(guide: Guide, completion: @escaping (Bool) -> Void) {
-//        let guideRecord = CKRecord(brewGuide: guide)
-//        privateDB.save(guideRecord) { (_, error) in
-//            if let error = error {
-//                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-//                completion(false)
-//                return
-//            }
-//            completion(true)
-//        }
-//    }
-    
-//    func fetchGuides(completion: @escaping (Bool) -> Void) {
-//        let predicate = NSPredicate(value: true)
-//        let query = CKQuery(recordType: GuideKeys.typeKey, predicate: predicate)
-//        privateDB.perform(query, inZoneWith: nil) { (records, error) in
-//            if let error = error {
-//                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-//                completion(false)
-//                return
-//            }
-//
-//            guard let records = records else { completion(false); return }
-//            let guides = records.compactMap( {Guide(record: $0)} )
-//            self.guides = guides
-//            completion(true)
-//            }
-//    }
-    
-    func update(guide: Guide, with userGuide: Bool, title: String, grind: String, grindImage: UIImage, coffee: Double, ratio: String, steps: [Step], method: String, methodInfo: String, methodImage: UIImage) { // TODO: Add completion when finishing CK
+    func update(guide: Guide, with userGuide: Bool, title: String, coffee: Double, grind: String, steps: [Step], notes: [Note] ) {
         guide.userGuide = userGuide
         guide.title = title
-        guide.grind = grind
-        guide.grindImage = grindImage
-        guide.coffee = coffee
-        guide.ratio = ratio
         guide.steps = steps
-        guide.method = method
-        guide.methodInfo = methodInfo
-        guide.methodImage = methodImage
-        
-//        let modificationOP = CKModifyRecordsOperation(recordsToSave: [CKRecord(brewGuide: guide)], recordIDsToDelete: nil)
-//        modificationOP.savePolicy = .changedKeys
-//        modificationOP.queuePriority = .normal
-//        modificationOP.qualityOfService = .userInteractive
-//        modificationOP.modifyRecordsCompletionBlock = { (_, _, error) in
-//            if let error = error {
-//                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-//                completion(false)
-//                return
-//            }
-//            completion(true)
-//        }
-//        privateDB.add(modificationOP)
+        guide.notes = notes
     }
     
     func remove(guide: Guide) {
         guard let firstIndex = self.guides.firstIndex(of: guide) else { return }
         guides.remove(at: firstIndex)
     }
-//    func remove(guide: Guide, completion: @escaping (Bool) -> Void) {
-//        guard let guideRecord = guide.ckRecordID,
-//            let firstIndex = self.guides.firstIndex(of: guide) else { return }
-//        guides.remove(at: firstIndex)
-//        privateDB.delete(withRecordID: guideRecord) { (_, error) in
-//            if let error = error {
-//                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-//                completion(false)
-//                return
-//            }
-//            completion(true)
-//        }
-//    }
+    
+    // MARK: - Note CRUD
+    func add(note: Note, to guide: Guide) {
+        guide.notes.append(note)
+    }
+    
+    func remove(note: Note, from guide: Guide) {
+        guard let index = guide.notes.firstIndex(of: note) else {return}
+        guide.notes.remove(at: index)
+    }
+    
+    // MARK: - Step CRUD
+    func update(step: Int, to guide: Guide, water: Double?, time: TimeInterval?, text: String?) {
+        guard let water = water,
+            let time = time,
+            let text = text else { return }
+        
+        guide.steps[step].water = water
+        guide.steps[step].time = time
+        guide.steps[step].text = text
+    }
     
     // MARK: - Custom Methods
     func separate(guides: [Guide]) -> [[Guide]?] {
@@ -155,5 +86,34 @@ class GuideController {
         }
         let separatedGuides = [userGuides, standardGuides]
         return separatedGuides
+    }
+    
+    // MARK: - Persistence
+    private func fileURL() -> URL {
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let fileName = "Coffee.json"
+        let documentsDirectoryURL = urls[0].appendingPathComponent(fileName)
+        return documentsDirectoryURL
+    }
+    
+    func saveToPersistentStorage() {
+        let jsonEncoder = JSONEncoder()
+        do {
+            let data = try jsonEncoder.encode(guides)
+            try data.write(to: fileURL())
+        } catch let encodingError {
+            print("There was an error saving! \(encodingError.localizedDescription)")
+        }
+    }
+    
+    func loadFromPersistentStorage() {
+        let jsonDecoder = JSONDecoder()
+        do {
+            let data = try Data(contentsOf: fileURL())
+            let decodedGuides = try jsonDecoder.decode([Guide].self, from: data)
+            guides = decodedGuides
+        } catch let decodingError {
+            print("There was an error decoding! \(decodingError.localizedDescription)")
+        }
     }
 }

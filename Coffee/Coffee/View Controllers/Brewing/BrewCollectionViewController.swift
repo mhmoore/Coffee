@@ -50,32 +50,33 @@ class BrewCollectionViewController: UICollectionViewController {
         let category = guides[indexPath.section]
         let guide = category[indexPath.item]
         cell.titleLabel?.text = guide.title
-        cell.methodImageView?.image = guide.methodImage
-        
+        switch guide.method {
+        case "CHEMEX":
+            cell.methodImageView?.image = UIImage(named: "chemex")
+        case "AeroPress":
+            cell.methodImageView?.image = UIImage(named: "aeroPress")
+        case "Moka Pot":
+            cell.methodImageView?.image = UIImage(named: "mokaPot")
+        case "French Press":
+            cell.methodImageView?.image = UIImage(named: "frenchPress")
+        case "Kalita Wave":
+            cell.methodImageView?.image = UIImage(named: "kalita")
+        case "Hario V60" :
+            cell.methodImageView?.image = UIImage(named: "v60")
+        default:
+            cell.methodImageView?.image = nil
+        }
         return cell
     }
-    
-//    override func setEditing(_ editing: Bool, animated: Bool) {
-//        super.setEditing(editing, animated: animated)
-//        
-//        if let indexPaths = collectionView?.indexPathsForVisibleItems {
-//            for indexPath in indexPaths {
-//                if let cell = collectionView.cellForItem(at: indexPath) as? BrewCollectionViewCell {
-//                    cell.isEditing = editing
-//                }
-//            }
-//        }
-//    }
-//    
+
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toInstructionVC" {
+        if segue.identifier == "toGuideIntroVC" {
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
             let category = guides[indexPath.section]
             let guide = category[indexPath.item]
-            let guideCopy = Guide(userGuide: guide.userGuide, title: guide.title, grind: guide.grind, grindImage: guide.grindImage, coffee: guide.coffee, ratio: guide.ratio, steps: guide.steps, method: guide.method, methodInfo: guide.methodInfo, methodImage: guide.methodImage)
-            guard let destinationVC = segue.destination as? InstructionViewController else { return }
-            destinationVC.guide = guideCopy
+            guard let destinationVC = segue.destination as? GuideIntroViewController else { return }
+            destinationVC.guide = guide
         }
     }
 }

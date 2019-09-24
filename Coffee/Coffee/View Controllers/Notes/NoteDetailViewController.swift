@@ -18,7 +18,7 @@ class NoteDetailViewController: UIViewController {
     @IBOutlet weak var methodTextLabel: UILabel!
     @IBOutlet weak var notesTextLabel: UILabel!
     
-    var note: UserNote? {
+    var note: Note? {
         didSet {
         }
     }
