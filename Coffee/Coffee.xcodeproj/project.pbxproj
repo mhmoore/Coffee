@@ -26,6 +26,8 @@
 		A5A32792232F487300ED3CD4 /* SectionHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A32791232F487300ED3CD4 /* SectionHeaderCollectionReusableView.swift */; };
 		A5A32798232FE9A100ED3CD4 /* BrewNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A32797232FE9A100ED3CD4 /* BrewNotesViewController.swift */; };
 		A5A327A2233006FB00ED3CD4 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A327A1233006FB00ED3CD4 /* Step.swift */; };
+		A5CF3737233A8695001D2BFA /* AddStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF3736233A8695001D2BFA /* AddStepViewController.swift */; };
+		A5CF3739233AC626001D2BFA /* StepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF3738233AC626001D2BFA /* StepController.swift */; };
 		A5D4E258233586AE0053CB21 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D4E257233586AE0053CB21 /* InstructionViewController.swift */; };
 		A5DB41F223356DA500FECAA4 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5DB41F123356DA500FECAA4 /* Home.storyboard */; };
 		A5EC2409232C1FA600DC1263 /* Learn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5EC2408232C1FA600DC1263 /* Learn.storyboard */; };
@@ -54,6 +56,8 @@
 		A5A32791232F487300ED3CD4 /* SectionHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		A5A32797232FE9A100ED3CD4 /* BrewNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewNotesViewController.swift; sourceTree = "<group>"; };
 		A5A327A1233006FB00ED3CD4 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
+		A5CF3736233A8695001D2BFA /* AddStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStepViewController.swift; sourceTree = "<group>"; };
+		A5CF3738233AC626001D2BFA /* StepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepController.swift; sourceTree = "<group>"; };
 		A5D4E257233586AE0053CB21 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
 		A5DB41F123356DA500FECAA4 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		A5EC2408232C1FA600DC1263 /* Learn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Learn.storyboard; sourceTree = "<group>"; };
@@ -94,8 +98,8 @@
 				A5079AA1232B4CAE00AFE337 /* View Controllers */,
 				A5079AA0232B4CA400AFE337 /* Model Controllers */,
 				A5079A9F232B4C9D00AFE337 /* Models */,
-				A5079A9E232B4C9200AFE337 /* Resources */,
 				A5EC2404232C1F4400DC1263 /* Storyboards */,
+				A5079A9E232B4C9200AFE337 /* Resources */,
 			);
 			path = Coffee;
 			sourceTree = "<group>";
@@ -126,6 +130,7 @@
 			children = (
 				A51B495C232C059000C162F1 /* NoteController.swift */,
 				A51B495E232C0C4100C162F1 /* GuideController.swift */,
+				A5CF3738233AC626001D2BFA /* StepController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 				A56DBDE2233746F400ACDC89 /* MainViewController.swift */,
 				A5A3279A232FEA4F00ED3CD4 /* Notes */,
 				A5A32799232FEA3000ED3CD4 /* Brewing */,
+				A521CA08233A633C00E3231A /* Custom Guide */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -147,6 +153,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A521CA08233A633C00E3231A /* Custom Guide */ = {
+			isa = PBXGroup;
+			children = (
+				A56FC101233972BB007A6764 /* CustomGuideViewController.swift */,
+				A5CF3736233A8695001D2BFA /* AddStepViewController.swift */,
+			);
+			path = "Custom Guide";
+			sourceTree = "<group>";
+		};
 		A5A32799232FEA3000ED3CD4 /* Brewing */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,7 +169,6 @@
 				A5243773232EE07B00A3CC7D /* BrewCollectionViewCell.swift */,
 				A5243775232EE52A00A3CC7D /* BrewCollectionViewController.swift */,
 				A56FC0FE233965C8007A6764 /* GuideIntroViewController.swift */,
-				A56FC101233972BB007A6764 /* CustomGuideViewController.swift */,
 				A5D4E257233586AE0053CB21 /* InstructionViewController.swift */,
 				A5A32797232FE9A100ED3CD4 /* BrewNotesViewController.swift */,
 			);
@@ -270,6 +284,7 @@
 				A56FC102233972BB007A6764 /* CustomGuideViewController.swift in Sources */,
 				A56FC0FF233965C8007A6764 /* GuideIntroViewController.swift in Sources */,
 				A5D4E258233586AE0053CB21 /* InstructionViewController.swift in Sources */,
+				A5CF3739233AC626001D2BFA /* StepController.swift in Sources */,
 				A5079AA9232B56F300AFE337 /* Guide.swift in Sources */,
 				A51B495F232C0C4100C162F1 /* GuideController.swift in Sources */,
 				A5079AA7232B51CA00AFE337 /* Note.swift in Sources */,
@@ -280,6 +295,7 @@
 				A5A32792232F487300ED3CD4 /* SectionHeaderCollectionReusableView.swift in Sources */,
 				A56DBDE3233746F400ACDC89 /* MainViewController.swift in Sources */,
 				A5079A8D232B4C6B00AFE337 /* AppDelegate.swift in Sources */,
+				A5CF3737233A8695001D2BFA /* AddStepViewController.swift in Sources */,
 				A5A327A2233006FB00ED3CD4 /* Step.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

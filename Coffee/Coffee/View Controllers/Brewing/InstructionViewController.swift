@@ -75,7 +75,6 @@ class InstructionViewController: UIViewController {
         currentStepLabel.text = guide.steps[currentStep].text
         counter = Double(time)
         timerLabel.text = timeAsString(time: time)
-        
     }
 }
 

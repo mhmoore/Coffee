@@ -9,16 +9,12 @@
 import Foundation
 
 class GuideController {
-    // MARK: - Properties
+    
     static let shared = GuideController()
-    var guides: [Guide] = []
+    
+    // MARK: - Properties
     var userGuides: [Guide]?
     var standardGuides: [Guide] = []
-    var separatedGuides: [[Guide]?] {
-        get {
-            return separate(guides: guides)
-        }
-    }
     
     init() {
         let userGuide = false
@@ -26,7 +22,7 @@ class GuideController {
         let coffee = 26.7
         let grind = "Medium-Coarse"
         let prep = "Do this stuff"
-        let steps = [Step(title: "Pour", water: 150.0, time: 10.0, text: "Pour 150g of water over 10.0 seconds"), Step(title: "Wait", water: 0.0, time: 10.0, text: "Wait for 10.0 seconds and let it bloom")]
+        let steps = [Step(title: "Pour", water: 150.0, time: 10.0, text: "Pour 150g of water over 10.0 seconds"), Step(title: "Wait", water: 0.0, time: 10.0, text: "Wait for 10.0 seconds and let it bloom"), Step(title: "Pour", water: 300.0, time: 240.0, text: "Pour 300.0 of water over 240.0 seconds")]
         let method = "CHEMEX"
         let methodInfo = "Clean, crisp cup of coffee"
         
@@ -36,11 +32,11 @@ class GuideController {
     // MARK: - Guide CRUD
     func createGuide(userGuide: Bool, title: String, coffee: Double, grind: String, prep: String, steps: [Step], method: String, methodInfo: String) {
         let guide = Guide(userGuide: userGuide, title: title, method: method, methodInfo: methodInfo, coffee: coffee, grind: grind, prep: prep, steps: steps)
-        userGuides?.insert(guide, at: 0)
-        guides.insert(guide, at: 0)
+//        userGuides?.insert(guide, at: 0)
+        standardGuides.insert(guide, at: 0)
     }
     
-    func update(guide: Guide, with userGuide: Bool, title: String, coffee: Double, grind: String, steps: [Step], notes: [Note] ) {
+    func update(guide: Guide, userGuide: Bool, title: String, coffee: Double, grind: String, steps: [Step], notes: [Note] ) {
         guide.userGuide = userGuide
         guide.title = title
         guide.steps = steps
@@ -48,45 +44,51 @@ class GuideController {
     }
     
     func remove(guide: Guide) {
-        guard let firstIndex = self.guides.firstIndex(of: guide) else { return }
-        guides.remove(at: firstIndex)
+        if guide.userGuide != true {
+            guard let firstIndex = standardGuides.firstIndex(of: guide) else { return }
+            standardGuides.remove(at: firstIndex)
+        } else {
+            guard var userGuides = userGuides,
+                let firstIndex = userGuides.firstIndex(of: guide) else { return }
+            userGuides.remove(at: firstIndex)
+        }
+        
     }
     
     // MARK: - Note CRUD
-    func add(note: Note, to guide: Guide) {
+    func add(note: Note, guide: Guide) {
         guide.notes.append(note)
     }
     
-    func remove(note: Note, from guide: Guide) {
+    func remove(note: Note, guide: Guide) {
         guard let index = guide.notes.firstIndex(of: note) else {return}
         guide.notes.remove(at: index)
     }
     
     // MARK: - Step CRUD
-    func update(step: Int, to guide: Guide, water: Double?, time: TimeInterval?, text: String?) {
-        guard let water = water,
-            let time = time,
-            let text = text else { return }
-        
-        guide.steps[step].water = water
-        guide.steps[step].time = time
-        guide.steps[step].text = text
+    func add(step: Step, guide: Guide) {
+        guide.steps.append(step)
+    }
+    
+    func remove(step: Step, from guide: Guide) {
+        guard let index = guide.steps.firstIndex(of: step) else { return }
+        guide.steps.remove(at: index)
     }
     
     // MARK: - Custom Methods
-    func separate(guides: [Guide]) -> [[Guide]?] {
-        for guide in guides {
-            if guide.userGuide == true {
-                if var userGuides = userGuides {
-                    userGuides.append(guide)
-                }
-            } else {
-                standardGuides.append(guide)
-            }
-        }
-        let separatedGuides = [userGuides, standardGuides]
-        return separatedGuides
-    }
+//    func separate(guides: [Guide]) -> [[Guide]?] {
+//        for guide in guides {
+//            if guide.userGuide == true {
+//                if var userGuides = userGuides {
+//                    userGuides.append(guide)
+//                }
+//            } else {
+//                standardGuides.append(guide)
+//            }
+//        }
+//        let separatedGuides = [userGuides, standardGuides]
+//        return separatedGuides
+//    }
     
     // MARK: - Persistence
     private func fileURL() -> URL {
@@ -97,6 +99,7 @@ class GuideController {
     }
     
     func saveToPersistentStorage() {
+        let guides = [userGuides, standardGuides]
         let jsonEncoder = JSONEncoder()
         do {
             let data = try jsonEncoder.encode(guides)
@@ -111,7 +114,7 @@ class GuideController {
         do {
             let data = try Data(contentsOf: fileURL())
             let decodedGuides = try jsonDecoder.decode([Guide].self, from: data)
-            guides = decodedGuides
+            // separate out guides?
         } catch let decodingError {
             print("There was an error decoding! \(decodingError.localizedDescription)")
         }
