@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomGuideViewController: UIViewController {
+class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Properties
     @IBOutlet weak var titleTextField: UITextField!
@@ -21,49 +21,67 @@ class CustomGuideViewController: UIViewController {
     @IBOutlet weak var stepsTableView: UITableView!
     
     var guide: Guide?
-    let coffeeRange = ["25.4", "25.5", "25.6", "25.7", "25.8", "25.9", "26", "26.1", "26.2"]
+    var coffeeRange: [String] = []
     let grinds = ["Fine",
                   "Medium-Fine",
                   "Medium",
                   "Medium-Coarse",
                   "Coarse",
                   "Extra Coarse"]
-    var selectedGrind: String?
-    var selectedCoffee: String?
+    
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         stepsTableView.delegate = self
         stepsTableView.dataSource = self
+        titleTextField.delegate = self
+        coffeeTextField.delegate = self
+        grindTextField.delegate = self
         stepsTableView.isEditing = false
         updateViews()
     }
     
-    // MARK: - Actions
-    @IBAction func cancelButtonTapped(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        stepsTableView.reloadData()
+        updateViews()
     }
     
+    // MARK: - Actions
     @IBAction func editButtonTapped(_ sender: Any) {
         stepsTableView.isEditing = !stepsTableView.isEditing
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        let coffee = coffeeTextField.text as! Double
         guard let guide = guide,
-            let grind = grindTextField.text,
-            let title = titleTextField.text else { return }
-        GuideController.shared.update(guide: guide, userGuide: guide.userGuide, title: title, coffee: coffee, grind: grind, steps: guide.steps, notes: [])
+            let title = titleTextField.text, !title.isEmpty else { return }
+        guide.title = title
+        
+        if GuideController.shared.userGuides == nil {
+            GuideController.shared.userGuides = []
+            GuideController.shared.userGuides?.append(guide)
+        } else {
+            GuideController.shared.userGuides?.append(guide)
+        }
     }
     
     // MARK: - Custom Methods
+//    func updateViews() {
+//        guard let guide = guide else { return }
+//        waterLabel.text = "Water: \(totalWater(guide: guide))"
+//        let ratioNumbers = getRatio(guide: guide)
+//        ratioLabel.text = "Ratio: \(ratioNumbers.0) : \(ratioNumbers.1)"
+//        let time = totalTime(guide: guide)
+//        timeLabel.text = "Time: \(timeAsString(time: time))"
+//    }
+    
     func updateViews() {
         guard let guide = guide else { return }
-        titleTextField.placeholder = "Title me"
         methodLabel.text = "Method: \(guide.method)"
-        coffeeTextField.text = "\(guide.coffee)"
-        grindTextField.text = "\(guide.grind)"
+        titleTextField.placeholder = "Title me"
+        grindTextField.text = guide.grind
+        coffeeTextField.text = String(guide.coffee)
         waterLabel.text = "Water: \(totalWater(guide: guide))"
         let ratioNumbers = getRatio(guide: guide)
         ratioLabel.text = "Ratio: \(ratioNumbers.0) : \(ratioNumbers.1)"
@@ -73,7 +91,11 @@ class CustomGuideViewController: UIViewController {
         createCoffeePicker()
         createToolBar()
     }
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return titleTextField.resignFirstResponder()
+    }
+    
     func totalWater(guide: Guide) -> Double {
         var array: [Double] = []
         for step in guide.steps {
@@ -103,12 +125,18 @@ class CustomGuideViewController: UIViewController {
         var coffee = Int(guide.coffee)
         var water = Int(totalWater(guide: guide))
         let result = gcd(coffee, water)
+        if result == 0 {
+            return (0,0)
+        }
         coffee = coffee / result
         water = water / result
         return (coffee, water)
     }
     
     func gcd(_ a: Int, _ b: Int) -> Int {
+        if a == 0 || b == 0 {
+            return 0
+        }
         let remainder = a % b
         if remainder != 0 {
             return gcd(b, remainder)
@@ -118,6 +146,15 @@ class CustomGuideViewController: UIViewController {
     }
     
     func createCoffeePicker() {
+        guard let guide = guide else { return }
+        var i = 0.3
+        while i <= 3.0 {
+            let less = round((guide.coffee - i) * 10) / 10
+            coffeeRange.insert(String(less), at: 0)
+            let more = round((guide.coffee + i) * 10) / 10
+            coffeeRange.append(String(more))
+            i += 0.3
+        }
         let coffeePicker = UIPickerView()
         coffeePicker.backgroundColor = .white
         coffeePicker.delegate = self
@@ -125,7 +162,6 @@ class CustomGuideViewController: UIViewController {
     }
     
     func createGrindPicker() {
-        
         let grindPicker = UIPickerView()
         grindPicker.backgroundColor = .white
         grindPicker.delegate = self
@@ -152,12 +188,18 @@ class CustomGuideViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editStepSegue" {
             guard let indexPath = stepsTableView.indexPathForSelectedRow,
-                let destinationVC = segue.destination as? EditStepViewController,
+                let destinationVC = segue.destination as? AddStepViewController,
                 let guide = guide else { return }
-                let step = guide.steps[indexPath.row]
+            let step = guide.steps[indexPath.row]
+            destinationVC.guide = guide
             destinationVC.step = step
+            destinationVC.stepToggle = true
         } else if segue.identifier == "addStepSegue" {
             guard let destinationVC = segue.destination as? AddStepViewController,
+                let guide = guide else { return }
+            destinationVC.guide = guide
+        } else if segue.identifier == "toIntroVC" {
+            guard let destinationVC = segue.destination as? GuideIntroViewController,
                 let guide = guide else { return }
             destinationVC.guide = guide
         }
@@ -184,6 +226,7 @@ extension CustomGuideViewController: UITableViewDelegate, UITableViewDataSource 
             let step = guide.steps[indexPath.row]
             GuideController.shared.remove(step: step, from: guide)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            updateViews()
         }
     }
     
@@ -226,12 +269,15 @@ extension CustomGuideViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if grindTextField.isEditing {
-            selectedGrind = grinds[row]
-            grindTextField.text = selectedGrind
+            guard let guide = guide else { return }
+            grindTextField.text = grinds[row]
+            guide.grind = grinds[row]
         } else if coffeeTextField.isEditing {
-            selectedCoffee = coffeeRange[row]
-            coffeeTextField.text = selectedCoffee
+            guard let guide = guide,
+                let selectedCoffee = Double(coffeeRange[row]) else { return }
+            coffeeTextField.text = coffeeRange[row]
+            guide.coffee = selectedCoffee
+            updateViews()
         }
     }
-    
 }

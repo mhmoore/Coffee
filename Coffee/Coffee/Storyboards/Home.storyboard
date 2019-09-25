@@ -280,7 +280,7 @@
         <!--CustomGuideVC-->
         <scene sceneID="jug-sL-aeD">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="navToCustomVC" storyboardName="Custom" referencedIdentifier="CustomGuideVC" id="6U1-L6-oqP" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Custom" referencedIdentifier="CustomGuideVC" id="6U1-L6-oqP" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="pzB-Y3-y7p"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hlV-mz-wkT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -426,6 +426,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Skip" id="ghV-NV-Dbm">
                             <connections>
                                 <action selector="skipButtonTapped:" destination="OGG-Fb-iUq" id="MLw-Ww-VPO"/>
+                                <segue destination="eJl-47-Y3L" kind="show" id="jcK-7x-ENO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -443,6 +444,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GBS-z3-Bhf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5230" y="-35"/>
+        </scene>
+        <!--brewsVC-->
+        <scene sceneID="M03-oG-JAK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="brewsVC" id="eJl-47-Y3L" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="fNf-iJ-Dfe"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Slc-im-8lD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5759" y="-297"/>
         </scene>
     </scenes>
 </document>

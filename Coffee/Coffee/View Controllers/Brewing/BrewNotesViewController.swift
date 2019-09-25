@@ -9,7 +9,7 @@
 import UIKit
 
 class BrewNotesViewController: UIViewController {
-//    // MARK: - Properties
+    // MARK: - Properties
     @IBOutlet weak var roasterTextField: UITextField!
     @IBOutlet weak var coffeeNameTextField: UITextField!
     @IBOutlet weak var originTextField: UITextField!
@@ -17,9 +17,9 @@ class BrewNotesViewController: UIViewController {
     @IBOutlet weak var grindLabel: UILabel!
     @IBOutlet weak var ratioLabel: UILabel!
     @IBOutlet weak var methodLabel: UILabel!
-//
+
     var guide: Guide?
-//
+
 //    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +27,6 @@ class BrewNotesViewController: UIViewController {
     }
     
 //    // MARK: - Actions
-    @IBAction func skipButtonTapped(_ sender: Any) {
-        presentBrewsVC()
-    }
-
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let roaster = roasterTextField.text,
             let coffeeName = coffeeNameTextField.text,
@@ -42,15 +38,10 @@ class BrewNotesViewController: UIViewController {
             let guide = guide else { return }
 
         NoteController.createNote(guide: guide, roaster: roaster, coffeeName: coffeeName, origin: origin, grind: grind, ratio: ratio, tastingNotes: notes, method: method)
-        presentBrewsVC()
+        
     }
     
-    // MARK: - Custom Methods
-    func presentBrewsVC() {
-        guard let brewsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainVC") as? MainViewController else { return }
-        present(brewsVC, animated: true)
-    }
-
+//     MARK: - Custom Methods
     func loadData() {
         guard let guide = guide else { return }
         let ratioNumbers = getRatio(guide: guide)
