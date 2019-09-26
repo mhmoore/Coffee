@@ -9,6 +9,7 @@
 import UIKit
 
 class AddStepViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+    // MARK: - Properties
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var durationTextField: UITextField!
@@ -16,11 +17,11 @@ class AddStepViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     @IBOutlet weak var instructionLabel: UILabel!
     
     var step: Step?
-    
     var guide: Guide?
     var stepToggle: Bool = false
     var stepTitle: String = "Pour"
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         amountTextField.delegate = self
@@ -32,6 +33,7 @@ class AddStepViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         createToolBar()
     }
     
+    // MARK: - Actions
     @IBAction func pourButtonTapped(_ sender: Any) {
         stepTitle = "Pour"
         updateViews()
@@ -149,6 +151,16 @@ class AddStepViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
-        // populate textView
+        let time = durationTextField.text ?? "0"
+        let water = amountTextField.text ?? "0"
+        if stepTitle == "Pour" {
+            instructionTextView.text = "Pour \(water) grams of water over \(time) seconds"
+        } else if stepTitle == "Stir" {
+            instructionTextView.text = "Stir for \(time) seconds"
+        } else if stepTitle == "Wait" {
+            instructionTextView.text = "Wait for \(time) seconds"
+        } else {
+            instructionTextView.text = ""
+        }
     }
 }

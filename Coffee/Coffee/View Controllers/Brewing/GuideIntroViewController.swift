@@ -51,12 +51,12 @@ class GuideIntroViewController: UIViewController {
         methodInfo.text = guide.methodInfo
         grindLabel.text = guide.grind
         grindImage.layer.cornerRadius = grindImage.frame.height / 2
-        coffeeLabel.text = "Coffee: \(guide.coffee)g"
-        waterLabel.text = "Water: \(totalWater(guide: guide))g"
+        coffeeLabel.text = "Coffee:  \(guide.coffee)g"
+        waterLabel.text = "Water:  \(totalWater(guide: guide))g"
         let timeString = timeAsString(time: totalTime(guide: guide))
-        timeLabel.text = "Time: \(timeString)"
+        timeLabel.text = "Time:  \(timeString)"
         let ratioNumbers = getRatio(guide: guide)
-        ratioLabel.text = "\(ratioNumbers.0) : \(ratioNumbers.1)"
+        ratioLabel.text = "Ratio:  \(ratioNumbers.0) : \(ratioNumbers.1)"
         prepLabel.text = guide.prep
         
         switch guide.grind {
