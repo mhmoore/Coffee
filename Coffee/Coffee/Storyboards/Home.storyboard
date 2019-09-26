@@ -103,10 +103,10 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="brewCell" id="TdR-RG-6sA" customClass="BrewCollectionViewCell" customModule="Coffee" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="25" width="175" height="175"/>
+                                <rect key="frame" x="0.0" y="25" width="125" height="125"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fSa-SA-M0S">
@@ -121,6 +121,18 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Uv-id-X6t">
+                                            <rect key="frame" x="78" y="5" width="20" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                            <state key="normal" title="X">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="deleteButtonTapped:" destination="TdR-RG-6sA" eventType="touchUpInside" id="VuW-KA-UvI"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </view>
                                 <constraints>
@@ -133,8 +145,9 @@
                                     <constraint firstAttribute="trailing" secondItem="fSa-SA-M0S" secondAttribute="trailing" constant="10" id="nve-oa-xDb"/>
                                     <constraint firstItem="GAd-T8-nVv" firstAttribute="leading" secondItem="fSa-SA-M0S" secondAttribute="leading" id="zbH-wj-yk4"/>
                                 </constraints>
-                                <size key="customSize" width="175" height="175"/>
+                                <size key="customSize" width="125" height="125"/>
                                 <connections>
+                                    <outlet property="deleteButton" destination="7Uv-id-X6t" id="4j7-Zw-7At"/>
                                     <outlet property="methodImageView" destination="fSa-SA-M0S" id="rwK-Wd-ixC"/>
                                     <outlet property="titleLabel" destination="GAd-T8-nVv" id="2wI-ob-OGr"/>
                                     <segue destination="POZ-9E-fD9" kind="show" identifier="toGuideIntroVC" id="0Pa-di-lVX"/>
@@ -168,9 +181,7 @@
                             <outlet property="delegate" destination="wAN-bs-d5u" id="obQ-FL-sa8"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="DP9-yQ-zG5">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Jdb-a2-xlb"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="DP9-yQ-zG5"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yex-B3-Xx8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

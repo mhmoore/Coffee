@@ -30,8 +30,10 @@ class BrewCollectionViewController: UICollectionViewController {
         let itemWidth = (collectionViewWidth - paddings * (numberOfItemsPerRow - 1)) / numberOfItemsPerRow
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
+        
+        navigationItem.rightBarButtonItem = editButtonItem
     }
-
+    
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return guides().count
@@ -57,24 +59,20 @@ class BrewCollectionViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "brewCell", for: indexPath) as? BrewCollectionViewCell else { return UICollectionViewCell() }
         let category = guides()[indexPath.section]
         let guide = category[indexPath.item]
-        cell.titleLabel?.text = guide.title
-        switch guide.method {
-        case "CHEMEX":
-            cell.methodImageView?.image = UIImage(named: "chemex")
-        case "AeroPress":
-            cell.methodImageView?.image = UIImage(named: "aeroPress")
-        case "Moka Pot":
-            cell.methodImageView?.image = UIImage(named: "mokaPot")
-        case "French Press":
-            cell.methodImageView?.image = UIImage(named: "frenchPress")
-        case "Kalita Wave":
-            cell.methodImageView?.image = UIImage(named: "kalita")
-        case "Hario V60" :
-            cell.methodImageView?.image = UIImage(named: "v60")
-        default:
-            cell.methodImageView?.image = nil
-        }
+        
+        cell.guide = guide
+        cell.delegate = self
         return cell
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        let indexPaths = collectionView.indexPathsForVisibleItems
+            for indexPath in indexPaths {
+                if let cell = collectionView.cellForItem(at: indexPath) as? BrewCollectionViewCell {
+                    cell.isEditing = editing
+                }
+            }
     }
 
     // MARK: - Navigation
@@ -85,6 +83,18 @@ class BrewCollectionViewController: UICollectionViewController {
             let guide = category[indexPath.item]
             guard let destinationVC = segue.destination as? GuideIntroViewController else { return }
             destinationVC.guide = guide
+        }
+    }
+}
+
+extension BrewCollectionViewController: BrewCellDelegate {
+    func delete(cell: BrewCollectionViewCell) {
+        if let indexPath = collectionView.indexPath(for: cell) {
+            let category = guides()[indexPath.section]
+            let guide = category[indexPath.row]
+            GuideController.shared.remove(guide: guide)
+            
+            collectionView.deleteItems(at: [indexPath])
         }
     }
 }
