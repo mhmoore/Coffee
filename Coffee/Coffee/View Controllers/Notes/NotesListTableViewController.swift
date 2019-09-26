@@ -9,6 +9,12 @@
 import UIKit
 
 class NotesListTableViewController: UITableViewController {
+
+    // MARK: - Properties
+    @IBOutlet weak var searchBar: UISearchBar!
+
+    var searchResults: [String: [Note]] = [:]
+    var isSearching: Bool = false
     
     var guides: [Guide] {
         var guides: [Guide] = []
@@ -51,6 +57,7 @@ class NotesListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Notes"
+        searchBar.delegate = self
     }
     
     // MARK: - Table view data source
@@ -63,27 +70,46 @@ class NotesListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dictionary[methods[section]]?.count ?? 0
+        guard isSearching else { return dictionary[methods[section]]?.count ?? 0}
+        return searchResults[methods[section]]?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
-        guard let notes = dictionary[methods[indexPath.section]] else { return UITableViewCell() }
-        let note = notes[indexPath.row]
         
-        cell.textLabel?.text = note.coffeeName
-        cell.detailTextLabel?.text = note.roaster
+        if isSearching {
+            guard let notes = searchResults[methods[indexPath.section]] else { return UITableViewCell() }
+            let note = notes[indexPath.row]
+            cell.textLabel?.text = note.coffeeName
+            cell.detailTextLabel?.text = note.roaster
+        } else {
+            guard let notes = dictionary[methods[indexPath.section]] else { return UITableViewCell() }
+            let note = notes[indexPath.row]
+            cell.textLabel?.text = note.coffeeName
+            cell.detailTextLabel?.text = note.roaster
+        }
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            guard let notes = dictionary[methods[indexPath.section]] else { return }
-            let note = notes[indexPath.row]
-            for guide in guides {
-                if guide.notes.contains(note) {
-                    GuideController.shared.remove(note: note, guide: guide)
+            
+            if isSearching {
+                guard let notes = searchResults[methods[indexPath.section]] else { return }
+                let note = notes[indexPath.row]
+                for guide in guides {
+                    if guide.notes.contains(note) {
+                        GuideController.shared.remove(note: note, guide: guide)
+                    }
+                }
+            } else {
+                guard let notes = dictionary[methods[indexPath.section]] else { return }
+                let note = notes[indexPath.row]
+                for guide in guides {
+                    if guide.notes.contains(note) {
+                        GuideController.shared.remove(note: note, guide: guide)
+                    }
                 }
             }
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -94,11 +120,44 @@ class NotesListTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toNoteDetailVC" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                guard let destinationVC = segue.destination as? NoteDetailViewController,
-                    let notes = dictionary[methods[indexPath.section]] else { return }
-                let note = notes[indexPath.row]
-                destinationVC.note = note
+                guard let destinationVC = segue.destination as? NoteDetailViewController else { return }
+                if isSearching {
+                    guard let notes = searchResults[methods[indexPath.section]] else { return }
+                    let note = notes[indexPath.row]
+                    destinationVC.note = note
+                } else {
+                    guard let notes = dictionary[methods[indexPath.section]] else { return }
+                    let note = notes[indexPath.row]
+                    destinationVC.note = note
+                }
             }
         }
+    }
+}
+
+extension NotesListTableViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        isSearching = true
+        searchBar.showsCancelButton = true
+        let searchTerm = searchText.lowercased()
+        guard !searchTerm.isEmpty else { isSearching = false; return }
+        var resultsDictionary = [String: [Note]]()
+        for (method, notesArray) in dictionary {
+            for note in notesArray {
+                if note.coffeeName.lowercased().contains(searchTerm) || note.roaster.lowercased().contains(searchTerm) || note.tastingNotes.lowercased().contains(searchTerm) {
+                    resultsDictionary[method, default: []].append(note)
+                }
+            }
+        }
+        self.searchResults = resultsDictionary
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        isSearching = false
+        tableView.reloadData()
     }
 }
