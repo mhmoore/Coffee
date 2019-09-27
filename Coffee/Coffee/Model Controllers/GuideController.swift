@@ -58,6 +58,8 @@ class GuideController {
         guide.title = title
         guide.steps = steps
         guide.notes = notes
+        
+        saveToPersistentStorage()
     }
     
     func remove(guide: Guide) {
@@ -70,16 +72,21 @@ class GuideController {
             userGuides.remove(at: firstIndex)
         }
         
+        saveToPersistentStorage()
     }
     
     // MARK: - Note CRUD
     func add(note: Note, guide: Guide) {
         guide.notes.append(note)
+        
+        saveToPersistentStorage()
     }
     
     func remove(note: Note, guide: Guide) {
         guard let index = guide.notes.firstIndex(of: note) else {return}
         guide.notes.remove(at: index)
+        
+        saveToPersistentStorage()
     }
     
     // MARK: - Step CRUD
@@ -91,21 +98,7 @@ class GuideController {
         guard let index = guide.steps.firstIndex(of: step) else { return }
         guide.steps.remove(at: index)
     }
-    
-    // MARK: - Custom Methods
-//    func separate(guides: [Guide]) -> [[Guide]?] {
-//        for guide in guides {
-//            if guide.userGuide == true {
-//                if var userGuides = userGuides {
-//                    userGuides.append(guide)
-//                }
-//            } else {
-//                standardGuides.append(guide)
-//            }
-//        }
-//        let separatedGuides = [userGuides, standardGuides]
-//        return separatedGuides
-//    }
+
     
     // MARK: - Persistence
     private func fileURL() -> URL {
@@ -116,7 +109,7 @@ class GuideController {
     }
     
     func saveToPersistentStorage() {
-        let guides = [userGuides, standardGuides]
+        let guides = [standardGuides, userGuides]
         let jsonEncoder = JSONEncoder()
         do {
             let data = try jsonEncoder.encode(guides)
@@ -130,8 +123,12 @@ class GuideController {
         let jsonDecoder = JSONDecoder()
         do {
             let data = try Data(contentsOf: fileURL())
-            let decodedGuides = try jsonDecoder.decode([Guide].self, from: data)
-            // separate out guides?
+            let decodedGuides = try jsonDecoder.decode([[Guide]?].self, from: data)
+            guard let standardGuides = decodedGuides[0] else { return }
+            self.standardGuides = standardGuides
+            if let userGuides = decodedGuides[1] {
+                self.userGuides = userGuides
+            }
         } catch let decodingError {
             print("There was an error decoding! \(decodingError.localizedDescription)")
         }
