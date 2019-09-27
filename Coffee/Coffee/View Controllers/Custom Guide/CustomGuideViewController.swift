@@ -51,6 +51,10 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Actions
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func editButtonTapped(_ sender: Any) {
         stepsTableView.isEditing = !stepsTableView.isEditing
     }
@@ -67,13 +71,14 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
             GuideController.shared.userGuides?.append(guide)
         }
         GuideController.shared.saveToPersistentStorage()
+        navigationController?.popToRootViewController(animated: true)
     }
     
     // MARK: - Custom Methods
     func updateViews() {
         guard let guide = guide else { return }
         methodLabel.text = "Method:  \(guide.method)"
-        titleTextField.placeholder = "Title me"
+        titleTextField.text = guide.title
         grindTextField.text = guide.grind
         coffeeTextField.text = String(guide.coffee)
         waterLabel.text = "Water:  \(totalWater(guide: guide))"
@@ -195,10 +200,6 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
             guard let destinationVC = segue.destination as? AddStepViewController,
                 let guide = guide else { return }
             destinationVC.guide = guide
-        } else if segue.identifier == "toIntroVC" {
-            guard let destinationVC = segue.destination as? GuideIntroViewController,
-                let guide = guide else { return }
-            destinationVC.guide = guide
         }
     }
 }
@@ -278,6 +279,5 @@ extension CustomGuideViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         }
         guide.grind = selectedGrind
         guide.coffee = selectedCoffee
-//        updateViews()
     }
 }

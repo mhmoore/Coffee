@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BrewNotesViewController: UIViewController {
+class BrewNotesViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     // MARK: - Properties
     @IBOutlet weak var roasterTextField: UITextField!
     @IBOutlet weak var coffeeNameTextField: UITextField!
@@ -24,21 +24,29 @@ class BrewNotesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
+        roasterTextField.delegate = self
+        coffeeNameTextField.delegate = self
+        originTextField.delegate = self
+        notesTextView.delegate = self
     }
     
 //    // MARK: - Actions
+    @IBAction func skipButtonTapped(_ sender: Any) {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let roaster = roasterTextField.text,
-            let coffeeName = coffeeNameTextField.text,
-            let origin = originTextField.text,
+        guard let roaster = roasterTextField.text, !roaster.isEmpty,
+            let coffeeName = coffeeNameTextField.text, !coffeeName.isEmpty,
+        let origin = originTextField.text, !origin.isEmpty,
             let grind = grindLabel.text,
             let ratio = ratioLabel.text,
             let method = methodLabel.text,
-            let notes = notesTextView.text,
+            let notes = notesTextView.text, !notes.isEmpty,
             let guide = guide else { return }
 
         NoteController.createNote(guide: guide, roaster: roaster, coffeeName: coffeeName, origin: origin, grind: grind, ratio: ratio, tastingNotes: notes, method: method)
-        
+        navigationController?.popToRootViewController(animated: true)
     }
     
 //     MARK: - Custom Methods
@@ -75,5 +83,12 @@ class BrewNotesViewController: UIViewController {
         } else {
             return b
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return roasterTextField.resignFirstResponder() &&
+        originTextField.resignFirstResponder() &&
+        coffeeNameTextField.resignFirstResponder() &&
+        notesTextView.resignFirstResponder()
     }
 }

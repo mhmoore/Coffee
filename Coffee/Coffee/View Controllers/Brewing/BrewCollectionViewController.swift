@@ -36,6 +36,11 @@ class BrewCollectionViewController: UICollectionViewController {
         navigationItem.rightBarButtonItem = editButtonItem
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
+    }
+    
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return guides().count
