@@ -41,7 +41,6 @@ class GuideIntroViewController: UIViewController {
                 }
                 let guideCopy = Guide(userGuide: true, title: guide.title, method: guide.method, methodInfo: guide.methodInfo, coffee: guide.coffee, grind: guide.grind, prep: guide.prep, steps: stepsCopy)
             destinationVC.guide = guideCopy
-            
         }
     }
     
