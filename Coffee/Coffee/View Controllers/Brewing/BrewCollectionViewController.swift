@@ -26,6 +26,8 @@ class BrewCollectionViewController: UICollectionViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        GuideController.shared.loadFromPersistentStorage()
+        
         let collectionViewWidth = collectionView.frame.width
         let itemWidth = (collectionViewWidth - paddings * (numberOfItemsPerRow - 1)) / numberOfItemsPerRow
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
@@ -93,7 +95,6 @@ extension BrewCollectionViewController: BrewCellDelegate {
             let category = guides()[indexPath.section]
             let guide = category[indexPath.row]
             GuideController.shared.remove(guide: guide)
-            
             collectionView.deleteItems(at: [indexPath])
         }
     }

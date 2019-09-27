@@ -24,9 +24,5 @@ class NoteController {
 //        note.tastingNotes = tastingNotes
 //        note.method = method
 //    }
-//
-//    func delete(note: Note) {
-//        guard let firstIndex = self.notes.firstIndex(of: note) else { return }
-//        notes.remove(at: firstIndex)
-//    }
+
 }

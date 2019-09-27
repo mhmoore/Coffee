@@ -39,6 +39,9 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
         grindTextField.delegate = self
         stepsTableView.isEditing = false
         updateViews()
+        guard let guide = guide else { return }
+        coffeeRange = createCoffeeRange(guide: guide)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,18 +66,10 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
         } else {
             GuideController.shared.userGuides?.append(guide)
         }
+        GuideController.shared.saveToPersistentStorage()
     }
     
     // MARK: - Custom Methods
-//    func updateViews() {
-//        guard let guide = guide else { return }
-//        waterLabel.text = "Water: \(totalWater(guide: guide))"
-//        let ratioNumbers = getRatio(guide: guide)
-//        ratioLabel.text = "Ratio: \(ratioNumbers.0) : \(ratioNumbers.1)"
-//        let time = totalTime(guide: guide)
-//        timeLabel.text = "Time: \(timeAsString(time: time))"
-//    }
-    
     func updateViews() {
         guard let guide = guide else { return }
         methodLabel.text = "Method:  \(guide.method)"
@@ -144,8 +139,7 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func createCoffeePicker() {
-        guard let guide = guide else { return }
+    func createCoffeeRange(guide: Guide) -> [String] {
         var i = 0.3
         while i <= 3.0 {
             let less = round((guide.coffee - i) * 10) / 10
@@ -154,6 +148,10 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
             coffeeRange.append(String(more))
             i += 0.3
         }
+        return coffeeRange
+    }
+    
+    func createCoffeePicker() {
         let coffeePicker = UIPickerView()
         coffeePicker.backgroundColor = .white
         coffeePicker.delegate = self
@@ -267,16 +265,19 @@ extension CustomGuideViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        guard let guide = guide else { return }
+        var selectedCoffee: Double = guide.coffee
+        var selectedGrind: String = guide.grind
         if grindTextField.isEditing {
-            guard let guide = guide else { return }
-            grindTextField.text = grinds[row]
-            guide.grind = grinds[row]
+            selectedGrind = grinds[row]
+            grindTextField.text = selectedGrind
         } else if coffeeTextField.isEditing {
-            guard let guide = guide,
-                let selectedCoffee = Double(coffeeRange[row]) else { return }
+            guard let coffee = Double(coffeeRange[row]) else { return }
+            selectedCoffee = coffee
             coffeeTextField.text = coffeeRange[row]
-            guide.coffee = selectedCoffee
-            updateViews()
         }
+        guide.grind = selectedGrind
+        guide.coffee = selectedCoffee
+//        updateViews()
     }
 }
