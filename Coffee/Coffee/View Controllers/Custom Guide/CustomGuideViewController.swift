@@ -41,7 +41,6 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
         updateViews()
         guard let guide = guide else { return }
         coffeeRange = createCoffeeRange(guide: guide)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -145,13 +144,11 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     }
     
     func createCoffeeRange(guide: Guide) -> [String] {
-        var i = 0.3
-        while i <= 3.0 {
-            let less = round((guide.coffee - i) * 10) / 10
-            coffeeRange.insert(String(less), at: 0)
-            let more = round((guide.coffee + i) * 10) / 10
-            coffeeRange.append(String(more))
-            i += 0.3
+        let less = guide.coffee - 3
+        let more = guide.coffee + 3.3
+        let pickerArray = Array(stride(from: round(less), to: round(more), by: 0.3))
+        for value in pickerArray {
+            coffeeRange.append("\(value)")
         }
         return coffeeRange
     }
@@ -264,6 +261,8 @@ extension CustomGuideViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         }
         return ""
     }
+    
+    
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         guard let guide = guide else { return }

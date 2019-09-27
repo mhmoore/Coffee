@@ -17,7 +17,6 @@
 		A51B495F232C0C4100C162F1 /* GuideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51B495E232C0C4100C162F1 /* GuideController.swift */; };
 		A5243774232EE07B00A3CC7D /* BrewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5243773232EE07B00A3CC7D /* BrewCollectionViewCell.swift */; };
 		A5243776232EE52A00A3CC7D /* BrewCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5243775232EE52A00A3CC7D /* BrewCollectionViewController.swift */; };
-		A56DBDE3233746F400ACDC89 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56DBDE2233746F400ACDC89 /* MainViewController.swift */; };
 		A56FC0FD23395463007A6764 /* Custom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A56FC0FC23395462007A6764 /* Custom.storyboard */; };
 		A56FC0FF233965C8007A6764 /* GuideIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56FC0FE233965C8007A6764 /* GuideIntroViewController.swift */; };
 		A56FC102233972BB007A6764 /* CustomGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56FC101233972BB007A6764 /* CustomGuideViewController.swift */; };
@@ -47,7 +46,6 @@
 		A51B495E232C0C4100C162F1 /* GuideController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideController.swift; sourceTree = "<group>"; };
 		A5243773232EE07B00A3CC7D /* BrewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewCollectionViewCell.swift; sourceTree = "<group>"; };
 		A5243775232EE52A00A3CC7D /* BrewCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewCollectionViewController.swift; sourceTree = "<group>"; };
-		A56DBDE2233746F400ACDC89 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Brewing/MainViewController.swift; sourceTree = "<group>"; };
 		A56FC0FC23395462007A6764 /* Custom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Custom.storyboard; sourceTree = "<group>"; };
 		A56FC0FE233965C8007A6764 /* GuideIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideIntroViewController.swift; sourceTree = "<group>"; };
 		A56FC101233972BB007A6764 /* CustomGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGuideViewController.swift; sourceTree = "<group>"; };
@@ -138,7 +136,6 @@
 		A5079AA1232B4CAE00AFE337 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A56DBDE2233746F400ACDC89 /* MainViewController.swift */,
 				A5A3279A232FEA4F00ED3CD4 /* Notes */,
 				A5A32799232FEA3000ED3CD4 /* Brewing */,
 				A521CA08233A633C00E3231A /* Custom Guide */,
@@ -293,7 +290,6 @@
 				A5243776232EE52A00A3CC7D /* BrewCollectionViewController.swift in Sources */,
 				A577E139232D6747001B80EB /* NotesListTableViewController.swift in Sources */,
 				A5A32792232F487300ED3CD4 /* SectionHeaderCollectionReusableView.swift in Sources */,
-				A56DBDE3233746F400ACDC89 /* MainViewController.swift in Sources */,
 				A5079A8D232B4C6B00AFE337 /* AppDelegate.swift in Sources */,
 				A5CF3737233A8695001D2BFA /* AddStepViewController.swift in Sources */,
 				A5A327A2233006FB00ED3CD4 /* Step.swift in Sources */,

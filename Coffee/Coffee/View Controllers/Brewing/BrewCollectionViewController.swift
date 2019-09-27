@@ -66,7 +66,6 @@ class BrewCollectionViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "brewCell", for: indexPath) as? BrewCollectionViewCell else { return UICollectionViewCell() }
         let category = guides()[indexPath.section]
         let guide = category[indexPath.item]
-        
         cell.guide = guide
         cell.delegate = self
         return cell
