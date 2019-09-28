@@ -59,35 +59,33 @@ class GuideIntroViewController: UIViewController {
         prepLabel.text = guide.prep
         
         switch guide.grind {
-        case "Fine":
-            grindImage.image = UIImage(named: "fine")
-        case "Fine-Medium":
-            grindImage.image = UIImage(named: "mediumFine")
-        case "Medium":
-            grindImage.image = UIImage(named: "medium")
-        case "Medium-Coarse":
-            grindImage.image = UIImage(named: "mediumCoarse")
-        case "Coarse":
-            grindImage.image = UIImage(named: "coarse")
-        case "Extra Coarse" :
-            grindImage.image = UIImage(named: "extraCoarse")
+        case GrindKeys.fineKey:
+            grindImage.image = UIImage(named: AssetKeys.fineKey)
+        case GrindKeys.fineMediumKey:
+            grindImage.image = UIImage(named: AssetKeys.fineMediumKey)
+        case GrindKeys.mediumKey:
+            grindImage.image = UIImage(named: AssetKeys.mediumKey)
+        case GrindKeys.mediumCoarseKey:
+            grindImage.image = UIImage(named: AssetKeys.mediumCoarseKey)
+        case GrindKeys.coarseKey:
+            grindImage.image = UIImage(named: AssetKeys.coarseKey)
+        case GrindKeys.extraCoarseKey :
+            grindImage.image = UIImage(named: AssetKeys.extraCoarseKey)
         default:
             grindImage.image = nil
         }
         
         switch guide.method {
-        case "CHEMEX":
-            methodImage.image = UIImage(named: "chemex")
-        case "AeroPress":
-            methodImage.image = UIImage(named: "aeroPress")
-        case "Moka Pot":
-            methodImage.image = UIImage(named: "mokaPot")
-        case "French Press":
-            methodImage.image = UIImage(named: "frenchPress")
-        case "Kalita Wave":
-            methodImage.image = UIImage(named: "kalita")
-        case "Hario V60" :
-            methodImage.image = UIImage(named: "v60")
+        case BrewKeys.chemexKey:
+            methodImage.image = UIImage(named: AssetKeys.chemexKey)
+        case BrewKeys.aeroPressKey:
+            methodImage.image = UIImage(named: AssetKeys.aeroPressKey)
+        case BrewKeys.frenchPressKey:
+            methodImage.image = UIImage(named: AssetKeys.frenchPressKey)
+        case BrewKeys.kalitaKey:
+            methodImage.image = UIImage(named: AssetKeys.kalitaKey)
+        case BrewKeys.v60Key :
+            methodImage.image = UIImage(named: AssetKeys.v60Key)
         default:
             methodImage.image = nil
         }

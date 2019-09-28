@@ -1,5 +1,5 @@
 //
-//  AddStepViewController.swift
+//  StepViewController.swift
 //  Coffee
 //
 //  Created by Michael Moore on 9/24/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddStepViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+class StepViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     // MARK: - Properties
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var amountLabel: UILabel!
@@ -59,14 +59,29 @@ class AddStepViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         if stepToggle == false {
             switch stepTitle {
             case "Pour":
-                let text = "Pour \(water)g of water over \(time) seconds"
-                StepController.createStep(guide: guide, title: stepTitle, water: water, time: time, text: text)
+                if instructionTextView.text.isEmpty {
+                    let text = "Pour \(water)g of water over \(time) seconds"
+                    StepController.createStep(guide: guide, title: stepTitle, water: water, time: time, text: text)
+                } else {
+                    guard let text = instructionTextView.text else { return }
+                    StepController.createStep(guide: guide, title: stepTitle, water: water, time: time, text: text)
+                }
             case "Stir":
-                let text = "Stir for \(time) seconds"
-                StepController.createStep(guide: guide, title: stepTitle, water: water, time: time, text: text)
+                if instructionTextView.text.isEmpty {
+                    let text = "Stir for \(time) seconds"
+                    StepController.createStep(guide: guide, title: stepTitle, water: water, time: time, text: text)
+                } else {
+                    guard let text = instructionTextView.text else { return }
+                    StepController.createStep(guide: guide, title: stepTitle, water: water, time: time, text: text)
+                }
             case "Wait":
-                let text = "Wait for \(time) seconds"
-                StepController.createStep(guide: guide, title: stepTitle, water: water, time: time, text: text)
+                if instructionTextView.text.isEmpty {
+                    let text = "Wait for \(time) seconds"
+                    StepController.createStep(guide: guide, title: stepTitle, water: water, time: time, text: text)
+                } else {
+                    guard let text = instructionTextView.text else { return }
+                    StepController.createStep(guide: guide, title: stepTitle, water: water, time: time, text: text)
+                }
             case "Other":
                 guard let text = instructionTextView.text, !text.isEmpty else { return }
                 StepController.createStep(guide: guide, title: stepTitle, water: water, time: time, text: text)
@@ -78,14 +93,30 @@ class AddStepViewController: UIViewController, UITextFieldDelegate, UITextViewDe
             guard let step = step else { return }
             switch stepTitle {
             case "Pour":
-                let text = "Pour \(water)g of water over \(time) seconds"
-                StepController.update(step: step, guide: guide, title: stepTitle, water: water, time: time, text: text)
+                if instructionTextView.text.isEmpty {
+                    let text = "Pour \(water)g of water over \(time) seconds"
+                    StepController.update(step: step, guide: guide, title: stepTitle, water: water, time: time, text: text)
+
+                } else {
+                    guard let text = instructionTextView.text else { return }
+                    StepController.update(step: step, guide: guide, title: stepTitle, water: water, time: time, text: text)
+                }
             case "Stir":
-                let text = "Stir for \(time) seconds"
-                StepController.update(step: step, guide: guide, title: stepTitle, water: water, time: time, text: text)
+                if instructionTextView.text.isEmpty {
+                    let text = "Stir for \(time) seconds"
+                    StepController.update(step: step, guide: guide, title: stepTitle, water: water, time: time, text: text)
+                } else {
+                    guard let text = instructionTextView.text else { return }
+                    StepController.update(step: step, guide: guide, title: stepTitle, water: water, time: time, text: text)
+                }
             case "Wait":
-                let text = "Wait for \(time) seconds"
-                StepController.update(step: step, guide: guide, title: stepTitle, water: water, time: time, text: text)
+                if instructionTextView.text.isEmpty {
+                    let text = "Wait for \(time) seconds"
+                    StepController.update(step: step, guide: guide, title: stepTitle, water: water, time: time, text: text)
+                } else {
+                    guard let text = instructionTextView.text else { return }
+                    StepController.update(step: step, guide: guide, title: stepTitle, water: water, time: time, text: text)
+                }
             case "Other":
                 guard let text = instructionTextView.text, !text.isEmpty else { return }
                 StepController.update(step: step, guide: guide, title: stepTitle, water: water, time: time, text: text)
@@ -151,16 +182,16 @@ class AddStepViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
-        let time = durationTextField.text ?? "0"
-        let water = amountTextField.text ?? "0"
-        if stepTitle == "Pour" {
-            instructionTextView.text = "Pour \(water) grams of water over \(time) seconds"
-        } else if stepTitle == "Stir" {
-            instructionTextView.text = "Stir for \(time) seconds"
-        } else if stepTitle == "Wait" {
-            instructionTextView.text = "Wait for \(time) seconds"
-        } else {
-            instructionTextView.text = ""
-        }
+        //        let time = durationTextField.text ?? "0"
+        //        let water = amountTextField.text ?? "0"
+        //        if stepTitle == "Pour" {
+        //            instructionTextView.text = "Pour \(water) grams of water over \(time) seconds"
+        //        } else if stepTitle == "Stir" {
+        //            instructionTextView.text = "Stir for \(time) seconds"
+        //        } else if stepTitle == "Wait" {
+        //            instructionTextView.text = "Wait for \(time) seconds"
+        //        } else {
+        //            instructionTextView.text = ""
+        //        }
     }
 }

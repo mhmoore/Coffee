@@ -8,6 +8,26 @@
 
 import Foundation
 
+struct GrindKeys {
+    
+    static let fineKey = "Fine"
+    static let fineMediumKey = "Fine-Medium"
+    static let mediumKey = "Medium"
+    static let mediumCoarseKey = "Medium-Coarse"
+    static let coarseKey = "Coarse"
+    static let extraCoarseKey = "Extra Coarse"
+}
+
+struct BrewKeys {
+    
+    static let v60Key = "HARIO V60"
+    static let frenchPressKey = "French Press"
+    static let kalitaKey = "Kalita Wave"
+    static let chemexKey = "CHEMEX"
+    static let aeroPressKey = "AeroPress"
+    
+}
+
 class Guide: Codable {
     
     var userGuide: Bool

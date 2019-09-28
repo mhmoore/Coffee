@@ -63,7 +63,7 @@ class GuideController {
     }
     
     func remove(guide: Guide) {
-        if guide.userGuide != true {
+        if !guide.userGuide {
             guard let firstIndex = standardGuides.firstIndex(of: guide) else { return }
             standardGuides.remove(at: firstIndex)
         } else {

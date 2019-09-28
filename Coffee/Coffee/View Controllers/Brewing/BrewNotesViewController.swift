@@ -53,9 +53,9 @@ class BrewNotesViewController: UIViewController, UITextViewDelegate, UITextField
     func loadData() {
         guard let guide = guide else { return }
         let ratioNumbers = getRatio(guide: guide)
-        grindLabel.text = guide.grind
-        ratioLabel.text = "\(ratioNumbers.0) : \(ratioNumbers.1)"
-        methodLabel.text = guide.method
+        grindLabel.text = "Grind:  \(guide.grind)"
+        ratioLabel.text = "Ratio:  \(ratioNumbers.0) : \(ratioNumbers.1)"
+        methodLabel.text = "Method:  \(guide.method)"
     }
     
     func totalWater(guide: Guide) -> Double {

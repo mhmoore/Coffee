@@ -22,16 +22,17 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     
     var guide: Guide?
     var coffeeRange: [String] = []
-    let grinds = ["Fine",
-                  "Medium-Fine",
-                  "Medium",
-                  "Medium-Coarse",
-                  "Coarse",
-                  "Extra Coarse"]
+    let grinds = [GrindKeys.fineKey,
+                  GrindKeys.fineMediumKey,
+                  GrindKeys.mediumKey,
+                  GrindKeys.mediumCoarseKey,
+                  GrindKeys.coarseKey,
+                  GrindKeys.extraCoarseKey]
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        stepsTableView.tableFooterView = UIView()
         stepsTableView.delegate = self
         stepsTableView.dataSource = self
         titleTextField.delegate = self
@@ -187,14 +188,14 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editStepSegue" {
             guard let indexPath = stepsTableView.indexPathForSelectedRow,
-                let destinationVC = segue.destination as? AddStepViewController,
+                let destinationVC = segue.destination as? StepViewController,
                 let guide = guide else { return }
             let step = guide.steps[indexPath.row]
             destinationVC.guide = guide
             destinationVC.step = step
             destinationVC.stepToggle = true
         } else if segue.identifier == "addStepSegue" {
-            guard let destinationVC = segue.destination as? AddStepViewController,
+            guard let destinationVC = segue.destination as? StepViewController,
                 let guide = guide else { return }
             destinationVC.guide = guide
         }
@@ -261,8 +262,6 @@ extension CustomGuideViewController: UIPickerViewDelegate, UIPickerViewDataSourc
         }
         return ""
     }
-    
-    
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         guard let guide = guide else { return }

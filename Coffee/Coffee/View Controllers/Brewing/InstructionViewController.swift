@@ -24,6 +24,7 @@ class InstructionViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        stepsTableView.tableFooterView = UIView()
         stepsTableView.delegate = self
         stepsTableView.dataSource = self
         updateView()
