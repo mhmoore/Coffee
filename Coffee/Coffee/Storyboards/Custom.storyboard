@@ -158,10 +158,10 @@
             </objects>
             <point key="canvasLocation" x="4984.057971014493" y="673.66071428571422"/>
         </scene>
-        <!--Add Step View Controller-->
+        <!--Step View Controller-->
         <scene sceneID="eVn-fp-IHy">
             <objects>
-                <viewController id="Sie-ZB-cLO" customClass="AddStepViewController" customModule="Coffee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Sie-ZB-cLO" customClass="StepViewController" customModule="Coffee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6pd-Qa-JDS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

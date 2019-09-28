@@ -63,13 +63,12 @@ class GuideController {
     }
     
     func remove(guide: Guide) {
-        if guide.userGuide != true {
+        if !guide.userGuide {
             guard let firstIndex = standardGuides.firstIndex(of: guide) else { return }
             standardGuides.remove(at: firstIndex)
         } else {
-            guard var userGuides = userGuides,
-                let firstIndex = userGuides.firstIndex(of: guide) else { return }
-            userGuides.remove(at: firstIndex)
+            guard let firstIndex = userGuides?.firstIndex(of: guide) else { return }
+            userGuides?.remove(at: firstIndex)
         }
         
         saveToPersistentStorage()

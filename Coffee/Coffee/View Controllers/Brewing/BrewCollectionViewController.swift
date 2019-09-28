@@ -11,11 +11,11 @@ import UIKit
 class BrewCollectionViewController: UICollectionViewController {
     
     // MARK: - Properties
-    let guides = { () -> [[Guide]] in
+    var guides: [[Guide]] {
         if GuideController.shared.userGuides == nil {
             return [GuideController.shared.standardGuides]
         } else {
-            guard let userGuides = GuideController.shared.userGuides else {return [GuideController.shared.standardGuides]}
+            guard let userGuides = GuideController.shared.userGuides, !userGuides.isEmpty else {return [GuideController.shared.standardGuides]}
             return [userGuides, GuideController.shared.standardGuides]
         }
     }
@@ -43,30 +43,35 @@ class BrewCollectionViewController: UICollectionViewController {
     
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return guides().count
+        return guides.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return guides()[section].count
+        return guides[section].count
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sectionHeader", for: indexPath) as? SectionHeaderCollectionReusableView else { return UICollectionReusableView() }
-        let category = guides()[indexPath.section]
-        let guide = category[indexPath.item]
-        if guide.userGuide == true {
-            sectionHeaderView.categoryTitle = "Your Brewing Guides"
+    
+        let category = guides[indexPath.section]
+        if guides[indexPath.section].count != 0 {
+            let guide = category[indexPath.item]
+            if guide.userGuide == true {
+                sectionHeaderView.categoryTitle = "Your Brewing Guides"
+            } else {
+                sectionHeaderView.categoryTitle = "Standard Brewing Guides"
+            }
         } else {
-            sectionHeaderView.categoryTitle = "Standard Brewing Guides"
+            sectionHeaderView.categoryTitle = ""
         }
+        sectionHeaderView.backgroundColor = .lightGray
         return sectionHeaderView
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "brewCell", for: indexPath) as? BrewCollectionViewCell else { return UICollectionViewCell() }
-        let category = guides()[indexPath.section]
+        let category = guides[indexPath.section]
         let guide = category[indexPath.item]
-        
         cell.guide = guide
         cell.delegate = self
         return cell
@@ -86,7 +91,7 @@ class BrewCollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toGuideIntroVC" {
             guard let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
-            let category = guides()[indexPath.section]
+            let category = guides[indexPath.section]
             let guide = category[indexPath.item]
             guard let destinationVC = segue.destination as? GuideIntroViewController else { return }
             destinationVC.guide = guide
@@ -97,10 +102,14 @@ class BrewCollectionViewController: UICollectionViewController {
 extension BrewCollectionViewController: BrewCellDelegate {
     func delete(cell: BrewCollectionViewCell) {
         if let indexPath = collectionView.indexPath(for: cell) {
-            let category = guides()[indexPath.section]
+            let category = guides[indexPath.section]
             let guide = category[indexPath.row]
             GuideController.shared.remove(guide: guide)
-            collectionView.deleteItems(at: [indexPath])
+            if guides.count > 1 {
+                collectionView.deleteItems(at: [indexPath])
+            } else {
+                collectionView.reloadData()
+            }
         }
     }
 }

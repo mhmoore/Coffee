@@ -17,16 +17,17 @@
 		A51B495F232C0C4100C162F1 /* GuideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51B495E232C0C4100C162F1 /* GuideController.swift */; };
 		A5243774232EE07B00A3CC7D /* BrewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5243773232EE07B00A3CC7D /* BrewCollectionViewCell.swift */; };
 		A5243776232EE52A00A3CC7D /* BrewCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5243775232EE52A00A3CC7D /* BrewCollectionViewController.swift */; };
-		A56DBDE3233746F400ACDC89 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56DBDE2233746F400ACDC89 /* MainViewController.swift */; };
 		A56FC0FD23395463007A6764 /* Custom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A56FC0FC23395462007A6764 /* Custom.storyboard */; };
 		A56FC0FF233965C8007A6764 /* GuideIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56FC0FE233965C8007A6764 /* GuideIntroViewController.swift */; };
 		A56FC102233972BB007A6764 /* CustomGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56FC101233972BB007A6764 /* CustomGuideViewController.swift */; };
 		A577E139232D6747001B80EB /* NotesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577E138232D6747001B80EB /* NotesListTableViewController.swift */; };
 		A577E13B232D6B8C001B80EB /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577E13A232D6B8C001B80EB /* NoteDetailViewController.swift */; };
+		A59DB66C233E6B3800917F2C /* StandardGuides.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59DB66B233E6B3800917F2C /* StandardGuides.swift */; };
 		A5A32792232F487300ED3CD4 /* SectionHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A32791232F487300ED3CD4 /* SectionHeaderCollectionReusableView.swift */; };
 		A5A32798232FE9A100ED3CD4 /* BrewNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A32797232FE9A100ED3CD4 /* BrewNotesViewController.swift */; };
 		A5A327A2233006FB00ED3CD4 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A327A1233006FB00ED3CD4 /* Step.swift */; };
-		A5CF3737233A8695001D2BFA /* AddStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF3736233A8695001D2BFA /* AddStepViewController.swift */; };
+		A5C22E2223400ECA0062EAC3 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C22E2123400ECA0062EAC3 /* StyleGuide.swift */; };
+		A5CF3737233A8695001D2BFA /* StepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF3736233A8695001D2BFA /* StepViewController.swift */; };
 		A5CF3739233AC626001D2BFA /* StepController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF3738233AC626001D2BFA /* StepController.swift */; };
 		A5D4E258233586AE0053CB21 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D4E257233586AE0053CB21 /* InstructionViewController.swift */; };
 		A5DB41F223356DA500FECAA4 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5DB41F123356DA500FECAA4 /* Home.storyboard */; };
@@ -47,16 +48,17 @@
 		A51B495E232C0C4100C162F1 /* GuideController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideController.swift; sourceTree = "<group>"; };
 		A5243773232EE07B00A3CC7D /* BrewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewCollectionViewCell.swift; sourceTree = "<group>"; };
 		A5243775232EE52A00A3CC7D /* BrewCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewCollectionViewController.swift; sourceTree = "<group>"; };
-		A56DBDE2233746F400ACDC89 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = Brewing/MainViewController.swift; sourceTree = "<group>"; };
 		A56FC0FC23395462007A6764 /* Custom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Custom.storyboard; sourceTree = "<group>"; };
 		A56FC0FE233965C8007A6764 /* GuideIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideIntroViewController.swift; sourceTree = "<group>"; };
 		A56FC101233972BB007A6764 /* CustomGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGuideViewController.swift; sourceTree = "<group>"; };
 		A577E138232D6747001B80EB /* NotesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListTableViewController.swift; sourceTree = "<group>"; };
 		A577E13A232D6B8C001B80EB /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
+		A59DB66B233E6B3800917F2C /* StandardGuides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardGuides.swift; sourceTree = "<group>"; };
 		A5A32791232F487300ED3CD4 /* SectionHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		A5A32797232FE9A100ED3CD4 /* BrewNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewNotesViewController.swift; sourceTree = "<group>"; };
 		A5A327A1233006FB00ED3CD4 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
-		A5CF3736233A8695001D2BFA /* AddStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStepViewController.swift; sourceTree = "<group>"; };
+		A5C22E2123400ECA0062EAC3 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
+		A5CF3736233A8695001D2BFA /* StepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepViewController.swift; sourceTree = "<group>"; };
 		A5CF3738233AC626001D2BFA /* StepController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepController.swift; sourceTree = "<group>"; };
 		A5D4E257233586AE0053CB21 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
 		A5DB41F123356DA500FECAA4 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				A5079AA8232B56F300AFE337 /* Guide.swift */,
+				A59DB66B233E6B3800917F2C /* StandardGuides.swift */,
 				A5079AA6232B51CA00AFE337 /* Note.swift */,
 				A5A327A1233006FB00ED3CD4 /* Step.swift */,
 			);
@@ -138,10 +141,10 @@
 		A5079AA1232B4CAE00AFE337 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A56DBDE2233746F400ACDC89 /* MainViewController.swift */,
 				A5A3279A232FEA4F00ED3CD4 /* Notes */,
 				A5A32799232FEA3000ED3CD4 /* Brewing */,
 				A521CA08233A633C00E3231A /* Custom Guide */,
+				A5C22E2323400F560062EAC3 /* CustomUI */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -157,7 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				A56FC101233972BB007A6764 /* CustomGuideViewController.swift */,
-				A5CF3736233A8695001D2BFA /* AddStepViewController.swift */,
+				A5CF3736233A8695001D2BFA /* StepViewController.swift */,
 			);
 			path = "Custom Guide";
 			sourceTree = "<group>";
@@ -182,6 +185,14 @@
 				A577E13A232D6B8C001B80EB /* NoteDetailViewController.swift */,
 			);
 			path = Notes;
+			sourceTree = "<group>";
+		};
+		A5C22E2323400F560062EAC3 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				A5C22E2123400ECA0062EAC3 /* StyleGuide.swift */,
+			);
+			path = CustomUI;
 			sourceTree = "<group>";
 		};
 		A5EC2404232C1F4400DC1263 /* Storyboards */ = {
@@ -284,7 +295,9 @@
 				A56FC102233972BB007A6764 /* CustomGuideViewController.swift in Sources */,
 				A56FC0FF233965C8007A6764 /* GuideIntroViewController.swift in Sources */,
 				A5D4E258233586AE0053CB21 /* InstructionViewController.swift in Sources */,
+				A59DB66C233E6B3800917F2C /* StandardGuides.swift in Sources */,
 				A5CF3739233AC626001D2BFA /* StepController.swift in Sources */,
+				A5C22E2223400ECA0062EAC3 /* StyleGuide.swift in Sources */,
 				A5079AA9232B56F300AFE337 /* Guide.swift in Sources */,
 				A51B495F232C0C4100C162F1 /* GuideController.swift in Sources */,
 				A5079AA7232B51CA00AFE337 /* Note.swift in Sources */,
@@ -293,9 +306,8 @@
 				A5243776232EE52A00A3CC7D /* BrewCollectionViewController.swift in Sources */,
 				A577E139232D6747001B80EB /* NotesListTableViewController.swift in Sources */,
 				A5A32792232F487300ED3CD4 /* SectionHeaderCollectionReusableView.swift in Sources */,
-				A56DBDE3233746F400ACDC89 /* MainViewController.swift in Sources */,
 				A5079A8D232B4C6B00AFE337 /* AppDelegate.swift in Sources */,
-				A5CF3737233A8695001D2BFA /* AddStepViewController.swift in Sources */,
+				A5CF3737233A8695001D2BFA /* StepViewController.swift in Sources */,
 				A5A327A2233006FB00ED3CD4 /* Step.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

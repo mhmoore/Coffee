@@ -43,15 +43,15 @@ class BrewCollectionViewCell: UICollectionViewCell {
             
             deleteButton.layer.cornerRadius = deleteButton.bounds.width / 2.0
             deleteButton.layer.masksToBounds = true
-            deleteButton.isHidden = !isEditing
+            deleteButton.isHidden = true
         }
     }
     
-    
-    
     var isEditing: Bool = false {
         didSet {
-            deleteButton.isHidden = !isEditing
+            if guide?.userGuide == true {
+                deleteButton.isHidden = !isEditing
+            }
         }
     }
     
