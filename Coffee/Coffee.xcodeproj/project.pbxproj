@@ -33,6 +33,7 @@
 		A5DB41F223356DA500FECAA4 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5DB41F123356DA500FECAA4 /* Home.storyboard */; };
 		A5EC2409232C1FA600DC1263 /* Learn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5EC2408232C1FA600DC1263 /* Learn.storyboard */; };
 		A5EC240B232C1FB600DC1263 /* Notes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5EC240A232C1FB600DC1263 /* Notes.storyboard */; };
+		A5F89A7B23412BA4004780F5 /* LearnTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F89A7A23412BA4004780F5 /* LearnTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		A5DB41F123356DA500FECAA4 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		A5EC2408232C1FA600DC1263 /* Learn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Learn.storyboard; sourceTree = "<group>"; };
 		A5EC240A232C1FB600DC1263 /* Notes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notes.storyboard; sourceTree = "<group>"; };
+		A5F89A7A23412BA4004780F5 /* LearnTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				A5A32799232FEA3000ED3CD4 /* Brewing */,
 				A521CA08233A633C00E3231A /* Custom Guide */,
 				A5C22E2323400F560062EAC3 /* CustomUI */,
+				A5F89A7A23412BA4004780F5 /* LearnTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				A5243774232EE07B00A3CC7D /* BrewCollectionViewCell.swift in Sources */,
 				A577E13B232D6B8C001B80EB /* NoteDetailViewController.swift in Sources */,
 				A5243776232EE52A00A3CC7D /* BrewCollectionViewController.swift in Sources */,
+				A5F89A7B23412BA4004780F5 /* LearnTableViewController.swift in Sources */,
 				A577E139232D6747001B80EB /* NotesListTableViewController.swift in Sources */,
 				A5A32792232F487300ED3CD4 /* SectionHeaderCollectionReusableView.swift in Sources */,
 				A5079A8D232B4C6B00AFE337 /* AppDelegate.swift in Sources */,

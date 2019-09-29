@@ -12,8 +12,26 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    func isFirstLaunch() -> Bool {
+        let defaults = UserDefaults.standard
+        if let _ = defaults.string(forKey: "isFirstLaunch") {
+            print("Not first launch")
+            return true
+        } else {
+            defaults.set(true, forKey: "isFirstLaunch")
+            print("Is first launch")
+            return false
+        }
+    }
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let result = isFirstLaunch()
+        if !result {
+            GuideController.shared.standardGuides = [StandardGuides.init().chemex, StandardGuides.init().kalita, StandardGuides.init().aeroPress,  StandardGuides.init().v60, StandardGuides.init().frenchPress]
+            GuideController.shared.saveToPersistentStorage()
+        }
         return true
     }
 
@@ -39,8 +57,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask
-    {
+    // keeps app in portrait mode
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return .portrait
     }
 

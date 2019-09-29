@@ -16,42 +16,42 @@ class GuideController {
     var userGuides: [Guide]?
     var standardGuides: [Guide] = []
     
-    init() {
-        let userGuide = false
-        let title = "CHEMEX"
-        let coffee = 26.7
-        let grind = "Medium-Coarse"
-        let prep = "Do this stuff"
-        let steps = [Step(title: "Pour", water: 150.0, time: 10.0, text: "Pour 150g of water over 10.0 seconds"), Step(title: "Wait", water: 0.0, time: 10.0, text: "Wait for 10.0 seconds and let it bloom"), Step(title: "Pour", water: 300.0, time: 240.0, text: "Pour 300.0 of water over 240.0 seconds")]
-        let method = "CHEMEX"
-        let methodInfo = "Clean, crisp cup of coffee"
-        
-        
-        createGuide(userGuide: userGuide, title: title, coffee: coffee, grind: grind, prep: prep, steps: steps, method: method, methodInfo: methodInfo)
-        
-        let aeroUserGuide = false
-        let aeroTitle = "AeroPress"
-        let aeroCoffee = 17.0
-        let aeroGrind = "Medium"
-        let aeroPrep = "Do this stuff"
-        let aeroSteps = [Step(title: "Pour", water: 150.0, time: 10.0, text: "Pour 150g of water over 10.0 seconds"), Step(title: "Wait", water: 0.0, time: 10.0, text: "Wait for 10.0 seconds and let it bloom"), Step(title: "Pour", water: 300.0, time: 240.0, text: "Pour 300.0 of water over 240.0 seconds"), Step(title: "Other", water: 0.0, time: 45.0, text: "Press down plunger for 45 seconds")]
-        let aeroMethod = "AeroPress"
-        let aeroMethodInfo = "A darn good cup of coffee"
-        
-        
-        createGuide(userGuide: aeroUserGuide, title: aeroTitle, coffee: aeroCoffee, grind: aeroGrind, prep: aeroPrep, steps: aeroSteps, method: aeroMethod, methodInfo: aeroMethodInfo)
-    }
+//    init() {
+//        let userGuide = false
+//        let title = "CHEMEX"
+//        let coffee = 26.7
+//        let grind = "Medium-Coarse"
+//        let prep = "Do this stuff"
+//        let steps = [Step(title: "Pour", water: 150.0, time: 10.0, text: "Pour 150g of water over 10.0 seconds"), Step(title: "Wait", water: 0.0, time: 10.0, text: "Wait for 10.0 seconds and let it bloom"), Step(title: "Pour", water: 300.0, time: 240.0, text: "Pour 300.0 of water over 240.0 seconds")]
+//        let method = "CHEMEX"
+//        let methodInfo = "Clean, crisp cup of coffee"
+//
+//
+//        createGuide(userGuide: userGuide, title: title, coffee: coffee, grind: grind, prep: prep, steps: steps, method: method, methodInfo: methodInfo)
+//
+//        let aeroUserGuide = false
+//        let aeroTitle = "AeroPress"
+//        let aeroCoffee = 17.0
+//        let aeroGrind = "Medium"
+//        let aeroPrep = "Do this stuff"
+//        let aeroSteps = [Step(title: "Pour", water: 150.0, time: 10.0, text: "Pour 150g of water over 10.0 seconds"), Step(title: "Wait", water: 0.0, time: 10.0, text: "Wait for 10.0 seconds and let it bloom"), Step(title: "Pour", water: 300.0, time: 240.0, text: "Pour 300.0 of water over 240.0 seconds"), Step(title: "Other", water: 0.0, time: 45.0, text: "Press down plunger for 45 seconds")]
+//        let aeroMethod = "AeroPress"
+//        let aeroMethodInfo = "A darn good cup of coffee"
+//
+//
+//        createGuide(userGuide: aeroUserGuide, title: aeroTitle, coffee: aeroCoffee, grind: aeroGrind, prep: aeroPrep, steps: aeroSteps, method: aeroMethod, methodInfo: aeroMethodInfo)
+//    }
     
     // MARK: - Guide CRUD
-    func createGuide(userGuide: Bool, title: String, coffee: Double, grind: String, prep: String, steps: [Step], method: String, methodInfo: String) {
-        let guide = Guide(userGuide: userGuide, title: title, method: method, methodInfo: methodInfo, coffee: coffee, grind: grind, prep: prep, steps: steps)
-        let note = Note(roaster: "SweetBloom", coffeeName: "Yummm", origin: "Latin America", grind: grind, ratio: "1 : 6", method: method, tastingNotes: methodInfo)
-        let note2 = Note(roaster: "BoxCar", coffeeName: "Derailer", origin: "Ethiopia", grind: grind, ratio: "1 : 17", method: method, tastingNotes: methodInfo)
-        guide.notes.append(note)
-        guide.notes.append(note2)
+//    func createGuide(userGuide: Bool, title: String, coffee: Double, grind: String, prep: String, steps: [Step], method: String, methodInfo: String) {
+//        let guide = Guide(userGuide: userGuide, title: title, method: method, methodInfo: methodInfo, coffee: coffee, grind: grind, prep: prep, steps: steps)
+////        let note = Note(roaster: "SweetBloom", coffeeName: "Yummm", origin: "Latin America", grind: grind, ratio: "1 : 6", method: method, tastingNotes: methodInfo)
+////        let note2 = Note(roaster: "BoxCar", coffeeName: "Derailer", origin: "Ethiopia", grind: grind, ratio: "1 : 17", method: method, tastingNotes: methodInfo)
+////        guide.notes.append(note)
+////        guide.notes.append(note2)
 //        userGuides?.insert(guide, at: 0)
-        standardGuides.insert(guide, at: 0)
-    }
+////        standardGuides.insert(guide, at: 0)
+//    }
     
     func update(guide: Guide, userGuide: Bool, title: String, coffee: Double, grind: String, steps: [Step], notes: [Note] ) {
         guide.userGuide = userGuide

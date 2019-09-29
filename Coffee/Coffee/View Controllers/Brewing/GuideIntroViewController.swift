@@ -47,6 +47,7 @@ class GuideIntroViewController: UIViewController {
     // MARK: - Custom Methods
     func loadData() {
         guard let guide = guide else { return }
+        title = guide.method
         methodInfo.text = guide.methodInfo
         grindLabel.text = guide.grind
         grindImage.layer.cornerRadius = grindImage.frame.height / 2
@@ -84,7 +85,7 @@ class GuideIntroViewController: UIViewController {
             methodImage.image = UIImage(named: AssetKeys.frenchPressKey)
         case BrewKeys.kalitaKey:
             methodImage.image = UIImage(named: AssetKeys.kalitaKey)
-        case BrewKeys.v60Key :
+        case BrewKeys.v60Key:
             methodImage.image = UIImage(named: AssetKeys.v60Key)
         default:
             methodImage.image = nil
