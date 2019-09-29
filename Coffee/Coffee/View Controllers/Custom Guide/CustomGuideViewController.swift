@@ -68,7 +68,7 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
             GuideController.shared.userGuides = []
             GuideController.shared.userGuides?.append(guide)
         } else {
-            GuideController.shared.userGuides?.append(guide)
+            GuideController.shared.userGuides?.insert(guide, at: 0)
         }
         GuideController.shared.saveToPersistentStorage()
         navigationController?.popToRootViewController(animated: true)

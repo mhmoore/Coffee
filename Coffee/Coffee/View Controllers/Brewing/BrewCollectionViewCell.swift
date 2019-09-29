@@ -25,18 +25,16 @@ class BrewCollectionViewCell: UICollectionViewCell {
             guard let guide = guide else { return }
             titleLabel?.text = guide.title
             switch guide.method {
-            case "CHEMEX":
-                methodImageView?.image = UIImage(named: "chemex")
-            case "AeroPress":
-                methodImageView?.image = UIImage(named: "aeroPress")
-            case "Moka Pot":
-                methodImageView?.image = UIImage(named: "mokaPot")
-            case "French Press":
-                methodImageView?.image = UIImage(named: "frenchPress")
-            case "Kalita Wave":
-                methodImageView?.image = UIImage(named: "kalita")
-            case "Hario V60" :
-                methodImageView?.image = UIImage(named: "v60")
+            case BrewKeys.chemexKey:
+                methodImageView?.image = UIImage(named: AssetKeys.chemexKey)
+            case BrewKeys.aeroPressKey:
+                methodImageView?.image = UIImage(named: AssetKeys.aeroPressKey)
+            case BrewKeys.frenchPressKey:
+                methodImageView?.image = UIImage(named: AssetKeys.frenchPressKey)
+            case BrewKeys.kalitaKey:
+                methodImageView?.image = UIImage(named: AssetKeys.kalitaKey)
+            case BrewKeys.v60Key:
+                methodImageView?.image = UIImage(named: AssetKeys.v60Key)
             default:
                 methodImageView?.image = nil
             }

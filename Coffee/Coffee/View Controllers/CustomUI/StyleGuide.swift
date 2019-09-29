@@ -9,13 +9,13 @@
 import Foundation
 
 struct AssetKeys {
-    
+    // brewing method images
     static let v60Key = "v60"
     static let frenchPressKey = "frenchPress"
     static let kalitaKey = "kalita"
     static let chemexKey = "chemex"
     static let aeroPressKey = "aeroPress"
- 
+    // grind images
     static let fineKey = "fine"
     static let fineMediumKey = "fineMedium"
     static let mediumKey = "medium"
