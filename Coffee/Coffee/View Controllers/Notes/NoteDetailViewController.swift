@@ -32,12 +32,12 @@ class NoteDetailViewController: UIViewController {
     // MARK: - Custom Methods
     func updateViews() {
         guard let note = note else { return }
-        roasterTextLabel.text = note.roaster
-        coffeeNameTextLabel.text = note.coffeeName
-        originTextLabel.text = note.origin
-        grindTextLabel.text = note.grind
-        methodTextLabel.text = note.method
-        notesTextLabel.text = note.tastingNotes
+        roasterTextLabel.text = "Roaster: \(note.roaster)"
+        coffeeNameTextLabel.text = "Coffee Name: \(note.coffeeName)"
+        originTextLabel.text = "Origin: \(note.origin)"
+        grindTextLabel.text = "Grind: \(note.grind)"
+        methodTextLabel.text = "Method: \(note.method)"
+        notesTextLabel.text = "Notes: \(note.tastingNotes)"
         title = note.coffeeName
     }
 }
