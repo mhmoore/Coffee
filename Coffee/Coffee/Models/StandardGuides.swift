@@ -17,7 +17,7 @@ class StandardGuides {
            CHEMEX filter
            42g of ground coffee
            Scale
-           Hot water just of the boil
+           Hot water just off the boil
            Stir stick
            Your favorite mug
 
@@ -26,6 +26,8 @@ class StandardGuides {
         • Without removing the filter, discard the water
         • Add coffee, place the CHEMEX on the scale, and zero the scale
         • You're ready to start brewing!
+
+        * This guide follows Stumptown Coffee Roasters Chemex brewing recommendations
         """,
         steps: [Step(title: "Pour", water: 150.0, time: 10.0, text: "Pour 150.0g of water saturating all the grounds over 10.0"), Step(title: "Stir", water: 0.0, time: 10.0, text: "Give the grounds a little stir ensuring there are no dry clumps"), Step(title: "Wait", water: 0.0, time: 25.0, text: "Wait for 25.0 seconds and let it bloom"), Step(title: "Pour", water: 300.0, time: 20.0, text: "Pour 300.0g in a spiraling motion over 20.0 seconds, and hitting all the dark spots"), Step(title: "Wait", water: 0.0, time: 40.0, text: "Wait for another 40 seconds"), Step(title: "Pour", water: 250.0, time: 17.0, text: "Pour 250.0g of water spiraling outward over 17.0 seconds"), Step(title: "Wait", water: 0.0, time: 118.0, text: "Wait until your coffee has reached the bubble on the front of the brewer"), Step(title: "Other", water: 0.0, time: 0.0, text: "Remove filter (even if there's still water filtering through)"), Step(title: "Other", water: 0.0, time: 0.0, text: "Give the CHEMEX a couple swirls, and enjoy!")])
     
@@ -46,6 +48,8 @@ class StandardGuides {
         • Add coffee into the brew chamber and place it back on top of our mug
         • Place the mug/AeroPress on the scale, and zero the scale
         • You're ready to start brewing!
+
+        * This guide follows Stumptown Coffee Roasters AeroPress brewing recommendations
         """,
         steps: [Step(title: "Pour", water: 220.0, time: 10.0, text: "Pour 220.0g (or about the #4 brewer mark) of water over 10 seconds, saturating all the grounds"), Step(title: "Stir", water: 0.0, time: 10.0, text: "Using the paddle, stir for 10.0 seconds"), Step(title: "Other", water: 0.0, time: 10.0, text: "Place the plunger in at an angle, and pull up slightly creating a pressure seal"), Step(title: "Wait", water: 0.0, time: 45.0, text: "Wait for 45.0 seconds"), Step(title: "Stir", water: 0.0, time: 5.0, text: "Remove plunger and stir for 5.0 seconds"), Step(title: "Other", water: 0.0, time: 35.0, text: "Place plunger back on, and steadily press down until you hear a hissing sound"), Step(title: "Other", water: 0.0, time: 0.0, text: "Remove basket from brewer and pop out the grounds/filter"), Step(title: "Other", water: 0.0, time: 0.0, text: "Clean the brewer, and enjoy your cup of coffee!")])
     
@@ -66,6 +70,8 @@ class StandardGuides {
         • Add coffee into the V60 ensuring a flat bed, and place it back on top of our mug
         • Place the mug/brewer on the scale, and zero the scale
         • You're ready to start brewing!
+
+        * This guide follows Stumptown Coffee Roasters HARIO V60 brewing recommendations
         """,
         steps: [Step(title: "Pour", water:  60.0, time: 5.0, text: "Pour 60.0g of water over 5.0 seconds saturating all the grounds"), Step(title: "Stir", water: 0.0, time: 3.0, text: "Stir for 3.0 seconds"), Step(title: "Wait", water: 0.0, time: 13.0, text: "Wait for 13.0 seconds and let bloom"), Step(title: "Pour", water: 75.0, time: 20.0, text: "Pour 75.0g of water in a slow, sprial motion for 20.0 seconds hitting the dark spots"), Step(title: "Wait", water: 0.0, time: 12.0, text: "Wait for 12.0 seconds"), Step(title: "Pour", water: 75.0, time: 20.0, text: "Pour 75.0g of water in a slow, sprial motion for 20.0 seconds hitting the dark spots"), Step(title: "Wait", water: 0.0, time: 12.0, text: "Wait for 12.0 seconds"), Step(title: "Pour", water: 75.0, time: 20.0, text: "Pour 75.0g of water in a slow, sprial motion for 20.0 seconds hitting the dark spots"), Step(title: "Wait", water: 0.0, time: 12.0, text: "Wait for 12.0 seconds"), Step(title: "Pour", water: 75.0, time: 20.0, text: "Pour 75.0g of water in a slow, sprial motion for 20.0 seconds hitting the dark spots"), Step(title: "Wait", water: 0.0, time: 40.0, text: "Wait for 40.0 seconds"), Step(title: "Other", water: 0.0, time: 0.0, text: "Set the V60 into the sink or another carafe/mug to let drain, and enjoy!")])
     
@@ -86,6 +92,8 @@ class StandardGuides {
     • Add coffee into the filter ensuring a flat bed, and place it back on top of our mug
     • Place the mug/brewer on the scale, and zero the scale
     • You're ready to start brewing!
+
+    * This guide follows Stumptown Coffee Roasters Kalita Wave brewing recommendations
     """,
     steps: [Step(title: "Pour", water:  60.0, time: 10.0, text: "Pour 60.0g of water over 10.0 seconds saturating all the grounds"), Step(title: "Stir", water: 0.0, time: 3.0, text: "Stir for 3.0 seconds"), Step(title: "Wait", water: 0.0, time: 32.0, text: "Wait for 32.0 seconds and let bloom"), Step(title: "Pour", water: 140.0, time: 15.0, text: "Pour 140.0g of water in a slow, sprial motion for 15.0 seconds hitting the dark spots"), Step(title: "Wait", water: 0.0, time: 5.0, text: "Wait for 5.0 seconds"), Step(title: "Pour", water: 175.0, time: 55.0, text: "Pour 175.0g of water in 25-50g increments in a slow, sprial motion over 55.0 seconds hitting the dark spots"), Step(title: "Wait", water: 0.0, time: 50.0, text: "Wait for 50.0 seconds"), Step(title: "Other", water: 0.0, time: 0.0, text: "Set the Kalita into the sink or another carafe/mug to let drain. Pour your cup and enjoy!")])
     
@@ -102,6 +110,8 @@ class StandardGuides {
     • Discard the water from our mug/carafe
     • Add coffee to the French Press
     • You're ready to start brewing!
+
+    * This guide follows Stumptown Coffee Roasters French Press brewing recommendations
     """,
     steps: [Step(title: "Pour", water:  450.0, time: 10.0, text: "Fill the brewer half way with hot water over 10.0 seconds saturating all the grounds"), Step(title: "Wait", water: 0.0, time: 50.0, text: "Wait for 50.0 seconds"), Step(title: "Stir", water: 0.0, time: 5.0, text: "Stir for 5.0 seconds"), Step(title: "Pour", water:  450.0, time: 10.0, text: "Fill the brewer the rest of the way with hot water and put the top on (don't press it just yet)"), Step(title: "Wait", water: 0.0, time: 175.0, text: "Wait for 175.0 seconds"), Step(title: "Other", water: 0.0, time: 5.0, text: "With firm, yet consistent force, press the filter all the way down"), Step(title: "Other", water: 0.0, time: 0.0, text: "Serve and enjoy!"), Step(title: "Other", water: 0.0, time: 0.0, text: "Discard grounds by simply adding a little water and disposing of in the trash or compost")])
     

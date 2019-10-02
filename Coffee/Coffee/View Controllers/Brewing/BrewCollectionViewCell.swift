@@ -13,7 +13,7 @@ protocol BrewCellDelegate: class {
 }
 
 class BrewCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var methodImageView: UIImageView!
+    @IBOutlet weak var methodImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
     
@@ -26,17 +26,17 @@ class BrewCollectionViewCell: UICollectionViewCell {
             titleLabel?.text = guide.title
             switch guide.method {
             case BrewKeys.chemexKey:
-                methodImageView?.image = UIImage(named: AssetKeys.chemexKey)
+                methodImage?.image = UIImage(named: AssetKeys.chemexKey)
             case BrewKeys.aeroPressKey:
-                methodImageView?.image = UIImage(named: AssetKeys.aeroPressKey)
+                methodImage?.image = UIImage(named: AssetKeys.aeroPressKey)
             case BrewKeys.frenchPressKey:
-                methodImageView?.image = UIImage(named: AssetKeys.frenchPressKey)
+                methodImage?.image = UIImage(named: AssetKeys.frenchPressKey)
             case BrewKeys.kalitaKey:
-                methodImageView?.image = UIImage(named: AssetKeys.kalitaKey)
+                methodImage?.image = UIImage(named: AssetKeys.kalitaKey)
             case BrewKeys.v60Key:
-                methodImageView?.image = UIImage(named: AssetKeys.v60Key)
+                methodImage?.image = UIImage(named: AssetKeys.v60Key)
             default:
-                methodImageView?.image = nil
+                methodImage?.image = nil
             }
             
             deleteButton.layer.cornerRadius = deleteButton.bounds.width / 2.0
