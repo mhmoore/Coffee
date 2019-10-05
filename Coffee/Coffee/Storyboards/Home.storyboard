@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -152,6 +153,61 @@
             </objects>
             <point key="canvasLocation" x="4260" y="-36.206896551724142"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="eRT-um-y3t">
+            <objects>
+                <viewController id="oBK-mn-NrW" customClass="SettingsViewController" customModule="Coffee" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SG3-4S-6qn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="FWb-Fx-M08">
+                                <rect key="frame" x="18.666666666666657" y="313.33333333333331" width="337.66666666666674" height="67.666666666666686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acknowledgements" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWN-EI-ZEb">
+                                        <rect key="frame" x="84.666666666666671" y="0.0" width="168.66666666666663" height="24"/>
+                                        <fontDescription key="fontDescription" name="Norwester-Regular" family="Norwester" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(acknowledgements)" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwe-Z4-ctx">
+                                        <rect key="frame" x="0.0" y="48" width="337.66666666666669" height="19.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="jwe-Z4-ctx" firstAttribute="width" secondItem="FWb-Fx-M08" secondAttribute="width" id="5ot-8L-VaR"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJG-Qh-XH9">
+                                <rect key="frame" x="132" y="661" width="111" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
+                                <state key="normal" title="Privacy Policy"/>
+                                <connections>
+                                    <action selector="privacyButtonTapped:" destination="oBK-mn-NrW" eventType="touchUpInside" id="5vG-eg-Lz5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="FWb-Fx-M08" firstAttribute="width" secondItem="b2B-QK-t1a" secondAttribute="width" multiplier="0.9" id="6tm-yC-JSm"/>
+                            <constraint firstItem="FWb-Fx-M08" firstAttribute="centerX" secondItem="b2B-QK-t1a" secondAttribute="centerX" id="NZa-Ny-Wi3"/>
+                            <constraint firstItem="FWb-Fx-M08" firstAttribute="centerY" secondItem="b2B-QK-t1a" secondAttribute="centerY" multiplier="0.85" id="iUI-sn-XCo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="b2B-QK-t1a"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Nxe-rJ-zej"/>
+                    <connections>
+                        <outlet property="acknowledgementsLabel" destination="jwe-Z4-ctx" id="JaB-WC-iBJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dga-Sv-xY6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2227" y="-743"/>
+        </scene>
         <!--Brew Collection View Controller-->
         <scene sceneID="2m7-Dz-GAR">
             <objects>
@@ -161,42 +217,71 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="RHw-7t-zAJ">
-                            <size key="itemSize" width="375" height="157"/>
+                            <size key="itemSize" width="161" height="147"/>
                             <size key="headerReferenceSize" width="25" height="25"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="brewCell" id="TdR-RG-6sA" customClass="BrewCollectionViewCell" customModule="Coffee" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="25" width="375" height="157"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="brewCell" id="TdR-RG-6sA" customClass="BrewCollectionViewCell" customModule="Coffee" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="25" width="161" height="147"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="157"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tK6-4E-CkH">
+                                    <rect key="frame" x="0.0" y="0.0" width="161" height="147"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Po4-Vr-fTu">
-                                            <rect key="frame" x="20" y="9" width="141" height="128"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRh-pU-8Kd">
-                                            <rect key="frame" x="96" y="8" width="46" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button"/>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(method name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xN-Rf-fha">
-                                            <rect key="frame" x="170" y="26" width="174" height="34"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Norwester-Regular" family="Norwester" pointSize="28"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sd0-yY-6st">
+                                            <rect key="frame" x="0.0" y="0.0" width="161" height="147"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eE7-v8-y4o">
+                                                    <rect key="frame" x="16" y="5" width="129" height="128.66666666666666"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="eE7-v8-y4o" secondAttribute="height" multiplier="1:1" id="PIP-V2-AR9"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Method Name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtf-wY-uhz">
+                                                    <rect key="frame" x="18.333333333333336" y="121.66666666666669" width="124.33333333333331" height="24"/>
+                                                    <fontDescription key="fontDescription" name="Norwester-Regular" family="Norwester" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M08-Sr-dzc">
+                                                    <rect key="frame" x="133" y="8" width="20" height="20"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="SyE-UG-43F"/>
+                                                        <constraint firstAttribute="width" constant="20" id="a0F-LN-eBg"/>
+                                                        <constraint firstAttribute="width" secondItem="M08-Sr-dzc" secondAttribute="height" multiplier="1:1" id="uT2-sa-ZM3"/>
+                                                    </constraints>
+                                                    <state key="normal" image="delete"/>
+                                                    <connections>
+                                                        <action selector="deleteButtonTapped:" destination="TdR-RG-6sA" eventType="touchUpInside" id="8RZ-vP-vXo"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="M08-Sr-dzc" secondAttribute="trailing" constant="8" id="CZi-o6-gvr"/>
+                                                <constraint firstItem="eE7-v8-y4o" firstAttribute="top" secondItem="Sd0-yY-6st" secondAttribute="top" constant="5" id="N5l-uF-6H1"/>
+                                                <constraint firstItem="Mtf-wY-uhz" firstAttribute="top" secondItem="eE7-v8-y4o" secondAttribute="bottom" constant="-12" id="WNH-MB-nuY"/>
+                                                <constraint firstItem="M08-Sr-dzc" firstAttribute="top" secondItem="Sd0-yY-6st" secondAttribute="top" constant="8" id="n4y-7C-dpf"/>
+                                                <constraint firstItem="eE7-v8-y4o" firstAttribute="width" secondItem="Sd0-yY-6st" secondAttribute="width" multiplier="0.8" id="qEj-fo-h7o"/>
+                                                <constraint firstItem="eE7-v8-y4o" firstAttribute="centerX" secondItem="Sd0-yY-6st" secondAttribute="centerX" id="srM-JU-v9M"/>
+                                                <constraint firstItem="Mtf-wY-uhz" firstAttribute="centerX" secondItem="eE7-v8-y4o" secondAttribute="centerX" id="vkD-cS-7UQ"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
-                                </view>
-                                <size key="customSize" width="375" height="157"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="Sd0-yY-6st" secondAttribute="bottom" id="26e-Py-tyP"/>
+                                        <constraint firstItem="Sd0-yY-6st" firstAttribute="top" secondItem="tK6-4E-CkH" secondAttribute="top" id="D6p-KU-9hz"/>
+                                        <constraint firstItem="Sd0-yY-6st" firstAttribute="leading" secondItem="tK6-4E-CkH" secondAttribute="leading" id="G22-GD-rYS"/>
+                                        <constraint firstAttribute="trailing" secondItem="Sd0-yY-6st" secondAttribute="trailing" id="Tqn-va-f2Q"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
                                 <connections>
-                                    <outlet property="deleteButton" destination="aRh-pU-8Kd" id="qs2-aC-Xuk"/>
-                                    <outlet property="methodImage" destination="Po4-Vr-fTu" id="7de-tW-UgB"/>
-                                    <outlet property="titleLabel" destination="2xN-Rf-fha" id="0Se-Vd-hkz"/>
+                                    <outlet property="deleteButton" destination="M08-Sr-dzc" id="bjM-9e-Cxi"/>
+                                    <outlet property="methodImage" destination="eE7-v8-y4o" id="1wA-RD-plz"/>
+                                    <outlet property="methodNameLabel" destination="Mtf-wY-uhz" id="9n4-3k-GJX"/>
                                     <segue destination="POZ-9E-fD9" kind="show" identifier="toGuideIntroVC" id="zAf-Yj-uJE"/>
                                 </connections>
                             </collectionViewCell>
@@ -207,7 +292,7 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Category Label)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jyk-tP-PbZ">
                                     <rect key="frame" x="4" y="0.0" width="367" height="25"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -228,7 +313,13 @@
                             <outlet property="delegate" destination="wAN-bs-d5u" id="obQ-FL-sa8"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="DP9-yQ-zG5"/>
+                    <navigationItem key="navigationItem" id="DP9-yQ-zG5">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="9W5-SR-jmo">
+                            <connections>
+                                <segue destination="oBK-mn-NrW" kind="show" identifier="toSettingsVC" id="qts-2k-8vp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yex-B3-Xx8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -709,4 +800,7 @@
             <point key="canvasLocation" x="5228" y="-36.206896551724142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="delete" width="100" height="100"/>
+    </resources>
 </document>

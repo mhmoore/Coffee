@@ -77,15 +77,15 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Custom Methods
     func updateViews() {
         guard let guide = guide else { return }
-        methodLabel.text = "Method:  \(guide.method)"
+        methodLabel.text = guide.method
         titleTextField.text = guide.title
         grindTextField.text = guide.grind
         coffeeTextField.text = String(guide.coffee)
-        waterLabel.text = "Water:  \(totalWater(guide: guide))"
+        waterLabel.text = "\(totalWater(guide: guide))"
         let ratioNumbers = getRatio(guide: guide)
-        ratioLabel.text = "Ratio:  \(ratioNumbers.0) : \(ratioNumbers.1)"
+        ratioLabel.text = "\(ratioNumbers.0) : \(ratioNumbers.1)"
         let time = totalTime(guide: guide)
-        timeLabel.text = "Time:  \(timeAsString(time: time))"
+        timeLabel.text = timeAsString(time: time)
         createGrindPicker()
         createCoffeePicker()
         createToolBar()

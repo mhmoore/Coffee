@@ -20,7 +20,7 @@ class BrewCollectionViewController: UICollectionViewController {
         }
     }
     
-    let paddings: CGFloat = 5.0
+    let paddings: CGFloat = 2.0
     let numberOfItemsPerRow: CGFloat = 3.0
     
     // MARK: - Lifecycle

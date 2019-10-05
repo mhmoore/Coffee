@@ -21,7 +21,6 @@
                     <connections>
                         <segue destination="gNS-dg-KN0" kind="relationship" relationship="viewControllers" id="gs1-dq-Bik"/>
                         <segue destination="WHi-2H-IPI" kind="relationship" relationship="viewControllers" id="UMs-xE-Ohi"/>
-                        <segue destination="eCf-pG-11L" kind="relationship" relationship="viewControllers" id="oQZ-D4-bfR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EBb-Pv-tRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -36,7 +35,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uNr-uJ-eJD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-284" y="204"/>
+            <point key="canvasLocation" x="-146" y="173"/>
         </scene>
         <!--Notes-->
         <scene sceneID="toj-Pd-cJ4">
@@ -46,17 +45,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O5h-s0-bTP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116" y="204"/>
-        </scene>
-        <!--Learn-->
-        <scene sceneID="8Ck-M7-bKP">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Learn" id="eCf-pG-11L" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="cWM-GT-da4"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rCb-xX-Fmj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="468" y="204"/>
+            <point key="canvasLocation" x="368" y="173"/>
         </scene>
     </scenes>
 </document>
