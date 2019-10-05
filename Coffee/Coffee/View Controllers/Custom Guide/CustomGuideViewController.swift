@@ -208,11 +208,11 @@ extension CustomGuideViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "stepCell", for: indexPath)
-        guard let guide = guide else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "stepCell", for: indexPath) as? CustomStepTableViewCell,
+        let guide = guide else { return UITableViewCell() }
         let step = guide.steps[indexPath.row]
-        cell.textLabel?.textAlignment = .center
-        cell.textLabel?.text = step.text
+        cell.stepLabel.textAlignment = .center
+        cell.stepLabel.text = step.text
         return cell
     }
     
