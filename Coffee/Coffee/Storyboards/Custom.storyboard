@@ -272,7 +272,11 @@
                                 <action selector="cancelButtonTapped:" destination="xfW-oy-lNV" id="wM9-aJ-vk7"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="Z84-WM-VmO"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="Z84-WM-VmO">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="xfW-oy-lNV" id="PS1-Ug-JxZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="coffeeTextField" destination="rfN-ne-QUI" id="DV0-zF-cDp"/>

@@ -14,16 +14,15 @@ protocol BrewCellDelegate: class {
 
 class BrewCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var methodImage: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var methodNameLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
-    
     
     weak var delegate: BrewCellDelegate?
     
     var guide: Guide? {
         didSet {
             guard let guide = guide else { return }
-            titleLabel?.text = guide.title
+            methodNameLabel?.text = guide.title
             switch guide.method {
             case BrewKeys.chemexKey:
                 methodImage?.image = UIImage(named: AssetKeys.chemexKey)
