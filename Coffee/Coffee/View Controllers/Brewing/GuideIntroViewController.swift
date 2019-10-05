@@ -57,6 +57,7 @@ class GuideIntroViewController: UIViewController {
         timeLabel.text = "Time:  \(timeString)"
         let ratioNumbers = getRatio(guide: guide)
         ratioLabel.text = "Ratio:  \(ratioNumbers.0) : \(ratioNumbers.1)"
+//        prepTextView.text = guide.prep
         prepLabel.text = guide.prep
         
         switch guide.grind {

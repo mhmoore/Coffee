@@ -22,5 +22,17 @@ struct AssetKeys {
     static let mediumCoarseKey = "mediumCoarse"
     static let coarseKey = "coarse"
     static let extraCoarseKey = "extraCoarse"
+    // steps icons
+    static let pourKey = "water"
+    static let stirKey = "spoon"
+    static let waitKey = "time"
+    static let otherKey = "other"
 }
+
+struct FontKeys {
+    static let norwesterKey = "Norwester"
+    static let monteserratKey = "Montserrat-Light"
+    static let kollektifKey = "Kollektif"
+}
+
 

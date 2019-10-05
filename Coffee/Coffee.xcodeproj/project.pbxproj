@@ -17,11 +17,16 @@
 		A51B495F232C0C4100C162F1 /* GuideController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51B495E232C0C4100C162F1 /* GuideController.swift */; };
 		A5243774232EE07B00A3CC7D /* BrewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5243773232EE07B00A3CC7D /* BrewCollectionViewCell.swift */; };
 		A5243776232EE52A00A3CC7D /* BrewCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5243775232EE52A00A3CC7D /* BrewCollectionViewController.swift */; };
+		A52F9F3123487140004EB02A /* CustomStepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F9F3023487140004EB02A /* CustomStepTableViewCell.swift */; };
+		A52F9F3323487472004EB02A /* InstructionStepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F9F3223487471004EB02A /* InstructionStepTableViewCell.swift */; };
 		A56FC0FD23395463007A6764 /* Custom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A56FC0FC23395462007A6764 /* Custom.storyboard */; };
 		A56FC0FF233965C8007A6764 /* GuideIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56FC0FE233965C8007A6764 /* GuideIntroViewController.swift */; };
 		A56FC102233972BB007A6764 /* CustomGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56FC101233972BB007A6764 /* CustomGuideViewController.swift */; };
 		A577E139232D6747001B80EB /* NotesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577E138232D6747001B80EB /* NotesListTableViewController.swift */; };
 		A577E13B232D6B8C001B80EB /* NoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A577E13A232D6B8C001B80EB /* NoteDetailViewController.swift */; };
+		A5814A3E23490266000FB54A /* Norwester.otf in Resources */ = {isa = PBXBuildFile; fileRef = A5814A3D23490266000FB54A /* Norwester.otf */; };
+		A5814A88234902D4000FB54A /* Kollektif.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5814A87234902D4000FB54A /* Kollektif.ttf */; };
+		A5814A8A2349034E000FB54A /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A5814A892349034E000FB54A /* Montserrat-Light.otf */; };
 		A59DB66C233E6B3800917F2C /* StandardGuides.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59DB66B233E6B3800917F2C /* StandardGuides.swift */; };
 		A5A32792232F487300ED3CD4 /* SectionHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A32791232F487300ED3CD4 /* SectionHeaderCollectionReusableView.swift */; };
 		A5A32798232FE9A100ED3CD4 /* BrewNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A32797232FE9A100ED3CD4 /* BrewNotesViewController.swift */; };
@@ -49,11 +54,16 @@
 		A51B495E232C0C4100C162F1 /* GuideController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideController.swift; sourceTree = "<group>"; };
 		A5243773232EE07B00A3CC7D /* BrewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewCollectionViewCell.swift; sourceTree = "<group>"; };
 		A5243775232EE52A00A3CC7D /* BrewCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewCollectionViewController.swift; sourceTree = "<group>"; };
+		A52F9F3023487140004EB02A /* CustomStepTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepTableViewCell.swift; sourceTree = "<group>"; };
+		A52F9F3223487471004EB02A /* InstructionStepTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionStepTableViewCell.swift; sourceTree = "<group>"; };
 		A56FC0FC23395462007A6764 /* Custom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Custom.storyboard; sourceTree = "<group>"; };
 		A56FC0FE233965C8007A6764 /* GuideIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideIntroViewController.swift; sourceTree = "<group>"; };
 		A56FC101233972BB007A6764 /* CustomGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGuideViewController.swift; sourceTree = "<group>"; };
 		A577E138232D6747001B80EB /* NotesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListTableViewController.swift; sourceTree = "<group>"; };
 		A577E13A232D6B8C001B80EB /* NoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailViewController.swift; sourceTree = "<group>"; };
+		A5814A3D23490266000FB54A /* Norwester.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Norwester.otf; sourceTree = "<group>"; };
+		A5814A87234902D4000FB54A /* Kollektif.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kollektif.ttf; sourceTree = "<group>"; };
+		A5814A892349034E000FB54A /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
 		A59DB66B233E6B3800917F2C /* StandardGuides.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardGuides.swift; sourceTree = "<group>"; };
 		A5A32791232F487300ED3CD4 /* SectionHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		A5A32797232FE9A100ED3CD4 /* BrewNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewNotesViewController.swift; sourceTree = "<group>"; };
@@ -163,9 +173,20 @@
 			isa = PBXGroup;
 			children = (
 				A56FC101233972BB007A6764 /* CustomGuideViewController.swift */,
+				A52F9F3023487140004EB02A /* CustomStepTableViewCell.swift */,
 				A5CF3736233A8695001D2BFA /* StepViewController.swift */,
 			);
 			path = "Custom Guide";
+			sourceTree = "<group>";
+		};
+		A5814A3C234901C0000FB54A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A5814A3D23490266000FB54A /* Norwester.otf */,
+				A5814A892349034E000FB54A /* Montserrat-Light.otf */,
+				A5814A87234902D4000FB54A /* Kollektif.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		A5A32799232FEA3000ED3CD4 /* Brewing */ = {
@@ -176,6 +197,7 @@
 				A5243775232EE52A00A3CC7D /* BrewCollectionViewController.swift */,
 				A56FC0FE233965C8007A6764 /* GuideIntroViewController.swift */,
 				A5D4E257233586AE0053CB21 /* InstructionViewController.swift */,
+				A52F9F3223487471004EB02A /* InstructionStepTableViewCell.swift */,
 				A5A32797232FE9A100ED3CD4 /* BrewNotesViewController.swift */,
 			);
 			path = Brewing;
@@ -193,6 +215,7 @@
 		A5C22E2323400F560062EAC3 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				A5814A3C234901C0000FB54A /* Fonts */,
 				A5C22E2123400ECA0062EAC3 /* StyleGuide.swift */,
 			);
 			path = CustomUI;
@@ -281,6 +304,9 @@
 				A5079A94232B4C6D00AFE337 /* Assets.xcassets in Resources */,
 				A5EC2409232C1FA600DC1263 /* Learn.storyboard in Resources */,
 				A56FC0FD23395463007A6764 /* Custom.storyboard in Resources */,
+				A5814A8A2349034E000FB54A /* Montserrat-Light.otf in Resources */,
+				A5814A3E23490266000FB54A /* Norwester.otf in Resources */,
+				A5814A88234902D4000FB54A /* Kollektif.ttf in Resources */,
 				A5079A92232B4C6B00AFE337 /* Main.storyboard in Resources */,
 				A5DB41F223356DA500FECAA4 /* Home.storyboard in Resources */,
 			);
@@ -297,12 +323,14 @@
 				A51B495D232C059000C162F1 /* NoteController.swift in Sources */,
 				A56FC102233972BB007A6764 /* CustomGuideViewController.swift in Sources */,
 				A56FC0FF233965C8007A6764 /* GuideIntroViewController.swift in Sources */,
+				A52F9F3323487472004EB02A /* InstructionStepTableViewCell.swift in Sources */,
 				A5D4E258233586AE0053CB21 /* InstructionViewController.swift in Sources */,
 				A59DB66C233E6B3800917F2C /* StandardGuides.swift in Sources */,
 				A5CF3739233AC626001D2BFA /* StepController.swift in Sources */,
 				A5C22E2223400ECA0062EAC3 /* StyleGuide.swift in Sources */,
 				A5079AA9232B56F300AFE337 /* Guide.swift in Sources */,
 				A51B495F232C0C4100C162F1 /* GuideController.swift in Sources */,
+				A52F9F3123487140004EB02A /* CustomStepTableViewCell.swift in Sources */,
 				A5079AA7232B51CA00AFE337 /* Note.swift in Sources */,
 				A5243774232EE07B00A3CC7D /* BrewCollectionViewCell.swift in Sources */,
 				A577E13B232D6B8C001B80EB /* NoteDetailViewController.swift in Sources */,
