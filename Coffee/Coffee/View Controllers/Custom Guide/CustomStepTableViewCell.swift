@@ -10,4 +10,14 @@ import UIKit
 
 class CustomStepTableViewCell: UITableViewCell {
     @IBOutlet weak var stepLabel: UILabel!
+    @IBOutlet weak var stepView: UIView!
+    
+    
+    var step: Step? {
+        didSet {
+            stepLabel.textAlignment = .center
+            stepLabel.text = step?.text
+            stepView.backgroundColor = .textFieldBackground
+        }
+    }
 }

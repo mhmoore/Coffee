@@ -6,7 +6,18 @@
 //  Copyright © 2019 Michael Moore. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UIView {
+    func addCornerRadius(_ radius: CGFloat = 4) {
+           layer.cornerRadius = radius
+    }
+    
+    func addAccentBorder(width: CGFloat = 1, color: UIColor = .border) {
+        layer.borderWidth = width
+        layer.borderColor = color.cgColor
+    }
+}
 
 struct AssetKeys {
     // brewing method images
@@ -35,4 +46,12 @@ struct FontKeys {
     static let kollektifKey = "Kollektif"
 }
 
+extension UIColor {
+    static let background = UIColor(named: "background")!
+    static let accent = UIColor(named: "accent")!
+    static let buttonType = UIColor(named: "buttonType")!
+    static let generalType = UIColor(named: "generalType")!
+    static let border = UIColor(named: "border")!
+    static let textFieldBackground = UIColor(named: "textFieldBackground")!
+}
 

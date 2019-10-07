@@ -12,6 +12,7 @@ class GuideIntroViewController: UIViewController {
     // MARK: - Properties
     var guide: Guide?
     @IBOutlet weak var methodImage: UIImageView!
+    @IBOutlet weak var methodInfoView: UIView!
     @IBOutlet weak var methodInfo: UILabel!
     @IBOutlet weak var grindImage: UIImageView!
     @IBOutlet weak var grindLabel: UILabel!
@@ -25,6 +26,7 @@ class GuideIntroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
+        setupUI()
     }
     
     // MARK: - Navigation
@@ -45,6 +47,12 @@ class GuideIntroViewController: UIViewController {
     }
     
     // MARK: - Custom Methods
+    func setupUI() {
+        view.backgroundColor = .background
+        methodInfoView.backgroundColor = .textFieldBackground
+        methodInfoView.addCornerRadius(8)
+    }
+    
     func loadData() {
         guard let guide = guide else { return }
         title = guide.method

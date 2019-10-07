@@ -12,7 +12,7 @@ class NotesListTableViewController: UITableViewController {
 
     // MARK: - Properties
     @IBOutlet weak var searchBar: UISearchBar!
-
+    
     var searchResults: [String: [Note]] = [:]
     var isSearching: Bool = false
     
@@ -56,9 +56,18 @@ class NotesListTableViewController: UITableViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Notes"
         searchBar.delegate = self
+        setupUI()
     }
+    
+    // MARK: - Custom Methods
+    func setupUI() {
+        title = "Notes"
+        view.backgroundColor = .background
+        tableView.backgroundColor = .textFieldBackground
+        searchBar.backgroundColor = .textFieldBackground
+    }
+    
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {

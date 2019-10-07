@@ -51,11 +51,13 @@ class BrewNotesViewController: UIViewController, UITextViewDelegate, UITextField
     
 //     MARK: - Custom Methods
     func loadData() {
+        view.backgroundColor = .background
         guard let guide = guide else { return }
         let ratioNumbers = getRatio(guide: guide)
         grindLabel.text = "\(guide.grind)"
         ratioLabel.text = "\(ratioNumbers.0) : \(ratioNumbers.1)"
         methodLabel.text = guide.method
+        
     }
     
     func totalWater(guide: Guide) -> Double {

@@ -70,12 +70,19 @@ class InstructionViewController: UIViewController {
     }
     
     func updateView() {
+        view.backgroundColor = .background
+        stepsTableView.backgroundColor = .textFieldBackground
+//        stepView.backgroundColor = .textFieldBackground
         guard let guide = guide,
             let time = guide.steps[currentStep].time else { return }
         title = guide.title
         currentStepLabel.text = guide.steps[currentStep].text
         counter = Double(time)
         timerLabel.text = timeAsString(time: time)
+        if guide.steps[currentStep].time == 0.0 {
+                self.timerLabel.isHidden = true
+                self.startButton.isHidden = true
+        }
     }
 }
 
@@ -88,8 +95,7 @@ extension InstructionViewController: UITableViewDelegate, UITableViewDataSource 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "stepCell", for: indexPath) as? InstructionStepTableViewCell,
         let guide = guide else { return UITableViewCell() }
         let step = guide.steps[indexPath.row]
-        cell.stepLabel.textAlignment = .center
-        cell.stepLabel.text = step.text
+        cell.step = step
         return cell
     }
 }

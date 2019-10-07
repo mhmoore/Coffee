@@ -13,6 +13,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .background
         acknowledgementsLabel.text = """
         The brew guides provided in this app are based on the brewing methods of Stumptown Coffee Roasters.  They are meant as a guide to be tweaked to your liking.  Get creative, and discover the perfect method for you.
         

@@ -10,7 +10,13 @@ import UIKit
 
 class InstructionStepTableViewCell: UITableViewCell {
     @IBOutlet weak var stepLabel: UILabel!
+    @IBOutlet weak var stepView: UIView!
     
-
-
+    var step: Step? {
+        didSet {
+            stepLabel.text = step?.text
+            stepLabel.textAlignment = .center
+            stepView.backgroundColor = .textFieldBackground
+        }
+    }
 }

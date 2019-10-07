@@ -21,26 +21,7 @@ class BrewCollectionViewCell: UICollectionViewCell {
     
     var guide: Guide? {
         didSet {
-            guard let guide = guide else { return }
-            methodNameLabel?.text = guide.title
-            switch guide.method {
-            case BrewKeys.chemexKey:
-                methodImage?.image = UIImage(named: AssetKeys.chemexKey)
-            case BrewKeys.aeroPressKey:
-                methodImage?.image = UIImage(named: AssetKeys.aeroPressKey)
-            case BrewKeys.frenchPressKey:
-                methodImage?.image = UIImage(named: AssetKeys.frenchPressKey)
-            case BrewKeys.kalitaKey:
-                methodImage?.image = UIImage(named: AssetKeys.kalitaKey)
-            case BrewKeys.v60Key:
-                methodImage?.image = UIImage(named: AssetKeys.v60Key)
-            default:
-                methodImage?.image = nil
-            }
-            
-            deleteButton.layer.cornerRadius = deleteButton.bounds.width / 2.0
-            deleteButton.layer.masksToBounds = true
-            deleteButton.isHidden = true
+            setupUI()
         }
     }
     
@@ -54,5 +35,29 @@ class BrewCollectionViewCell: UICollectionViewCell {
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
         delegate?.delete(cell: self)
+    }
+    
+    func setupUI() {
+        deleteButton.backgroundColor = .accent
+        deleteButton.layer.cornerRadius = deleteButton.bounds.width / 2.0
+        deleteButton.layer.masksToBounds = true
+        deleteButton.isHidden = true
+        
+        guard let guide = guide else { return }
+        methodNameLabel?.text = guide.title
+        switch guide.method {
+        case BrewKeys.chemexKey:
+            methodImage?.image = UIImage(named: AssetKeys.chemexKey)
+        case BrewKeys.aeroPressKey:
+            methodImage?.image = UIImage(named: AssetKeys.aeroPressKey)
+        case BrewKeys.frenchPressKey:
+            methodImage?.image = UIImage(named: AssetKeys.frenchPressKey)
+        case BrewKeys.kalitaKey:
+            methodImage?.image = UIImage(named: AssetKeys.kalitaKey)
+        case BrewKeys.v60Key:
+            methodImage?.image = UIImage(named: AssetKeys.v60Key)
+        default:
+            methodImage?.image = nil
+        }
     }
 }

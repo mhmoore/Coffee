@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,9 +15,9 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Ad-tV-5ht">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.24196368460000001" green="0.27795997259999999" blue="0.31131309270000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="selectedImageTintColor" red="0.89090260152284262" green="0.40773517504125928" blue="0.17821049170661732" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="background"/>
+                        <color key="barTintColor" name="background"/>
+                        <color key="selectedImageTintColor" name="accentRed"/>
                     </tabBar>
                     <connections>
                         <segue destination="gNS-dg-KN0" kind="relationship" relationship="viewControllers" id="gs1-dq-Bik"/>
@@ -48,4 +49,13 @@
             <point key="canvasLocation" x="368" y="173"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="accentRed">
+            <color red="0.73600000143051147" green="0.32499998807907104" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="background">
+            <color red="0.25099998712539673" green="0.25099998712539673" blue="0.25099998712539673" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+    <color key="tintColor" red="0.64937800168991089" green="0.28359270095825195" blue="0.28266298770904541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

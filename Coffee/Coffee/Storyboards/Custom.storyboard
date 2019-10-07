@@ -30,13 +30,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Cp8-wr-vpN">
                                         <rect key="frame" x="0.0" y="0.0" width="319" height="31"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9To-HH-SGv">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9To-HH-SGv" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="6.6666666666666714" width="72.666666666666671" height="18"/>
                                                 <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sv2-Aq-BcZ">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sv2-Aq-BcZ" customClass="CoffeeTextField" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="79.666666666666671" y="0.0" width="239.33333333333331" height="31"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -49,7 +49,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="1Vw-RV-Ccy">
                                         <rect key="frame" x="0.0" y="41" width="319" height="31"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Method:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EvA-cb-0Fr">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Method:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EvA-cb-0Fr" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="70" id="f4r-lH-Zip"/>
@@ -58,9 +58,9 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(method)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qI4-LJ-hRj">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(method)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qI4-LJ-hRj" customClass="descriptionLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="74" y="0.0" width="245" height="31"/>
-                                                <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -69,13 +69,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="o8Y-Ha-b2a">
                                         <rect key="frame" x="0.0" y="82" width="319" height="30.666666666666671"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coffee:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xX-JN-sap">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coffee:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xX-JN-sap" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="6.3333333333333428" width="71.666666666666671" height="18"/>
                                                 <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rfN-ne-QUI">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rfN-ne-QUI" customClass="CoffeeTextField" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="79.666666666666671" y="0.0" width="239.33333333333331" height="30.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -88,13 +88,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="acP-1x-DhF">
                                         <rect key="frame" x="0.0" y="122.66666666666666" width="319" height="31"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grind:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8NN-Zn-4yf">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grind:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8NN-Zn-4yf" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="6.3333333333333428" width="71.666666666666671" height="18"/>
                                                 <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lvM-nI-9kQ">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lvM-nI-9kQ" customClass="CoffeeTextField" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="79.666666666666671" y="0.0" width="239.33333333333331" height="31"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -107,7 +107,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Ycc-9j-ItG">
                                         <rect key="frame" x="0.0" y="163.66666666666669" width="319" height="30.666666666666657"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0c-e5-5V4">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0c-e5-5V4" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="30.666666666666668"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="9VJ-cR-dat"/>
@@ -116,9 +116,9 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(water)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJE-SI-jkk">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(water)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJE-SI-jkk" customClass="descriptionLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="64" y="0.0" width="255" height="30.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -127,7 +127,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="apH-od-cUX">
                                         <rect key="frame" x="0.0" y="204.33333333333331" width="319" height="31"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ratio:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Gt-He-rcA">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ratio:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Gt-He-rcA" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="5qe-Is-5bW"/>
@@ -136,9 +136,9 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(ratio)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yt3-l6-MK3">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(ratio)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yt3-l6-MK3" customClass="descriptionLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="54" y="0.0" width="265" height="31"/>
-                                                <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -147,7 +147,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="1tZ-Ka-Ucs">
                                         <rect key="frame" x="0.0" y="245.33333333333329" width="319" height="30.666666666666657"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XeM-6z-Fje">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XeM-6z-Fje" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="30.666666666666668"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="6cw-Zy-ucq"/>
@@ -156,9 +156,9 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(time)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90u-ce-LuZ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(time)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90u-ce-LuZ" customClass="descriptionLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="54" y="0.0" width="265" height="30.666666666666668"/>
-                                                <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -174,7 +174,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="WSz-hX-xc5">
                                 <rect key="frame" x="28" y="386" width="319" height="52"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJL-ds-CzF">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJL-ds-CzF" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="49.666666666666664" height="18"/>
                                         <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                         <nil key="textColor"/>
@@ -183,18 +183,20 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="126" translatesAutoresizingMaskIntoConstraints="NO" id="GgV-4i-6qh">
                                         <rect key="frame" x="0.0" y="22" width="319" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFL-eC-ICk">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFL-eC-ICk" customClass="ActionButton" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="mR5-Nu-44y"/>
                                                 </constraints>
+                                                <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <state key="normal" title="Edit"/>
                                                 <connections>
                                                     <action selector="editButtonTapped:" destination="xfW-oy-lNV" eventType="touchUpInside" id="5ub-fq-1ts"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXp-vA-AJG">
-                                                <rect key="frame" x="255" y="0.0" width="64" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXp-vA-AJG" customClass="ActionButton" customModule="Coffee" customModuleProvider="target">
+                                                <rect key="frame" x="243" y="0.0" width="76" height="30"/>
+                                                <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <state key="normal" title="Add Step"/>
                                                 <connections>
                                                     <segue destination="Sie-ZB-cLO" kind="show" identifier="addStepSegue" id="pfh-Bv-6Wy"/>
@@ -218,7 +220,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLp-HG-2FI">
                                                     <rect key="frame" x="0.0" y="0.0" width="319" height="72"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDH-R4-Jyi">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDH-R4-Jyi" customClass="descriptionLabel" customModule="Coffee" customModuleProvider="target">
                                                             <rect key="frame" x="4" y="0.0" width="311" height="72"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                                             <nil key="textColor"/>
@@ -244,13 +246,13 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="stepLabel" destination="sDH-R4-Jyi" id="L11-N7-JdI"/>
+                                            <outlet property="stepView" destination="aLp-HG-2FI" id="K7g-DB-Rux"/>
                                             <segue destination="Sie-ZB-cLO" kind="show" identifier="editStepSegue" id="8t9-KU-SAp"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="JJH-j8-qOY" firstAttribute="centerX" secondItem="5D3-aF-JIm" secondAttribute="centerX" id="25j-lj-wih"/>
                             <constraint firstItem="JJH-j8-qOY" firstAttribute="centerY" secondItem="5D3-aF-JIm" secondAttribute="centerY" multiplier="0.55" id="Bjl-fD-qUa"/>
@@ -302,10 +304,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CYk-Uh-fLg">
-                                <rect key="frame" x="45.666666666666657" y="36.666666666666671" width="284" height="251.33333333333331"/>
+                                <rect key="frame" x="45.666666666666657" y="168" width="284" height="87"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="YsT-ra-jQ3">
-                                        <rect key="frame" x="0.0" y="82.333333333333343" width="65" height="87"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="65" height="87"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XV3-m8-V0b">
                                                 <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
@@ -317,7 +319,7 @@
                                                     <action selector="pourButtonTapped:" destination="Sie-ZB-cLO" eventType="touchUpInside" id="eYh-sK-vX6"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pour" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRR-B6-nni">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pour" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRR-B6-nni" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="69" width="65" height="18"/>
                                                 <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <nil key="textColor"/>
@@ -332,7 +334,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="MyP-dd-3Ry">
-                                        <rect key="frame" x="73" y="82.333333333333343" width="65" height="87"/>
+                                        <rect key="frame" x="73" y="0.0" width="65" height="87"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sak-3o-ogx">
                                                 <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
@@ -344,7 +346,7 @@
                                                     <action selector="stirButtonTapped:" destination="Sie-ZB-cLO" eventType="touchUpInside" id="BKm-fT-CA3"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stir" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvH-n4-rQr">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stir" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvH-n4-rQr" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="69" width="65" height="18"/>
                                                 <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <nil key="textColor"/>
@@ -359,7 +361,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zMq-bH-TD0">
-                                        <rect key="frame" x="146" y="82.333333333333343" width="65" height="87"/>
+                                        <rect key="frame" x="146" y="0.0" width="65" height="87"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcr-CD-VmG">
                                                 <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
@@ -371,7 +373,7 @@
                                                     <action selector="waitButtonTapped:" destination="Sie-ZB-cLO" eventType="touchUpInside" id="X2c-oN-aRU"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wait" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVq-rp-ZLr">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wait" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVq-rp-ZLr" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="69" width="65" height="18"/>
                                                 <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <nil key="textColor"/>
@@ -384,7 +386,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Tgg-45-hzk">
-                                        <rect key="frame" x="219.00000000000003" y="82.333333333333343" width="64.999999999999972" height="87"/>
+                                        <rect key="frame" x="219.00000000000003" y="0.0" width="64.999999999999972" height="87"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBV-eN-ewa">
                                                 <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
@@ -396,7 +398,7 @@
                                                     <action selector="otherButtonTapped:" destination="Sie-ZB-cLO" eventType="touchUpInside" id="sYT-Gt-DHl"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fe-Aq-Pa3">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fe-Aq-Pa3" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="69" width="65" height="18"/>
                                                 <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <nil key="textColor"/>
@@ -412,95 +414,112 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="0Os-Gb-Soe">
-                                <rect key="frame" x="35" y="336" width="305" height="308"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="HIm-ZS-ZI3">
+                                <rect key="frame" x="28" y="303" width="319" height="301"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Vwh-i6-2HB">
-                                        <rect key="frame" x="0.0" y="0.0" width="305" height="34"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="cjS-Ju-Xia">
+                                        <rect key="frame" x="0.0" y="0.0" width="319" height="84"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount (in grams):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PK7-8A-Nmq">
-                                                <rect key="frame" x="0.0" y="0.0" width="175" height="34"/>
-                                                <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oiU-Vs-ZHs">
-                                                <rect key="frame" x="183" y="0.0" width="122" height="34"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Vwh-i6-2HB">
+                                                <rect key="frame" x="0.0" y="0.0" width="319" height="34"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount (in grams):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PK7-8A-Nmq" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="187.33333333333334" height="34"/>
+                                                        <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oiU-Vs-ZHs" customClass="CoffeeTextField" customModule="Coffee" customModuleProvider="target">
+                                                        <rect key="frame" x="191.33333333333334" y="0.0" width="127.66666666666666" height="34"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="oiU-Vs-ZHs" firstAttribute="width" secondItem="Vwh-i6-2HB" secondAttribute="width" multiplier="0.4" id="hHU-fb-Ti9"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ixf-iy-0cv">
+                                                <rect key="frame" x="0.0" y="50" width="319" height="34"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration (in seconds):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fc5-mA-Fny" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="187.33333333333334" height="34"/>
+                                                        <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uTV-gk-f52" customClass="CoffeeTextField" customModule="Coffee" customModuleProvider="target">
+                                                        <rect key="frame" x="191.33333333333334" y="0.0" width="127.66666666666666" height="34"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="uTV-gk-f52" firstAttribute="width" secondItem="ixf-iy-0cv" secondAttribute="width" multiplier="0.4" id="wRi-JQ-ZKy"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="oiU-Vs-ZHs" firstAttribute="width" secondItem="Vwh-i6-2HB" secondAttribute="width" multiplier="0.4" id="hHU-fb-Ti9"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="ixf-iy-0cv">
-                                        <rect key="frame" x="0.0" y="50" width="305" height="34"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration (in seconds):" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fc5-mA-Fny">
-                                                <rect key="frame" x="0.0" y="0.0" width="180" height="34"/>
-                                                <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uTV-gk-f52">
-                                                <rect key="frame" x="183" y="0.0" width="122" height="34"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                            </textField>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="uTV-gk-f52" firstAttribute="width" secondItem="ixf-iy-0cv" secondAttribute="width" multiplier="0.4" id="wRi-JQ-ZKy"/>
+                                            <constraint firstItem="ixf-iy-0cv" firstAttribute="centerX" secondItem="cjS-Ju-Xia" secondAttribute="centerX" id="39t-BK-hkf"/>
+                                            <constraint firstItem="Vwh-i6-2HB" firstAttribute="centerX" secondItem="cjS-Ju-Xia" secondAttribute="centerX" id="G4N-Ut-wVh"/>
+                                            <constraint firstItem="Vwh-i6-2HB" firstAttribute="width" secondItem="cjS-Ju-Xia" secondAttribute="width" id="bku-EN-veH"/>
+                                            <constraint firstItem="ixf-iy-0cv" firstAttribute="width" secondItem="cjS-Ju-Xia" secondAttribute="width" id="zlZ-aH-3Y2"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9lu-eF-HBt">
-                                        <rect key="frame" x="0.0" y="100" width="305" height="208"/>
+                                        <rect key="frame" x="0.0" y="100" width="319" height="201"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LA1-4B-Z7c">
-                                                <rect key="frame" x="0.0" y="0.0" width="305" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LA1-4B-Z7c" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="319" height="18"/>
                                                 <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pef-zg-N9V">
-                                                <rect key="frame" x="0.0" y="26" width="305" height="182"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Place instructions here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pef-zg-N9V" customClass="CoffeeTextView" customModule="Coffee" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="26" width="319" height="175"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="175" id="rZc-IO-p8j"/>
+                                                </constraints>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Pef-zg-N9V" firstAttribute="centerX" secondItem="9lu-eF-HBt" secondAttribute="centerX" id="7lt-7p-mlK"/>
+                                            <constraint firstItem="Pef-zg-N9V" firstAttribute="width" secondItem="9lu-eF-HBt" secondAttribute="width" id="8Zm-V3-3td"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="ixf-iy-0cv" firstAttribute="width" secondItem="0Os-Gb-Soe" secondAttribute="width" id="0HF-8X-Ny9"/>
-                                    <constraint firstItem="9lu-eF-HBt" firstAttribute="width" secondItem="0Os-Gb-Soe" secondAttribute="width" id="IkX-WG-l9P"/>
-                                    <constraint firstItem="Vwh-i6-2HB" firstAttribute="width" secondItem="0Os-Gb-Soe" secondAttribute="width" id="faD-uO-scy"/>
+                                    <constraint firstItem="cjS-Ju-Xia" firstAttribute="width" secondItem="HIm-ZS-ZI3" secondAttribute="width" id="aSF-b2-aeO"/>
+                                    <constraint firstItem="9lu-eF-HBt" firstAttribute="width" secondItem="HIm-ZS-ZI3" secondAttribute="width" id="jOV-4N-6oF"/>
+                                    <constraint firstItem="cjS-Ju-Xia" firstAttribute="centerX" secondItem="HIm-ZS-ZI3" secondAttribute="centerX" id="pwg-73-Skp"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vAr-8U-XvH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vAr-8U-XvH" customClass="ActionButton" customModule="Coffee" customModuleProvider="target">
                                 <rect key="frame" x="112.66666666666669" y="680" width="150" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8TH-uM-ict"/>
                                     <constraint firstAttribute="width" constant="150" id="K6H-rU-MAy"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveButtonTapped:" destination="Sie-ZB-cLO" eventType="touchUpInside" id="tmz-dI-STG"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="0Os-Gb-Soe" firstAttribute="leading" secondItem="b06-i9-74t" secondAttribute="leading" constant="35" id="5vt-fg-80M"/>
-                            <constraint firstItem="0Os-Gb-Soe" firstAttribute="centerX" secondItem="b06-i9-74t" secondAttribute="centerX" id="62Q-g0-mne"/>
-                            <constraint firstItem="b06-i9-74t" firstAttribute="trailing" secondItem="0Os-Gb-Soe" secondAttribute="trailing" constant="35" id="AWt-BW-oBH"/>
-                            <constraint firstItem="CYk-Uh-fLg" firstAttribute="centerY" secondItem="6pd-Qa-JDS" secondAttribute="centerY" multiplier="0.4" id="FWJ-ej-sRz"/>
-                            <constraint firstItem="vAr-8U-XvH" firstAttribute="top" secondItem="0Os-Gb-Soe" secondAttribute="bottom" constant="36" id="UW3-5o-O2m"/>
+                            <constraint firstItem="HIm-ZS-ZI3" firstAttribute="width" secondItem="b06-i9-74t" secondAttribute="width" multiplier="0.85" id="T9F-fY-kmn"/>
+                            <constraint firstItem="HIm-ZS-ZI3" firstAttribute="top" secondItem="CYk-Uh-fLg" secondAttribute="bottom" constant="48" id="Vxv-la-tBx"/>
                             <constraint firstItem="b06-i9-74t" firstAttribute="bottom" secondItem="vAr-8U-XvH" secondAttribute="bottom" constant="48" id="hgg-vl-cS4"/>
-                            <constraint firstItem="0Os-Gb-Soe" firstAttribute="top" secondItem="CYk-Uh-fLg" secondAttribute="bottom" constant="48" id="waj-eo-gjB"/>
+                            <constraint firstItem="CYk-Uh-fLg" firstAttribute="top" secondItem="b06-i9-74t" secondAttribute="top" constant="80" id="hl0-xA-GFf"/>
+                            <constraint firstItem="HIm-ZS-ZI3" firstAttribute="centerX" secondItem="b06-i9-74t" secondAttribute="centerX" id="lbC-PR-1fu"/>
                             <constraint firstItem="CYk-Uh-fLg" firstAttribute="centerX" secondItem="6pd-Qa-JDS" secondAttribute="centerX" id="xMl-50-sU4"/>
                             <constraint firstItem="vAr-8U-XvH" firstAttribute="centerX" secondItem="b06-i9-74t" secondAttribute="centerX" id="xMo-o2-T3w"/>
                         </constraints>
@@ -513,6 +532,14 @@
                         <outlet property="durationTextField" destination="uTV-gk-f52" id="93i-fe-jkf"/>
                         <outlet property="instructionLabel" destination="LA1-4B-Z7c" id="D4m-aK-wZc"/>
                         <outlet property="instructionTextView" destination="Pef-zg-N9V" id="F5h-Vf-Ohr"/>
+                        <outlet property="otherButton" destination="lBV-eN-ewa" id="3aE-lf-eyj"/>
+                        <outlet property="otherLabel" destination="9Fe-Aq-Pa3" id="AAz-jL-e6e"/>
+                        <outlet property="pourButton" destination="XV3-m8-V0b" id="r4W-A4-aaY"/>
+                        <outlet property="pourLabel" destination="jRR-B6-nni" id="j3n-7g-2bR"/>
+                        <outlet property="stirButton" destination="sak-3o-ogx" id="iTD-Wb-bj1"/>
+                        <outlet property="stirLabel" destination="lvH-n4-rQr" id="yMR-b4-ce9"/>
+                        <outlet property="waitButton" destination="jcr-CD-VmG" id="lJb-nX-aAz"/>
+                        <outlet property="waitLabel" destination="oVq-rp-ZLr" id="LMK-Ez-HCu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFz-8Q-a20" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -539,7 +566,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="other" width="1165" height="1165"/>
+        <image name="other" width="96" height="96"/>
         <image name="spoon" width="605" height="605"/>
         <image name="time" width="490" height="490"/>
         <image name="water" width="580" height="580"/>
@@ -547,4 +574,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="8t9-KU-SAp"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.64937800168991089" green="0.28359270095825195" blue="0.28266298770904541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
