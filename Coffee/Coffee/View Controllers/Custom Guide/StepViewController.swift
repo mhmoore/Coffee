@@ -42,6 +42,8 @@ class StepViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
             loadData()
         }
         createToolBar()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
     // MARK: - Actions

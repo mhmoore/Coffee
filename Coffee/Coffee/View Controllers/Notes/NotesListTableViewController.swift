@@ -58,6 +58,12 @@ class NotesListTableViewController: UITableViewController {
         super.viewDidLoad()
         searchBar.delegate = self
         setupUI()
+        tableView.tableFooterView = UIView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     // MARK: - Custom Methods

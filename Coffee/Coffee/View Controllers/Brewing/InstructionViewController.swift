@@ -72,7 +72,6 @@ class InstructionViewController: UIViewController {
     func updateView() {
         view.backgroundColor = .background
         stepsTableView.backgroundColor = .textFieldBackground
-//        stepView.backgroundColor = .textFieldBackground
         guard let guide = guide,
             let time = guide.steps[currentStep].time else { return }
         title = guide.title

@@ -43,6 +43,8 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
         setupUI()
         guard let guide = guide else { return }
         coffeeRange = createCoffeeRange(guide: guide)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,10 +21,11 @@
         <scene sceneID="plv-T7-gqd">
             <objects>
                 <tableViewController storyboardIdentifier="notesVC" id="gFo-gb-Sey" customClass="NotesListTableViewController" customModule="Coffee" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Zwy-GC-5hq">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Zwy-GC-5hq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" name="accent"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="WOQ-cR-bOw">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -72,11 +74,11 @@
             </objects>
             <point key="canvasLocation" x="189.85507246376812" y="-188.16964285714286"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--notes-->
         <scene sceneID="Ofg-lj-wYW">
             <objects>
                 <navigationController id="ti0-Pa-2jV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="8T4-Pw-smQ"/>
+                    <tabBarItem key="tabBarItem" title="notes" image="notesTab" id="8T4-Pw-smQ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P6k-t3-WHN">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -229,5 +231,11 @@
             <point key="canvasLocation" x="1100" y="-188.16964285714286"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="notesTab" width="26.666666030883789" height="32"/>
+        <namedColor name="accent">
+            <color red="0.73600000143051147" green="0.32499998807907104" blue="0.32499998807907104" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
     <color key="tintColor" red="0.64937800168991089" green="0.28359270095825195" blue="0.28266298770904541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
