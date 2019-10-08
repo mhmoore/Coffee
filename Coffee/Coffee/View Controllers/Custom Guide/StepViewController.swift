@@ -28,7 +28,7 @@ class StepViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     var step: Step?
     var guide: Guide?
     var stepToggle: Bool = false
-    var stepTitle: String = "Pour"
+    var stepTitle: String = ""
     
     
     // MARK: - Lifecycle
@@ -42,8 +42,12 @@ class StepViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
             loadData()
         }
         createToolBar()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tapGesture)
+          tapGesture.cancelsTouchesInView = false
+          view.addGestureRecognizer(tapGesture)
     }
     
     // MARK: - Actions
@@ -63,8 +67,6 @@ class StepViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
             self.waitLabel.textColor = .generalType
             self.otherLabel.textColor = .generalType
         }
-//        self.amountLabel.isHidden = false
-//        self.amountTextField.isHidden = false
         updateViews()
     }
     @IBAction func stirButtonTapped(_ sender: Any) {
@@ -83,8 +85,6 @@ class StepViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
             self.waitLabel.textColor = .generalType
             self.otherLabel.textColor = .generalType
         }
-//        self.amountLabel.isHidden = true
-//        self.amountTextField.isHidden = true
         updateViews()
     }
     @IBAction func waitButtonTapped(_ sender: Any) {
@@ -104,8 +104,6 @@ class StepViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
             self.otherLabel.textColor = .generalType
             
         }
-//        self.amountLabel.isHidden = true
-//        self.amountTextField.isHidden = true
         updateViews()
     }
     @IBAction func otherButtonTapped(_ sender: Any) {
@@ -124,8 +122,6 @@ class StepViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
             self.stirLabel.textColor = .generalType
             self.waitLabel.textColor = .generalType
         }
-//        self.amountLabel.isHidden = false
-//        self.amountTextField.isHidden = false
         updateViews()
     }
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -258,6 +254,15 @@ class StepViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     }
     
     @objc func dismissKeyboard() {
+        view.frame.origin.y = 0
         view.endEditing(true)
+    }
+    
+    @objc func keyboardWillShow(notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            view.frame.origin.y = -(keyboardHeight / 2)
+        }
     }
 }
