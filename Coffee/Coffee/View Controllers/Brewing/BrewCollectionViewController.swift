@@ -27,18 +27,23 @@ class BrewCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         GuideController.shared.loadFromPersistentStorage()
-        
-        let collectionViewWidth = collectionView.frame.width
-        let itemWidth = (collectionViewWidth - paddings * (numberOfItemsPerRow - 1)) / numberOfItemsPerRow
-        let layout = collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
-        
-        navigationItem.rightBarButtonItem = editButtonItem
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.reloadData()
+    }
+    
+    // MARK: - Custom Methods
+    func setupUI() {
+        view.backgroundColor = .background
+        collectionView.backgroundColor = .background
+        navigationItem.rightBarButtonItem = editButtonItem
+        let collectionViewWidth = collectionView.frame.width
+        let itemWidth = (collectionViewWidth - paddings * (numberOfItemsPerRow - 1)) / numberOfItemsPerRow
+        let layout = collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
     }
     
     // MARK: UICollectionViewDataSource
@@ -52,7 +57,7 @@ class BrewCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "sectionHeader", for: indexPath) as? SectionHeaderCollectionReusableView else { return UICollectionReusableView() }
-    
+        
         let category = guides[indexPath.section]
         if guides[indexPath.section].count != 0 {
             let guide = category[indexPath.item]
@@ -74,19 +79,20 @@ class BrewCollectionViewController: UICollectionViewController {
         let guide = category[indexPath.item]
         cell.guide = guide
         cell.delegate = self
+        cell.backgroundColor = .background
         return cell
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         let indexPaths = collectionView.indexPathsForVisibleItems
-            for indexPath in indexPaths {
-                if let cell = collectionView.cellForItem(at: indexPath) as? BrewCollectionViewCell {
-                    cell.isEditing = editing
-                }
+        for indexPath in indexPaths {
+            if let cell = collectionView.cellForItem(at: indexPath) as? BrewCollectionViewCell {
+                cell.isEditing = editing
             }
+        }
     }
-
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toGuideIntroVC" {

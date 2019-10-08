@@ -39,5 +39,6 @@ class NoteDetailViewController: UIViewController {
         methodTextLabel.text = "Method: \(note.method)"
         notesTextLabel.text = "Notes: \(note.tastingNotes)"
         title = note.coffeeName
+        view.backgroundColor = .background
     }
 }

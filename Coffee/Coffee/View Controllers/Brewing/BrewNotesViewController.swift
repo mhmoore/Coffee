@@ -28,6 +28,8 @@ class BrewNotesViewController: UIViewController, UITextViewDelegate, UITextField
         coffeeNameTextField.delegate = self
         originTextField.delegate = self
         notesTextView.delegate = self
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
 //    // MARK: - Actions
@@ -51,11 +53,13 @@ class BrewNotesViewController: UIViewController, UITextViewDelegate, UITextField
     
 //     MARK: - Custom Methods
     func loadData() {
+        view.backgroundColor = .background
         guard let guide = guide else { return }
         let ratioNumbers = getRatio(guide: guide)
         grindLabel.text = "\(guide.grind)"
         ratioLabel.text = "\(ratioNumbers.0) : \(ratioNumbers.1)"
         methodLabel.text = guide.method
+        
     }
     
     func totalWater(guide: Guide) -> Double {
@@ -85,10 +89,15 @@ class BrewNotesViewController: UIViewController, UITextViewDelegate, UITextField
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return roasterTextField.resignFirstResponder() &&
-        originTextField.resignFirstResponder() &&
-        coffeeNameTextField.resignFirstResponder() &&
-        notesTextView.resignFirstResponder()
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
+    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        for textfield in self.view.subviews where textfield is UITextField {
+//            textfield.resignFirstResponder()
+//        }
+//        notesTextView.resignFirstResponder()
+//        return true
+//    }
 }

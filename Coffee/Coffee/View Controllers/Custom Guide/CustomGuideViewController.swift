@@ -40,8 +40,11 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
         grindTextField.delegate = self
         stepsTableView.isEditing = false
         updateViews()
+        setupUI()
         guard let guide = guide else { return }
         coffeeRange = createCoffeeRange(guide: guide)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +78,11 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Custom Methods
+    func setupUI() {
+        view.backgroundColor = .background
+        stepsTableView.backgroundColor = .textFieldBackground
+    }
+    
     func updateViews() {
         guard let guide = guide else { return }
         methodLabel.text = guide.method
@@ -156,14 +164,16 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     
     func createCoffeePicker() {
         let coffeePicker = UIPickerView()
-        coffeePicker.backgroundColor = .white
+        coffeePicker.tintColor = .generalType
+        coffeePicker.backgroundColor = .textFieldBackground
         coffeePicker.delegate = self
         coffeeTextField.inputView = coffeePicker
     }
     
     func createGrindPicker() {
         let grindPicker = UIPickerView()
-        grindPicker.backgroundColor = .white
+        grindPicker.tintColor = .generalType
+        grindPicker.backgroundColor = .textFieldBackground
         grindPicker.delegate = self
         grindTextField.inputView = grindPicker
     }
@@ -171,9 +181,10 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     func createToolBar() {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        toolBar.backgroundColor = .white
+        toolBar.backgroundColor = .textFieldBackground
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.dismissKeyboard))
+        doneButton.tintColor = .accent
         toolBar.setItems([flexibleSpace, doneButton], animated: true)
         toolBar.isUserInteractionEnabled = true
         grindTextField.inputAccessoryView = toolBar
@@ -211,8 +222,7 @@ extension CustomGuideViewController: UITableViewDelegate, UITableViewDataSource 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "stepCell", for: indexPath) as? CustomStepTableViewCell,
         let guide = guide else { return UITableViewCell() }
         let step = guide.steps[indexPath.row]
-        cell.stepLabel.textAlignment = .center
-        cell.stepLabel.text = step.text
+        cell.step = step
         return cell
     }
     
