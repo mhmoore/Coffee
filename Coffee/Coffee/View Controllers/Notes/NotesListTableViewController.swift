@@ -9,7 +9,7 @@
 import UIKit
 
 class NotesListTableViewController: UITableViewController {
-
+    
     // MARK: - Properties
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -117,6 +117,11 @@ class NotesListTableViewController: UITableViewController {
                     if guide.notes.contains(note) {
                         GuideController.shared.remove(note: note, guide: guide)
                     }
+                    if guide.notes.count > 1 {
+                        tableView.deleteRows(at: [indexPath], with: .fade)
+                    } else {
+                        tableView.reloadData()
+                    }
                 }
             } else {
                 guard let notes = dictionary[methods[indexPath.section]] else { return }
@@ -125,9 +130,13 @@ class NotesListTableViewController: UITableViewController {
                     if guide.notes.contains(note) {
                         GuideController.shared.remove(note: note, guide: guide)
                     }
+                    if guide.notes.count > 1 {
+                        tableView.deleteRows(at: [indexPath], with: .fade)
+                    } else {
+                        tableView.reloadData()
+                    }
                 }
             }
-            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     

@@ -249,7 +249,7 @@
                                         <connections>
                                             <outlet property="stepLabel" destination="sDH-R4-Jyi" id="L11-N7-JdI"/>
                                             <outlet property="stepView" destination="aLp-HG-2FI" id="K7g-DB-Rux"/>
-                                            <segue destination="Sie-ZB-cLO" kind="show" identifier="editStepSegue" id="8t9-KU-SAp"/>
+                                            <segue destination="Sie-ZB-cLO" kind="show" identifier="editStepSegue" id="tdv-Lp-5Vm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -578,7 +578,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8t9-KU-SAp"/>
+        <segue reference="tdv-Lp-5Vm"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.64937800168991089" green="0.28359270095825195" blue="0.28266298770904541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

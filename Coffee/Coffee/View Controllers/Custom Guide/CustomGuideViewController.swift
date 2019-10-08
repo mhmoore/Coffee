@@ -43,7 +43,9 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
         setupUI()
         guard let guide = guide else { return }
         coffeeRange = createCoffeeRange(guide: guide)
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
     }
     
@@ -59,7 +61,7 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func editButtonTapped(_ sender: Any) {
-        stepsTableView.isEditing = !stepsTableView.isEditing
+        stepsTableView.isEditing.toggle()
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -97,10 +99,6 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
         createGrindPicker()
         createCoffeePicker()
         createToolBar()
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        return titleTextField.resignFirstResponder()
     }
     
     func totalWater(guide: Guide) -> Double {
@@ -189,6 +187,7 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
         toolBar.isUserInteractionEnabled = true
         grindTextField.inputAccessoryView = toolBar
         coffeeTextField.inputAccessoryView = toolBar
+        titleTextField.inputAccessoryView = toolBar
     }
     
     @objc func dismissKeyboard() {
@@ -212,6 +211,8 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
         }
     }
 }
+
+// MARK: - TableView Delegate and DataSource
 
 extension CustomGuideViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

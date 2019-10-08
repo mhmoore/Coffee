@@ -24,12 +24,11 @@ class BrewNotesViewController: UIViewController, UITextViewDelegate, UITextField
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
+        createToolBar()
         roasterTextField.delegate = self
         coffeeNameTextField.delegate = self
         originTextField.delegate = self
         notesTextView.delegate = self
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tapGesture)
     }
     
 //    // MARK: - Actions
@@ -89,15 +88,22 @@ class BrewNotesViewController: UIViewController, UITextViewDelegate, UITextField
         }
     }
     
+    func createToolBar() {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        toolBar.backgroundColor = .textFieldBackground
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.dismissKeyboard))
+        doneButton.tintColor = .accent
+        toolBar.setItems([flexibleSpace, doneButton], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        roasterTextField.inputAccessoryView = toolBar
+        coffeeNameTextField.inputAccessoryView = toolBar
+        originTextField.inputAccessoryView = toolBar
+        notesTextView.inputAccessoryView = toolBar
+    }
+    
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
-    
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        for textfield in self.view.subviews where textfield is UITextField {
-//            textfield.resignFirstResponder()
-//        }
-//        notesTextView.resignFirstResponder()
-//        return true
-//    }
 }
