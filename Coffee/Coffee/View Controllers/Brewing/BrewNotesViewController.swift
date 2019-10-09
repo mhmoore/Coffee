@@ -20,7 +20,7 @@ class BrewNotesViewController: UIViewController, UITextViewDelegate, UITextField
 
     var guide: Guide?
 
-//    // MARK: - Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
@@ -31,26 +31,34 @@ class BrewNotesViewController: UIViewController, UITextViewDelegate, UITextField
         notesTextView.delegate = self
     }
     
-//    // MARK: - Actions
+    // MARK: - Actions
     @IBAction func skipButtonTapped(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let roaster = roasterTextField.text, !roaster.isEmpty,
-            let coffeeName = coffeeNameTextField.text, !coffeeName.isEmpty,
-        let origin = originTextField.text, !origin.isEmpty,
+        guard let roaster = roasterTextField.text,
+            let coffeeName = coffeeNameTextField.text,
+        let origin = originTextField.text,
             let grind = grindLabel.text,
             let ratio = ratioLabel.text,
             let method = methodLabel.text,
-            let notes = notesTextView.text, !notes.isEmpty,
+            let notes = notesTextView.text,
             let guide = guide else { return }
-
-        NoteController.createNote(guide: guide, roaster: roaster, coffeeName: coffeeName, origin: origin, grind: grind, ratio: ratio, tastingNotes: notes, method: method)
-        navigationController?.popToRootViewController(animated: true)
+        
+        if notesTextView.text.isEmpty || coffeeName.isEmpty || roaster.isEmpty || origin.isEmpty {
+            let alert = UIAlertController(title: "Empty Fields", message: "Please fill in all fields before saving", preferredStyle: .alert)
+            let okay = UIAlertAction(title: "Ok", style: .cancel)
+            alert.addAction(okay)
+            present(alert, animated: true)
+            return
+        } else {
+            NoteController.createNote(guide: guide, roaster: roaster, coffeeName: coffeeName, origin: origin, grind: grind, ratio: ratio, tastingNotes: notes, method: method)
+            navigationController?.popToRootViewController(animated: true)
+        }
     }
-    
-//     MARK: - Custom Methods
+
+    // MARK: - Custom Methods
     func loadData() {
         view.backgroundColor = .background
         guard let guide = guide else { return }

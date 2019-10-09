@@ -53,14 +53,9 @@ class GuideController {
 ////        standardGuides.insert(guide, at: 0)
 //    }
     
-    func update(guide: Guide, userGuide: Bool, title: String, coffee: Double, grind: String, steps: [Step], notes: [Note] ) {
-        guide.userGuide = userGuide
-        guide.title = title
-        guide.steps = steps
-        guide.notes = notes
-        
-        saveToPersistentStorage()
-    }
+//    func update(completion: @escaping (Bool) -> Void) {
+//        saveToPersistentStorage()
+//    }
     
     func remove(guide: Guide) {
         if !guide.userGuide {

@@ -18,9 +18,11 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var waterLabel: UILabel!
     @IBOutlet weak var ratioLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var stepsTableView: UITableView!
     
     var guide: Guide?
+    var editingGuide: Bool?
     var coffeeRange: [String] = []
     let grinds = [GrindKeys.fineKey,
                   GrindKeys.fineMediumKey,
@@ -62,13 +64,37 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func editButtonTapped(_ sender: Any) {
         stepsTableView.isEditing.toggle()
+        if stepsTableView.isEditing {
+            editButton.titleLabel?.text = "Done"
+        } else {
+            editButton.titleLabel?.text = "Edit"
+        }
+        
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let guide = guide,
-            let title = titleTextField.text, !title.isEmpty else { return }
-        guide.title = title
+            let title = titleTextField.text else { return }
         
+        for standardGuide in GuideController.shared.standardGuides {
+            if standardGuide == guide {
+                return
+            }
+        }
+        
+        guide.title = title
+        if title.isEmpty {
+            let alert = UIAlertController(title: "Empty Fields", message: "Please fill in all fields before saving", preferredStyle: .alert)
+            let okay = UIAlertAction(title: "Ok", style: .cancel)
+            alert.addAction(okay)
+            present(alert, animated: true)
+            return
+        }
+        if editingGuide == true {
+            GuideController.shared.saveToPersistentStorage()
+            navigationController?.popToRootViewController(animated: true)
+            return
+        }
         if GuideController.shared.userGuides == nil {
             GuideController.shared.userGuides = []
             GuideController.shared.userGuides?.append(guide)
@@ -83,6 +109,7 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     func setupUI() {
         view.backgroundColor = .background
         stepsTableView.backgroundColor = .textFieldBackground
+        
     }
     
     func updateViews() {

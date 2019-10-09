@@ -25,7 +25,6 @@ struct BrewKeys {
     static let kalitaKey = "Kalita Wave"
     static let chemexKey = "CHEMEX"
     static let aeroPressKey = "AeroPress"
-    
 }
 
 class Guide: Codable {
@@ -55,8 +54,7 @@ class Guide: Codable {
 
 extension Guide: Equatable {
     static func == (lhs: Guide, rhs: Guide) -> Bool {
-        return lhs.userGuide == rhs.userGuide &&
-            lhs.title == rhs.title &&
+        return lhs.title == rhs.title &&
             lhs.method == rhs.method &&
             lhs.methodInfo == rhs.methodInfo &&
             lhs.coffee == rhs.coffee &&

@@ -9,8 +9,7 @@
 import UIKit
 
 class GuideIntroViewController: UIViewController {
-    // MARK: - Properties
-    var guide: Guide?
+    // MARK: - Outlets
     @IBOutlet weak var methodImage: UIImageView!
     @IBOutlet weak var methodInfoView: UIView!
     @IBOutlet weak var methodInfo: UILabel!
@@ -21,6 +20,9 @@ class GuideIntroViewController: UIViewController {
     @IBOutlet weak var ratioLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var prepLabel: UILabel!
+    
+    // MARK: - Properties
+    var guide: Guide?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -37,12 +39,18 @@ class GuideIntroViewController: UIViewController {
         } else if segue.identifier == "toCustomVC" {
             guard let destinationVC = segue.destination as? CustomGuideViewController,
                 let guide = guide else { return }
+            if guide.userGuide == true {
+                destinationVC.guide = guide
+                destinationVC.editingGuide = true
+            } else {
                 // makes a copy of guide and steps so that it doesn't make changes to the standard guide
                 let stepsCopy = guide.steps.map { step in
                     Step(title: step.title, water: step.water, time: step.time, text: step.text)
                 }
                 let guideCopy = Guide(userGuide: true, title: guide.title, method: guide.method, methodInfo: guide.methodInfo, coffee: guide.coffee, grind: guide.grind, prep: guide.prep, steps: stepsCopy)
-            destinationVC.guide = guideCopy
+                destinationVC.guide = guideCopy
+                destinationVC.editingGuide = false
+            }
         }
     }
     
