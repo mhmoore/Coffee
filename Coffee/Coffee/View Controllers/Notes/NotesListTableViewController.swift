@@ -59,6 +59,10 @@ class NotesListTableViewController: UITableViewController {
         searchBar.delegate = self
         setupUI()
         tableView.tableFooterView = UIView()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -157,8 +161,14 @@ class NotesListTableViewController: UITableViewController {
             }
         }
     }
+    
+    // MARK: - Custom Methods
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 
+// MARK: - SearchBar Delegate
 extension NotesListTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         isSearching = true
@@ -178,7 +188,7 @@ extension NotesListTableViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = false
+        searchBar.showsCancelButton = true
         searchBar.text = ""
         searchBar.resignFirstResponder()
         isSearching = false

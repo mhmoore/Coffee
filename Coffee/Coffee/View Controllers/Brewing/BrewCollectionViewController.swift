@@ -33,6 +33,7 @@ class BrewCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.reloadData()
+        super.setEditing(false, animated: true)
     }
     
     // MARK: - Custom Methods

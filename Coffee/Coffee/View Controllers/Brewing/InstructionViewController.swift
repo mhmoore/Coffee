@@ -33,7 +33,8 @@ class InstructionViewController: UIViewController {
     // MARK: - Timer Functions
     func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
-            guard self.counter > 0 else { self.timer.invalidate(); return }
+            guard self.counter > 0 else { self.timer.invalidate(); self.nextButton.isUserInteractionEnabled = true; return }
+            self.nextButton.isUserInteractionEnabled = false
             self.counter -= 1
             print(self.counter)
             let timeString = self.timeAsString(time: self.counter)

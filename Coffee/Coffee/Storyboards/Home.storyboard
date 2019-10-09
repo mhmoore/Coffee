@@ -29,7 +29,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Efe-Xh-XKW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3812" y="-452"/>
+            <point key="canvasLocation" x="3830" y="-463"/>
         </scene>
         <!--Instruction View Controller-->
         <scene sceneID="2t8-Pb-KiK">
@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B5j-VD-Ydv">
-                                <rect key="frame" x="18.666666666666657" y="112" width="337.66666666666674" height="313"/>
+                                <rect key="frame" x="18.666666666666657" y="112" width="337.66666666666674" height="312"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" name="accent"/>
                                 <prototypes>
@@ -86,7 +86,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(current step)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzx-gN-2cr" customClass="descriptionLabel" customModule="Coffee" customModuleProvider="target">
-                                <rect key="frame" x="18.666666666666657" y="461" width="337.66666666666674" height="21"/>
+                                <rect key="frame" x="18.666666666666657" y="460" width="337.66666666666674" height="22"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -237,18 +237,23 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sd0-yY-6st">
                                             <rect key="frame" x="0.0" y="0.0" width="161" height="147"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eE7-v8-y4o">
-                                                    <rect key="frame" x="20" y="4.0000000000000071" width="121" height="120.66666666666669"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="eE7-v8-y4o" secondAttribute="height" multiplier="1:1" id="PIP-V2-AR9"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Method Name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtf-wY-uhz" customClass="CoffeeLabel" customModule="Coffee" customModuleProvider="target">
-                                                    <rect key="frame" x="18.333333333333336" y="122.66666666666669" width="124.33333333333331" height="24"/>
-                                                    <fontDescription key="fontDescription" name="Norwester-Regular" family="Norwester" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="s6u-g6-aLC">
+                                                    <rect key="frame" x="8" y="8" width="145" height="131"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="eE7-v8-y4o">
+                                                            <rect key="frame" x="0.0" y="0.0" width="145" height="107"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="(Method Name)" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mtf-wY-uhz" customClass="CoffeeLabel" customModule="Coffee" customModuleProvider="target">
+                                                            <rect key="frame" x="3.6666666666666714" y="107" width="138" height="24"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="OUU-WZ-LG6"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="Norwester-Regular" family="Norwester" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M08-Sr-dzc">
                                                     <rect key="frame" x="127" y="4" width="30" height="30"/>
                                                     <constraints>
@@ -263,13 +268,12 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="s6u-g6-aLC" firstAttribute="top" secondItem="Sd0-yY-6st" secondAttribute="topMargin" id="3lT-QG-dxZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="M08-Sr-dzc" secondAttribute="trailing" constant="4" id="CZi-o6-gvr"/>
-                                                <constraint firstItem="eE7-v8-y4o" firstAttribute="top" secondItem="Sd0-yY-6st" secondAttribute="top" constant="4" id="N5l-uF-6H1"/>
-                                                <constraint firstItem="Mtf-wY-uhz" firstAttribute="top" secondItem="eE7-v8-y4o" secondAttribute="bottom" constant="-2" id="WNH-MB-nuY"/>
+                                                <constraint firstItem="s6u-g6-aLC" firstAttribute="bottom" secondItem="Sd0-yY-6st" secondAttribute="bottomMargin" id="ZgJ-ob-B1A"/>
+                                                <constraint firstItem="s6u-g6-aLC" firstAttribute="leading" secondItem="Sd0-yY-6st" secondAttribute="leadingMargin" id="kCY-Mj-uVO"/>
                                                 <constraint firstItem="M08-Sr-dzc" firstAttribute="top" secondItem="Sd0-yY-6st" secondAttribute="top" constant="4" id="n4y-7C-dpf"/>
-                                                <constraint firstItem="eE7-v8-y4o" firstAttribute="width" secondItem="Sd0-yY-6st" secondAttribute="width" multiplier="0.75" id="qEj-fo-h7o"/>
-                                                <constraint firstItem="eE7-v8-y4o" firstAttribute="centerX" secondItem="Sd0-yY-6st" secondAttribute="centerX" id="srM-JU-v9M"/>
-                                                <constraint firstItem="Mtf-wY-uhz" firstAttribute="centerX" secondItem="eE7-v8-y4o" secondAttribute="centerX" id="vkD-cS-7UQ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="s6u-g6-aLC" secondAttribute="trailing" id="tFj-pg-dnp"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -284,7 +288,7 @@
                                     <outlet property="deleteButton" destination="M08-Sr-dzc" id="bjM-9e-Cxi"/>
                                     <outlet property="methodImage" destination="eE7-v8-y4o" id="1wA-RD-plz"/>
                                     <outlet property="methodNameLabel" destination="Mtf-wY-uhz" id="9n4-3k-GJX"/>
-                                    <segue destination="POZ-9E-fD9" kind="show" identifier="toGuideIntroVC" id="zAf-Yj-uJE"/>
+                                    <segue destination="POZ-9E-fD9" kind="show" identifier="toGuideIntroVC" id="COI-tw-0qD"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -379,7 +383,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="4LP-81-RVV">
                                                                 <rect key="frame" x="0.0" y="0.0" width="129" height="28.666666666666668"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coffee:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7z-nm-WZn" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Coffee:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7z-nm-WZn" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="59" height="28.666666666666668"/>
                                                                         <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                                         <nil key="textColor"/>
@@ -396,7 +400,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="giQ-Qx-NlK">
                                                                 <rect key="frame" x="0.0" y="32.666666666666657" width="121.33333333333333" height="29"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7EM-qb-4t5" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Water:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7EM-qb-4t5" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="55.333333333333336" height="29"/>
                                                                         <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                                         <nil key="textColor"/>
@@ -410,17 +414,17 @@
                                                                     </label>
                                                                 </subviews>
                                                             </stackView>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="j79-Mr-Jqr">
-                                                                <rect key="frame" x="0.0" y="65.666666666666686" width="102.33333333333333" height="28.666666666666671"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="j79-Mr-Jqr">
+                                                                <rect key="frame" x="0.0" y="65.666666666666686" width="103.33333333333333" height="28.666666666666671"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ratio:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amq-L7-9Ku" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Ratio:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amq-L7-9Ku" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="47" height="28.666666666666668"/>
                                                                         <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(ratio)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFK-4h-VaH" customClass="descriptionLabel" customModule="Coffee" customModuleProvider="target">
-                                                                        <rect key="frame" x="50" y="0.0" width="52.333333333333343" height="28.666666666666668"/>
+                                                                        <rect key="frame" x="51" y="0.0" width="52.333333333333343" height="28.666666666666668"/>
                                                                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -430,7 +434,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="jIJ-lV-8kO">
                                                                 <rect key="frame" x="0.0" y="98.333333333333314" width="99.333333333333329" height="28.666666666666671"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nx-Yt-vyp" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nx-Yt-vyp" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="28.666666666666668"/>
                                                                         <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                                         <nil key="textColor"/>
@@ -533,16 +537,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YzG-8H-m4a"/>
                     </view>
-                    <navigationItem key="navigationItem" id="nlk-vm-lRs">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="kVw-LX-2gK">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RVy-Df-jK3">
-                                <rect key="frame" x="261" y="7" width="98" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Custom Guide"/>
-                                <connections>
-                                    <segue destination="bAU-s1-4UX" kind="show" identifier="toCustomVC" id="U3a-cn-fDL"/>
-                                </connections>
-                            </button>
+                    <navigationItem key="navigationItem" id="4kb-34-eYa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="avW-7L-eOy">
+                            <connections>
+                                <segue destination="bAU-s1-4UX" kind="show" identifier="toCustomVC" id="WCW-Wf-KFb"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="375" height="1600"/>
@@ -591,13 +590,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wpT-zW-L13">
-                                <rect key="frame" x="28" y="104" width="319" height="381"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CPy-q0-yin">
+                                <rect key="frame" x="28" y="104" width="319" height="190"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5bB-19-0iS">
                                         <rect key="frame" x="0.0" y="0.0" width="319" height="25"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roaster:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gui-v8-JXk" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Roaster:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gui-v8-JXk" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="67" height="25"/>
                                                 <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <nil key="textColor"/>
@@ -609,15 +608,11 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="0FV-pz-gt7"/>
-                                            <constraint firstItem="f0u-O6-MYt" firstAttribute="leading" secondItem="gui-v8-JXk" secondAttribute="trailing" constant="8" id="EDY-l1-3aR"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lUj-sp-pYT">
                                         <rect key="frame" x="0.0" y="33" width="319" height="25"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coffee Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ni-Wd-N9U" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Coffee Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ni-Wd-N9U" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="109.66666666666667" height="25"/>
                                                 <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <nil key="textColor"/>
@@ -629,15 +624,11 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="A9w-2J-yFg"/>
-                                            <constraint firstItem="Isa-LR-p3n" firstAttribute="leading" secondItem="9ni-Wd-N9U" secondAttribute="trailing" constant="8.0000000000000284" id="QqI-sQ-1hT"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Kdp-ft-K8S">
                                         <rect key="frame" x="0.0" y="66" width="319" height="25"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Origin:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r00-2N-vcM" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Origin:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r00-2N-vcM" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="54" height="25"/>
                                                 <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <nil key="textColor"/>
@@ -649,25 +640,18 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="d0W-BM-QV1" firstAttribute="leading" secondItem="r00-2N-vcM" secondAttribute="trailing" constant="7.9999999999999929" id="osm-8O-LSd"/>
-                                            <constraint firstAttribute="height" constant="25" id="tkA-xW-eBN"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="T4X-1b-Dlg">
                                         <rect key="frame" x="0.0" y="99" width="319" height="25"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grind:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wla-Pq-chy" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="55" height="25"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="55" id="K4z-lL-cW3"/>
-                                                </constraints>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Grind:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wla-Pq-chy" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="49" height="25"/>
                                                 <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(grind)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jc3-vG-qtj" customClass="descriptionLabel" customModule="Coffee" customModuleProvider="target">
-                                                <rect key="frame" x="59" y="0.0" width="260" height="25"/>
+                                                <rect key="frame" x="53" y="0.0" width="266" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="wlT-ud-NCs"/>
                                                 </constraints>
@@ -676,56 +660,35 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="Jc3-vG-qtj" firstAttribute="leading" secondItem="wla-Pq-chy" secondAttribute="trailing" constant="4" id="MVs-hZ-hBN"/>
-                                            <constraint firstItem="wla-Pq-chy" firstAttribute="top" secondItem="T4X-1b-Dlg" secondAttribute="top" id="Pcn-DA-TW1"/>
-                                            <constraint firstItem="wla-Pq-chy" firstAttribute="leading" secondItem="T4X-1b-Dlg" secondAttribute="leading" id="p4h-7i-c5P"/>
-                                            <constraint firstAttribute="bottom" secondItem="wla-Pq-chy" secondAttribute="bottom" id="tpH-y8-lA3"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="h8O-qO-ud4">
                                         <rect key="frame" x="0.0" y="132" width="319" height="25"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Method:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVm-V3-7TF" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="70" height="25"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="70" id="1iA-B8-StR"/>
-                                                </constraints>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Method:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVm-V3-7TF" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="66" height="25"/>
                                                 <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(method)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNE-Gj-lGs" customClass="descriptionLabel" customModule="Coffee" customModuleProvider="target">
-                                                <rect key="frame" x="74" y="0.0" width="245" height="25"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="25" id="MkE-Ch-haB"/>
-                                                </constraints>
+                                                <rect key="frame" x="70" y="0.0" width="249" height="25"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="XVm-V3-7TF" secondAttribute="bottom" id="Eqh-GK-0qj"/>
-                                            <constraint firstItem="XVm-V3-7TF" firstAttribute="top" secondItem="h8O-qO-ud4" secondAttribute="top" id="GRi-jl-4is"/>
-                                            <constraint firstItem="XVm-V3-7TF" firstAttribute="leading" secondItem="h8O-qO-ud4" secondAttribute="leading" id="eOA-mF-bYo"/>
-                                            <constraint firstItem="MNE-Gj-lGs" firstAttribute="leading" secondItem="XVm-V3-7TF" secondAttribute="trailing" constant="4" id="yAV-qW-5az"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="bbq-pG-shu">
                                         <rect key="frame" x="0.0" y="165" width="319" height="25"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ratio:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRh-6w-d4a" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="55" height="25"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="55" id="NhS-OZ-jPg"/>
-                                                </constraints>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Ratio:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRh-6w-d4a" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="47" height="25"/>
                                                 <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(ratio)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EW9-J4-5km" customClass="descriptionLabel" customModule="Coffee" customModuleProvider="target">
-                                                <rect key="frame" x="59" y="0.0" width="260" height="25"/>
+                                                <rect key="frame" x="51" y="0.0" width="268" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="vOM-AS-UUE"/>
                                                 </constraints>
@@ -734,40 +697,41 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="xRh-6w-d4a" firstAttribute="top" secondItem="bbq-pG-shu" secondAttribute="top" id="3Oh-Qg-94N"/>
-                                            <constraint firstItem="xRh-6w-d4a" firstAttribute="leading" secondItem="bbq-pG-shu" secondAttribute="leading" id="ZGU-Ku-0Dp"/>
-                                            <constraint firstAttribute="bottom" secondItem="xRh-6w-d4a" secondAttribute="bottom" id="ebG-ih-2aJ"/>
-                                            <constraint firstItem="EW9-J4-5km" firstAttribute="leading" secondItem="xRh-6w-d4a" secondAttribute="trailing" constant="4" id="vUp-97-0yU"/>
-                                        </constraints>
                                     </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Kdp-ft-K8S" firstAttribute="width" secondItem="CPy-q0-yin" secondAttribute="width" id="CSS-da-nkm"/>
+                                    <constraint firstItem="bbq-pG-shu" firstAttribute="width" secondItem="CPy-q0-yin" secondAttribute="width" id="EHK-Kd-Rb6"/>
+                                    <constraint firstItem="lUj-sp-pYT" firstAttribute="width" secondItem="CPy-q0-yin" secondAttribute="width" id="GaA-ND-EPg"/>
+                                    <constraint firstItem="T4X-1b-Dlg" firstAttribute="width" secondItem="CPy-q0-yin" secondAttribute="width" id="H91-LI-fan"/>
+                                    <constraint firstItem="5bB-19-0iS" firstAttribute="width" secondItem="CPy-q0-yin" secondAttribute="width" id="cpy-kW-yE8"/>
+                                    <constraint firstItem="h8O-qO-ud4" firstAttribute="width" secondItem="CPy-q0-yin" secondAttribute="width" id="xXb-3E-jdq"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="z1z-sy-Cnc">
+                                <rect key="frame" x="28" y="306" width="319" height="193"/>
+                                <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tasting Notes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohZ-Kh-0Lk" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="198" width="319" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="0WD-39-DS1"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="0.0" width="319" height="18"/>
                                         <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4Y8-Jn-MAe" customClass="CoffeeTextView" customModule="Coffee" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="231" width="319" height="150"/>
+                                        <rect key="frame" x="0.0" y="26" width="319" height="167"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="8VZ-Ov-Mdq"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="5bB-19-0iS" firstAttribute="width" secondItem="wpT-zW-L13" secondAttribute="width" id="AEb-Vd-mYA"/>
-                                    <constraint firstItem="Kdp-ft-K8S" firstAttribute="width" secondItem="wpT-zW-L13" secondAttribute="width" id="d6M-gf-H4v"/>
-                                    <constraint firstItem="lUj-sp-pYT" firstAttribute="width" secondItem="wpT-zW-L13" secondAttribute="width" id="eLq-QG-reI"/>
+                                    <constraint firstItem="4Y8-Jn-MAe" firstAttribute="centerX" secondItem="z1z-sy-Cnc" secondAttribute="centerX" id="5b9-wy-m2M"/>
+                                    <constraint firstItem="4Y8-Jn-MAe" firstAttribute="width" secondItem="z1z-sy-Cnc" secondAttribute="width" id="6zT-Fb-S7R"/>
+                                    <constraint firstItem="ohZ-Kh-0Lk" firstAttribute="width" secondItem="z1z-sy-Cnc" secondAttribute="width" id="A9h-Sj-GyC"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ox7-sQ-4ez" customClass="ActionButton" customModule="Coffee" customModuleProvider="target">
-                                <rect key="frame" x="112.66666666666669" y="509" width="150" height="50"/>
+                                <rect key="frame" x="112.66666666666669" y="535" width="150" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="0Te-qT-KKK"/>
                                     <constraint firstAttribute="height" constant="50" id="Ju8-Dg-xNc"/>
@@ -782,10 +746,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Ox7-sQ-4ez" firstAttribute="centerX" secondItem="gO4-nL-4Ve" secondAttribute="centerX" id="2FJ-Fa-61e"/>
-                            <constraint firstItem="wpT-zW-L13" firstAttribute="top" secondItem="gO4-nL-4Ve" secondAttribute="top" constant="16" id="825-Rz-i0j"/>
-                            <constraint firstItem="wpT-zW-L13" firstAttribute="width" secondItem="gO4-nL-4Ve" secondAttribute="width" multiplier="0.85" id="WXr-zo-E8g"/>
-                            <constraint firstItem="Ox7-sQ-4ez" firstAttribute="top" secondItem="wpT-zW-L13" secondAttribute="bottom" constant="24" id="Z0Q-1e-Di4"/>
-                            <constraint firstItem="wpT-zW-L13" firstAttribute="centerX" secondItem="gO4-nL-4Ve" secondAttribute="centerX" id="fzh-FB-wF7"/>
+                            <constraint firstItem="z1z-sy-Cnc" firstAttribute="width" secondItem="gO4-nL-4Ve" secondAttribute="width" multiplier="0.85" id="9y4-nU-3qN"/>
+                            <constraint firstItem="z1z-sy-Cnc" firstAttribute="top" secondItem="CPy-q0-yin" secondAttribute="bottom" constant="12" id="EOL-Cs-lh7"/>
+                            <constraint firstItem="CPy-q0-yin" firstAttribute="centerX" secondItem="gO4-nL-4Ve" secondAttribute="centerX" id="FRI-ks-jL0"/>
+                            <constraint firstItem="Ox7-sQ-4ez" firstAttribute="centerX" secondItem="gO4-nL-4Ve" secondAttribute="centerX" id="FuK-2T-B07"/>
+                            <constraint firstItem="z1z-sy-Cnc" firstAttribute="centerX" secondItem="gO4-nL-4Ve" secondAttribute="centerX" id="bX3-lQ-Qri"/>
+                            <constraint firstItem="CPy-q0-yin" firstAttribute="width" secondItem="gO4-nL-4Ve" secondAttribute="width" multiplier="0.85" id="lKo-kU-vXb"/>
+                            <constraint firstItem="Ox7-sQ-4ez" firstAttribute="top" secondItem="z1z-sy-Cnc" secondAttribute="bottom" constant="36" id="osf-yz-0VE"/>
+                            <constraint firstItem="CPy-q0-yin" firstAttribute="top" secondItem="gO4-nL-4Ve" secondAttribute="top" constant="16" id="wyw-KB-Vpw"/>
+                            <constraint firstItem="gO4-nL-4Ve" firstAttribute="bottom" secondItem="Ox7-sQ-4ez" secondAttribute="bottom" constant="144" id="x8E-7n-FJF"/>
+                            <constraint firstItem="Ox7-sQ-4ez" firstAttribute="centerX" secondItem="gO4-nL-4Ve" secondAttribute="centerX" id="xF4-F4-nGO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gO4-nL-4Ve"/>
                     </view>

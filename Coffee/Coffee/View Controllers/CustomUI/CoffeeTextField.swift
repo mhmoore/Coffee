@@ -24,7 +24,7 @@ class CoffeeTextField: UITextField {
     func setupUI() {
         textColor = .generalType
         backgroundColor = .textFieldBackground
-//        tintColor = .white
+        tintColor = .accent
         addAccentBorder()
         addCornerRadius(8)
         layer.masksToBounds = true
