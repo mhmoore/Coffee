@@ -58,6 +58,7 @@ class NotesListTableViewController: UITableViewController {
         super.viewDidLoad()
         searchBar.delegate = self
         setupUI()
+        createToolBar()
         tableView.tableFooterView = UIView()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -163,6 +164,17 @@ class NotesListTableViewController: UITableViewController {
     }
     
     // MARK: - Custom Methods
+    func createToolBar() {
+         let toolBar = UIToolbar()
+         toolBar.sizeToFit()
+         toolBar.backgroundColor = .white
+         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.dismissKeyboard))
+         toolBar.setItems([flexibleSpace, doneButton], animated: true)
+         toolBar.isUserInteractionEnabled = true
+         searchBar.inputAccessoryView = toolBar
+     }
+    
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
@@ -187,11 +199,11 @@ extension NotesListTableViewController: UISearchBarDelegate {
         tableView.reloadData()
     }
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = true
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        isSearching = false
+        searchBar.showsCancelButton = false
         searchBar.text = ""
         searchBar.resignFirstResponder()
-        isSearching = false
         tableView.reloadData()
     }
 }

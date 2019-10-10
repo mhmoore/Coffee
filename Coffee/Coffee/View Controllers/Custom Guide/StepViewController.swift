@@ -125,22 +125,25 @@ class StepViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         updateViews()
     }
     @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let guide = guide,
-            let timeText = durationTextField.text,
-            let time = TimeInterval(timeText) else { return }
-        let waterText = amountTextField.text ?? "0"
-        let water = Double(waterText) ?? 0
+        guard let guide = guide else { return }
+        let timeText = durationTextField.text ?? "0.0"
+        let time = TimeInterval(timeText) ?? 0.0
+        if amountTextField.isHidden == true {
+            amountTextField.text = "0.0"
+        }
+        let waterText = amountTextField.text ?? "0.0"
+        let water = Double(waterText)
         
-        if time < 0 {
-            let alert = UIAlertController(title: "Invalid Time", message: "Please ensure time is more than 0 seconds before saving", preferredStyle: .alert)
+        if time < 0.0 || time > 0.0 && time < 1.0 {
+            let alert = UIAlertController(title: "Invalid Time", message: "Please ensure time is greater than 1 second before saving", preferredStyle: .alert)
             let okay = UIAlertAction(title: "Ok", style: .cancel)
             alert.addAction(okay)
             present(alert, animated: true)
             return
         }
         
-        if instructionTextView.text.isEmpty || timeText.isEmpty {
-            let alert = UIAlertController(title: "Empty Fields", message: "Please fill in all fields before saving", preferredStyle: .alert)
+        if instructionTextView.text.isEmpty || instructionTextView.text == "Place instructions here" {
+            let alert = UIAlertController(title: "Need Instructions", message: "Please provide instructions for this step before saving", preferredStyle: .alert)
             let okay = UIAlertAction(title: "Ok", style: .cancel)
             alert.addAction(okay)
             present(alert, animated: true)

@@ -19,6 +19,7 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var ratioLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var addStepButton: ActionButton!
     @IBOutlet weak var stepsTableView: UITableView!
     
     var guide: Guide?
@@ -64,10 +65,10 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func editButtonTapped(_ sender: Any) {
         stepsTableView.isEditing.toggle()
-        if stepsTableView.isEditing {
-            editButton.titleLabel?.text = "Done"
+        if stepsTableView.isEditing == true {
+            editButton.setTitle("Done", for: .normal)
         } else {
-            editButton.titleLabel?.text = "Edit"
+            editButton.setTitle("Edit", for: .normal)
         }
         
     }
@@ -109,6 +110,8 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     func setupUI() {
         view.backgroundColor = .background
         stepsTableView.backgroundColor = .textFieldBackground
+        editButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 15)
+        addStepButton.contentEdgeInsets = UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 15)
         
     }
     

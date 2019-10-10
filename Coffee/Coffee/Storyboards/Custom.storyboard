@@ -180,14 +180,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="126" translatesAutoresizingMaskIntoConstraints="NO" id="GgV-4i-6qh">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="GgV-4i-6qh">
                                         <rect key="frame" x="0.0" y="25" width="319" height="33"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFL-eC-ICk" customClass="ActionButton" customModule="Coffee" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="33"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="mR5-Nu-44y"/>
-                                                </constraints>
+                                                <rect key="frame" x="0.0" y="0.0" width="32" height="33"/>
                                                 <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <state key="normal" title="Edit"/>
                                                 <connections>
@@ -271,18 +268,19 @@
                         <viewLayoutGuide key="safeArea" id="5D3-aF-JIm"/>
                     </view>
                     <navigationItem key="navigationItem" id="FT9-mz-Kvc">
-                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="szo-VQ-2QP">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="szo-VQ-2QP">
                             <connections>
                                 <action selector="cancelButtonTapped:" destination="xfW-oy-lNV" id="wM9-aJ-vk7"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="Z84-WM-VmO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Z84-WM-VmO">
                             <connections>
                                 <action selector="saveButtonTapped:" destination="xfW-oy-lNV" id="PS1-Ug-JxZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addStepButton" destination="cXp-vA-AJG" id="b87-da-AGI"/>
                         <outlet property="coffeeTextField" destination="rfN-ne-QUI" id="DV0-zF-cDp"/>
                         <outlet property="editButton" destination="ZFL-eC-ICk" id="RSv-6O-1eS"/>
                         <outlet property="grindTextField" destination="lvM-nI-9kQ" id="shI-bX-G8P"/>
