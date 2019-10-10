@@ -76,14 +76,14 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let guide = guide,
             let title = titleTextField.text else { return }
-        
+        guide.title = title
         for standardGuide in GuideController.shared.standardGuides {
             if standardGuide == guide {
                 return
             }
         }
         
-        guide.title = title
+        
         if title.isEmpty {
             let alert = UIAlertController(title: "Empty Fields", message: "Please fill in all fields before saving", preferredStyle: .alert)
             let okay = UIAlertAction(title: "Ok", style: .cancel)

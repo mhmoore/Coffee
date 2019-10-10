@@ -168,7 +168,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="y7Y-YR-m5p">
-                                <rect key="frame" x="28" y="339.66666666666669" width="319" height="138"/>
+                                <rect key="frame" x="28" y="312.66666666666669" width="319" height="192"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qkf-n4-2WN">
                                         <rect key="frame" x="82" y="0.0" width="155" height="30"/>
@@ -178,8 +178,16 @@
                                             <action selector="acknowledgementsButtonTapped:" destination="oBK-mn-NrW" eventType="touchUpInside" id="EdC-sR-NHX"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JL2-Ls-AHS">
+                                        <rect key="frame" x="69" y="54" width="181" height="30"/>
+                                        <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
+                                        <state key="normal" title="Support and Feedback"/>
+                                        <connections>
+                                            <action selector="supportAndFeedbackButtonTapped:" destination="oBK-mn-NrW" eventType="touchUpInside" id="fth-ao-1oS"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWZ-2p-iWp">
-                                        <rect key="frame" x="75" y="54" width="169" height="30"/>
+                                        <rect key="frame" x="75" y="108" width="169" height="30"/>
                                         <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                         <state key="normal" title="Terms and Conditions"/>
                                         <connections>
@@ -187,7 +195,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJG-Qh-XH9">
-                                        <rect key="frame" x="104" y="108" width="111" height="30"/>
+                                        <rect key="frame" x="104" y="162" width="111" height="30"/>
                                         <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                         <state key="normal" title="Privacy Policy"/>
                                         <connections>
