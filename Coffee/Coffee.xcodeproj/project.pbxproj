@@ -84,6 +84,7 @@
 		A5D4E257233586AE0053CB21 /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
 		A5DB41F123356DA500FECAA4 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		A5EC240A232C1FB600DC1263 /* Notes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notes.storyboard; sourceTree = "<group>"; };
+		A5FF0BF6234FF87500C920BB /* CraftedBrew.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CraftedBrew.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +118,7 @@
 		A5079A8B232B4C6B00AFE337 /* Coffee */ = {
 			isa = PBXGroup;
 			children = (
+				A5FF0BF6234FF87500C920BB /* CraftedBrew.entitlements */,
 				A5079AA1232B4CAE00AFE337 /* View Controllers */,
 				A5079AA0232B4CA400AFE337 /* Model Controllers */,
 				A5079A9F232B4C9D00AFE337 /* Models */,
@@ -502,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Coffee/CraftedBrew.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5H77479UZ4;
 				INFOPLIST_FILE = "$(SRCROOT)/Coffee/Resources/Info.plist";
@@ -521,6 +524,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Coffee/CraftedBrew.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5H77479UZ4;
 				INFOPLIST_FILE = "$(SRCROOT)/Coffee/Resources/Info.plist";
