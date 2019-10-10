@@ -171,20 +171,20 @@
                                     <constraint firstItem="1Vw-RV-Ccy" firstAttribute="centerX" secondItem="JJH-j8-qOY" secondAttribute="centerX" id="zWC-Qv-KMc"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="WSz-hX-xc5">
-                                <rect key="frame" x="28" y="386" width="319" height="92"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="WSz-hX-xc5">
+                                <rect key="frame" x="28" y="392" width="319" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJL-ds-CzF" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="52" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="52" height="33"/>
                                         <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="GgV-4i-6qh">
-                                        <rect key="frame" x="0.0" y="25" width="319" height="67"/>
+                                        <rect key="frame" x="0.0" y="37" width="319" height="33"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFL-eC-ICk" customClass="ActionButton" customModule="Coffee" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="32" height="67"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="32" height="33"/>
                                                 <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <state key="normal" title="Edit"/>
                                                 <connections>
@@ -192,7 +192,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXp-vA-AJG" customClass="ActionButton" customModule="Coffee" customModuleProvider="target">
-                                                <rect key="frame" x="243" y="0.0" width="76" height="67"/>
+                                                <rect key="frame" x="243" y="0.0" width="76" height="33"/>
                                                 <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <state key="normal" title="Add Step"/>
                                                 <connections>
@@ -256,12 +256,12 @@
                             <constraint firstItem="JJH-j8-qOY" firstAttribute="centerY" secondItem="5D3-aF-JIm" secondAttribute="centerY" multiplier="0.55" id="Bjl-fD-qUa"/>
                             <constraint firstItem="cIr-lj-hrm" firstAttribute="centerX" secondItem="5D3-aF-JIm" secondAttribute="centerX" id="Kqj-6B-E3i"/>
                             <constraint firstItem="cIr-lj-hrm" firstAttribute="width" secondItem="WSz-hX-xc5" secondAttribute="width" id="N85-av-sU5"/>
-                            <constraint firstItem="WSz-hX-xc5" firstAttribute="top" secondItem="JJH-j8-qOY" secondAttribute="bottom" constant="10" id="O77-aA-pin"/>
+                            <constraint firstItem="WSz-hX-xc5" firstAttribute="top" secondItem="JJH-j8-qOY" secondAttribute="bottom" constant="16" id="O77-aA-pin"/>
                             <constraint firstItem="WSz-hX-xc5" firstAttribute="centerX" secondItem="5D3-aF-JIm" secondAttribute="centerX" id="Ond-Gx-xiY"/>
                             <constraint firstItem="JJH-j8-qOY" firstAttribute="width" secondItem="5D3-aF-JIm" secondAttribute="width" multiplier="0.85" id="P7L-d0-oh4"/>
                             <constraint firstItem="5D3-aF-JIm" firstAttribute="bottom" secondItem="cIr-lj-hrm" secondAttribute="bottom" constant="24" id="XjO-qd-CGd"/>
                             <constraint firstItem="cIr-lj-hrm" firstAttribute="height" secondItem="5D3-aF-JIm" secondAttribute="height" multiplier="0.4" id="on2-Ak-6IE"/>
-                            <constraint firstItem="cIr-lj-hrm" firstAttribute="top" secondItem="WSz-hX-xc5" secondAttribute="bottom" id="pGf-Z4-RuZ"/>
+                            <constraint firstItem="cIr-lj-hrm" firstAttribute="top" secondItem="WSz-hX-xc5" secondAttribute="bottom" constant="16" id="pGf-Z4-RuZ"/>
                             <constraint firstItem="JJH-j8-qOY" firstAttribute="height" secondItem="5D3-aF-JIm" secondAttribute="height" multiplier="0.4" id="wFc-Vx-A8L"/>
                             <constraint firstItem="GgV-4i-6qh" firstAttribute="width" secondItem="JJH-j8-qOY" secondAttribute="width" id="zSo-ph-y3U"/>
                         </constraints>

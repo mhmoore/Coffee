@@ -9,7 +9,7 @@
 import UIKit
 
 class StepViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
-    // MARK: - Properties
+    // MARK: - Outlets
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var durationTextField: UITextField!
@@ -24,7 +24,7 @@ class StepViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     @IBOutlet weak var otherButton: UIButton!
     @IBOutlet weak var otherLabel: UILabel!
     
-    
+    // MARK: - Properties
     var step: Step?
     var guide: Guide?
     var stepToggle: Bool = false
@@ -128,9 +128,6 @@ class StepViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         guard let guide = guide else { return }
         let timeText = durationTextField.text ?? "0.0"
         let time = TimeInterval(timeText) ?? 0.0
-        if amountTextField.isHidden == true {
-            amountTextField.text = "0.0"
-        }
         let waterText = amountTextField.text ?? "0.0"
         let water = Double(waterText)
         
@@ -204,13 +201,7 @@ class StepViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         amountTextField.text = ""
         durationTextField.text = ""
         instructionTextView.text = "Place instructions here"
-        if stepTitle == "Pour" || stepTitle == "Other" {
-            amountTextField.isHidden = false
-            amountLabel.isHidden = false
-        } else {
-            amountTextField.isHidden = true
-            amountLabel.isHidden = true
-        }
+        amountTextField.isUserInteractionEnabled = stepTitle == "Pour" || stepTitle == "Other" ? true : false
     }
     
     func loadData() {
@@ -221,14 +212,7 @@ class StepViewController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         durationTextField.text = "\(time)"
         instructionTextView.text = step.text
         stepTitle = step.title
-        
-        if stepTitle == "Pour" || stepTitle == "Other" {
-            amountTextField.isHidden = false
-            amountLabel.isHidden = false
-        } else {
-            amountTextField.isHidden = true
-            amountLabel.isHidden = true
-        }
+        amountTextField.isUserInteractionEnabled = stepTitle == "Pour" || stepTitle == "Other" ? true : false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
