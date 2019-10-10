@@ -9,7 +9,7 @@
 import UIKit
 
 class BrewNotesViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
-    // MARK: - Properties
+    // MARK: - Outlets
     @IBOutlet weak var roasterTextField: UITextField!
     @IBOutlet weak var coffeeNameTextField: UITextField!
     @IBOutlet weak var originTextField: UITextField!
@@ -18,6 +18,7 @@ class BrewNotesViewController: UIViewController, UITextViewDelegate, UITextField
     @IBOutlet weak var ratioLabel: UILabel!
     @IBOutlet weak var methodLabel: UILabel!
 
+    // MARK: - Properties
     var guide: Guide?
 
     // MARK: - Lifecycle

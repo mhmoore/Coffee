@@ -9,9 +9,10 @@
 import UIKit
 
 class SectionHeaderCollectionReusableView: UICollectionReusableView {
-    // MARK: - Properties
+    // MARK: - Outlets
     @IBOutlet weak var categoryLabel: UILabel!
     
+    // MARK: - Properties
     var categoryTitle: String = "" {
         didSet {  // Once the categoryTitle is set from the BrewCollectionViewController, and set it to the label
             categoryLabel.text = categoryTitle

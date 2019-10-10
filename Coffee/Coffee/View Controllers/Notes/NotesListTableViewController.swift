@@ -10,9 +10,10 @@ import UIKit
 
 class NotesListTableViewController: UITableViewController {
     
-    // MARK: - Properties
+    // MARK: - Outlets
     @IBOutlet weak var searchBar: UISearchBar!
     
+    // MARK: - Properties
     var searchResults: [String: [Note]] = [:]
     var isSearching: Bool = false
     
@@ -70,15 +71,6 @@ class NotesListTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
-    
-    // MARK: - Custom Methods
-    func setupUI() {
-        title = "Notes"
-        view.backgroundColor = .background
-        tableView.backgroundColor = .textFieldBackground
-        searchBar.backgroundColor = .textFieldBackground
-    }
-    
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -175,12 +167,19 @@ class NotesListTableViewController: UITableViewController {
          searchBar.inputAccessoryView = toolBar
      }
     
+    func setupUI() {
+          title = "Notes"
+          view.backgroundColor = .background
+          tableView.backgroundColor = .textFieldBackground
+          searchBar.backgroundColor = .textFieldBackground
+      }
+    
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
 }
 
-// MARK: - SearchBar Delegate
+    // MARK: - SearchBar Delegate
 extension NotesListTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         isSearching = true

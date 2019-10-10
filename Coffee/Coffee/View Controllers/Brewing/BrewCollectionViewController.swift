@@ -106,6 +106,7 @@ class BrewCollectionViewController: UICollectionViewController {
     }
 }
 
+    // MARK: - BrewCell Delegate
 extension BrewCollectionViewController: BrewCellDelegate {
     func delete(cell: BrewCollectionViewCell) {
         if let indexPath = collectionView.indexPath(for: cell) {

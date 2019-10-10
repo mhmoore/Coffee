@@ -10,7 +10,7 @@ import UIKit
 
 class NoteDetailViewController: UIViewController {
     
-    // MARK: - Properties
+    // MARK: - Outlets
     @IBOutlet weak var roasterTextLabel: UILabel!
     @IBOutlet weak var coffeeNameTextLabel: UILabel!
     @IBOutlet weak var originTextLabel: UILabel!
@@ -18,6 +18,7 @@ class NoteDetailViewController: UIViewController {
     @IBOutlet weak var methodTextLabel: UILabel!
     @IBOutlet weak var notesTextLabel: UILabel!
     
+    // MARK: - Properties
     var note: Note? {
         didSet {
         }

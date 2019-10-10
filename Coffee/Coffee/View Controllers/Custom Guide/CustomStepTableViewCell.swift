@@ -9,9 +9,12 @@
 import UIKit
 
 class CustomStepTableViewCell: UITableViewCell {
+    
+    // MARK: - Outlets
     @IBOutlet weak var stepLabel: UILabel!
     @IBOutlet weak var stepView: UIView!
     
+    // MARK: - Properties
     var step: Step? {
         didSet {
             stepLabel.textAlignment = .center

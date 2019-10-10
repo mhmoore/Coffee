@@ -64,7 +64,7 @@ class SettingsViewController: UIViewController {
     }
 }
 
-// MARK: - Mail Delegate
+    // MARK: - Mail Delegate
 extension SettingsViewController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         if let error = error {

@@ -13,10 +13,13 @@ protocol BrewCellDelegate: class {
 }
 
 class BrewCollectionViewCell: UICollectionViewCell {
+    
+    // MARK: - Outlets
     @IBOutlet weak var methodImage: UIImageView!
     @IBOutlet weak var methodNameLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
     
+    // MARK: - Properties
     weak var delegate: BrewCellDelegate?
     
     var guide: Guide? {
@@ -33,10 +36,12 @@ class BrewCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    // MARK: - Actions
     @IBAction func deleteButtonTapped(_ sender: Any) {
         delegate?.delete(cell: self)
     }
     
+    // MARK: - Custom Methods
     func setupUI() {
         deleteButton.backgroundColor = .accent
         deleteButton.layer.cornerRadius = deleteButton.bounds.width / 2.0

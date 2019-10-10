@@ -46,7 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A5079A89232B4C6B00AFE337 /* Coffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5079A89232B4C6B00AFE337 /* CraftedBrew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CraftedBrew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5079A8C232B4C6B00AFE337 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5079A91232B4C6B00AFE337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A5079A93232B4C6D00AFE337 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 		A5079A8A232B4C6B00AFE337 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A5079A89232B4C6B00AFE337 /* Coffee.app */,
+				A5079A89232B4C6B00AFE337 /* CraftedBrew.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -262,7 +262,7 @@
 			);
 			name = Coffee;
 			productName = Coffee;
-			productReference = A5079A89232B4C6B00AFE337 /* Coffee.app */;
+			productReference = A5079A89232B4C6B00AFE337 /* CraftedBrew.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -511,7 +511,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.michaelhmoore.Coffee;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CraftedBrew;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -530,7 +530,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.michaelhmoore.Coffee;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CraftedBrew;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

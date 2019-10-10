@@ -9,13 +9,14 @@
 import UIKit
 
 class InstructionViewController: UIViewController {
-    // MARK: - Properties
+    // MARK: - Outlets
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var currentStepLabel: UILabel!
     @IBOutlet weak var stepsTableView: UITableView!
     
+    // MARK: - Properties
     var guide: Guide?
     var currentStep = 0
     var timer = Timer()
@@ -30,7 +31,7 @@ class InstructionViewController: UIViewController {
         updateView()
     }
     
-    // MARK: - Timer Functions
+    // MARK: - Custom Methods
     func startTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
             guard self.counter > 0 else { self.timer.invalidate(); self.nextButton.isHidden = false; self.startButton.isUserInteractionEnabled = true; return }
@@ -47,21 +48,6 @@ class InstructionViewController: UIViewController {
         let seconds = Int(time) % 60
         let timeString = String(format: "%02d:%02d", minutes, seconds)
         return timeString
-    }
-    
-    @IBAction func startButtonTapped(_ sender: Any) {
-        startTimer()
-    }
-    
-    // MARK: - Navigation
-    @IBAction func nextButtonTapped(_ sender: Any) {
-        guard let guide = guide else { return }
-        if (currentStep + 1) == guide.steps.count {
-            performSegue(withIdentifier: "toBrewNotesVC", sender: nextButton)
-        } else {
-            currentStep += 1
-            updateView()
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -85,8 +71,24 @@ class InstructionViewController: UIViewController {
                 self.startButton.isHidden = true
         }
     }
+    
+    // MARK: - Actions
+    @IBAction func startButtonTapped(_ sender: Any) {
+        startTimer()
+    }
+    
+    @IBAction func nextButtonTapped(_ sender: Any) {
+        guard let guide = guide else { return }
+        if (currentStep + 1) == guide.steps.count {
+            performSegue(withIdentifier: "toBrewNotesVC", sender: nextButton)
+        } else {
+            currentStep += 1
+            updateView()
+        }
+    }
 }
 
+    // MARK: - TableView Delegate and DataSource
 extension InstructionViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return guide?.steps.count ?? 0

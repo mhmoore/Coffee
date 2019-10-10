@@ -9,6 +9,7 @@
 import UIKit
 
 class GuideIntroViewController: UIViewController {
+    
     // MARK: - Outlets
     @IBOutlet weak var methodImage: UIImageView!
     @IBOutlet weak var methodInfoView: UIView!

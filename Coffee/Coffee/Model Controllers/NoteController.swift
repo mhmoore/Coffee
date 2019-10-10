@@ -14,15 +14,4 @@ class NoteController {
         let note = Note(roaster: roaster, coffeeName: coffeeName, origin: origin, grind: grind, ratio: ratio, method: method, tastingNotes: tastingNotes)
         GuideController.shared.add(note: note, guide: guide)
     }
-    
-//    func update(note: Note, with roaster: String, coffeeName: String, origin: String, grind: String, ratio: String, tastingNotes: String, method: String) {
-//        note.roaster = roaster
-//        note.coffeeName = coffeeName
-//        note.origin = origin
-//        note.grind = grind
-//        note.ratio = ratio
-//        note.tastingNotes = tastingNotes
-//        note.method = method
-//    }
-
 }

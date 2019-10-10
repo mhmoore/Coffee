@@ -10,7 +10,7 @@ import UIKit
 
 class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     
-    // MARK: - Properties
+    // MARK: - Outlets
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var coffeeTextField: UITextField!
     @IBOutlet weak var grindTextField: UITextField!
@@ -22,6 +22,7 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var addStepButton: ActionButton!
     @IBOutlet weak var stepsTableView: UITableView!
     
+    // MARK: - Properties
     var guide: Guide?
     var editingGuide: Bool?
     var coffeeRange: [String] = []
@@ -82,7 +83,6 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
                 return
             }
         }
-        
         
         if title.isEmpty {
             let alert = UIAlertController(title: "Empty Fields", message: "Please fill in all fields before saving", preferredStyle: .alert)
@@ -242,8 +242,7 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
-// MARK: - TableView Delegate and DataSource
-
+    // MARK: - TableView Delegate and DataSource
 extension CustomGuideViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return guide?.steps.count ?? 0
@@ -281,6 +280,7 @@ extension CustomGuideViewController: UITableViewDelegate, UITableViewDataSource 
     }
 }
 
+    // MARK: - PickerView Delegate and DataSource
 extension CustomGuideViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
