@@ -172,7 +172,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="WSz-hX-xc5">
-                                <rect key="frame" x="28" y="386" width="319" height="58"/>
+                                <rect key="frame" x="28" y="386" width="319" height="92"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJL-ds-CzF" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="52" height="21"/>
@@ -181,10 +181,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="GgV-4i-6qh">
-                                        <rect key="frame" x="0.0" y="25" width="319" height="33"/>
+                                        <rect key="frame" x="0.0" y="25" width="319" height="67"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFL-eC-ICk" customClass="ActionButton" customModule="Coffee" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="32" height="33"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="32" height="67"/>
                                                 <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <state key="normal" title="Edit"/>
                                                 <connections>
@@ -192,7 +192,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXp-vA-AJG" customClass="ActionButton" customModule="Coffee" customModuleProvider="target">
-                                                <rect key="frame" x="243" y="0.0" width="76" height="33"/>
+                                                <rect key="frame" x="243" y="0.0" width="76" height="67"/>
                                                 <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
                                                 <state key="normal" title="Add Step"/>
                                                 <connections>
@@ -204,22 +204,22 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cIr-lj-hrm">
-                                <rect key="frame" x="28" y="454" width="319" height="276"/>
+                                <rect key="frame" x="28" y="478" width="319" height="276"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" name="accent"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="stepCell" rowHeight="72" id="daG-Mn-XCQ" customClass="CustomStepTableViewCell" customModule="Coffee" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="319" height="72"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="stepCell" id="daG-Mn-XCQ" customClass="CustomStepTableViewCell" customModule="Coffee" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="319" height="37.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="daG-Mn-XCQ" id="mLl-11-vHD">
-                                            <rect key="frame" x="0.0" y="0.0" width="319" height="72"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="319" height="37.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aLp-HG-2FI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="319" height="72"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="319" height="37.333333333333336"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDH-R4-Jyi" customClass="descriptionLabel" customModule="Coffee" customModuleProvider="target">
-                                                            <rect key="frame" x="4" y="0.0" width="311" height="72"/>
+                                                            <rect key="frame" x="4" y="7.9999999999999982" width="311" height="21.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -227,10 +227,9 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="sDH-R4-Jyi" firstAttribute="top" secondItem="aLp-HG-2FI" secondAttribute="top" id="2Vt-3i-fZL"/>
-                                                        <constraint firstAttribute="bottom" secondItem="sDH-R4-Jyi" secondAttribute="bottom" id="4d7-Pv-wgS"/>
+                                                        <constraint firstItem="sDH-R4-Jyi" firstAttribute="top" secondItem="aLp-HG-2FI" secondAttribute="top" constant="8" id="2Vt-3i-fZL"/>
+                                                        <constraint firstAttribute="bottom" secondItem="sDH-R4-Jyi" secondAttribute="bottom" constant="8" id="4d7-Pv-wgS"/>
                                                         <constraint firstItem="sDH-R4-Jyi" firstAttribute="leading" secondItem="aLp-HG-2FI" secondAttribute="leading" constant="4" id="Leo-d3-XYD"/>
-                                                        <constraint firstAttribute="height" constant="48" id="fk2-E1-exT"/>
                                                         <constraint firstAttribute="trailing" secondItem="sDH-R4-Jyi" secondAttribute="trailing" constant="4" id="qTO-lk-E5S"/>
                                                     </constraints>
                                                 </view>
@@ -260,8 +259,9 @@
                             <constraint firstItem="WSz-hX-xc5" firstAttribute="top" secondItem="JJH-j8-qOY" secondAttribute="bottom" constant="10" id="O77-aA-pin"/>
                             <constraint firstItem="WSz-hX-xc5" firstAttribute="centerX" secondItem="5D3-aF-JIm" secondAttribute="centerX" id="Ond-Gx-xiY"/>
                             <constraint firstItem="JJH-j8-qOY" firstAttribute="width" secondItem="5D3-aF-JIm" secondAttribute="width" multiplier="0.85" id="P7L-d0-oh4"/>
+                            <constraint firstItem="5D3-aF-JIm" firstAttribute="bottom" secondItem="cIr-lj-hrm" secondAttribute="bottom" constant="24" id="XjO-qd-CGd"/>
                             <constraint firstItem="cIr-lj-hrm" firstAttribute="height" secondItem="5D3-aF-JIm" secondAttribute="height" multiplier="0.4" id="on2-Ak-6IE"/>
-                            <constraint firstItem="cIr-lj-hrm" firstAttribute="top" secondItem="WSz-hX-xc5" secondAttribute="bottom" constant="10" id="pGf-Z4-RuZ"/>
+                            <constraint firstItem="cIr-lj-hrm" firstAttribute="top" secondItem="WSz-hX-xc5" secondAttribute="bottom" id="pGf-Z4-RuZ"/>
                             <constraint firstItem="JJH-j8-qOY" firstAttribute="height" secondItem="5D3-aF-JIm" secondAttribute="height" multiplier="0.4" id="wFc-Vx-A8L"/>
                             <constraint firstItem="GgV-4i-6qh" firstAttribute="width" secondItem="JJH-j8-qOY" secondAttribute="width" id="zSo-ph-y3U"/>
                         </constraints>
@@ -496,7 +496,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vAr-8U-XvH" customClass="ActionButton" customModule="Coffee" customModuleProvider="target">
-                                <rect key="frame" x="112.66666666666669" y="680" width="150" height="50"/>
+                                <rect key="frame" x="112.66666666666669" y="692" width="150" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8TH-uM-ict"/>
                                     <constraint firstAttribute="width" constant="150" id="K6H-rU-MAy"/>
@@ -512,7 +512,7 @@
                         <constraints>
                             <constraint firstItem="HIm-ZS-ZI3" firstAttribute="width" secondItem="b06-i9-74t" secondAttribute="width" multiplier="0.85" id="T9F-fY-kmn"/>
                             <constraint firstItem="HIm-ZS-ZI3" firstAttribute="top" secondItem="CYk-Uh-fLg" secondAttribute="bottom" constant="48" id="Vxv-la-tBx"/>
-                            <constraint firstItem="b06-i9-74t" firstAttribute="bottom" secondItem="vAr-8U-XvH" secondAttribute="bottom" constant="48" id="hgg-vl-cS4"/>
+                            <constraint firstItem="b06-i9-74t" firstAttribute="bottom" secondItem="vAr-8U-XvH" secondAttribute="bottom" constant="36" id="hgg-vl-cS4"/>
                             <constraint firstItem="CYk-Uh-fLg" firstAttribute="top" secondItem="b06-i9-74t" secondAttribute="top" constant="80" id="hl0-xA-GFf"/>
                             <constraint firstItem="HIm-ZS-ZI3" firstAttribute="centerX" secondItem="b06-i9-74t" secondAttribute="centerX" id="lbC-PR-1fu"/>
                             <constraint firstItem="CYk-Uh-fLg" firstAttribute="centerX" secondItem="6pd-Qa-JDS" secondAttribute="centerX" id="xMl-50-sU4"/>

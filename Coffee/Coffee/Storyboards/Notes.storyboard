@@ -42,14 +42,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uyk-PI-J73">
-                                            <rect key="frame" x="15.999999999999996" y="9.3333333333333339" width="37.666666666666664" height="23.333333333333332"/>
+                                            <rect key="frame" x="16.000000000000004" y="11.333333333333336" width="36.333333333333336" height="20"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5RJ-20-6eU">
-                                            <rect key="frame" x="15.999999999999996" y="36.333333333333329" width="54.666666666666664" height="18.666666666666668"/>
+                                            <rect key="frame" x="16" y="35" width="62" height="19.666666666666668"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="16"/>
                                             <nil key="textColor"/>
@@ -103,7 +103,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="8R9-B9-DOh">
-                                <rect key="frame" x="28" y="119" width="319" height="206"/>
+                                <rect key="frame" x="28" y="101.33333333333331" width="319" height="206"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="sTT-W4-eGN">
                                         <rect key="frame" x="0.0" y="0.0" width="319" height="22"/>
@@ -123,7 +123,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Q0R-aK-BJG">
-                                        <rect key="frame" x="0.0" y="46" width="319" height="22"/>
+                                        <rect key="frame" x="0.0" y="46.000000000000014" width="319" height="22"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Coffee Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVY-lf-JIy" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="109.66666666666667" height="22"/>
@@ -140,7 +140,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SG7-t2-V9Y">
-                                        <rect key="frame" x="0.0" y="92" width="319" height="22"/>
+                                        <rect key="frame" x="0.0" y="92.000000000000014" width="319" height="22"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Origin:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57z-Th-gEE" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="54" height="22"/>
@@ -200,7 +200,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7oP-im-UuA">
-                                <rect key="frame" x="28" y="349" width="319" height="48"/>
+                                <rect key="frame" x="28" y="331.33333333333331" width="319" height="48"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ih2-9k-FXw" customClass="titleLabel" customModule="Coffee" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="319" height="18"/>
@@ -226,7 +226,7 @@
                             <constraint firstItem="7oP-im-UuA" firstAttribute="width" secondItem="8Kk-Bf-gWl" secondAttribute="width" multiplier="0.85" id="1mZ-2G-Bds"/>
                             <constraint firstItem="8R9-B9-DOh" firstAttribute="width" secondItem="8Kk-Bf-gWl" secondAttribute="width" multiplier="0.85" id="38U-Eb-Sg2"/>
                             <constraint firstItem="7oP-im-UuA" firstAttribute="top" secondItem="8R9-B9-DOh" secondAttribute="bottom" constant="24" id="7O4-QN-nEB"/>
-                            <constraint firstItem="8R9-B9-DOh" firstAttribute="top" secondItem="8Kk-Bf-gWl" secondAttribute="top" constant="31" id="BPz-YU-KQo"/>
+                            <constraint firstItem="8R9-B9-DOh" firstAttribute="centerY" secondItem="8Kk-Bf-gWl" secondAttribute="centerY" multiplier="0.5" id="7Ti-jI-GnP"/>
                             <constraint firstItem="8R9-B9-DOh" firstAttribute="centerX" secondItem="8Kk-Bf-gWl" secondAttribute="centerX" id="ehd-gO-VEl"/>
                             <constraint firstItem="7oP-im-UuA" firstAttribute="centerX" secondItem="8Kk-Bf-gWl" secondAttribute="centerX" id="sf1-fZ-apx"/>
                         </constraints>
