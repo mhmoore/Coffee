@@ -57,6 +57,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" name="background"/>
                                 <connections>
                                     <segue destination="mY5-S8-Ih0" kind="show" identifier="toNoteDetailVC" id="4tq-zU-i0U"/>
                                 </connections>

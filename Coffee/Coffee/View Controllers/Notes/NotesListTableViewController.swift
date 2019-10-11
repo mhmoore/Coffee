@@ -168,10 +168,11 @@ class NotesListTableViewController: UITableViewController {
      }
     
     func setupUI() {
-          title = "Notes"
-          view.backgroundColor = .background
-          tableView.backgroundColor = .textFieldBackground
-          searchBar.backgroundColor = .textFieldBackground
+        title = "Notes"
+        view.backgroundColor = .background
+        tableView.backgroundColor = .background
+        searchBar.searchTextField.backgroundColor = .textFieldBackground
+        searchBar.barTintColor = .background
       }
     
     @objc func dismissKeyboard() {
