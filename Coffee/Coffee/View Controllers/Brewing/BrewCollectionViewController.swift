@@ -32,7 +32,7 @@ class BrewCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        navigationItem.rightBarButtonItem = guides.count > 1 ? editButtonItem : nil
+        navigationItem.rightBarButtonItem = guides.count > 1 ? editButtonItem : nil
         collectionView.reloadData()
         super.setEditing(false, animated: true)
     }
@@ -41,7 +41,6 @@ class BrewCollectionViewController: UICollectionViewController {
     func setupUI() {
         view.backgroundColor = .background
         collectionView.backgroundColor = .background
-        navigationItem.rightBarButtonItem = guides.count > 1 ? editButtonItem : nil
         let collectionViewWidth = collectionView.frame.width
         let itemWidth = (collectionViewWidth - padding * (numberOfItemsPerRow - 1)) / numberOfItemsPerRow
         let layout = collectionViewLayout as! UICollectionViewFlowLayout

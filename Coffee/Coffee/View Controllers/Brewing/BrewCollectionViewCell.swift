@@ -43,8 +43,7 @@ class BrewCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Custom Methods
     func setupUI() {
-        deleteButton.backgroundColor = .accent
-        deleteButton.layer.cornerRadius = deleteButton.bounds.width / 2.0
+        deleteButton.backgroundColor = .clear
         deleteButton.layer.masksToBounds = true
         deleteButton.isHidden = true
         
