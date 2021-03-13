@@ -143,12 +143,9 @@ class GuideIntroViewController: UIViewController {
         return (coffee, water)
     }
     
-    func gcd(_ a: Int, _ b: Int) -> Int {
-        let remainder = a % b
-        if remainder != 0 {
-            return gcd(b, remainder)
-        } else {
-            return b
-        }
+    func gcd(_ coffee: Int, _ water: Int) -> Int {
+        guard water > 0 else { return 0 }
+        let remainder = coffee % water
+        return remainder != 0 ? gcd(water, remainder) : water
     }
 }

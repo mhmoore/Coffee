@@ -14,7 +14,7 @@ class SectionHeaderCollectionReusableView: UICollectionReusableView {
     
     // MARK: - Properties
     var categoryTitle: String = "" {
-        didSet {  // Once the categoryTitle is set from the BrewCollectionViewController, and set it to the label
+        didSet {
             categoryLabel.text = categoryTitle
         }
     }

@@ -84,24 +84,27 @@ class CustomGuideViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
-        if title.isEmpty {
+        if title.isEmpty || waterLabel.text == "0.0" {
             let alert = UIAlertController(title: "Empty Fields", message: "Please fill in all fields before saving", preferredStyle: .alert)
             let okay = UIAlertAction(title: "Ok", style: .cancel)
             alert.addAction(okay)
             present(alert, animated: true)
             return
         }
+        
         if editingGuide == true {
             GuideController.shared.saveToPersistentStorage()
             navigationController?.popToRootViewController(animated: true)
             return
         }
+        
         if GuideController.shared.userGuides == nil {
             GuideController.shared.userGuides = []
             GuideController.shared.userGuides?.append(guide)
         } else {
             GuideController.shared.userGuides?.insert(guide, at: 0)
         }
+        
         GuideController.shared.saveToPersistentStorage()
         navigationController?.popToRootViewController(animated: true)
     }

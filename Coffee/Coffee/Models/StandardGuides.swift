@@ -10,7 +10,7 @@ import Foundation
 
 class StandardGuides {
     
-    let chemex = Guide(userGuide: false, title: BrewKeys.chemexKey, method: BrewKeys.chemexKey, methodInfo: "The CHEMEX was invented by a chemist in 1941.  The design was inspired by his lab equipment, is displayed at museums throughtout the world.  It produces a clean, crisp, yet balanced cup of coffee.", coffee: 42.0, grind: GrindKeys.mediumCoarseKey, prep:
+    let chemex = Guide(userGuide: false, title: BrewKeys.chemexKey, method: BrewKeys.chemexKey, methodInfo: "The CHEMEX was invented by a chemist in 1941.  The design was inspired by his lab equipment, and is displayed at museums throughtout the world.  It produces a clean, crisp, yet balanced cup of coffee.", coffee: 42.0, grind: GrindKeys.mediumCoarseKey, prep:
         """
         Things you'll need:
            8-cup CHEMEX brewer
@@ -22,7 +22,7 @@ class StandardGuides {
            Your favorite mug
 
         • Place filter in the brewer so that three folds are toward the spout
-        • Thoroughly rinse the filter with hot water (this removes the paper taste from our coffee, preheats the CHEMEX)
+        • Thoroughly rinse the filter with hot water (this removes the paper taste from our coffee and preheats the CHEMEX)
         • Without removing the filter, discard the water
         • Add coffee, place the CHEMEX on the scale, and zero the scale
         • You're ready to start brewing!
@@ -69,7 +69,7 @@ class StandardGuides {
         """,
         steps: [Step(title: "Pour", water:  60.0, time: 5.0, text: "Pour 60.0g of water over 5.0 seconds saturating all the grounds"), Step(title: "Stir", water: 0.0, time: 3.0, text: "Stir for 3.0 seconds"), Step(title: "Wait", water: 0.0, time: 13.0, text: "Wait for 13.0 seconds and let bloom"), Step(title: "Pour", water: 75.0, time: 20.0, text: "Pour 75.0g of water in a slow, sprial motion for 20.0 seconds hitting the dark spots"), Step(title: "Wait", water: 0.0, time: 12.0, text: "Wait for 12.0 seconds"), Step(title: "Pour", water: 75.0, time: 20.0, text: "Pour 75.0g of water in a slow, sprial motion for 20.0 seconds hitting the dark spots"), Step(title: "Wait", water: 0.0, time: 12.0, text: "Wait for 12.0 seconds"), Step(title: "Pour", water: 75.0, time: 20.0, text: "Pour 75.0g of water in a slow, sprial motion for 20.0 seconds hitting the dark spots"), Step(title: "Wait", water: 0.0, time: 12.0, text: "Wait for 12.0 seconds"), Step(title: "Pour", water: 75.0, time: 20.0, text: "Pour 75.0g of water in a slow, sprial motion for 20.0 seconds hitting the dark spots"), Step(title: "Wait", water: 0.0, time: 40.0, text: "Wait for 40.0 seconds"), Step(title: "Other", water: 0.0, time: 0.0, text: "Set the V60 into the sink or another carafe/mug to let drain, and enjoy!")])
     
-    let kalita = Guide(userGuide: false, title: BrewKeys.kalitaKey, method: BrewKeys.kalitaKey, methodInfo: "Similar to other pour overs, the Kalita Wave is all about mastering the slow, spiral pour.  However, unlike the HARIO V60, the Kalita Wave's flat bottom allows this brewing method to have a more even, consistent (thus more forgiving) extraction process.  The Kalita Wave produces a clean, balanced-bodied cup of coffee", coffee: 21.0, grind: GrindKeys.fineMediumKey, prep:
+    let kalita = Guide(userGuide: false, title: BrewKeys.kalitaKey, method: BrewKeys.kalitaKey, methodInfo: "Similar to other pour overs, the Kalita Wave is all about mastering the slow, spiral pour.  However, unlike the HARIO V60, the Kalita Wave's flat bottom allows this brewing method to have a more even, consistent (thus more forgiving) extraction process.  The Kalita Wave produces a clean, balanced cup of coffee", coffee: 21.0, grind: GrindKeys.fineMediumKey, prep:
     """
     Things you'll need:
        Kalita Wave brewer

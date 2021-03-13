@@ -40,7 +40,7 @@ class BrewNotesViewController: UIViewController, UITextViewDelegate, UITextField
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let roaster = roasterTextField.text,
             let coffeeName = coffeeNameTextField.text,
-        let origin = originTextField.text,
+            let origin = originTextField.text,
             let grind = grindLabel.text,
             let ratio = ratioLabel.text,
             let method = methodLabel.text,

@@ -20,7 +20,7 @@ class BrewCollectionViewController: UICollectionViewController {
         }
     }
     
-    let paddings: CGFloat = 2.0
+    let padding: CGFloat = 2.0
     let numberOfItemsPerRow: CGFloat = 3.0
     
     // MARK: - Lifecycle
@@ -32,6 +32,7 @@ class BrewCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+//        navigationItem.rightBarButtonItem = guides.count > 1 ? editButtonItem : nil
         collectionView.reloadData()
         super.setEditing(false, animated: true)
     }
@@ -40,9 +41,9 @@ class BrewCollectionViewController: UICollectionViewController {
     func setupUI() {
         view.backgroundColor = .background
         collectionView.backgroundColor = .background
-        navigationItem.rightBarButtonItem = editButtonItem
+        navigationItem.rightBarButtonItem = guides.count > 1 ? editButtonItem : nil
         let collectionViewWidth = collectionView.frame.width
-        let itemWidth = (collectionViewWidth - paddings * (numberOfItemsPerRow - 1)) / numberOfItemsPerRow
+        let itemWidth = (collectionViewWidth - padding * (numberOfItemsPerRow - 1)) / numberOfItemsPerRow
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
     }
@@ -116,6 +117,7 @@ extension BrewCollectionViewController: BrewCellDelegate {
             if guides.count > 1 {
                 collectionView.deleteItems(at: [indexPath])
             } else {
+                navigationItem.rightBarButtonItem = nil
                 collectionView.reloadData()
             }
         }
