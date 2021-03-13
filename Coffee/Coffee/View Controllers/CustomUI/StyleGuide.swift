@@ -47,11 +47,11 @@ struct FontKeys {
 }
 
 extension UIColor {
-    static let background = UIColor(named: "background")!
-    static let accent = UIColor(named: "accent")!
-    static let buttonType = UIColor(named: "buttonType")!
-    static let generalType = UIColor(named: "generalType")!
-    static let border = UIColor(named: "border")!
-    static let textFieldBackground = UIColor(named: "textFieldBackground")!
+    static let background = UIColor(named: "background") ?? .lightGray
+    static let accent = UIColor(named: "accent") ?? .darkGray
+    static let buttonType = UIColor(named: "buttonType") ?? .white
+    static let generalType = UIColor(named: "generalType") ?? .black
+    static let border = UIColor(named: "border") ?? .darkGray
+    static let textFieldBackground = UIColor(named: "textfieldBackground") ?? .white
 }
 

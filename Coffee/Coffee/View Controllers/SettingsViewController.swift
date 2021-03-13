@@ -85,6 +85,8 @@ extension SettingsViewController: MFMailComposeViewControllerDelegate {
             break
         case .sent:
             break
+        @unknown default:
+            break
         }
         controller.dismiss(animated: true)
     }

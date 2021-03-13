@@ -16,11 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func isFirstLaunch() -> Bool {
         let defaults = UserDefaults.standard
         if let _ = defaults.string(forKey: "isFirstLaunch") {
-            print("Not first launch")
             return true
         } else {
             defaults.set(true, forKey: "isFirstLaunch")
-            print("Is first launch")
             return false
         }
     }
