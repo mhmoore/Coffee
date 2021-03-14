@@ -19,19 +19,16 @@ class NoteDetailViewController: UIViewController {
     @IBOutlet weak var notesTextLabel: UILabel!
     
     // MARK: - Properties
-    var note: Note? {
-        didSet {
-        }
-    }
+    var note: Note?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateViews()
+        setupUI()
     }
     
     // MARK: - Custom Methods
-    func updateViews() {
+    func setupUI() {
         guard let note = note else { return }
         roasterTextLabel.text = note.roaster
         coffeeNameTextLabel.text = note.coffeeName

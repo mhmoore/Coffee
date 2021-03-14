@@ -11,6 +11,7 @@ import UIKit
 class InstructionViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var currentStepLabel: UILabel!
@@ -21,6 +22,15 @@ class InstructionViewController: UIViewController {
     var currentStep = 0
     var timer = Timer()
     var counter: Double = 0
+    var isPaused: Bool = true {
+        didSet {
+            if isPaused {
+                startButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            } else {
+                startButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            }
+        }
+    }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -65,26 +75,57 @@ class InstructionViewController: UIViewController {
         
         title = guide.title
         view.backgroundColor = .background
+        
+        prevButton.isHidden = true
+        prevButton.layer.cornerRadius = prevButton.frame.height / 2
+        nextButton.layer.cornerRadius = nextButton.frame.height / 2
+        startButton.layer.cornerRadius = startButton.frame.height / 2
+        startButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        startButton.tintColor = .buttonType
+        
         stepsTableView.backgroundColor = .textFieldBackground
         currentStepLabel.text = guide.steps[currentStep].text
+        
         counter = Double(time)
         timerLabel.text = timeAsString(time: time)
     }
     
     func updateView() {
         guard let guide = guide, let time = guide.steps[currentStep].time else { return }
-        
+        currentStepLabel.text = guide.steps[currentStep].text
+        prevButton.isHidden = currentStep == 0 ? true : false
+        isPaused = true
+
+        if counter != 0 {
+            timer.invalidate()
+        }
         counter = Double(time)
-        timerLabel.text = timeAsString(time: time)
+        
+        if time == 0 {
+            timerLabel.isHidden = true
+        } else {
+            timerLabel.isHidden = false
+            timerLabel.text = timeAsString(time: time)
+        }
     }
     
     // MARK: - Actions
     @IBAction func startButtonTapped(_ sender: Any) {
+        isPaused.toggle()
+        if isPaused {
+            timer.invalidate()
+        } else {
             timer = Timer.scheduledTimer(timeInterval: 0.1,
-                                         target: self,
-                                         selector: #selector(advanceTimer),
-                                         userInfo: nil,
-                                         repeats: true)
+                                     target: self,
+                                     selector: #selector(advanceTimer),
+                                     userInfo: nil,
+                                     repeats: true)
+        }
+    }
+    
+    @IBAction func prevButtonTapped(_ sender: Any) {
+        currentStep -= 1
+        updateView()
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {

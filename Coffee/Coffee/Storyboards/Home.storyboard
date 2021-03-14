@@ -92,13 +92,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKG-ng-ZEL" customClass="ActionButton" customModule="CraftedBrew" customModuleProvider="target">
-                                <rect key="frame" x="152.66666666666666" y="647" width="70" height="50"/>
+                                <rect key="frame" x="162.66666666666666" y="647" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="4Y0-Ap-y0j"/>
-                                    <constraint firstAttribute="width" constant="70" id="6cW-1D-ZBX"/>
+                                    <constraint firstAttribute="width" constant="50" id="6cW-1D-ZBX"/>
                                 </constraints>
                                 <color key="tintColor" name="buttonType"/>
-                                <state key="normal" image="play.fill" catalog="system">
+                                <state key="normal">
                                     <color key="titleColor" name="accent"/>
                                 </state>
                                 <connections>
@@ -115,16 +115,32 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fru-tr-fYx" customClass="ActionButton" customModule="CraftedBrew" customModuleProvider="target">
-                                <rect key="frame" x="275" y="604" width="60" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fru-tr-fYx" customClass="ActionButton" customModule="CraftedBrew" customModuleProvider="target">
+                                <rect key="frame" x="285" y="604" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ZI4-ty-qeb"/>
-                                    <constraint firstAttribute="width" constant="60" id="spc-1c-iL5"/>
+                                    <constraint firstAttribute="width" constant="50" id="spc-1c-iL5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Kollektif" family="Kollektif" pointSize="18"/>
-                                <state key="normal" title="Next"/>
+                                <color key="tintColor" name="buttonType"/>
+                                <state key="normal" image="forward.end.fill" catalog="system">
+                                    <color key="titleColor" name="accent"/>
+                                </state>
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="zhm-rc-q5J" eventType="touchUpInside" id="W1z-q9-3Wr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDu-WV-3rx" customClass="ActionButton" customModule="CraftedBrew" customModuleProvider="target">
+                                <rect key="frame" x="40" y="604" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Ukz-6c-NAL"/>
+                                    <constraint firstAttribute="height" constant="50" id="tEu-Rh-AyJ"/>
+                                </constraints>
+                                <color key="tintColor" name="buttonType"/>
+                                <state key="normal" image="backward.end.fill" catalog="system">
+                                    <color key="titleColor" name="accent"/>
+                                </state>
+                                <connections>
+                                    <action selector="prevButtonTapped:" destination="zhm-rc-q5J" eventType="touchUpInside" id="ss2-6c-yX5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -140,7 +156,9 @@
                             <constraint firstItem="tzx-gN-2cr" firstAttribute="width" secondItem="B5j-VD-Ydv" secondAttribute="width" id="LJ0-MT-jWi"/>
                             <constraint firstItem="tzx-gN-2cr" firstAttribute="top" secondItem="B5j-VD-Ydv" secondAttribute="bottom" constant="36" id="UYt-ZB-Ptq"/>
                             <constraint firstItem="B5j-VD-Ydv" firstAttribute="centerX" secondItem="QUf-es-38h" secondAttribute="centerX" id="WA0-dy-psX"/>
+                            <constraint firstItem="sDu-WV-3rx" firstAttribute="leading" secondItem="QUf-es-38h" secondAttribute="leading" constant="40" id="YoH-Vn-Oxy"/>
                             <constraint firstItem="fVM-kX-O8P" firstAttribute="top" secondItem="tzx-gN-2cr" secondAttribute="bottom" constant="48" id="ZLu-VC-qpf"/>
+                            <constraint firstItem="QUf-es-38h" firstAttribute="bottom" secondItem="sDu-WV-3rx" secondAttribute="bottom" constant="75" id="bKm-Nm-Zuc"/>
                             <constraint firstItem="QUf-es-38h" firstAttribute="bottom" secondItem="Fru-tr-fYx" secondAttribute="bottom" constant="75" id="kES-bI-mWO"/>
                             <constraint firstItem="tzx-gN-2cr" firstAttribute="centerX" secondItem="B5j-VD-Ydv" secondAttribute="centerX" id="nd4-rc-Ay2"/>
                             <constraint firstItem="CKG-ng-ZEL" firstAttribute="top" secondItem="fVM-kX-O8P" secondAttribute="bottom" constant="72" id="vEK-Fk-2pJ"/>
@@ -150,6 +168,7 @@
                     <connections>
                         <outlet property="currentStepLabel" destination="tzx-gN-2cr" id="Zam-6V-d5U"/>
                         <outlet property="nextButton" destination="Fru-tr-fYx" id="0zW-1P-Ijs"/>
+                        <outlet property="prevButton" destination="sDu-WV-3rx" id="cVk-nM-VZ6"/>
                         <outlet property="startButton" destination="CKG-ng-ZEL" id="AOO-zV-WWy"/>
                         <outlet property="stepsTableView" destination="B5j-VD-Ydv" id="du6-2v-VzT"/>
                         <outlet property="timerLabel" destination="fVM-kX-O8P" id="nJm-Pm-851"/>
@@ -792,9 +811,10 @@
     </scenes>
     <color key="tintColor" red="0.64937800168991089" green="0.28359270095825195" blue="0.28266298770904541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
+        <image name="backward.end.fill" catalog="system" width="128" height="102"/>
         <image name="coffeeTab" width="20" height="29.666666030883789"/>
+        <image name="forward.end.fill" catalog="system" width="128" height="102"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
-        <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="accent">
             <color red="0.6470000147819519" green="0.28200000524520874" blue="0.28200000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
