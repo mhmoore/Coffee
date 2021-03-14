@@ -28,57 +28,68 @@ class InstructionViewController: UIViewController {
         stepsTableView.tableFooterView = UIView()
         stepsTableView.delegate = self
         stepsTableView.dataSource = self
-        updateView()
+        setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
     }
     
     // MARK: - Custom Methods
-    func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (_) in
-            guard self.counter > 0 else { self.timer.invalidate(); self.nextButton.isHidden = false; self.startButton.isUserInteractionEnabled = true; return }
-            self.nextButton.isHidden = true
-            self.startButton.isUserInteractionEnabled = false
-            self.counter -= 1
-            print(self.counter)
-            let timeString = self.timeAsString(time: self.counter)
-            self.timerLabel.text = timeString
-        })
+    @objc func advanceTimer() {
+        guard self.counter > 0 else {
+            self.timer.invalidate()
+            return
+        }
+        
+        self.counter -= 0.1
+        self.timerLabel.text = self.timeAsString(time: self.counter)
     }
+    
     func timeAsString(time: TimeInterval) -> String {
         let minutes = Int(time) / 60
         let seconds = Int(time) % 60
-        let timeString = String(format: "%02d:%02d", minutes, seconds)
-        return timeString
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toBrewNotesVC" {
-            guard let destinationVC = segue.destination as? BrewNotesViewController else { return }
-            destinationVC.guide = guide
+        var fraction = Int((time.truncatingRemainder(dividingBy: 1)) * 100)
+        if fraction < 0 {
+            fraction = 0
         }
+        
+        let timeString = String(format: "%0.2d:%0.2d.%0.2d", minutes, seconds, fraction)
+        return String(timeString.prefix(7))
     }
     
-    func updateView() {
+    
+    func setupUI() {
+        guard let guide = guide, let time = guide.steps[currentStep].time else { return }
+        
+        title = guide.title
         view.backgroundColor = .background
         stepsTableView.backgroundColor = .textFieldBackground
-        guard let guide = guide,
-            let time = guide.steps[currentStep].time else { return }
-        title = guide.title
         currentStepLabel.text = guide.steps[currentStep].text
         counter = Double(time)
         timerLabel.text = timeAsString(time: time)
-        if guide.steps[currentStep].time == 0.0 {
-                self.timerLabel.isHidden = true
-                self.startButton.isHidden = true
-        }
+    }
+    
+    func updateView() {
+        guard let guide = guide, let time = guide.steps[currentStep].time else { return }
+        
+        counter = Double(time)
+        timerLabel.text = timeAsString(time: time)
     }
     
     // MARK: - Actions
     @IBAction func startButtonTapped(_ sender: Any) {
-        startTimer()
+            timer = Timer.scheduledTimer(timeInterval: 0.1,
+                                         target: self,
+                                         selector: #selector(advanceTimer),
+                                         userInfo: nil,
+                                         repeats: true)
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
         guard let guide = guide else { return }
+        
         if (currentStep + 1) == guide.steps.count {
             performSegue(withIdentifier: "toBrewNotesVC", sender: nextButton)
         } else {
@@ -86,9 +97,17 @@ class InstructionViewController: UIViewController {
             updateView()
         }
     }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toBrewNotesVC" {
+            guard let destinationVC = segue.destination as? BrewNotesViewController else { return }
+            destinationVC.guide = guide
+        }
+    }
 }
-
-    // MARK: - TableView Delegate and DataSource
+    
+// MARK: - TableView Delegate and DataSource
 extension InstructionViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return guide?.steps.count ?? 0

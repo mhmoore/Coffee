@@ -32,6 +32,7 @@ class BrewCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
         navigationItem.rightBarButtonItem = guides.count > 1 ? editButtonItem : nil
         collectionView.reloadData()
         super.setEditing(false, animated: true)
