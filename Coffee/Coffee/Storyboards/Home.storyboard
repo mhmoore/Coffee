@@ -40,23 +40,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B5j-VD-Ydv">
-                                <rect key="frame" x="18.666666666666657" y="112" width="337.66666666666674" height="313"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B5j-VD-Ydv">
+                                <rect key="frame" x="18.666666666666657" y="112" width="337.66666666666674" height="282"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="separatorColor" name="accent"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="stepCell" id="bEx-Zj-UHx" customClass="InstructionStepTableViewCell" customModule="CraftedBrew" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="337.66666666666674" height="37.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="28" width="337.66666666666674" height="37"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bEx-Zj-UHx" id="nhq-Vl-pKk">
-                                            <rect key="frame" x="0.0" y="0.0" width="337.66666666666674" height="37.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="337.66666666666674" height="37"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6hM-i9-zUF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="337.66666666666669" height="37.333333333333336"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="337.66666666666669" height="37"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5O-wQ-GsF" customClass="descriptionLabel" customModule="CraftedBrew" customModuleProvider="target">
-                                                            <rect key="frame" x="4" y="7.9999999999999982" width="329.66666666666669" height="21.333333333333329"/>
+                                                            <rect key="frame" x="4" y="8" width="329.66666666666669" height="21"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -85,18 +84,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(current step)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzx-gN-2cr" customClass="descriptionLabel" customModule="CraftedBrew" customModuleProvider="target">
-                                <rect key="frame" x="18.666666666666657" y="461" width="337.66666666666674" height="21"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKG-ng-ZEL" customClass="ActionButton" customModule="CraftedBrew" customModuleProvider="target">
-                                <rect key="frame" x="162.66666666666666" y="647" width="50" height="50"/>
+                                <rect key="frame" x="147.66666666666666" y="617" width="80" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="4Y0-Ap-y0j"/>
-                                    <constraint firstAttribute="width" constant="50" id="6cW-1D-ZBX"/>
+                                    <constraint firstAttribute="height" constant="80" id="4Y0-Ap-y0j"/>
+                                    <constraint firstAttribute="width" constant="80" id="6cW-1D-ZBX"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="tintColor" name="buttonType"/>
                                 <state key="normal">
                                     <color key="titleColor" name="accent"/>
@@ -106,7 +100,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVM-kX-O8P" customClass="titleLabel" customModule="CraftedBrew" customModuleProvider="target">
-                                <rect key="frame" x="112.66666666666669" y="530" width="150" height="45"/>
+                                <rect key="frame" x="112.66666666666669" y="500" width="150" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="6pe-dZ-PHP"/>
                                     <constraint firstAttribute="height" constant="45" id="NS7-lU-28q"/>
@@ -116,7 +110,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fru-tr-fYx" customClass="ActionButton" customModule="CraftedBrew" customModuleProvider="target">
-                                <rect key="frame" x="285" y="604" width="50" height="50"/>
+                                <rect key="frame" x="285" y="632" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ZI4-ty-qeb"/>
                                     <constraint firstAttribute="width" constant="50" id="spc-1c-iL5"/>
@@ -130,7 +124,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDu-WV-3rx" customClass="ActionButton" customModule="CraftedBrew" customModuleProvider="target">
-                                <rect key="frame" x="40" y="604" width="50" height="50"/>
+                                <rect key="frame" x="40" y="632" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Ukz-6c-NAL"/>
                                     <constraint firstAttribute="height" constant="50" id="tEu-Rh-AyJ"/>
@@ -152,21 +146,17 @@
                             <constraint firstItem="fVM-kX-O8P" firstAttribute="centerX" secondItem="QUf-es-38h" secondAttribute="centerX" id="7ET-Gc-WhO"/>
                             <constraint firstItem="B5j-VD-Ydv" firstAttribute="top" secondItem="QUf-es-38h" secondAttribute="top" constant="24" id="9YF-1m-QO4"/>
                             <constraint firstItem="QUf-es-38h" firstAttribute="trailing" secondItem="Fru-tr-fYx" secondAttribute="trailing" constant="40" id="Abr-oc-aJl"/>
+                            <constraint firstItem="sDu-WV-3rx" firstAttribute="centerY" secondItem="CKG-ng-ZEL" secondAttribute="centerY" id="CuM-x7-cMe"/>
                             <constraint firstItem="B5j-VD-Ydv" firstAttribute="width" secondItem="QUf-es-38h" secondAttribute="width" multiplier="0.9" id="FC1-Gt-vCs"/>
-                            <constraint firstItem="tzx-gN-2cr" firstAttribute="width" secondItem="B5j-VD-Ydv" secondAttribute="width" id="LJ0-MT-jWi"/>
-                            <constraint firstItem="tzx-gN-2cr" firstAttribute="top" secondItem="B5j-VD-Ydv" secondAttribute="bottom" constant="36" id="UYt-ZB-Ptq"/>
+                            <constraint firstItem="Fru-tr-fYx" firstAttribute="centerY" secondItem="CKG-ng-ZEL" secondAttribute="centerY" id="ICD-oE-gV9"/>
                             <constraint firstItem="B5j-VD-Ydv" firstAttribute="centerX" secondItem="QUf-es-38h" secondAttribute="centerX" id="WA0-dy-psX"/>
                             <constraint firstItem="sDu-WV-3rx" firstAttribute="leading" secondItem="QUf-es-38h" secondAttribute="leading" constant="40" id="YoH-Vn-Oxy"/>
-                            <constraint firstItem="fVM-kX-O8P" firstAttribute="top" secondItem="tzx-gN-2cr" secondAttribute="bottom" constant="48" id="ZLu-VC-qpf"/>
-                            <constraint firstItem="QUf-es-38h" firstAttribute="bottom" secondItem="sDu-WV-3rx" secondAttribute="bottom" constant="75" id="bKm-Nm-Zuc"/>
-                            <constraint firstItem="QUf-es-38h" firstAttribute="bottom" secondItem="Fru-tr-fYx" secondAttribute="bottom" constant="75" id="kES-bI-mWO"/>
-                            <constraint firstItem="tzx-gN-2cr" firstAttribute="centerX" secondItem="B5j-VD-Ydv" secondAttribute="centerX" id="nd4-rc-Ay2"/>
                             <constraint firstItem="CKG-ng-ZEL" firstAttribute="top" secondItem="fVM-kX-O8P" secondAttribute="bottom" constant="72" id="vEK-Fk-2pJ"/>
+                            <constraint firstItem="fVM-kX-O8P" firstAttribute="top" secondItem="B5j-VD-Ydv" secondAttribute="bottom" constant="106" id="xeh-40-hp6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VbT-KQ-I40"/>
                     <connections>
-                        <outlet property="currentStepLabel" destination="tzx-gN-2cr" id="Zam-6V-d5U"/>
                         <outlet property="nextButton" destination="Fru-tr-fYx" id="0zW-1P-Ijs"/>
                         <outlet property="prevButton" destination="sDu-WV-3rx" id="cVk-nM-VZ6"/>
                         <outlet property="startButton" destination="CKG-ng-ZEL" id="AOO-zV-WWy"/>

@@ -19,7 +19,7 @@ class InstructionStepTableViewCell: UITableViewCell {
         didSet {
             stepLabel.text = step?.text
             stepLabel.textAlignment = .center
-            stepView.backgroundColor = .textFieldBackground
+            stepView.backgroundColor = .background
         }
     }
 }

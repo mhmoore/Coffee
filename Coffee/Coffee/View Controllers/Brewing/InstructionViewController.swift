@@ -14,12 +14,11 @@ class InstructionViewController: UIViewController {
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var currentStepLabel: UILabel!
     @IBOutlet weak var stepsTableView: UITableView!
     
     // MARK: - Properties
     var guide: Guide?
-    var currentStep = 0
+    var currentStepIndex = 0
     var timer = Timer()
     var counter: Double = 0
     var isPaused: Bool = true {
@@ -35,7 +34,6 @@ class InstructionViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        stepsTableView.tableFooterView = UIView()
         stepsTableView.delegate = self
         stepsTableView.dataSource = self
         setupUI()
@@ -71,7 +69,7 @@ class InstructionViewController: UIViewController {
     
     
     func setupUI() {
-        guard let guide = guide, let time = guide.steps[currentStep].time else { return }
+        guard let guide = guide, let time = guide.steps[currentStepIndex].time else { return }
         
         title = guide.title
         view.backgroundColor = .background
@@ -81,19 +79,18 @@ class InstructionViewController: UIViewController {
         nextButton.layer.cornerRadius = nextButton.frame.height / 2
         startButton.layer.cornerRadius = startButton.frame.height / 2
         startButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-        startButton.tintColor = .buttonType
         
-        stepsTableView.backgroundColor = .textFieldBackground
-        currentStepLabel.text = guide.steps[currentStep].text
+        stepsTableView.tableFooterView = UIView()
+        stepsTableView.backgroundColor = .background
         
         counter = Double(time)
         timerLabel.text = timeAsString(time: time)
     }
     
     func updateView() {
-        guard let guide = guide, let time = guide.steps[currentStep].time else { return }
-        currentStepLabel.text = guide.steps[currentStep].text
-        prevButton.isHidden = currentStep == 0 ? true : false
+        guard let guide = guide, let time = guide.steps[currentStepIndex].time else { return }
+        
+        prevButton.isHidden = currentStepIndex == 0 ? true : false
         isPaused = true
 
         if counter != 0 {
@@ -124,17 +121,17 @@ class InstructionViewController: UIViewController {
     }
     
     @IBAction func prevButtonTapped(_ sender: Any) {
-        currentStep -= 1
+        currentStepIndex -= 1
         updateView()
     }
     
     @IBAction func nextButtonTapped(_ sender: Any) {
         guard let guide = guide else { return }
         
-        if (currentStep + 1) == guide.steps.count {
+        if (currentStepIndex + 1) == guide.steps.count {
             performSegue(withIdentifier: "toBrewNotesVC", sender: nextButton)
         } else {
-            currentStep += 1
+            currentStepIndex += 1
             updateView()
         }
     }
@@ -156,7 +153,8 @@ extension InstructionViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "stepCell", for: indexPath) as? InstructionStepTableViewCell,
-        let guide = guide else { return UITableViewCell() }
+              let guide = guide else { return UITableViewCell() }
+        
         let step = guide.steps[indexPath.row]
         cell.step = step
         return cell
